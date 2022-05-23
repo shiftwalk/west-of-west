@@ -47,7 +47,7 @@ export default function Dev() {
             
               <p>Example of larger viewport width driven, indented headings</p>
               
-              <span className="block indent-[20%] text-[9vw] md:text-[7.25vw] xl:text-[5.85vw] leading-none md:leading-none xl:leading-none max-w-[80vw] mt-4 md:mt-6">We are an architecture &amp; design studio that creates experience driven buildings and interiors.</span>
+              <span className="block indent-[24.25%] text-[9vw] md:text-[7.25vw] xl:text-[5.85vw] leading-none md:leading-none xl:leading-none max-w-[80vw] mt-4 md:mt-6">We are an architecture &amp; design studio that creates experience driven buildings and interiors.</span>
             </div>
 
             <div className="my-16 md:my-24 xl:my-36 content max-w-3xl">
