@@ -33,6 +33,8 @@ export default function Dev() {
 
               <p>Velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
               
+              <h2 className="font-bold text-xl md:text-2xl xl:text-3xl mb-4 mt-12">.obj Viewer</h2>
+
               <div className="bg-gray-100 p-3 max-w-[550px]">
                 <OBJModel src="/3d/test.obj" />
               </div>
