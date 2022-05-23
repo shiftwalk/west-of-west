@@ -19,7 +19,7 @@ export default function Studio() {
           exit="exit"
         >
           <m.article variants={fade}>
-            <h1 className="font-bold text-3xl md:text-4xl xl:text-5xl mb-4">Studio</h1>
+            <h1 className="text-3xl md:text-4xl xl:text-5xl mb-4">Studio</h1>
             <div className="content max-w-3xl mb-4">
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
 

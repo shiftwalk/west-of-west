@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function Header() {
   return (
-    <header className="mb-12 md:mb-16 xl:mb-24">
+    <header className="fixed top-0 left-0 right-0 p-3">
       <div className="grid grid-cols-10">
         <Link href="/">
           <a className="block w-[120px]">

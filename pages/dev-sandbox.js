@@ -27,16 +27,94 @@ export default function Dev() {
           exit="exit"
         >
           <m.article variants={fade}>
-            <h1 className="font-bold text-3xl md:text-4xl xl:text-5xl mb-4">Dev Playground</h1>
+            <h1 className="text-3xl md:text-4xl xl:text-5xl mb-4">Dev Sandbox</h1>
             <div className="content max-w-3xl mb-4">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+              <p>Various work in progress components and playground for dev testing. Not representative of final development, accessibility or design.</p>
+            </div>
+            
+            <div className="my-16 md:my-24 content max-w-3xl">
+              <h2 className="text-xl md:text-2xl xl:text-3xl mb-4 mt-12">.obj Viewer</h2>
+              <p>Example of loading in an .obj file from the CMS.</p>
 
-              <p>Velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              
-              <h2 className="font-bold text-xl md:text-2xl xl:text-3xl mb-4 mt-12">.obj Viewer</h2>
-
-              <div className="bg-gray-100 p-3 max-w-[550px]">
+              <div className="bg-gray-100 p-3 max-w-[550px] mt-4 md:mt-6">
                 <OBJModel src="/3d/test.obj" />
+              </div>
+            </div>
+
+            <div className="my-16 md:my-24">
+              <h2 className="text-xl md:text-2xl xl:text-3xl mb-4 mt-12">Indent Headings</h2>
+            
+              <p>Example of larger viewport width driven, indented headings</p>
+              
+              <span className="block indent-[20%] text-[9vw] md:text-[7.25vw] xl:text-[5.85vw] leading-none md:leading-none xl:leading-none max-w-[80vw] mt-4 md:mt-6">We are an architecture &amp; design studio that creates experience driven buildings and interiors.</span>
+            </div>
+
+            <div className="my-16 md:my-24 content max-w-3xl">
+              <h2 className="text-xl md:text-2xl xl:text-3xl mb-4 mt-12">Inline Links</h2>
+              
+              <p>Example of inline link hover / focus styling.</p>
+
+              <div className="flex space-x-5 mt-4 md:mt-6">
+                <a href="#" className="block text-xl md:text-2xl group relative overflow-hidden">
+                  <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300 delay-[50ms]">Our Studio</span>
+                  <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300 delay-[50ms]">Our Studio</span>
+                  <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                </a>
+                <a href="#" className="block text-xl md:text-2xl group relative overflow-hidden">
+                  <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300 delay-[50ms]">Explore Works</span>
+                  <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300 delay-[50ms]">Explore Works</span>
+                  <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                </a>
+              </div>
+            </div>
+
+            <div className="my-16 md:my-24 content">
+              <h2 className="text-xl md:text-2xl xl:text-3xl mb-4 mt-12">Teaser Hovers</h2>
+              
+              <p>Example of teaser hover / focus styles</p>
+              <div className="flex space-x-5 mt-4 md:mt-6">
+                <a href="#" className="block w-1/3 group">
+                  <div className="relative overflow-hidden mb-3">
+                    <img src="images/test.jpg" className="w-full" alt="test" />
+                    <div className="bg-black bg-opacity-40 flex items-center justify-center absolute inset-0 z-10 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity ease-in-out duration-500">
+                      <svg className="w-10" viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#fff" stroke-width="2" d="M34 17.903H0M16.822 35.002V.998"/></svg>
+                    </div>
+                  </div>
+                  <span className="block text-lg leading-none mb-1">Flats House</span>
+                  <span className="block text-lg leading-none text-gray">Architecture</span>
+                </a>
+
+                <a href="#" className="block w-1/3 group">
+                  <div className="relative overflow-hidden mb-3">
+                    <img src="images/test.jpg" className="w-full" alt="test" />
+                    <div className="bg-black bg-opacity-40 absolute inset-0 z-10 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity ease-in-out duration-500 p-3">
+                      <svg className="w-10 translate-x-[-150%] group-hover:translate-x-0 transition-translate ease-in-out duration-500 delay-[50ms]" viewBox="0 0 42 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m30.183 0-1.986 2.017 8.426 8.557H0v2.852h36.623l-8.426 8.557L30.183 24 42 12 30.183 0Z" fill="#fff"/></svg>
+
+                      <div className="absolute bottom-0 right-0 p-3 text-right">
+                        <span className="block text-xl leading-none mb-1 text-white relative overflow-hidden">
+                          <span className="block translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-500 text-2xl leading-none text-white delay-[50ms]">Flats House</span>
+                        </span>
+                        <span className="block translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-500 text-2xl leading-none text-gray delay-[50ms]">Living</
+                        span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+
+                <a href="#" className="block w-1/3 group">
+                  <div className="relative overflow-hidden mb-3">
+                    <img src="images/test.jpg" className="w-full" alt="test" />
+                    <div className="bg-black bg-opacity-40 flex items-center justify-center absolute inset-0 z-10 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity ease-in-out duration-500">
+                      <svg className="w-10" viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#fff" stroke-width="2" d="M34 17.903H0M16.822 35.002V.998"/></svg>
+                    </div>
+                  </div>
+                  <span className="block overflow-hidden relative">
+                    <span className="block text-lg leading-none mb-1 translate-y-[105%] group-hover:translate-y-0 transition-translate ease-in-out duration-500 delay-[50ms]">Flats House</span>
+                  </span>
+                  <span className="block overflow-hidden relative">
+                    <span className="block text-lg leading-none mb-1 translate-y-[105%] group-hover:translate-y-0 transition-translate ease-in-out duration-500 delay-[50ms] text-gray">Architecture</span>
+                  </span>
+                </a>
               </div>
             </div>
           </m.article>

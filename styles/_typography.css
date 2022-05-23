@@ -19,5 +19,5 @@
 
 /* Heading Defaults */
 h1, .h1, h2, .h2, h3, .h3 {
-  @apply p-0 mb-6 font-bold;
+  @apply p-0 mb-6;
 }
