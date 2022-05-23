@@ -7,6 +7,7 @@ import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import { ObjViewer } from 'react-obj-viewer'
 import dynamic from 'next/dynamic'
+import Clock from 'react-live-clock'
 
 const OBJModel = dynamic(
   ()=>import('react-3d-viewer').then((mod) => mod.OBJModel),
@@ -115,6 +116,26 @@ export default function Dev() {
                     <span className="block text-lg leading-none mb-1 translate-y-[105%] group-hover:translate-y-0 transition-translate ease-in-out duration-500 delay-[50ms] text-gray">Architecture</span>
                   </span>
                 </a>
+              </div>
+            </div>
+
+            <div className="my-16 md:my-24 xl:my-36 content max-w-3xl">
+              <h2 className="text-xl md:text-2xl xl:text-3xl mb-4 mt-12">↘ Clock Ticker</h2>
+              
+              <p>Example of clock ticking functionality.</p>
+
+              <div className="flex space-x-16 mt-6 md:mt-8">
+                <div>
+                  <span className="block text-lg leading-tight">Portland<br/> 110 SE Main St,<br/>Suite 3000<br/> Portland, OR. 97214</span>
+
+                  <span className="block text-lg leading-tight mt-2"><span className="tabular-nums"><Clock format={'HH:mm:ss'} ticking={true} timezone={'US/Pacific'} /></span></span>
+                </div>
+
+                <div>
+                  <span className="block text-lg leading-tight">Los Angeles<br/> 970 N Broadway<br/> Suite 206<br/> Los Angeles, CA. 90012</span>
+
+                  <span className="block text-lg leading-tight mt-2"><span className="tabular-nums"><Clock format={'HH:mm:ss'} ticking={true} timezone={'US/Pacific'} /></span></span>
+                </div>
               </div>
             </div>
           </m.article>
