@@ -14,5 +14,13 @@
 
 /* Simple defaults */
 body {
-  @apply font-sans antialiased text-black bg-white;
+  @apply font-sans antialiased text-black bg-white tracking-tight selection:bg-black selection:text-white;
+}
+
+canvas {
+  @apply w-full h-auto !important;
+}
+
+[data-loader] {
+  @apply w-full h-auto !important;
 }

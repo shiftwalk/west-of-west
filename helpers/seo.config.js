@@ -1,12 +1,12 @@
 export default {
-  defaultTitle: 'Boilerplate | Next x Tailwind x Motion',
-  description: 'A simple Next.js starter kit with Tailwind and Framer Motion.',
-  titleTemplate: '%s | Next x Tailwind x Motion',
+  defaultTitle: 'West Of West',
+  description: 'We are an architecture + design studio that creates experience driven buildings and interiors. We have helped partners across industries solve problems.',
+  titleTemplate: '%s | West Of West',
   openGraph: {
     type: 'website',
     locale: 'en_GB',
-    url: 'https://sg-next-tailwind-motion.vercel.app/',
-    site_name: 'Next x Tailwind x Motion',
+    url: 'https://west-of-west.vercel.app/',
+    site_name: 'West Of West',
   },
   twitter: {
     handle: '@samuelgoddard',

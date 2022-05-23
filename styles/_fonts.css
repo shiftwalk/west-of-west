@@ -1,8 +1,17 @@
-/* @font-face {
-  font-family: 'Example Sans';
-  src: url('../public/fonts/ExampleSans-Regular.woff2') format('woff2'),
-      url('../public/fonts/ExampleSans-Regular.woff') format('woff');
-  font-weight: 400;
+@font-face {
+  font-family: 'Sequel Sans';
+  src: url('../public/fonts/SequelSans-RomanHead.woff2') format('woff2'),
+      url('../public/fonts/SequelSans-RomanHead.woff') format('woff');
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
-} */
+}
+
+@font-face {
+  font-family: 'Sequel Sans';
+  src: url('../public/fonts/SequelSans-SemiBoldHead.woff2') format('woff2'),
+      url('../public/fonts/SequelSans-SemiBoldHead.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
