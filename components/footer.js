@@ -4,6 +4,36 @@ export default function Footer() {
   return (
     <footer className="border-t border-gray border-opacity-30 mt-12 md:mt-20 xl:mt-28 pt-12 md:pt-20 xl:pt-28 md:text-lg">
       <div className="grid grid-cols-10">
+        <div className="md:col-start-1 col-span-10 md:col-span-1 mb-5 md:mb-0 flex items-end">
+          <div className="relative flex overflow-x-hidden text-xs">
+            <div className="animate-marquee whitespace-nowrap">
+              <span className="mx-[3px] leading-tight uppercase">Quality above all else</span>
+              <span className="mx-[3px] leading-tight uppercase">—</span>
+              <span className="mx-[3px] leading-tight uppercase">Practise takes practise</span>
+              <span className="mx-[3px] leading-tight uppercase">—</span>
+              <span className="mx-[3px] leading-tight uppercase">Quality above all else</span>
+              <span className="mx-[3px] leading-tight uppercase">—</span>
+              <span className="mx-[3px] leading-tight uppercase">Practise takes practise</span>
+              <span className="mx-[3px] leading-tight uppercase">—</span>
+              <span className="mx-[3px] leading-tight uppercase">Quality above all else</span>
+              <span className="mx-[3px] leading-tight uppercase">—</span>
+            </div>
+
+            <div className="absolute top-0 animate-marquee2 whitespace-nowrap">
+              <span className="mx-[3px] leading-tight uppercase">Quality above all else</span>
+              <span className="mx-[3px] leading-tight uppercase">—</span>
+              <span className="mx-[3px] leading-tight uppercase">Practise takes practise</span>
+              <span className="mx-[3px] leading-tight uppercase">—</span>
+              <span className="mx-[3px] leading-tight uppercase">Quality above all else</span>
+              <span className="mx-[3px] leading-tight uppercase">—</span>
+              <span className="mx-[3px] leading-tight uppercase">Practise takes practise</span>
+              <span className="mx-[3px] leading-tight uppercase">—</span>
+              <span className="mx-[3px] leading-tight uppercase">Quality above all else</span>
+              <span className="mx-[3px] leading-tight uppercase">—</span>
+            </div>
+          </div>
+        </div>
+
         <div className="md:col-start-3 col-span-10 md:col-span-2 mb-5 md:mb-0">
           <address className="not-italic leading-tight">
             Portland<br/>
@@ -52,7 +82,7 @@ export default function Footer() {
 
         <div className="md:col-start-9 col-span-10 md:col-span-4 mb-5 md:mb-0 flex items-end md:justify-end md:text-right">
           <div>
-            <span className="flex items-center w-full leading-tight space-x-1">
+            <span className="flex items-center w-full leading-tight space-x-1 md:justify-end">
               <span className="block">Site by</span>
               <a href="https://shiftwalk.studio" target="_blank" rel="noopener noreferrer" className="block relative overflow-hidden group">
                 <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-[400ms] delay-[50ms]">ShiftWalk</span>
