@@ -27,7 +27,7 @@ export default function Dev() {
           animate="enter"
           exit="exit"
         >
-          <m.article variants={fade}>
+          <m.article>
             <h1 className="text-3xl md:text-4xl xl:text-5xl mb-4">Dev Sandbox</h1>
             <div className="content max-w-3xl mb-4">
               <p>Various work in progress components and playground for dev testing. Not representative of final development, accessibility or design.</p>
@@ -136,6 +136,28 @@ export default function Dev() {
 
                   <span className="block text-lg leading-tight mt-2"><span className="tabular-nums"><Clock format={'HH:mm:ss'} ticking={true} timezone={'US/Pacific'} /></span></span>
                 </div>
+              </div>
+            </div>
+
+            <div className="my-16 md:my-24 xl:my-36 content">
+              <h2 className="text-xl md:text-2xl xl:text-3xl mb-4 mt-12">↘ Archive List</h2>
+              
+              <p>Example of archive listings.</p>
+
+              <div className="grid grid-cols-10">
+                <ul className="col-start-3 col-span-8 w-full block border-t border-t-gray border-opacity-30">
+                  {[...Array(24)].map((i) => {
+                    return (
+                      <li className="border-b border-b-gray border-opacity-30 flex flex-wrap items-center py-4" key={i}>
+                        <span className="block w-auto uppercase text-xs leading-none">ww.101</span>
+                        <span className="block flex-1 md:text-lg xl:text-xl md:leading-none xl:leading-none text-center">Eastbound</span>
+                        <span className="block flex-1 md:text-lg xl:text-xl md:leading-none xl:leading-none text-center">Architecture, Interiors</span>
+                        <span className="block flex-1 md:text-lg xl:text-xl md:leading-none xl:leading-none text-center">Portland, OR</span>
+                        <span className="block w-auto md:text-lg xl:text-xl md:leading-none xl:leading-none text-right">2021</span>
+                      </li>
+                    )
+                  })}
+                </ul>
               </div>
             </div>
           </m.article>

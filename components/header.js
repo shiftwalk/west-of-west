@@ -1,10 +1,8 @@
-import FancyLink from '@/components/fancyLink'
-import Container from '@/components/container'
 import Link from 'next/link'
 
-export default function Header() {
+export default function Header({ active }) {
   return (
-    <header className="fixed top-0 left-0 right-0 p-3">
+    <header className="fixed top-0 left-0 right-0 p-3 z-[11]">
       <div className="grid grid-cols-10">
         <Link href="/">
           <a className="block w-[120px]">
@@ -15,35 +13,48 @@ export default function Header() {
         <nav className="col-span-8 col-start-3 grid-cols-7 hidden md:grid">
           <div className="flex space-x-1 col-span-2">
             <Link href="/studio">
-              <a className="block md:text-xl xl:text-2xl">
-                Studio,
+              <a className={`block md:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden ${ (active == 'studio' || active == 'home') ? 'text-black' : 'text-gray' } ${ (active == 'home' || active !== 'studio') ? 'group' : '' }`}>
+                <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-[400ms] delay-[50ms]">Studio,</span>
+                <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-[400ms] delay-[50ms]">Studio,</span>
               </a>
             </Link>
 
             <Link href="/works">
-              <a className="block md:text-xl xl:text-2xl relative">
-                Works
-                <span className="absolute top-0 right-0 text-[11px] leading-none translate-x-[12px] translate-y-[3px]">47</span>
+              <a className={`block md:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight ${ (active == 'works' || active == 'home') ? 'text-black' : 'text-gray' } ${ (active == 'home' || active !== 'works') ? 'group' : '' }`}>
+                <div className="relative overflow-hidden">
+                  <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-[400ms] delay-[50ms]">Works</span>
+                  <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-[400ms] delay-[50ms]">Works</span>
+                </div>
+
+                <span className="absolute top-0 right-0 text-[11px] leading-none translate-x-[12px] translate-y-[3px]">
+                  <span className="block relative overflow-hidden">
+                    <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-[400ms] delay-[50ms]">47</span>
+                    <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-[400ms] delay-[50ms]">47</span>
+                  </span>
+                </span>
               </a>
             </Link>
           </div>
 
           <div className="flex space-x-1 col-span-2 col-start-4">
             <Link href="/journal">
-              <a className="block md:text-xl xl:text-2xl">
-                Journal,
+              <a className={`block md:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden ${ (active == 'journal' || active == 'home') ? 'text-black' : 'text-gray' } ${ (active == 'home' || active !== 'journal') ? 'group' : '' }`}>
+                <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-[400ms] delay-[50ms]">Journal,</span>
+                <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-[400ms] delay-[50ms]">Journal,</span>
               </a>
             </Link>
 
             <Link href="/contact">
-              <a className="block md:text-xl xl:text-2xl">
-                Contact
+              <a className={`block md:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden ${ (active == 'contact' || active == 'home') ? 'text-black' : 'text-gray' } ${ (active == 'home' || active !== 'contact') ? 'group' : '' }`}>
+                <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-[400ms] delay-[50ms]">Contact</span>
+                <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-[400ms] delay-[50ms]">Contact</span>
               </a>
             </Link>
           </div>
           <div className="col-span-1 col-start-7 text-right">
-            <a href="https://www.instagram.com/west_of_west/?hl=en" target="_blank" rel="noreferrer noopener" className="block md:text-xl xl:text-2xl">
-              Instagram
+            <a href="https://www.instagram.com/west_of_west/?hl=en" target="_blank" rel="noreferrer noopener" className={`block md:text-xl xl:text-2xl md:leading-tight xl:leading-tight group relative overflow-hidden ${ active == 'home' ? 'text-black' : 'text-gray' }`}>
+              <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-[400ms] delay-[50ms]">Instagram</span>
+              <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-[400ms] delay-[50ms]">Instagram</span>
             </a>
           </div>
         </nav>
