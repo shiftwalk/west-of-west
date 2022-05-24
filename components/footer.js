@@ -2,7 +2,7 @@ import Clock from 'react-live-clock'
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray border-opacity-30 mt-12 md:mt-20 xl:mt-28 pt-12 md:pt-20 xl:pt-28 md:text-lg">
+    <footer className="border-t border-gray border-opacity-30 mt-12 md:mt-20 xl:mt-28 pt-12 md:pt-20 xl:pt-28 lg:text-lg">
       <div className="grid grid-cols-10 gap-5">
         <div className="mb-5 md:mb-0 flex items-end w-full md:w-auto col-span-10 md:col-auto">
           <div className="relative flex overflow-x-hidden text-xs w-full md:w-auto">
@@ -94,7 +94,7 @@ export default function Footer() {
                 <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
               </a>
             </span>
-            <span className="block w-full leading-tight">© West of West — 2022</span>
+            <span className="block w-full leading-tight">© West of West<span className="inline md:hidden lg:inline">&nbsp;— 2022</span></span>
           </div>
         </div>
       </div>

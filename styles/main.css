@@ -24,3 +24,15 @@ canvas {
 [data-loader] {
   @apply w-full h-auto !important;
 }
+
+.archive-list {
+  &:hover {
+    .archive-list__item {
+      @apply opacity-[35%];
+    }
+  }
+}
+
+.archive-list__item {
+  @apply hover:opacity-100 !important;
+}

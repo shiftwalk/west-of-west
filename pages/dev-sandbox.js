@@ -145,15 +145,33 @@ export default function Dev() {
               <p>Example of archive listings.</p>
 
               <div className="grid grid-cols-10 gap-5 mt-6 md:mt-8">
-                <ul className="md:col-start-3 col-span-10 md:col-span-8 w-full block border-t border-t-gray border-opacity-30">
-                  {[...Array(24)].map((i) => {
+                <ul className="md:col-start-3 col-span-10 md:col-span-8 w-full block archive-list">
+                  {[...Array(24)].map((e, i) => {
                     return (
-                      <li className="border-b border-b-gray border-opacity-30 flex flex-wrap items-center py-4" key={i}>
-                        <span className="block w-auto uppercase text-xs leading-none">ww.101</span>
-                        <span className="block flex-1 md:text-lg xl:text-xl md:leading-none xl:leading-none text-center">Eastbound</span>
-                        <span className="flex-1 md:text-lg xl:text-xl md:leading-none xl:leading-none text-center hidden md:block">Architecture, Interiors</span>
-                        <span className="block flex-1 md:text-lg xl:text-xl md:leading-none xl:leading-none text-center">Portland, OR</span>
-                        <span className="block w-auto md:text-lg xl:text-xl md:leading-none xl:leading-none text-right">2021</span>
+                      <li className="block" key={i}>
+                        <a href="#" className="w-full border-b border-b-[#EFEFEF] flex flex-wrap items-center py-4 group transition-opacity ease-in-out duration-300 relative archive-list__item">
+                        <span className={`absolute top-0 left-0 right-0 w-full h-[1px] bg-[#EFEFEF] ${ i == 0 ? 'mt-[0px]' : 'mt-[-1px]' }`}></span>
+                        <span className="block w-auto uppercase text-xs leading-tight overflow-hidden relative">
+                          <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">ww.101</span>
+                          <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">ww.101</span>
+                        </span>
+                        <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-center overflow-hidden relative">
+                          <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Eastbound</span>
+                          <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Eastbound</span>
+                        </span>
+                        <span className="flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-center hidden md:block relative overflow-hidden">
+                          <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Architecture, Interiors</span>
+                          <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Architecture, Interiors</span>
+                          </span>
+                        <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-center relative overflow-hidden">
+                          <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Portland, OR</span>
+                          <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Portland, OR</span>
+                        </span>
+                        <span className="block w-auto md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-right relative overflow-hidden">
+                          <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">2021</span>
+                          <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">2021</span>
+                        </span>
+                        </a>
                       </li>
                     )
                   })}
