@@ -144,7 +144,7 @@ export default function Dev() {
               
               <p>Example of archive listings.</p>
 
-              <div className="grid grid-cols-10 mt-6 md:mt-8">
+              <div className="grid grid-cols-10 gap-5 mt-6 md:mt-8">
                 <ul className="md:col-start-3 col-span-10 md:col-span-8 w-full block border-t border-t-gray border-opacity-30">
                   {[...Array(24)].map((i) => {
                     return (
