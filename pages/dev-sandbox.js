@@ -144,14 +144,14 @@ export default function Dev() {
               
               <p>Example of archive listings.</p>
 
-              <div className="grid grid-cols-10">
-                <ul className="col-start-3 col-span-8 w-full block border-t border-t-gray border-opacity-30">
+              <div className="grid grid-cols-10 mt-6 md:mt-8">
+                <ul className="md:col-start-3 col-span-10 md:col-span-8 w-full block border-t border-t-gray border-opacity-30">
                   {[...Array(24)].map((i) => {
                     return (
                       <li className="border-b border-b-gray border-opacity-30 flex flex-wrap items-center py-4" key={i}>
                         <span className="block w-auto uppercase text-xs leading-none">ww.101</span>
                         <span className="block flex-1 md:text-lg xl:text-xl md:leading-none xl:leading-none text-center">Eastbound</span>
-                        <span className="block flex-1 md:text-lg xl:text-xl md:leading-none xl:leading-none text-center">Architecture, Interiors</span>
+                        <span className="flex-1 md:text-lg xl:text-xl md:leading-none xl:leading-none text-center hidden md:block">Architecture, Interiors</span>
                         <span className="block flex-1 md:text-lg xl:text-xl md:leading-none xl:leading-none text-center">Portland, OR</span>
                         <span className="block w-auto md:text-lg xl:text-xl md:leading-none xl:leading-none text-right">2021</span>
                       </li>
