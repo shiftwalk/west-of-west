@@ -4,11 +4,28 @@ import Footer from '@/components/footer'
 import { fade } from '@/helpers/transitions'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'
+import SanityPageService from '@/services/sanityPageService'
 
-export default function Studio() {
+const query = `{
+  "studio": *[_type == "studio"][0]{
+    title,
+    seo {
+      ...,
+      shareGraphic {
+        asset->
+      }
+    }
+  },
+}`
+
+const pageService = new SanityPageService(query)
+
+export default function Studio(initialData) {
+  const { data: { studio } } = pageService.getPreviewHook(initialData)()
+
   return (
     <Layout>
-      <NextSeo title="Studio" />
+      <NextSeo title={studio.title} />
 
       <Header active="studio" />
       
@@ -19,7 +36,7 @@ export default function Studio() {
           exit="exit"
         >
           <m.article>
-            <h1 className="text-3xl md:text-4xl xl:text-5xl mb-4">Studio</h1>
+            <h1 className="text-3xl md:text-4xl xl:text-5xl mb-4">{studio.title}</h1>
             <div className="content max-w-3xl mb-4">
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
 
@@ -32,4 +49,12 @@ export default function Studio() {
       <Footer />
     </Layout>
   )
+}
+
+export async function getStaticProps(context) {
+  const cms = await pageService.fetchQuery(context)
+
+  return {
+    props: { ...cms }
+  }
 }

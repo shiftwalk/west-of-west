@@ -5,29 +5,25 @@ import { fade } from '@/helpers/transitions'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import SanityPageService from '@/services/sanityPageService'
+import Link from 'next/link'
 
-const query = `{
-  "contact": *[_type == "contact"][0]{
-    title,
-    seo {
-      ...,
-      shareGraphic {
-        asset->
-      }
-    }
-  },
+const query = `*[_type == "works" && slug.current == $slug][0]{
+  title,
+  slug {
+    current
+  }
 }`
 
 const pageService = new SanityPageService(query)
 
-export default function Contact(initialData) {
-  const { data: { contact } } = pageService.getPreviewHook(initialData)()
+export default function WorksSlug(initialData) {
+  const { data: { title, slug } } = pageService.getPreviewHook(initialData)()
 
   return (
     <Layout>
-      <NextSeo title={contact.title} />
+      <NextSeo title="Works" />
 
-      <Header active="contact" />
+      <Header active="works" />
       
       <LazyMotion features={domAnimation}>
         <m.main
@@ -36,8 +32,10 @@ export default function Contact(initialData) {
           exit="exit"
         >
           <m.article>
-            <h1 className="text-3xl md:text-4xl xl:text-5xl mb-4">{contact.title}</h1>
-            <div className="content max-w-3xl mb-4">
+            <h1 className="text-3xl md:text-4xl xl:text-5xl mb-4">{title}</h1>
+            <Link href="/works"><a className="inline-block underline">← Back to all Works</a></Link>
+
+            <div className="content max-w-3xl mb-4 mt-4 md:mt-6">
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
 
               <p>Velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -52,9 +50,16 @@ export default function Contact(initialData) {
 }
 
 export async function getStaticProps(context) {
-  const cms = await pageService.fetchQuery(context)
-
+  const props = await pageService.fetchQuery(context)
   return {
-    props: { ...cms }
-  }
+    props
+  };
+}
+
+export async function getStaticPaths() {
+  const paths = await pageService.fetchPaths('works')
+  return {
+    paths: paths,
+    fallback: false,
+  };
 }
