@@ -79,7 +79,7 @@ export default function Works(initialData) {
                         <span className="block text-lg leading-none mb-1 translate-y-[105%] group-hover:translate-y-0 transition-translate ease-in-out duration-500 delay-[50ms]">{e.title}</span>
                       </span>
                       <span className="block overflow-hidden relative">
-                        <span className="block text-lg leading-none mb-1 translate-y-[105%] group-hover:translate-y-0 transition-translate ease-in-out duration-500 delay-[50ms] text-gray">{e.expertise}</span>
+                        <span className="block text-lg leading-none mb-1 translate-y-[105%] group-hover:translate-y-0 transition-translate ease-in-out duration-500 delay-[50ms] text-gray capitalize">{e.expertise}</span>
                       </span>
                     </a>
                   </Link>
