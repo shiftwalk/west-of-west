@@ -67,22 +67,20 @@ export default function Works(initialData) {
               {works.map((e, i) => {
                 return (
                   <Link href={`/works/${e.slug.current}`} key={i}>
-                    <a className="block col-span-3 md:col-span-1 group mb-4 md:mb-0">
-                      <div className="mb-3 relative overflow-hidden h-[22vw]">
+                    <a href="#" className="block col-span-3 md:col-span-1 group mb-4 md:mb-0">
+                      <div className="mb-3 relative overflow-hidden h-[60vw] md:h-[22vw]">
                         <img src={e.heroImages[0].asset.url} className="w-full h-full absolute inset-0 object-center object-cover" alt="test" />
 
-                        <div className="bg-black bg-opacity-40 absolute inset-0 z-10 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity ease-in-out duration-500 p-3">
-                          <svg className="w-10 translate-x-[-150%] group-hover:translate-x-0 transition-translate ease-in-out duration-500 delay-[50ms]" viewBox="0 0 42 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m30.183 0-1.986 2.017 8.426 8.557H0v2.852h36.623l-8.426 8.557L30.183 24 42 12 30.183 0Z" fill="#fff"/></svg>
-
-                          <div className="absolute bottom-0 right-0 p-3 text-right">
-                            <span className="block text-xl leading-none mb-1 text-white relative overflow-hidden">
-                              <span className="block translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-500 text-2xl leading-none text-white delay-[50ms]">{e.title}</span>
-                            </span>
-                            <span className="block translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-500 text-2xl leading-none text-gray delay-[50ms] capitalize">{e.expertise}</
-                            span>
-                          </div>
+                        <div className="bg-black bg-opacity-40 flex items-center justify-center absolute inset-0 z-10 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity ease-in-out duration-500">
+                          <svg className="w-10" viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#fff" stroke-width="2" d="M34 17.903H0M16.822 35.002V.998"/></svg>
                         </div>
                       </div>
+                      <span className="block overflow-hidden relative">
+                        <span className="block text-lg leading-none mb-1 translate-y-[105%] group-hover:translate-y-0 transition-translate ease-in-out duration-500 delay-[50ms]">{e.title}</span>
+                      </span>
+                      <span className="block overflow-hidden relative">
+                        <span className="block text-lg leading-none mb-1 translate-y-[105%] group-hover:translate-y-0 transition-translate ease-in-out duration-500 delay-[50ms] text-gray">{e.expertise}</span>
+                      </span>
                     </a>
                   </Link>
                 )
