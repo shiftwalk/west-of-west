@@ -79,25 +79,25 @@ export default function WorksSlug(initialData) {
             <div className="grid grid-cols-10">
               <div className="col-span-9 md:col-span-3">
                 { client && (
-                  <div className="mb-5">
+                  <div className="mb-3">
                     <span className="uppercase text-[10px]">Client</span>
                     <span className="block">{client}</span>
                   </div>
                 )}
                 { year && (
-                  <div className="mb-5">
+                  <div className="mb-3">
                     <span className="uppercase text-[10px]">Year</span>
                     <span className="block">{year}</span>
                   </div>
                 )}
                 { status && (
-                  <div className="mb-5">
+                  <div className="mb-3">
                     <span className="uppercase text-[10px]">Status</span>
                     <span className="block">{status}</span>
                   </div>
                 )}
                 { sector && (
-                  <div className="mb-5">
+                  <div className="mb-3">
                     <span className="uppercase text-[10px]">Sector</span>
                     <span className="block capitalize">{sector.replace(/-/g, ' ')}</span>
                   </div>
