@@ -38,6 +38,7 @@ export default function Journal(initialData) {
           initial="initial"
           animate="enter"
           exit="exit"
+          className="pt-24 md:pt-32 xl:pt-40"
         >
           <m.article>
             <h1 className="text-3xl md:text-4xl xl:text-5xl mb-4">Journal</h1>

@@ -34,6 +34,7 @@ export default function Studio(initialData) {
           initial="initial"
           animate="enter"
           exit="exit"
+          className="pt-24 md:pt-32 xl:pt-40"
         >
           <m.article>
             <h1 className="text-3xl md:text-4xl xl:text-5xl mb-4">{studio.title}</h1>

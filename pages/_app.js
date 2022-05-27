@@ -36,7 +36,7 @@ export default function App({ Component, pageProps }) {
         </div>
       )}
 
-      <div className="fixed bottom-0 right-0 m-3">
+      <div className="fixed bottom-0 right-0 m-3 z-[45]">
         <span className="block text-[12px] text-right uppercase font-mono mb-1">'G' - Enable Grid</span>
         
         <Link href="/dev-sandbox">
