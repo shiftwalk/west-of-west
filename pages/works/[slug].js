@@ -52,7 +52,7 @@ export default function WorksSlug(initialData) {
         >
           <m.article>
             <div className="h-[calc(100vh-16px)] flex flex-wrap items-end pt-20 mb-20 md:mb-32 xl:mb-52">
-              <div className="w-full md:w-1/4">
+              <div className="w-full md:w-[20vw]">
                 <span className="block text-[10px] uppercase mb-8">ww.018</span>
                 <h1 className="block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight mb-0 pb-0">{title}</h1>
                 <span className="block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight mb-0 pb-0 text-gray">{locationCity}{locationState && (<>, {locationState}</>)}</span>
