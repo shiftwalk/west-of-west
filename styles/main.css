@@ -36,3 +36,9 @@ canvas {
 .archive-list__item {
   @apply hover:opacity-100 !important;
 }
+
+.cover-image {
+  img {
+    @apply object-cover object-center;
+  }
+}
