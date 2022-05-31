@@ -1,7 +1,7 @@
 /* Content Stylings */
 .content {
   & > p {
-    @apply mb-5 last-of-type:mb-0 xl:text-lg;
+    @apply mb-5 last-of-type:mb-0 xl:text-lg leading-snug xl:leading-snug;
   }
 
   & > p > a {

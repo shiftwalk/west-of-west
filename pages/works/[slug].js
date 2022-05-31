@@ -112,20 +112,22 @@ export default function WorksSlug(initialData) {
               </div>
               <div className="w-full md:flex-1">
                 <div className="flex flex-wrap w-full">
-                  <div className="w-full md:w-[150px] order-2 md:order-1">
-                    <div className="flex md:block">
+                  <div className="w-full md:w-[75px] order-2 md:order-1 md:mr-4">
+                    <div className="flex flex-wrap md:block -mx-1 md:mx-0">
                       {heroImages.map((e, i) => {
                         return (
-                          <button key={i} className="w-1/3 md:w-[90%] relative overflow-hidden h-[20vw] md:h-[90px] mr-2 md:mr-5 mt-2 md:mt-0 md:mb-4 border-none outline-none block" onClick={() => setCurrentHero(i)}>
-                            <Image
-                              image={e}
-                              focalPoint={e.asset.hotspot}
-                              layout="fill"
-                              priority
-                              widthOverride={400}
-                              className={`gray md:w-full absolute inset-0 w-full h-full ${currentHero !== i && 'grayscale opacity-40' }`}
-                              noCaption
-                            />
+                          <button key={i} className={`w-1/4 md:w-[100%] px-1 md:px-0 md:mr-5 mt-2 md:mt-0 md:mb-5 border-none outline-none block h-[14vw] ${ i == 2 ? 'md:h-[90px]' : 'md:h-[50px]' }`} onClick={() => setCurrentHero(i)}>
+                            <div className="relative overflow-hidden w-full h-full">
+                              <Image
+                                image={e}
+                                focalPoint={e.asset.hotspot}
+                                layout="fill"
+                                priority
+                                widthOverride={350}
+                                className={`block gray absolute inset-0 h-full w-full ${currentHero !== i && 'grayscale opacity-40' }`}
+                                noCaption
+                              />
+                            </div>
                           </button>
                         )
                       })}
@@ -148,7 +150,7 @@ export default function WorksSlug(initialData) {
               </div>
             </div>
 
-            <div className="grid grid-cols-10 mb-20 md:mb-32 xl:mb-52">
+            <div className="grid grid-cols-10 gap-5 mb-20 md:mb-32 xl:mb-52">
               <div className="col-span-9 md:col-span-3 mb-8 md:mb-0">
                 { client && (
                   <div className="mb-3">
@@ -177,7 +179,7 @@ export default function WorksSlug(initialData) {
               </div>
 
               <div className="md:col-start-5 col-span-9 md:col-span-4">
-                <span className="block indent-[12%] md:indent-[24.25%] text-[5.55vw] md:text-[3.3vw] xl:text-[2.5vw] leading-[1.15] md:leading-[1.15] xl:leading-[1.15] max-w-[80vw] mt-4 md:mt-6">{introText}</span>
+                <span className="block indent-[12%] md:indent-[26%] text-[5.55vw] md:text-[3.3vw] xl:text-[2.5vw] leading-[1.1] md:leading-[1.1] xl:leading-[1.1] max-w-[80vw] mt-4 md:mt-6">{introText}</span>
               </div>
             </div>
 
