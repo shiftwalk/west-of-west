@@ -104,13 +104,13 @@ export default function WorksSlug(initialData) {
           exit="exit"
         >
           <m.article>
-            <div className="md:h-[calc(100vh-16px)] flex flex-wrap items-end pt-20 mb-20 md:mb-32 xl:mb-52">
-              <div className="w-full md:w-[20vw] mb-3 md:mb-0">
+            <div className="md:h-[calc(100vh-16px)] grid grid-cols-10 gap-5 items-end pt-20 mb-20 md:mb-32 xl:mb-52">
+              <div className="col-span-10 md:col-span-2 mb-3 md:mb-0">
                 <span className="block text-[10px] uppercase mb-8">ww.018</span>
                 <h1 className="block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight mb-0 pb-0">{title}</h1>
                 <span className="block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight mb-0 pb-0 text-gray">{locationCity}{locationState && (<>, {locationState}</>)}</span>
               </div>
-              <div className="w-full md:flex-1">
+              <div className="col-span-10 md:col-span-8">
                 <div className="flex flex-wrap w-full">
                   <div className="w-full md:w-[75px] order-2 md:order-1 md:mr-4">
                     <div className="flex flex-wrap md:block -mx-1 md:mx-0">

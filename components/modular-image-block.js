@@ -28,7 +28,7 @@ export default function ModularImageBlock({ image, layout }) {
   }
 
   return (
-    <div className={`grid grid-cols-10 ${layout == 'full-bleed' && '-mx-2' }`}>
+    <div className={`grid grid-cols-10 gap-5 ${layout == 'full-bleed' && '-mx-2' }`}>
       <div className={`${cols} ${start}`}>
         <Image
           image={image}
