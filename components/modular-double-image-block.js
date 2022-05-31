@@ -6,8 +6,8 @@ export default function ModularDoubleImageBlock({ image1, image2, text, layout }
   let image2Height = 'h-[70vw] md:h-[45vw]';
 
   return (
-    <div className={`flex flex-wrap items-end pb-[20vw] ${layout == 'left-aligned' ? 'flex-row-reverse' : ''}`}>
-      <div className={`w-full md:w-[50vw] relative overflow-hidden mb-8 md:mb-0`}>
+    <div className={`flex flex-wrap items-end md:pb-[30vw] xl:pb-[20vw] ${layout == 'left-aligned' ? 'flex-row-reverse' : ''}`}>
+      <div className={`w-full md:w-[47.25vw] xl:w-[48.75vw] relative overflow-hidden mb-8 md:mb-0`}>
         <div className={`w-full relative overflow-hidden`}>
           <Image
             image={image1}
@@ -18,9 +18,9 @@ export default function ModularDoubleImageBlock({ image1, image2, text, layout }
           />
         </div>
       </div>
-      <div className={`w-full md:w-[33vw] relative overflow-hidden mb-[-20vw] ${layout == 'left-aligned' ? 'mr-auto' : 'ml-auto'}`}>
+      <div className={`w-full md:w-[37.25vw] xl:w-[38.75vw] relative overflow-hidden md:mb-[-30vw] xl:mb-[-20vw] ${layout == 'left-aligned' ? 'mr-auto' : 'ml-auto'}`}>
         { text && (
-          <div className="content w-11/12 mb-8 md:mb-24 xl:mb-32">
+          <div className="content w-11/12 mb-8 md:mb-24 xl:mb-32 max-w-xl">
             <BlockContent serializers={{ container: ({ children }) => children }} blocks={text} />
           </div>
         )}

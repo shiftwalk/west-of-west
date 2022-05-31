@@ -11,6 +11,11 @@ export default function ModularImageBlock({ image, layout }) {
     cols = 'col-span-7'
     start = 'col-start-0'
   }
+  if (layout == 'centered') {
+    width = 1200
+    cols = 'col-span-6'
+    start = 'col-start-3'
+  }
   if (layout == 'right-aligned') {
     width = 900
     cols = 'col-span-7'
@@ -23,7 +28,7 @@ export default function ModularImageBlock({ image, layout }) {
   }
 
   return (
-    <div className="grid grid-cols-10">
+    <div className={`grid grid-cols-10 ${layout == 'full-bleed' && '-mx-2' }`}>
       <div className={`${cols} ${start}`}>
         <Image
           image={image}

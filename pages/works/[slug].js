@@ -10,6 +10,7 @@ import BodyRenderer from '@/components/body-renderer'
 import Link from 'next/link'
 import BlockContent from '@sanity/block-content-to-react'
 import Image from '@/components/image'
+import { useState } from 'react'
 
 const query = `*[_type == "works" && slug.current == $slug][0]{
   title,
@@ -88,6 +89,8 @@ const pageService = new SanityPageService(query)
 export default function WorksSlug(initialData) {
   const { data: { title, introText, locationCity, locationState, heroImages, client, year, status, sector, contentBlocks, slug } } = pageService.getPreviewHook(initialData)()
 
+  const [currentHero, setCurrentHero] = useState(0);
+
   return (
     <Layout>
       <NextSeo title={title} />
@@ -113,15 +116,16 @@ export default function WorksSlug(initialData) {
                     <div className="flex md:block">
                       {heroImages.map((e, i) => {
                         return (
-                          <Image
-                            key={i}
-                            image={e}
-                            focalPoint={e.asset.hotspot}
-                            layout="responsive"
-                            widthOverride={400}
-                            className="w-1/3 md:w-full pr-2 md:pr-5 pt-2 md:pt-0 md:pb-5"
-                            noCaption
-                          />
+                          <button key={i} className="w-1/3 md:w-[90%] relative overflow-hidden h-[20vw] md:h-[90px] mr-2 md:mr-5 mt-2 md:mt-0 md:mb-4 border-none outline-none block" onClick={() => setCurrentHero(i)}>
+                            <Image
+                              image={e}
+                              focalPoint={e.asset.hotspot}
+                              layout="fill"
+                              widthOverride={400}
+                              className={`gray md:w-full absolute inset-0 w-full h-full ${currentHero !== i && 'grayscale opacity-40' }`}
+                              noCaption
+                            />
+                          </button>
                         )
                       })}
                     </div>
@@ -129,8 +133,8 @@ export default function WorksSlug(initialData) {
                   <div className="w-full md:flex-1 order-1 md:order-2">
                     <div className="bg-gray bg-opacity-40 w-full h-[60vh] md:h-[75vh] relative overflow-hidden">
                       <Image
-                        image={heroImages[0]}
-                        focalPoint={heroImages[0].asset.hotspot}
+                        image={heroImages[currentHero]}
+                        focalPoint={heroImages[currentHero].asset.hotspot}
                         layout="fill"
                         widthOverride={1400}
                         className="w-full h-full absolute inset-0 object-cover object-center"
@@ -142,8 +146,8 @@ export default function WorksSlug(initialData) {
               </div>
             </div>
 
-            <div className="grid grid-cols-10 mb-16 md:mb-24 xl:mb-32">
-              <div className="col-span-9 md:col-span-3">
+            <div className="grid grid-cols-10 mb-20 md:mb-32 xl:mb-52">
+              <div className="col-span-9 md:col-span-3 mb-8 md:mb-0">
                 { client && (
                   <div className="mb-3">
                     <span className="uppercase text-[10px]">Client</span>
@@ -171,7 +175,7 @@ export default function WorksSlug(initialData) {
               </div>
 
               <div className="md:col-start-5 col-span-9 md:col-span-4">
-                <span className="block indent-[24.25%] text-[5.55vw] md:text-[3.3vw] xl:text-[2.5vw] leading-[1.15] md:leading-[1.15] xl:leading-[1.15] max-w-[80vw] mt-4 md:mt-6">{introText}</span>
+                <span className="block indent-[12%] md:indent-[24.25%] text-[5.55vw] md:text-[3.3vw] xl:text-[2.5vw] leading-[1.15] md:leading-[1.15] xl:leading-[1.15] max-w-[80vw] mt-4 md:mt-6">{introText}</span>
               </div>
             </div>
 
