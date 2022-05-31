@@ -121,6 +121,7 @@ export default function WorksSlug(initialData) {
                               image={e}
                               focalPoint={e.asset.hotspot}
                               layout="fill"
+                              priority
                               widthOverride={400}
                               className={`gray md:w-full absolute inset-0 w-full h-full ${currentHero !== i && 'grayscale opacity-40' }`}
                               noCaption
@@ -136,6 +137,7 @@ export default function WorksSlug(initialData) {
                         image={heroImages[currentHero]}
                         focalPoint={heroImages[currentHero].asset.hotspot}
                         layout="fill"
+                        priority
                         widthOverride={1400}
                         className="w-full h-full absolute inset-0 object-cover object-center"
                         noCaption
