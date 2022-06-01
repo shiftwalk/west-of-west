@@ -1,8 +1,9 @@
 import BlockContentWrapper from '@/components/block-content-wrapper'
 import ModularImageBlock from '@/components/modular-image-block'
 import ModularTextBlock from '@/components/modular-text-block'
-import modularDoubleImageBlock from '@/components/modular-double-image-block'
-import modularTripleImageBlock from '@/components/modular-triple-image-block'
+import ModularDoubleImageBlock from '@/components/modular-double-image-block'
+import ModularTripleImageBlock from '@/components/modular-triple-image-block'
+import ModularSideBySideImageBlock from '@/components/modular-side-by-side-image-block'
 
 const notImplemented = ({ type }) => <h1>Not implemented {type}</h1>
 
@@ -29,14 +30,21 @@ const bodySerializers = {
       </div>
   },
   modularDoubleImageBlock: {
-    component: modularDoubleImageBlock,
+    component: ModularDoubleImageBlock,
     wrapper: ({ children }) => 
       <div className="mb-20 md:mb-32 xl:mb-52">
         {children}
       </div>
   },
   modularTripleImageBlock: {
-    component: modularTripleImageBlock,
+    component: ModularTripleImageBlock,
+    wrapper: ({ children }) => 
+      <div className="mb-20 md:mb-32 xl:mb-52">
+        {children}
+      </div>
+  },
+  modularSideBySideImageBlock: {
+    component: ModularSideBySideImageBlock,
     wrapper: ({ children }) => 
       <div className="mb-20 md:mb-32 xl:mb-52">
         {children}

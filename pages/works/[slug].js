@@ -27,6 +27,11 @@ const query = `*[_type == "works" && slug.current == $slug][0]{
       asset-> {
         ...
       },
+      overrideVideo {
+        asset-> {
+          ...
+        }
+      },
       alt,
       caption,
       captionSubHeading
@@ -34,6 +39,11 @@ const query = `*[_type == "works" && slug.current == $slug][0]{
     image1 {
       asset-> {
         ...
+      },
+      overrideVideo {
+        asset-> {
+          ...
+        }
       },
       alt,
       caption,
@@ -43,6 +53,11 @@ const query = `*[_type == "works" && slug.current == $slug][0]{
       asset-> {
         ...
       },
+      overrideVideo {
+        asset-> {
+          ...
+        }
+      },
       alt,
       caption,
       captionSubHeading
@@ -50,6 +65,11 @@ const query = `*[_type == "works" && slug.current == $slug][0]{
     images[] {
       asset-> {
         ...
+      },
+      overrideVideo {
+        asset-> {
+          ...
+        }
       },
       alt,
       caption,
@@ -61,6 +81,11 @@ const query = `*[_type == "works" && slug.current == $slug][0]{
         asset-> {
           ...
         },
+        overrideVideo {
+          asset-> {
+            ...
+          }
+        },
         alt,
         caption,
         captionSubHeading
@@ -70,6 +95,11 @@ const query = `*[_type == "works" && slug.current == $slug][0]{
   heroImages[] {
     asset-> {
       ...,
+    },
+    overrideVideo {
+      asset-> {
+        ...
+      }
     },
     caption,
     captionSubHeading,
