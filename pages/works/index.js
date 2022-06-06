@@ -212,7 +212,7 @@ export default function Works(initialData) {
                     disabledClass = 'grayscale-0 opacity-100'
                   }
 
-                  if (e.expertise == activeGenre) {
+                  if (e.expertise == activeGenre || e.expertise == 'architecture-and-interiors' && activeType == 'all') {
                     disabledClass = 'grayscale-0 opacity-100'
                   }
 
@@ -266,7 +266,7 @@ export default function Works(initialData) {
                       archiveDisabledClass = 'grayscale-0 opacity-100'
                     }
   
-                    if (e.expertise == activeGenre) {
+                    if (e.expertise == activeGenre || e.expertise == 'architecture-and-interiors' && activeType == 'all') {
                       archiveDisabledClass = 'grayscale-0 opacity-100'
                     }
 
