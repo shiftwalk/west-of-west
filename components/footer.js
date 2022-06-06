@@ -45,7 +45,7 @@ export default function Footer() {
 
             <span className="flex leading-tight mt-2 space-x-[6px]">
               <svg className="w-[14px]" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="6.5" cy="6.5" r="6" stroke="#333"/><path stroke="#333" d="M6.5 3v4M6 6.5h4"/></svg>
-              <span className="tabular-nums"><Clock format={'HH:mm:ss'} ticking={true} timezone={'US/Pacific'} /></span>
+              <span className="tabular-nums"><Clock format={'HH:mm:ss'} ticking={true} timezone={'US/Pacific'} /> PST</span>
             </span>
           </div>
         </div>
@@ -60,7 +60,7 @@ export default function Footer() {
 
             <span className="flex leading-tight mt-2 space-x-[6px]">
               <svg className="w-[14px]" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="6.5" cy="6.5" r="6" stroke="#333"/><path stroke="#333" d="M6.5 3v4M6 6.5h4"/></svg>
-              <span className="tabular-nums"><Clock format={'HH:mm:ss'} ticking={true} timezone={'US/Pacific'} /></span>
+              <span className="tabular-nums"><Clock format={'HH:mm:ss'} ticking={true} timezone={'US/Pacific'} /> PST</span>
             </span>
           </div>
         </div>
