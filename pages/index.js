@@ -79,7 +79,7 @@ export default function Home(initialData) {
 
           <div className="grid grid-cols-10 gap-3 md:gap-5">
             <div className="col-span-10 md:col-span-8 xl:col-span-7">
-              <h1 className="block indent-[24.25%] text-[9vw] md:text-[7.25vw] xl:text-[5.85vw] leading-[0.95] md:leading-[0.95] xl:leading-[0.95] max-w-[80vw] mb-12 md:mb-20 xl:mb-32">We are an architecture &amp; design studio that creates experience driven buildings and interiors.</h1>
+              <h1 className="block indent-[25.35%] xl:indent-[28.95%] text-[9vw] md:text-[7.25vw] xl:text-[5.85vw] leading-[0.95] md:leading-[0.95] xl:leading-[0.95] max-w-[80vw] mb-12 md:mb-20 xl:mb-32">We are an architecture &amp; design studio that creates experience driven buildings and interiors.</h1>
             </div>
           </div>
 
