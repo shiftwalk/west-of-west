@@ -77,6 +77,20 @@ export default function Works(initialData) {
   const [current, setCurrent] = useState(0);
   const [hovering, setHovering] = useState(false);
 
+  let retailAndHospitalityLength = 0;
+  let workingLength = 0;
+  let livingLength = 0;
+  let architectureLength = 0;
+  let interiorsLength = 0;
+  
+  for (const e of works) {
+    if (e.sector === 'retail-and-hospitality') retailAndHospitalityLength++;
+    if (e.sector === 'working') workingLength++;
+    if (e.sector === 'living') livingLength++;
+    if (e.expertise == 'architecture-and-interiors' || e.expertise == 'architecture') architectureLength++;
+    if (e.expertise == 'architecture-and-interiors' || e.expertise == 'interiors') interiorsLength++;
+  }
+
   const updateImage = (e) => {
     setCurrent(e)
   }
@@ -111,44 +125,100 @@ export default function Works(initialData) {
           <m.div>
             <div className="fixed bottom-0 left-0 right-0 w-full bg-white border-t border-gray border-opacity-40 z-40 px-2 py-3 hidden md:flex">
               <div className="mr-auto flex space-x-6">
-                <button onClick={() => updateType('all')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden group ${ !activeFilters ? 'text-black' : 'text-gray' }`}>
-                  <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">All</span>
-                  <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">All</span>
+                <button onClick={() => updateType('all')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group ${ !activeFilters ? 'text-black' : 'text-gray' }`}>
+                  <div className="relative overflow-hidden">
+                    <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">All</span>
+                    <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">All</span>
+                  </div>
+
+                  <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[10px] translate-y-[2px]">
+                    <span className="block relative overflow-hidden tabular-nums">
+                      <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">{works.length}</span>
+                      <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">{works.length}</span>
+                    </span>
+                  </span>
                 </button>
 
-                <button onClick={() => setActiveFilters(true)} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden group ${ activeFilters ? 'text-black' : 'text-gray' }`}>
-                  <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Typology</span>
-                  <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Typology</span>
+                <button onClick={() => setActiveFilters(true)} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group ${ activeFilters ? 'text-black' : 'text-gray' }`}>
+                  <div className="relative overflow-hidden">
+                    <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Typology</span>
+                    <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Typology</span>
+                  </div>
                 </button>
 
                 { activeFilters && (
                   <>
-                    <div className="flex space-x-6 md:pl-[3.1vw] xl:pl-[10vw]">
-                      <button onClick={() => updateType('retail-and-hospitality')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden group ${ activeType == 'retail-and-hospitality' ? 'text-black' : 'text-gray' }`}>
-                        <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Retail &amp; Hopsitality</span>
-                        <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Retail &amp; Hopsitality</span>
+                    <div className="flex space-x-8 md:pl-[3.1vw] xl:pl-[10vw]">
+                      <button onClick={() => updateType('retail-and-hospitality')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group ${ activeType == 'retail-and-hospitality' ? 'text-black' : 'text-gray' }`}>
+                        <div className="relative overflow-hidden">
+                          <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Retail &amp; Hopsitality</span>
+                          <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Retail &amp; Hopsitality</span>
+                        </div>
+
+                        <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[10px] translate-y-[2px]">
+                          <span className="block relative overflow-hidden tabular-nums">
+                            <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">{retailAndHospitalityLength}</span>
+                            <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">{retailAndHospitalityLength}</span>
+                          </span>
+                        </span>
                       </button>
 
-                      <button onClick={() => updateType('working')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden group ${ activeType == 'working' ? 'text-black' : 'text-gray' }`}>
-                        <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Working</span>
-                        <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Working</span>
+                      <button onClick={() => updateType('working')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group ${ activeType == 'working' ? 'text-black' : 'text-gray' }`}>
+                        <div className="relative overflow-hidden">
+                          <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Working</span>
+                          <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Working</span>
+                        </div>
+
+                        <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[10px] translate-y-[2px]">
+                          <span className="block relative overflow-hidden tabular-nums">
+                            <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">{workingLength}</span>
+                            <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">{workingLength}</span>
+                          </span>
+                        </span>
                       </button>
                       
-                      <button onClick={() => updateType('living')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden group ${ activeType == 'living' ? 'text-black' : 'text-gray' }`}>
-                        <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Living</span>
-                        <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Living</span>
+                      <button onClick={() => updateType('living')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group ${ activeType == 'living' ? 'text-black' : 'text-gray' }`}>
+                        <div className="relative overflow-hidden">
+                          <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Living</span>
+                          <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Living</span>
+                        </div>
+
+                        <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[10px] translate-y-[2px]">
+                          <span className="block relative overflow-hidden tabular-nums">
+                            <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">{livingLength}</span>
+                            <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">{livingLength}</span>
+                          </span>
+                        </span>
                       </button>
                     </div>
 
-                    <div className="flex space-x-6 md:pl-[3.1vw] xl:pl-[10vw]">
-                      <button onClick={() => updateGenre('architecture')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden group ${ activeGenre == 'architecture' ? 'text-black' : 'text-gray' }`}>
-                        <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Architecture</span>
-                        <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Architecture</span>
+                    <div className="flex space-x-8 md:pl-[3.1vw] xl:pl-[10vw]">
+                      <button onClick={() => updateGenre('architecture')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group ${ activeGenre == 'architecture' ? 'text-black' : 'text-gray' }`}>
+                        <div className="relative overflow-hidden">
+                          <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Architecture</span>
+                          <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Architecture</span>
+                        </div>
+
+                        <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[10px] translate-y-[2px]">
+                          <span className="block relative overflow-hidden tabular-nums">
+                            <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">{architectureLength}</span>
+                            <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">{architectureLength}</span>
+                          </span>
+                        </span>
                       </button>
 
-                      <button onClick={() => updateGenre('interiors')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden group ${ activeGenre == 'interiors' ? 'text-black' : 'text-gray' }`}>
-                        <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Interiors</span>
-                        <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Interiors</span>
+                      <button onClick={() => updateGenre('interiors')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group ${ activeGenre == 'interiors' ? 'text-black' : 'text-gray' }`}>
+                        <div className="relative overflow-hidden">
+                          <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Interiors</span>
+                          <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Interiors</span>
+                        </div>
+
+                        <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[10px] translate-y-[2px]">
+                          <span className="block relative overflow-hidden tabular-nums">
+                            <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">{interiorsLength}</span>
+                            <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">{interiorsLength}</span>
+                          </span>
+                        </span>
                       </button>
                     </div>
                   </>
