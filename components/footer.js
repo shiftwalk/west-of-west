@@ -1,8 +1,8 @@
 import Clock from 'react-live-clock'
 
-export default function Footer() {
+export default function Footer({ noPad }) {
   return (
-    <footer className="border-t border-gray border-opacity-30 mt-12 md:mt-20 xl:mt-28 pt-12 md:pt-20 xl:pt-28 lg:text-lg">
+    <footer className={`border-t border-gray border-opacity-30 pt-12 md:pt-20 xl:pt-28 lg:text-lg ${noPad ? '' : 'mt-12 md:mt-20 xl:mt-28' }`}>
       <div className="grid grid-cols-10 gap-5">
         <div className="mb-5 md:mb-0 flex items-end w-full md:w-auto col-span-10 md:col-auto">
           <div className="relative flex overflow-x-hidden text-xs w-full md:w-auto">
