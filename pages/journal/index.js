@@ -6,10 +6,30 @@ import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import SanityPageService from '@/services/sanityPageService'
 import Link from 'next/link'
+import ReactCursorPosition from 'react-cursor-position'
+import Teaser from '@/components/teaser'
 
 const query = `{
   "journal": *[_type == "journal"]{
     title,
+    heroImage {
+      asset-> {
+        ...,
+      },
+      overrideVideo {
+        asset-> {
+          ...
+        }
+      },
+      caption,
+      captionSubHeading,
+      alt,
+      hotspot {
+        x,
+        y
+      }
+    },
+    date,
     slug {
       current
     },
@@ -41,22 +61,68 @@ export default function Journal(initialData) {
           className="pt-24 md:pt-32 xl:pt-40"
         >
           <m.article>
-            <h1 className="text-3xl md:text-4xl xl:text-5xl mb-4">Journal</h1>
-            <div className="content max-w-3xl mb-4">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+            <ul className="mt-4 md:mt-6 grid grid-cols-10 gap-x-5 gap-y-[5vw] items-start">
+              {journal.map((e, i) => {
+                let d = new Date(e.date);
+                let ye = new Intl.DateTimeFormat('en', { year: '2-digit' }).format(d);
+                let mo = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(d);
+                let da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
 
-              <p>Velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                let layout = 'md:col-start-0'
+                let height = 'h-[60vw] md:h-[13vw]'
+                // let disabledClass = 'grayscale opacity-30'
 
-              <h2 className="mt-8 md:mt-12 xl:mt-16">Journal Entries: CMS</h2>
-              <p>Work in progress...</p>
-              <ul className="mt-4 md:mt-6">
-                {journal.map((e, i) => {
-                  return (
-                    <li className="block" key={i}><Link href={`/journal/${e.slug.current}`}><a className="inline-block underline">- {e.title}</a></Link></li>
-                  )
-                })}
-              </ul>
-            </div>
+                if (i == 0) {
+                  layout = 'md:col-start-1'
+                }
+                if (i == 1) {
+                  layout = 'md:col-start-6'
+                }
+                if (i == 2) {
+                  layout = 'md:col-start-9'
+                }
+                if (i == 3) {
+                  layout = 'md:col-start-2'
+                }
+                if (i == 4) {
+                  layout = 'md:col-start-4'
+                }
+                if (i == 5) {
+                  layout = 'md:col-start-9'
+                }
+                if (i == 6) {
+                  layout = 'md:col-start-0'
+                }
+                if (i == 7) {
+                  layout = 'md:col-start-7'
+                }
+                if (i == 8) {
+                  layout = 'md:col-start-1'
+                }
+
+                return (
+                  <Link href={`/journal/${e.slug.current}`} key={i}>
+                    <a
+                      className={`${layout} col-span-10 md:col-span-2 block group mb-4 md:mb-0`}
+                    >
+                      <ReactCursorPosition>
+                        <Teaser
+                          height={height}
+                          image={e.heroImage}
+                        />
+                      </ReactCursorPosition>
+                      <span className="block overflow-hidden relative">
+                        <span className="block text-[10px] leading-none my-1 md:my-2 text-gray uppercase">{da}.{mo}.{ye}</span>
+                      </span>
+
+                      <span className="block overflow-hidden relative">
+                        <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] mb-1">{e.title}</span>
+                      </span>
+                    </a>
+                  </Link>
+                )
+              })}
+            </ul>
           </m.article>
         </m.main>
       </LazyMotion>

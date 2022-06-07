@@ -7,13 +7,72 @@ import { NextSeo } from 'next-seo'
 import SanityPageService from '@/services/sanityPageService'
 import Image from '@/components/image'
 import Link from 'next/link'
+import ReactCursorPosition from 'react-cursor-position'
+import Teaser from '@/components/teaser'
 
 const query = `{
   "home": *[_type == "home"][0]{
     title,
+    worksImage {
+      asset-> {
+        ...,
+      },
+      overrideVideo {
+        asset-> {
+          ...
+        }
+      },
+      caption,
+      captionSubHeading,
+      alt,
+      hotspot {
+        x,
+        y
+      }
+    },
+    studioImage {
+      asset-> {
+        ...,
+      },
+      overrideVideo {
+        asset-> {
+          ...
+        }
+      },
+      caption,
+      captionSubHeading,
+      alt,
+      hotspot {
+        x,
+        y
+      }
+    },
     heroFeaturedWorks[] -> {
       title,
       heroImages[] {
+        asset-> {
+          ...,
+        },
+        overrideVideo {
+          asset-> {
+            ...
+          }
+        },
+        caption,
+        captionSubHeading,
+        alt,
+        hotspot {
+          x,
+          y
+        },
+      },
+      slug {
+        current
+      }
+    },
+    featuredJournalEntry -> {
+      title,
+      heroImage {
         asset-> {
           ...,
         },
@@ -85,37 +144,64 @@ export default function Home(initialData) {
 
           <div className="grid grid-cols-10 gap-3 md:gap-5 mb-5">
             <div className="col-span-10 md:col-span-3">
-              <div className="w-full bg-gray bg-opacity-20 h-[50vw] md:h-[28vw] mb-2"></div>
-              
-              <Link href="/works">
-                <a className="inline-block text-xl md:text-2xl group relative overflow-hidden">
-                  <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300 delay-[50ms]">Explore Works</span>
-                  <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300 delay-[50ms]">Explore Works</span>
-                  <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+              <Link href={`/works`}>
+                <a
+                  className={`block group mb-4 md:mb-0`}
+                >
+                <ReactCursorPosition>
+                    <Teaser
+                      height={'h-[60vw] md:h-[25vw]'}
+                      image={home.worksImage}
+                    />
+                  </ReactCursorPosition>
+
+                  <span className="inline-block overflow-hidden relative text-lg md:text-xl xl:text-2xl">
+                    <span className="inline-block group-hover:translate-y-full transition-translate ease-in-out duration-300 delay-[50ms]">Explore Works</span>
+                    <span className="inline-block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300 delay-[50ms]">Explore Works</span>
+                    <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                  </span>
                 </a>
               </Link>
             </div>
 
             <div className="md:col-start-7 col-span-10 md:col-span-4 md:mt-32 xl:mt-48 md:text-right">
-              <div className="w-full bg-gray bg-opacity-20 h-[50vw] md:h-[38vw] mb-2"></div>
-              
-              <Link href="/works">
-                <a className="inline-block text-xl md:text-2xl group relative overflow-hidden">
-                  <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300 delay-[50ms]">See Studio</span>
-                  <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300 delay-[50ms]">See Studio</span>
-                  <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+              <Link href={`/studio`}>
+                <a
+                  className={`block group mb-4 md:mb-0`}
+                >
+                <ReactCursorPosition>
+                    <Teaser
+                      height={'h-[60vw] md:h-[41vw]'}
+                      image={home.studioImage}
+                    />
+                  </ReactCursorPosition>
+
+                  <span className="inline-block overflow-hidden relative text-lg md:text-xl xl:text-2xl">
+                    <span className="inline-block group-hover:translate-y-full transition-translate ease-in-out duration-300 delay-[50ms]">See Studio</span>
+                    <span className="inline-block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300 delay-[50ms]">See Studio</span>
+                    <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                  </span>
                 </a>
               </Link>
             </div>
 
             <div className="col-span-10 md:col-start-3 md:col-span-3 md:-mt-32 xl:-mt-48">
-              <div className="w-full bg-gray bg-opacity-20 h-[50vw] md:h-[20vw] mb-2"></div>
-              
-              <Link href="/works">
-                <a className="inline-block text-xl md:text-2xl group relative overflow-hidden">
-                  <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300 delay-[50ms]">Latest News Article</span>
-                  <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300 delay-[50ms]">Latest News Article</span>
-                  <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+              <Link href={`/journal/${home.featuredJournalEntry.slug.current}`}>
+                <a
+                  className={`block group mb-4 md:mb-0`}
+                >
+                <ReactCursorPosition>
+                    <Teaser
+                      height={'h-[60vw] md:h-[19vw]'}
+                      image={home.featuredJournalEntry.heroImage}
+                    />
+                  </ReactCursorPosition>
+
+                  <span className="inline-block overflow-hidden relative text-lg md:text-xl xl:text-2xl">
+                    <span className="inline-block group-hover:translate-y-full transition-translate ease-in-out duration-300 delay-[50ms]">{home.featuredJournalEntry.title}</span>
+                    <span className="inline-block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300 delay-[50ms]">{home.featuredJournalEntry.title}</span>
+                    <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                  </span>
                 </a>
               </Link>
             </div>

@@ -209,7 +209,9 @@ export default function WorksSlug(initialData) {
               </div>
 
               <div className="md:col-start-5 col-span-9 md:col-span-4">
-                <span className="block indent-[12%] md:indent-[26%] text-[5.55vw] md:text-[3.3vw] xl:text-[2.5vw] leading-[1.1] md:leading-[1.1] xl:leading-[1.1] max-w-[80vw] mt-4 md:mt-6">{introText}</span>
+                <div className="content content--fancy">
+                  <BlockContent serializers={{ container: ({ children }) => children }} blocks={introText} />
+                </div>
               </div>
             </div>
 

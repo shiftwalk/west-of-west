@@ -5,10 +5,22 @@ import { fade } from '@/helpers/transitions'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import SanityPageService from '@/services/sanityPageService'
+import { useState } from 'react'
 
 const query = `{
   "contact": *[_type == "contact"][0]{
     title,
+    heroHeading,
+    locations[] {
+      title,
+      coordinates,
+      address
+    },
+    telephone,
+    generalEmail,
+    pressEmail,
+    newBusinessEmail,
+    employmentEmail,
     seo {
       ...,
       shareGraphic {
@@ -22,6 +34,7 @@ const pageService = new SanityPageService(query)
 
 export default function Contact(initialData) {
   const { data: { contact } } = pageService.getPreviewHook(initialData)()
+  const [hovering, setHovering] = useState(false);
 
   return (
     <Layout>
@@ -34,14 +47,122 @@ export default function Contact(initialData) {
           initial="initial"
           animate="enter"
           exit="exit"
-          className="pt-24 md:pt-32 xl:pt-40"
+          className=""
         >
           <m.article>
-            <h1 className="text-3xl md:text-4xl xl:text-5xl mb-4">{contact.title}</h1>
-            <div className="content max-w-3xl mb-4">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+            <div className="grid grid-cols-10 gap-x-5 gap-y-2 md:h-[calc(100vh-8px)] pt-24 md:pt-32 xl:pt-40 mb-8 md:mb-32 xl:mb-40">
+              <div className="col-span-10 md:col-span-2 flex flex-wrap h-full">
+                <div className="content--lg w-full pb-5">
+                  <p className="w-[95%] lg:w-8/12">{contact.heroHeading}</p>
+                </div>
+                
+                <div className="w-full self-end">
+                  {contact.locations.map((e, i) => {
+                    return (
+                      <div key={i} className={`w-full md:w-11/12 lg:w-10/12 xl:w-1/2 max-w-[130px] ${i == 0 ? 'mb-4' : 'text-gray' }`}>
+                        <span className="block">{e.title}</span>
+                        <span className="block">{e.address}</span>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
 
-              <p>Velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <div className="col-span-10 md:col-span-8 pb-2">
+                <div className="w-full h-[66vw] md:h-full bg-gray bg-opacity-20 flex items-center justify-center"><span className="block opacity-20">Map Here...</span></div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-10 gap-x-5 gap-y-2 mb-12 md:mb-32 xl:mb-40">
+              <div className="col-span-10 md:col-span-5 md:col-start-3">
+              <ul className="archive-list" onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
+                <li className="block">
+                  <a
+                    href={`mailto:${contact.generalEmail}`}
+                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group transition-opacity ease-in-out duration-300 relative archive-list__item`}
+                  >
+                    <span className="absolute top-0 left-0 right-0 w-full h-[1px] bg-[#EFEFEF] mt-[0px]mt-[-1px]"></span>
+                    <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
+                      <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">General Enquiries</span>
+                      <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">General Enquiries</span>
+                    </span>
+                    <span className="block w-auto md:w-auto xl:w-auto md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-right relative overflow-hidden">
+                      <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">{contact.generalEmail}</span>
+                      <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">{contact.generalEmail}</span>
+                      <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                    </span>
+                  </a>
+                </li>
+                <li className="block">
+                  <a
+                    href={`mailto:${contact.newBusinessEmail}`}
+                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group transition-opacity ease-in-out duration-300 relative archive-list__item`}
+                  >
+                    <span className="absolute top-0 left-0 right-0 w-full h-[1px] bg-[#EFEFEF] mt-[-1px]"></span>
+                    <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
+                      <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">New Business</span>
+                      <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">New Business</span>
+                    </span>
+                    <span className="block w-auto md:w-auto xl:w-auto md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-right relative overflow-hidden">
+                      <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">{contact.newBusinessEmail}</span>
+                      <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">{contact.newBusinessEmail}</span>
+                      <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                    </span>
+                  </a>
+                </li>
+                <li className="block">
+                  <a
+                    href={`mailto:${contact.pressEmail}`}
+                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group transition-opacity ease-in-out duration-300 relative archive-list__item`}
+                  >
+                    <span className="absolute top-0 left-0 right-0 w-full h-[1px] bg-[#EFEFEF] mt-[-1px]"></span>
+                    <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
+                      <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Press</span>
+                      <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Press</span>
+                    </span>
+                    <span className="block w-auto md:w-auto xl:w-auto md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-right relative overflow-hidden">
+                      <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">{contact.pressEmail}</span>
+                      <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">{contact.pressEmail}</span>
+                      <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                    </span>
+                  </a>
+                </li>
+                <li className="block">
+                  <a
+                    href={`mailto:${contact.employmentEmail}`}
+                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group transition-opacity ease-in-out duration-300 relative archive-list__item`}
+                  >
+                    <span className="absolute top-0 left-0 right-0 w-full h-[1px] bg-[#EFEFEF] mt-[-1px]"></span>
+                    <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
+                      <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Employment</span>
+                      <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Employment</span>
+                    </span>
+                    <span className="block w-auto md:w-auto xl:w-auto md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-right relative overflow-hidden">
+                      <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">{contact.employmentEmail}</span>
+                      <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">{contact.employmentEmail}</span>
+                      <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                    </span>
+                  </a>
+                </li>
+                <li className="block">
+                  <a
+                    href={`tel:${contact.telephone}`}
+                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group transition-opacity ease-in-out duration-300 relative archive-list__item`}
+                  >
+                    <span className="absolute top-0 left-0 right-0 w-full h-[1px] bg-[#EFEFEF] mt-[-1px]"></span>
+                    <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
+                      <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Call</span>
+                      <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Call</span>
+                    </span>
+                    <span className="block w-auto md:w-auto xl:w-auto md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-right relative overflow-hidden">
+                      <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">{contact.telephone}</span>
+                      <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">{contact.telephone}</span>
+                      <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+              </div>
             </div>
           </m.article>
         </m.main>

@@ -30,9 +30,10 @@ export default function JournalSlug(initialData) {
           initial="initial"
           animate="enter"
           exit="exit"
+          className="pt-24 md:pt-32 xl:pt-40"
         >
           <m.article>
-            <h1 className="text-3xl md:text-4xl xl:text-5xl mb-4">{title}</h1>
+            <h1 className="text-3xl md:text-4xl xl:text-5xl leading-[1.1] md:leading-[1.1] xl:leading-[1.1] mb-4 md:max-w-[60vw]">{title}</h1>
             <Link href="/journal"><a className="inline-block underline">← Back to all Journal entries</a></Link>
 
             <div className="content max-w-3xl mb-4 mt-4 md:mt-6">

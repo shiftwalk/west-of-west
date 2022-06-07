@@ -38,7 +38,7 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
       )}
     </div>
 	) : (
-    <figure className={`image ${className} ${layout == 'fill' && 'cover-image' }`}>
+    <figure className={`image bg-gray bg-opacity-20 ${className} ${layout == 'fill' && 'cover-image' }`}>
 		  <Img {...imageProps} {...attributes} />
       
       {(image.caption && !noCaption) && (

@@ -95,6 +95,11 @@ export default function Works(initialData) {
     setCurrent(e)
   }
 
+  const updateActive = (e) => {
+    setActive(e)
+    window.scrollTo({ top: 0 });
+  }
+
   const updateType = (e) => {
     if (e == 'all') {
       setActiveFilters(false)
@@ -130,7 +135,7 @@ export default function Works(initialData) {
                     <span className="block">All</span>
                   </div>
 
-                  <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[10px] translate-y-[2px]">
+                  <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[13px] translate-y-[2px]">
                     <span className="block relative overflow-hidden tabular-nums">
                       <span className="block">{works.length}</span>
                     </span>
@@ -213,10 +218,10 @@ export default function Works(initialData) {
               </div>
 
               <div className="ml-auto flex space-x-2">
-                <button onClick={() => setActive('gallery')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden group hover:text-black ${ active == 'gallery' ? 'text-black' : 'text-gray' }`}>
+                <button onClick={() => updateActive('gallery')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden group hover:text-black ${ active == 'gallery' ? 'text-black' : 'text-gray' }`}>
                   <span className="block">Gallery</span>
                 </button>
-                <button onClick={() => setActive('archive')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden group hover:text-black ${ active == 'archive' ? 'text-black' : 'text-gray' }`}>
+                <button onClick={() => updateActive('archive')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden group hover:text-black ${ active == 'archive' ? 'text-black' : 'text-gray' }`}>
                   <span className="block">Archives</span>
                 </button>
               </div>
@@ -257,6 +262,31 @@ export default function Works(initialData) {
                   if (i == 6) {
                     layout = 'col-span-10 md:col-span-3'
                     height = 'h-[60vw] md:h-[19vw]'
+                  }
+
+                  if (i == 7) {
+                    layout = 'col-span-10 md:col-span-2 md:col-start-6'
+                    height = 'h-[60vw] md:h-[18vw]'
+                  }
+
+                  if (i == 8) {
+                    layout = 'col-span-10 md:col-span-2 md:col-start-9'
+                    height = 'h-[60vw] md:h-[13vw]'
+                  }
+
+                  if (i == 9) {
+                    layout = 'col-span-10 md:col-span-2'
+                    height = 'h-[60vw] md:h-[24vw]'
+                  }
+
+                  if (i == 10) {
+                    layout = 'col-span-10 md:col-span-2 md:col-start-4'
+                    height = 'h-[60vw] md:h-[18vw]'
+                  }
+
+                  if (i == 11) {
+                    layout = 'col-span-10 md:col-span-4 md:col-start-7'
+                    height = 'h-[60vw] md:h-[27vw]'
                   }
 
                   if (activeType == 'all' && activeGenre == 'all') {
