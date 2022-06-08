@@ -153,7 +153,7 @@ export default function Works(initialData) {
                     <div className="flex space-x-8 md:pl-[3.1vw] xl:pl-[10vw]">
                       <button onClick={() => updateType('retail-and-hospitality')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black ${ activeType == 'retail-and-hospitality' ? 'text-black' : 'text-gray' }`}>
                         <div className="relative overflow-hidden">
-                          <span className="block">Retail &amp; Hopsitality</span>
+                          <span className="block">Retail &amp; Hospitality</span>
                         </div>
 
                         <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[10px] translate-y-[2px]">
@@ -235,56 +235,56 @@ export default function Works(initialData) {
                   let height = 'h-[60vw] md:h-[22vw]'
                   let disabledClass = 'grayscale opacity-30'
 
-                  if (i == 0 || i == 12) {
+                  if (i == 0 || i == 12 || i == 24) {
                     layout = 'col-span-10 md:col-span-4'
                     height = 'h-[60vw] md:h-[27vw]'
                   }
-                  if (i == 1 || i == 13) {
+                  if (i == 1 || i == 13 || i == 25) {
                     layout = 'col-span-10 md:col-start-6 md:col-span-2'
                     height = 'h-[60vw] md:h-[13vw]'
                   }
-                  if (i == 2 || i == 14) {
+                  if (i == 2 || i == 14 || i == 25) {
                     layout = 'col-span-10 md:col-start-9 md:col-span-2'
                     height = 'h-[60vw] md:h-[19vw]'
                   }
-                  if (i == 3 || i == 15) {
+                  if (i == 3 || i == 15 || i == 26) {
                     layout = 'col-span-10 md:col-span-2'
                     height = 'h-[60vw] md:h-[19vw]'
                   }
-                  if (i == 4 || i == 16) {
+                  if (i == 4 || i == 16 || i == 27) {
                     layout = 'col-span-10 md:col-start-4 md:col-span-2'
                     height = 'h-[60vw] md:h-[13vw]'
                   }
-                  if (i == 5 || i == 17) {
+                  if (i == 5 || i == 17 || i == 28) {
                     layout = 'col-span-10 md:col-start-7 md:col-span-4'
                     height = 'h-[60vw] md:h-[27vw]'
                   }
-                  if (i == 6 || i == 18) {
+                  if (i == 6 || i == 18 || i == 29) {
                     layout = 'col-span-10 md:col-span-3'
                     height = 'h-[60vw] md:h-[19vw]'
                   }
 
-                  if (i == 7 || i == 19) {
+                  if (i == 7 || i == 19 || i == 30) {
                     layout = 'col-span-10 md:col-span-2 md:col-start-6'
                     height = 'h-[60vw] md:h-[18vw]'
                   }
 
-                  if (i == 8 || i == 20) {
+                  if (i == 8 || i == 20 || i == 31) {
                     layout = 'col-span-10 md:col-span-2 md:col-start-9'
                     height = 'h-[60vw] md:h-[13vw]'
                   }
 
-                  if (i == 9 || i == 21) {
+                  if (i == 9 || i == 21 || i == 32) {
                     layout = 'col-span-10 md:col-span-2'
                     height = 'h-[60vw] md:h-[24vw]'
                   }
 
-                  if (i == 10 || i == 22) {
+                  if (i == 10 || i == 22 || i == 33) {
                     layout = 'col-span-10 md:col-span-2 md:col-start-4'
                     height = 'h-[60vw] md:h-[18vw]'
                   }
 
-                  if (i == 11 || i == 23) {
+                  if (i == 11 || i == 23 || i == 34) {
                     layout = 'col-span-10 md:col-span-4 md:col-start-7'
                     height = 'h-[60vw] md:h-[27vw]'
                   }
