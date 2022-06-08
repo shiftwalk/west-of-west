@@ -314,10 +314,12 @@ export default function Works(initialData) {
                         </ReactCursorPosition>
 
                         <span className="block overflow-hidden relative">
-                          <span className="block text-lg leading-none mb-1 md:opacity-0 md:group-hover:opacity-100 delay-[0ms]">{e.title}</span>
+                          <span className="block text-lg leading-none mb-1">{e.title}</span>
+                          {/* <span className="block text-lg leading-none mb-1 md:opacity-0 md:group-hover:opacity-100 delay-[0ms]">{e.title}</span> */}
                         </span>
                         <span className="block overflow-hidden relative">
-                          <span className="block text-lg leading-none mb-1 md:opacity-0 md:group-hover:opacity-100  delay-[110ms] text-gray capitalize">{e.expertise.replace(/-/g, ' ')}</span>
+                          <span className="block text-lg leading-none mb-1 text-gray capitalize">{e.expertise.replace(/-/g, ' ')}</span>
+                          {/* <span className="block text-lg leading-none mb-1 md:opacity-0 md:group-hover:opacity-100 delay-[110ms] text-gray capitalize">{e.expertise.replace(/-/g, ' ')}</span> */}
                         </span>
                       </a>
                     </Link>

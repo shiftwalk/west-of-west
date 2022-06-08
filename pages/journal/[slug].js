@@ -21,7 +21,7 @@ export default function JournalSlug(initialData) {
 
   return (
     <Layout>
-      <NextSeo title="Works" />
+      <NextSeo title={title} />
 
       <Header active="journal" />
       
