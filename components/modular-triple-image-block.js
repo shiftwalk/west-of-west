@@ -2,8 +2,8 @@ import Image from "@/components/image";
 import BlockContent from '@sanity/block-content-to-react'
 
 export default function ModularTripleImageBlock({ image1, image2, image3, text, layout }) {
-  let image1Height = 'h-[70vw] md:h-[40vw]';
-  let image2Height = 'h-[70vw] md:h-[30vw]';
+  let image1Height = 'h-[70vw] md:h-[38.4vw]';
+  let image2Height = 'h-[70vw] md:h-[32vw]';
   let image3Height = 'h-[70vw] md:h-[38vw] xl:h-[40vw]';
 
   return (
@@ -22,7 +22,7 @@ export default function ModularTripleImageBlock({ image1, image2, image3, text, 
           </div>
           
           { text && (
-            <div className={`mt-8 md:mt-[10vw] ${layout == 'right-aligned' ? 'col-span-6' : 'col-span-5' }`}>
+            <div className={`mt-8 md:mt-[12vw] ${layout == 'right-aligned' ? 'col-span-6' : 'col-span-5' }`}>
               <div className={`grid gap-5 ${layout == 'right-aligned' ? 'grid-cols-6' : 'grid-cols-5' }`}>
                 <div className={`${layout == 'right-aligned' ? 'md:col-span-1 col-span-6' : 'md:col-span-2 col-span-5' }`}>
                   <span className="block uppercase text-[10px] mb-3 md:mb-0">Heading</span>
@@ -36,9 +36,9 @@ export default function ModularTripleImageBlock({ image1, image2, image3, text, 
         </div>
       </div>
 
-      <div className={`col-span-10 md:row-start-1 relative overflow-hidden ${layout == 'right-aligned' ? 'md:col-span-4 md:col-start-1' : 'md:col-span-4 md:col-start-7'}`}>
-        <div className="grid grid-cols-4 gap-5">
-          <div className={`relative overflow-hidden mb-5 md:mb-[15vw] col-span-4`}>
+      <div className={`col-span-10 md:row-start-1 relative overflow-hidden ${layout == 'right-aligned' ? 'md:col-span-4 md:col-start-1' : 'md:col-span-5 md:col-start-6'}`}>
+        <div className="grid grid-cols-5 gap-5">
+          <div className={`relative overflow-hidden mb-5 md:mb-[15vw] col-span-5`}>
             <Image
               image={image2}
               focalPoint={image2.hotspot}
@@ -48,7 +48,7 @@ export default function ModularTripleImageBlock({ image1, image2, image3, text, 
             />
           </div>
 
-          <div className={`col-span-4 md:col-span-3 ${layout == 'right-aligned' ? 'md:col-start-1' : 'md:col-start-2' } relative overflow-hidden`}>
+          <div className={`col-span-4 md:col-span-3 ${layout == 'right-aligned' ? 'md:col-start-1' : 'md:col-start-3' } relative overflow-hidden`}>
             <Image
               image={image3}
               focalPoint={image3.hotspot}

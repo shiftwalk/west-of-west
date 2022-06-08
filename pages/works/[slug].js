@@ -21,6 +21,11 @@ const query = `*[_type == "works" && slug.current == $slug][0]{
   year,
   status,
   sector,
+  projectCode,
+  credits[] {
+    job,
+    name
+  },
   contentBlocks[] {
     ...,
     image {
@@ -117,7 +122,7 @@ const query = `*[_type == "works" && slug.current == $slug][0]{
 const pageService = new SanityPageService(query)
 
 export default function WorksSlug(initialData) {
-  const { data: { title, introText, locationCity, locationState, heroImages, client, year, status, sector, contentBlocks, slug } } = pageService.getPreviewHook(initialData)()
+  const { data: { title, introText, projectCode, credits, locationCity, locationState, heroImages, client, year, status, sector, contentBlocks, slug } } = pageService.getPreviewHook(initialData)()
 
   const [currentHero, setCurrentHero] = useState(0);
 
@@ -136,33 +141,35 @@ export default function WorksSlug(initialData) {
           <m.article>
             <div className="md:h-[calc(100vh-16px)] grid grid-cols-10 gap-5 items-end pt-20 mb-20 md:mb-32 xl:mb-52">
               <div className="col-span-10 md:col-span-2 mb-3 md:mb-0">
-                <span className="block text-[10px] uppercase mb-8">ww.018</span>
+                <span className="block text-[10px] uppercase mb-8">ww.{projectCode}</span>
                 <h1 className="block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight mb-0 pb-0">{title}</h1>
                 <span className="block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight mb-0 pb-0 text-gray">{locationCity}{locationState && (<>, {locationState}</>)}</span>
               </div>
               <div className="col-span-10 md:col-span-8">
                 <div className="flex flex-wrap w-full">
-                  <div className="w-full md:w-[75px] order-2 md:order-1 md:mr-4">
-                    <div className="flex flex-wrap md:block -mx-1 md:mx-0">
-                      {heroImages.map((e, i) => {
-                        return (
-                          <button key={i} className={`w-1/4 md:w-[100%] px-1 md:px-0 md:mr-5 mt-2 md:mt-0 md:mb-5 border-none outline-none block h-[14vw] ${ i == 2 ? 'md:h-[90px]' : 'md:h-[50px]' }`} onClick={() => setCurrentHero(i)}>
-                            <div className="relative overflow-hidden w-full h-full">
-                              <Image
-                                image={e}
-                                focalPoint={e.asset.hotspot}
-                                layout="fill"
-                                priority
-                                widthOverride={350}
-                                className={`block gray absolute inset-0 h-full w-full ${currentHero !== i && 'grayscale opacity-40' }`}
-                                noCaption
-                              />
-                            </div>
-                          </button>
-                        )
-                      })}
+                  {heroImages.length > 1 && (
+                    <div className="w-full md:w-[75px] order-2 md:order-1 md:mr-4">
+                      <div className="flex flex-wrap md:block -mx-1 md:mx-0">
+                        {heroImages.map((e, i) => {
+                          return (
+                            <button key={i} className={`w-1/4 md:w-[100%] px-1 md:px-0 md:mr-5 mt-2 md:mt-0 md:mb-5 border-none outline-none block h-[14vw] ${ i == 2 ? 'md:h-[90px]' : 'md:h-[50px]' }`} onClick={() => setCurrentHero(i)}>
+                              <div className="relative overflow-hidden w-full h-full">
+                                <Image
+                                  image={e}
+                                  focalPoint={e.asset.hotspot}
+                                  layout="fill"
+                                  priority
+                                  widthOverride={350}
+                                  className={`block gray absolute inset-0 h-full w-full ${currentHero !== i && 'grayscale opacity-40' }`}
+                                  noCaption
+                                />
+                              </div>
+                            </button>
+                          )
+                        })}
+                      </div>
                     </div>
-                  </div>
+                  )}
                   <div className="w-full md:flex-1 order-1 md:order-2">
                     <div className="bg-gray bg-opacity-40 w-full h-[60vh] md:h-[75vh] relative overflow-hidden">
                       <Image
@@ -204,6 +211,16 @@ export default function WorksSlug(initialData) {
                   <div className="mb-3">
                     <span className="uppercase text-[10px]">Sector</span>
                     <span className="block capitalize">{sector.replace(/-/g, ' ')}</span>
+                  </div>
+                )}
+                { credits && (
+                  <div className="mb-3">
+                    <span className="uppercase text-[10px]">Credits</span>
+                    {credits.map((e, i) => {
+                      return (
+                        <span className="block capitalize">{e.job} – {e.name}</span>
+                      )
+                    })}
                   </div>
                 )}
               </div>
