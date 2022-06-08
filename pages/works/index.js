@@ -235,56 +235,56 @@ export default function Works(initialData) {
                   let height = 'h-[60vw] md:h-[22vw]'
                   let disabledClass = 'grayscale opacity-30'
 
-                  if (i == 0) {
+                  if (i == 0 || i == 12) {
                     layout = 'col-span-10 md:col-span-4'
                     height = 'h-[60vw] md:h-[27vw]'
                   }
-                  if (i == 1) {
+                  if (i == 1 || i == 13) {
                     layout = 'col-span-10 md:col-start-6 md:col-span-2'
                     height = 'h-[60vw] md:h-[13vw]'
                   }
-                  if (i == 2) {
+                  if (i == 2 || i == 14) {
                     layout = 'col-span-10 md:col-start-9 md:col-span-2'
                     height = 'h-[60vw] md:h-[19vw]'
                   }
-                  if (i == 3) {
+                  if (i == 3 || i == 15) {
                     layout = 'col-span-10 md:col-span-2'
                     height = 'h-[60vw] md:h-[19vw]'
                   }
-                  if (i == 4) {
+                  if (i == 4 || i == 16) {
                     layout = 'col-span-10 md:col-start-4 md:col-span-2'
                     height = 'h-[60vw] md:h-[13vw]'
                   }
-                  if (i == 5) {
+                  if (i == 5 || i == 17) {
                     layout = 'col-span-10 md:col-start-7 md:col-span-4'
                     height = 'h-[60vw] md:h-[27vw]'
                   }
-                  if (i == 6) {
+                  if (i == 6 || i == 18) {
                     layout = 'col-span-10 md:col-span-3'
                     height = 'h-[60vw] md:h-[19vw]'
                   }
 
-                  if (i == 7) {
+                  if (i == 7 || i == 19) {
                     layout = 'col-span-10 md:col-span-2 md:col-start-6'
                     height = 'h-[60vw] md:h-[18vw]'
                   }
 
-                  if (i == 8) {
+                  if (i == 8 || i == 20) {
                     layout = 'col-span-10 md:col-span-2 md:col-start-9'
                     height = 'h-[60vw] md:h-[13vw]'
                   }
 
-                  if (i == 9) {
+                  if (i == 9 || i == 21) {
                     layout = 'col-span-10 md:col-span-2'
                     height = 'h-[60vw] md:h-[24vw]'
                   }
 
-                  if (i == 10) {
+                  if (i == 10 || i == 22) {
                     layout = 'col-span-10 md:col-span-2 md:col-start-4'
                     height = 'h-[60vw] md:h-[18vw]'
                   }
 
-                  if (i == 11) {
+                  if (i == 11 || i == 23) {
                     layout = 'col-span-10 md:col-span-4 md:col-start-7'
                     height = 'h-[60vw] md:h-[27vw]'
                   }
