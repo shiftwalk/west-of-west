@@ -63,13 +63,16 @@ const query = `{
     slug {
       current
     }
+  },
+  "worksAll": *[_type == "works"]{
+    title
   }
 }`
 
 const pageService = new SanityPageService(query)
 
 export default function Works(initialData) {
-  const { data: { works, worksArchive } } = pageService.getPreviewHook(initialData)()
+  const { data: { works, worksArchive, worksAll } } = pageService.getPreviewHook(initialData)()
   const [active, setActive] = useState('gallery');
   const [activeType, setActiveType] = useState('all');
   const [activeGenre, setActiveGenre] = useState('all');
@@ -118,7 +121,7 @@ export default function Works(initialData) {
     <Layout>
       <NextSeo title="Works" />
 
-      <Header active="works" />
+      <Header active="works" works={worksAll.length} />
       
       <LazyMotion features={domAnimation}>
         <m.main
@@ -229,7 +232,7 @@ export default function Works(initialData) {
           </m.div>
           <m.article>
             { active == 'gallery' && (
-              <ul className="mt-4 md:mt-6 grid grid-cols-10 gap-x-5 gap-y-[5vw] items-end">
+              <ul className="mt-4 md:mt-6 grid grid-cols-10 gap-x-5 gap-y-[8vw] items-end">
                 {works.map((e, i) => {
                   let layout = 'col-span-10 md:col-span-3'
                   let height = 'h-[60vw] md:h-[22vw]'

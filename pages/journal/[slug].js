@@ -11,19 +11,22 @@ const query = `*[_type == "journal" && slug.current == $slug][0]{
   title,
   slug {
     current
+  },
+  "works": *[_type == "works"]{
+    title
   }
 }`
 
 const pageService = new SanityPageService(query)
 
 export default function JournalSlug(initialData) {
-  const { data: { title, slug } } = pageService.getPreviewHook(initialData)()
+  const { data: { title, slug, works } } = pageService.getPreviewHook(initialData)()
 
   return (
     <Layout>
       <NextSeo title={title} />
 
-      <Header active="journal" />
+      <Header active="journal" works={works.length} />
       
       <LazyMotion features={domAnimation}>
         <m.main

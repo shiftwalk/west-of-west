@@ -45,19 +45,22 @@ const query = `{
       }
     },
   },
+  "worksAll": *[_type == "works"]{
+    title
+  }
 }`
 
 const pageService = new SanityPageService(query)
 
 export default function Error404(initialData) {
-  const { data: { studio, team } } = pageService.getPreviewHook(initialData)()
+  const { data: { studio, team, worksAll } } = pageService.getPreviewHook(initialData)()
   const [hovering, setHovering] = useState(false);
 
   return (
     <Layout>
       <NextSeo title="404: Page Not Found" />
 
-      <Header />
+      <Header works={worksAll.length} />
       
       <LazyMotion features={domAnimation}>
         <m.main

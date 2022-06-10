@@ -116,13 +116,16 @@ const query = `*[_type == "works" && slug.current == $slug][0]{
   },
   slug {
     current
+  },
+  "worksAll": *[_type == "works"]{
+    title
   }
 }`
 
 const pageService = new SanityPageService(query)
 
 export default function WorksSlug(initialData) {
-  const { data: { title, introText, projectCode, credits, locationCity, locationState, heroImages, client, year, status, sector, contentBlocks, slug } } = pageService.getPreviewHook(initialData)()
+  const { data: { title, introText, projectCode, credits, locationCity, locationState, heroImages, client, year, status, sector, contentBlocks, slug, worksAll } } = pageService.getPreviewHook(initialData)()
 
   const [currentHero, setCurrentHero] = useState(0);
 
@@ -130,7 +133,7 @@ export default function WorksSlug(initialData) {
     <Layout>
       <NextSeo title={title} />
 
-      <Header active="works" />
+      <Header active="works" works={worksAll.length} />
       
       <LazyMotion features={domAnimation}>
         <m.main

@@ -28,19 +28,22 @@ const query = `{
       }
     }
   },
+  "works": *[_type == "works"]{
+    title
+  }
 }`
 
 const pageService = new SanityPageService(query)
 
 export default function Contact(initialData) {
-  const { data: { contact } } = pageService.getPreviewHook(initialData)()
+  const { data: { contact, works } } = pageService.getPreviewHook(initialData)()
   const [hovering, setHovering] = useState(false);
 
   return (
     <Layout>
       <NextSeo title={contact.title} />
 
-      <Header active="contact" />
+      <Header active="contact" works={works.length} />
       
       <LazyMotion features={domAnimation}>
         <m.main

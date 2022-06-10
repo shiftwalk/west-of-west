@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 
-export default function Header({ active }) {
+export default function Header({ active, works }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -35,10 +35,10 @@ export default function Header({ active }) {
                   <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Works</span>
                 </div>
 
-                <span className="absolute top-0 right-0 text-[11px] leading-none translate-x-[12px] translate-y-[3px]">
+                <span className="absolute top-0 right-0 text-[11px] leading-none translate-x-[14px] translate-y-[3px]">
                   <span className="block relative overflow-hidden">
-                    <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">47</span>
-                    <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">47</span>
+                    <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">{works ?? null}</span>
+                    <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">{works ?? null}</span>
                   </span>
                 </span>
               </a>

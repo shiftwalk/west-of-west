@@ -40,18 +40,21 @@ const query = `{
       }
     }
   },
+  "works": *[_type == "works"]{
+    title
+  }
 }`
 
 const pageService = new SanityPageService(query)
 
 export default function Journal(initialData) {
-  const { data: { journal } } = pageService.getPreviewHook(initialData)()
+  const { data: { journal, works } } = pageService.getPreviewHook(initialData)()
 
   return (
     <Layout>
       <NextSeo title="Journal" />
 
-      <Header active="journal" />
+      <Header active="journal" works={works.length} />
       
       <LazyMotion features={domAnimation}>
         <m.main
