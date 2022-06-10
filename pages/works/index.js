@@ -159,7 +159,7 @@ export default function Works(initialData) {
                           <span className="block">Retail &amp; Hospitality</span>
                         </div>
 
-                        <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[10px] translate-y-[2px]">
+                        <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[13px] translate-y-[2px]">
                           <span className="block relative overflow-hidden tabular-nums">
                             <span className="block">{retailAndHospitalityLength}</span>
                           </span>
@@ -171,7 +171,7 @@ export default function Works(initialData) {
                           <span className="block">Working</span>
                         </div>
 
-                        <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[10px] translate-y-[2px]">
+                        <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[13px] translate-y-[2px]">
                           <span className="block relative overflow-hidden tabular-nums">
                             <span className="block">{workingLength}</span>
                           </span>
@@ -197,7 +197,7 @@ export default function Works(initialData) {
                           <span className="block">Architecture</span>
                         </div>
 
-                        <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[10px] translate-y-[2px]">
+                        <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[13px] translate-y-[2px]">
                           <span className="block relative overflow-hidden tabular-nums">
                             <span className="block">{architectureLength}</span>
                           </span>
@@ -209,7 +209,7 @@ export default function Works(initialData) {
                           <span className="block">Interiors</span>
                         </div>
 
-                        <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[10px] translate-y-[2px]">
+                        <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[13px] translate-y-[2px]">
                           <span className="block relative overflow-hidden tabular-nums">
                             <span className="block">{interiorsLength}</span>
                           </span>
