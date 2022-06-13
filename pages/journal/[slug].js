@@ -8,6 +8,8 @@ import SanityPageService from '@/services/sanityPageService'
 import Link from 'next/link'
 import Image from '@/components/image'
 import SanityBlockContent from '@sanity/block-content-to-react'
+import ReactCursorPosition from 'react-cursor-position'
+import Teaser from '@/components/teaser'
 
 const query = `*[_type == "journal" && slug.current == $slug][0]{
   title,
@@ -28,13 +30,37 @@ const query = `*[_type == "journal" && slug.current == $slug][0]{
   },
   "works": *[_type == "works"]{
     title
+  },
+  "related": *[_type == "journal" && slug.current != $slug][0..2]{
+    title,
+    heroImage {
+      asset-> {
+        ...,
+      },
+      overrideVideo {
+        asset-> {
+          ...
+        }
+      },
+      caption,
+      captionSubHeading,
+      alt,
+      hotspot {
+        x,
+        y
+      }
+    },
+    date,
+    slug {
+      current
+    }
   }
 }`
 
 const pageService = new SanityPageService(query)
 
 export default function JournalSlug(initialData) {
-  const { data: { title, contentText, contentImages, slug, works } } = pageService.getPreviewHook(initialData)()
+  const { data: { title, contentText, contentImages, slug, works, related } } = pageService.getPreviewHook(initialData)()
 
   return (
     <Layout>
@@ -84,6 +110,60 @@ export default function JournalSlug(initialData) {
           )}
           </m.aside>
         </m.main>
+
+        <m.div className="pt-20 md:pt-32 xl:pt-40">
+          <div className="mb-3">
+            <span className="inline-block text-xl leading-tight lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight">Latest News</span>
+            <Link href="/journal">
+              <a className="inline-block text-xl leading-tight lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight text-gray ml-2 hover:text-black focus:text-black">See All</a>
+            </Link>
+          </div>
+          
+          <div className="grid grid-cols-10 gap-2 md:gap-5">
+            {related.map((e, i) => {
+              let d = new Date(e.date);
+              let ye = new Intl.DateTimeFormat('en', { year: '2-digit' }).format(d);
+              let mo = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(d);
+              let da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
+
+              let layout = 'md:col-start-0'
+              let height = 'h-[60vw] md:h-[18vw]'
+              // let disabledClass = 'grayscale opacity-30'
+
+              if (i == 0) {
+                layout = 'md:col-start-1'
+              }
+              if (i == 1) {
+                layout = 'md:col-start-4'
+              }
+              if (i == 2) {
+                layout = 'md:col-start-8'
+              }
+
+              return (
+                <Link href={`/journal/${e.slug.current}`} key={i}>
+                  <a
+                    className={`${layout} col-span-10 md:col-span-3 block group mb-4 md:mb-0`}
+                  >
+                    <ReactCursorPosition>
+                      <Teaser
+                        height={height}
+                        image={e.heroImage}
+                      />
+                    </ReactCursorPosition>
+                    <span className="block overflow-hidden relative">
+                      <span className="block text-[10px] leading-none my-1 md:my-2 text-gray uppercase">{da}.{mo}.{ye}</span>
+                    </span>
+
+                    <span className="block overflow-hidden relative">
+                      <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] mb-1">{e.title}</span>
+                    </span>
+                  </a>
+                </Link>
+              )
+            })}
+          </div>
+        </m.div>
       </LazyMotion>
 
       <Footer />
