@@ -111,6 +111,16 @@ export default function Works(initialData) {
     setActiveType(e)
   }
   
+  const updateTypeAndTray = (e) => {
+    setActiveFilters(true)
+    
+    if (e == 'all') {
+      setActiveFilters(false)
+    }
+    setActiveGenre('all')
+    setActiveType(e)
+  }
+  
   const updateGenre = (e) => {
     setActiveGenre(e)
     setActiveType('all')
@@ -305,28 +315,34 @@ export default function Works(initialData) {
                   }
 
                   return (
-                    <Link href={`/works/${e.slug.current}`} key={i}>
-                      <a
-                        className={`${layout} block group mb-4 md:mb-0 ${disabledClass}`}
-                      >
-                        
-                        <ReactCursorPosition>
-                          <Teaser
-                            height={height}
-                            image={e.thumbnailImage}
-                          />
-                        </ReactCursorPosition>
+                    <div className={`${layout} block mb-4 md:mb-0 ${disabledClass}`}>
+                      <Link href={`/works/${e.slug.current}`} key={i}>
+                        <a
+                          className={`block group`}
+                        >
+                          
+                          <ReactCursorPosition>
+                            <Teaser
+                              height={height}
+                              image={e.thumbnailImage}
+                            />
+                          </ReactCursorPosition>
 
-                        <span className="block overflow-hidden relative">
-                          <span className="block text-lg leading-none mb-1">{e.title}</span>
-                          {/* <span className="block text-lg leading-none mb-1 md:opacity-0 md:group-hover:opacity-100 delay-[0ms]">{e.title}</span> */}
-                        </span>
-                        <span className="block overflow-hidden relative">
-                          <span className="block text-lg leading-none mb-1 text-gray capitalize">{e.expertise.replace(/-/g, ' ')}</span>
-                          {/* <span className="block text-lg leading-none mb-1 md:opacity-0 md:group-hover:opacity-100 delay-[110ms] text-gray capitalize">{e.expertise.replace(/-/g, ' ')}</span> */}
-                        </span>
-                      </a>
-                    </Link>
+                          <span className="block overflow-hidden relative">
+                            <span className="block text-lg leading-none mb-1">{e.title}</span>
+                          </span>
+                        </a>
+                      </Link>
+                      
+                      <span className="block overflow-hidden relative">
+                        <button 
+                          onClick={() => updateTypeAndTray(e.sector)}
+                          className="block text-lg leading-none mb-1 text-gray hover:text-black focus-visible:text-black capitalize outline-none border-none focus-visible:outline-none focus:border-none"
+                        >
+                          {e.sector.replace(/-/g, ' ')}
+                        </button>
+                      </span>
+                    </div>
                   )
                 })}
               </ul>
