@@ -22,23 +22,20 @@ export default function Header({ active, works }) {
           
           <div className="hidden md:flex space-x-1 col-start-3 col-span-2">
             <Link href="/studio">
-              <a className={`block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden ${ (active == 'studio' || active == 'home') ? 'text-black' : 'text-gray' } ${ (active == 'home' || active !== 'studio') ? 'group' : '' }`}>
-                <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Studio,</span>
-                <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Studio,</span>
+              <a className={`block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden hover:text-black focus-visible:text-black ${ (active == 'studio' || active == 'home') ? 'text-black' : 'text-gray' } hover:text-black focus-visible:text-black ${ (active == 'home' || active !== 'studio') ? 'group' : '' }`}>
+                <span className="block">Studio,</span>
               </a>
             </Link>
 
             <Link href="/works">
-              <a className={`block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight ${ (active == 'works' || active == 'home') ? 'text-black' : 'text-gray' } ${ (active == 'home' || active !== 'works') ? 'group' : '' }`}>
+              <a className={`block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight hover:text-black focus-visible:text-black ${ (active == 'works' || active == 'home') ? 'text-black' : 'text-gray' } hover:text-black focus-visible:text-black ${ (active == 'home' || active !== 'works') ? 'group' : '' }`}>
                 <div className="relative overflow-hidden">
-                  <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Works</span>
-                  <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Works</span>
+                  <span className="block">Works</span>
                 </div>
 
                 <span className="absolute top-0 right-0 text-[11px] leading-none translate-x-[14px] translate-y-[3px]">
                   <span className="block relative overflow-hidden">
-                    <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">{works ?? null}</span>
-                    <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">{works ?? null}</span>
+                    <span className="block">{works ?? null}</span>
                   </span>
                 </span>
               </a>
@@ -46,68 +43,110 @@ export default function Header({ active, works }) {
           </div>
           
           <div className="flex md:hidden col-start-8 col-span-3 justify-end">
-            <button onClick={toggleMenu} className={`block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden ${menuOpen ? 'text-white' : '' }`}>
-              <span className="block group-hover:translate-y-full">Menu</span>
+            <button onClick={toggleMenu} className={`block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden ${menuOpen ? 'text-black' : '' }`}>
+              <span className="block">
+                <span className="block w-[39px] bg-black h-[3px] mb-[5px]"></span>
+                <span className="block w-[39px] bg-black h-[3px]"></span>
+              </span>
             </button>
           </div>
 
           <div className="hidden md:flex space-x-1 col-span-2 col-start-7">
             <Link href="/journal">
-              <a className={`block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden ${ (active == 'journal' || active == 'home') ? 'text-black' : 'text-gray' } ${ (active == 'home' || active !== 'journal') ? 'group' : '' }`}>
-                <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Journal,</span>
-                <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Journal,</span>
+              <a className={`block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden hover:text-black focus-visible:text-black ${ (active == 'journal' || active == 'home') ? 'text-black' : 'text-gray' } hover:text-black focus-visible:text-black ${ (active == 'home' || active !== 'journal') ? 'group' : '' }`}>
+                <span className="block">Journal,</span>
               </a>
             </Link>
 
             <Link href="/contact">
-              <a className={`block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden ${ (active == 'contact' || active == 'home') ? 'text-black' : 'text-gray' } ${ (active == 'home' || active !== 'contact') ? 'group' : '' }`}>
-                <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Contact</span>
-                <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Contact</span>
+              <a className={`block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden hover:text-black focus-visible:text-black ${ (active == 'contact' || active == 'home') ? 'text-black' : 'text-gray' } hover:text-black focus-visible:text-black ${ (active == 'home' || active !== 'contact') ? 'group' : '' }`}>
+                <span className="block">Contact</span>
               </a>
             </Link>
           </div>
           
           <div className="hidden md:block col-span-2 col-start-9 text-right">
-            <a href="https://www.instagram.com/west_of_west/?hl=en" target="_blank" rel="noreferrer noopener" className={`block lg:text-xl xl:text-2xl md:leading-tight xl:leading-tight group relative overflow-hidden ${ active == 'home' ? 'text-black' : 'text-gray' }`}>
-              <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Instagram</span>
-              <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Instagram</span>
+            <a href="https://www.instagram.com/west_of_west/?hl=en" target="_blank" rel="noreferrer noopener" className={`inline-block lg:text-xl xl:text-2xl md:leading-tight xl:leading-tight group relative overflow-hidden hover:text-black focus-visible:text-black ${ active == 'home' ? 'text-black' : 'text-gray' }`}>
+              <span className="block">Instagram</span>
             </a>
           </div>
         </div>
       </header>
       
       {menuOpen && (
-        <div className="block md:hidden fixed inset-0 w-full h-full bg-black text-white z-[50] pt-24 px-2">
-          <ul>
-            <li className="block">
-              <Link href="/">
-                <a onClick={() => setMenuOpen(false)} className={`block text-[12.5vw] relative leading-tight`}>Home</a>
-              </Link>
-            </li>
-            <li className="block">
-              <Link href="/works">
-                <a onClick={() => setMenuOpen(false)} className={`block text-[12.5vw] relative leading-tight`}>Works</a>
-              </Link>
-            </li>
-            <li className="block">
+        <div className="flex flex-wrap items-center md:hidden fixed inset-0 w-full h-full bg-white z-[50] pt-24 px-2">
+          <ul className="w-full -mt-20">
+            <li className="block border-b border-t">
               <Link href="/studio">
-                <a onClick={() => setMenuOpen(false)} className={`block text-[12.5vw] relative leading-tight`}>Studio</a>
+                <a onClick={() => setMenuOpen(false)} className={`block text-[50px] relative leading-[1] pt-[7px] pb-[11px]`}>Studio</a>
               </Link>
             </li>
-            <li className="block">
+            <li className="block border-b">
+              <Link href="/works">
+                <a onClick={() => setMenuOpen(false)} className={`block text-[50px] relative leading-[1] pt-[7px] pb-[11px]`}>
+                  <div className="relative inline-block">
+                    Works
+
+                    <span className="absolute top-0 right-0 text-[13px] leading-none translate-x-[14px] translate-y-[3px]">
+                      <span className="block relative overflow-hidden">
+                        <span className="block">{works ?? null}</span>
+                      </span>
+                    </span>
+                  </div>
+                </a>
+              </Link>
+            </li>
+            <li className="block border-b">
               <Link href="/journal">
-                <a onClick={() => setMenuOpen(false)} className={`block text-[12.5vw] relative leading-tight`}>Journal</a>
+                <a onClick={() => setMenuOpen(false)} className={`block text-[50px] relative leading-[1] pt-[7px] pb-[11px]`}>Journal</a>
               </Link>
             </li>
-            <li className="block">
+            <li className="block border-b mb-12">
               <Link href="/contact">
-                <a onClick={() => setMenuOpen(false)} className={`block text-[12.5vw] relative leading-tight`}>Contact</a>
+                <a onClick={() => setMenuOpen(false)} className={`block text-[50px] relative leading-[1] pt-[7px] pb-[11px]`}>Contact</a>
               </Link>
             </li>
+
             <li className="block">
-              <a onClick={() => setMenuOpen(false)} href="https://www.instagram.com/west_of_west/?hl=en" target="_blank" rel="noreferrer noopener" className={`block text-[12.5vw] relative leading-tight`}>Instagram</a>
+              <a onClick={() => setMenuOpen(false)} href="tel:971-266-1001" target="_blank" rel="noreferrer noopener" className={`block text-[18px] relative leading-tight mb-1 underline`}>971-266-1001</a>
+            </li>
+            <li className="block">
+              <a onClick={() => setMenuOpen(false)} href="mailto:info@westofwest.com" target="_blank" rel="noreferrer noopener" className={`block text-[18px] relative leading-tight mb-1 underline`}>info@westofwest.com</a>
+            </li>
+            <li className="block">
+              <a onClick={() => setMenuOpen(false)} href="https://www.instagram.com/west_of_west/?hl=en" target="_blank" rel="noreferrer noopener" className={`block text-[18px] relative leading-tight mb-1 underline`}>Instagram</a>
             </li>
           </ul>
+
+          <div className="flex items-end w-full absolute bottom-0 left-0 right-0 p-2">
+            <div className="relative flex overflow-x-hidden text-xs w-full md:w-auto">
+              <div className="animate-marquee whitespace-nowrap">
+                <span className="mx-[3px] leading-tight uppercase">Quality above all else</span>
+                <span className="mx-[3px] leading-tight uppercase">—</span>
+                <span className="mx-[3px] leading-tight uppercase">Practise takes practise</span>
+                <span className="mx-[3px] leading-tight uppercase">—</span>
+                <span className="mx-[3px] leading-tight uppercase">Quality above all else</span>
+                <span className="mx-[3px] leading-tight uppercase">—</span>
+                <span className="mx-[3px] leading-tight uppercase">Practise takes practise</span>
+                <span className="mx-[3px] leading-tight uppercase">—</span>
+                <span className="mx-[3px] leading-tight uppercase">Quality above all else</span>
+                <span className="mx-[3px] leading-tight uppercase">—</span>
+              </div>
+
+              <div className="absolute top-0 animate-marquee2 whitespace-nowrap">
+                <span className="mx-[3px] leading-tight uppercase">Quality above all else</span>
+                <span className="mx-[3px] leading-tight uppercase">—</span>
+                <span className="mx-[3px] leading-tight uppercase">Practise takes practise</span>
+                <span className="mx-[3px] leading-tight uppercase">—</span>
+                <span className="mx-[3px] leading-tight uppercase">Quality above all else</span>
+                <span className="mx-[3px] leading-tight uppercase">—</span>
+                <span className="mx-[3px] leading-tight uppercase">Practise takes practise</span>
+                <span className="mx-[3px] leading-tight uppercase">—</span>
+                <span className="mx-[3px] leading-tight uppercase">Quality above all else</span>
+                <span className="mx-[3px] leading-tight uppercase">—</span>
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </>

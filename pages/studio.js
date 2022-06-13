@@ -161,24 +161,20 @@ export default function Studio(initialData) {
                     return (
                       <li className="block" key={i}>
                         <span
-                          className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group transition-opacity ease-in-out duration-300 relative archive-list__item`}
+                          className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item`}
                         >
                           <span className={`absolute top-0 left-0 right-0 w-full h-[1px] bg-[#EFEFEF] ${ i == 0 ? 'mt-[0px]' : 'mt-[-1px]' }`}></span>
                           <span className="block w-auto uppercase text-xs leading-tight overflow-hidden relative pr-4 md:pr-12 xl:pr-20 self-center">
-                            <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">WW.{e.location == 'la' ? 'LA' : 'OR'}</span>
-                            <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">WW.{e.location == 'la' ? 'LA' : 'OR'}</span>
+                            <span className="block00">WW.{e.location == 'la' ? 'LA' : 'OR'}</span>
                           </span>
                           <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
-                            <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">{e.name}</span>
-                            <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">{e.name}</span>
+                            <span className="block">{e.name}</span>
                           </span>
                           <span className="flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left hidden md:block relative overflow-hidden pr-3">
-                            <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300 capitalize">{e.principle && 'Principle' }</span>
-                            <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300 capitalize">{e.principle && 'Principle' }</span>
+                            <span className="blockation-300 capitalize">{e.principle && 'Principle' }</span>
                           </span>
                           <span className="block w-[140px] md:w-[150px] xl:w-[160px] md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-right relative overflow-hidden">
-                            <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">{e.role}</span>
-                            <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">{e.role}</span>
+                            <span className="block">{e.role}</span>
                           </span>
                         </span>
                       </li>

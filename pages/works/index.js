@@ -36,7 +36,7 @@ const query = `{
       current
     }
   },
-  "worksArchive": *[_type == "works"] {
+  "worksArchive": *[_type == "works"] | order(projectCode desc) {
     title,
     thumbnailImage {
       asset-> {
@@ -92,7 +92,7 @@ export default function Works(initialData) {
     if (e.sector === 'living') livingLength++;
     if (e.expertise == 'architecture-and-interiors' || e.expertise == 'architecture') architectureLength++;
     if (e.expertise == 'architecture-and-interiors' || e.expertise == 'interiors') interiorsLength++;
-    
+
   }
 
   const updateImage = (e) => {
@@ -340,7 +340,7 @@ export default function Works(initialData) {
                           onClick={() => updateTypeAndTray(e.sector)}
                           className="block text-lg leading-none mb-1 text-gray hover:text-black focus-visible:text-black capitalize outline-none border-none focus-visible:outline-none focus:border-none"
                         >
-                          {e.sector.replace(/-/g, ' ')}
+                          {e.sector.replace(/-/g, ' ').replace('and', '&')}
                         </button>
                       </span>
                     </div>
@@ -350,7 +350,7 @@ export default function Works(initialData) {
             )}
             { active == 'archive' && (
               <div className="grid grid-cols-10 gap-5 mt-6 md:mt-8 items-start">
-                <div className="col-span-2 col-start-0">
+                <div className="col-span-2 col-start-0 md:sticky md:top-32 xl:top-40">
                   <div className={`w-full h-[12vw] relative overflow-hidden hidden md:block opacity-0 ${hovering ? 'opacity-100' : 'opacity-0' }`}>
                     <Image
                       image={worksArchive[current].thumbnailImage}
@@ -382,30 +382,29 @@ export default function Works(initialData) {
                       <li className="block" key={i}>
                         <Link href={`/works/${e.slug.current}`} key={i}>
                           <a
-                            className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group transition-opacity ease-in-out duration-300 relative archive-list__item ${archiveDisabledClass}`}
+                            className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item ${archiveDisabledClass}`}
                             onMouseEnter={() => updateImage(i)}
                             onMouseLeave={() => updateImage(i)}
                           >
                             <span className={`absolute top-0 left-0 right-0 w-full h-[1px] bg-[#EFEFEF] ${ i == 0 ? 'mt-[0px]' : 'mt-[-1px]' }`}></span>
-                            <span className="block w-auto uppercase text-xs leading-tight overflow-hidden relative pr-4 md:pr-12 xl:pr-20 self-center">
-                              <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">WW.{e.projectCode}</span>
-                              <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">WW.{e.projectCode}</span>
+                            <span className="block w-[58px] md:w-20 lg:w-24 xl:w-32 uppercase text-[10px] md:text-xs leading-tight overflow-hidden relative pr-4 md:pr-12 xl:pr-20 self-center">
+                              <span className="block tabular-nums">WW.{e.projectCode}</span>
                             </span>
                             <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
-                              <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">{e.title}</span>
-                              <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">{e.title}</span>
+                              <span className="block">{e.title}</span>
                             </span>
                             <span className="flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left hidden md:block relative overflow-hidden pr-3">
-                              <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300 capitalize">{e.expertise.replace(/-/g, ' ')}</span>
-                              <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300 capitalize">{e.expertise.replace(/-/g, ' ')}</span>
+                              <span className="block capitalize">{e.expertise.replace(/-/g, ' ').replace('and', '&')}</span>
                               </span>
-                            <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left relative overflow-hidden pr-3">
-                              <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">{e.locationCity}{e.locationState && (<>, {e.locationState}</>)}</span>
-                              <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">{e.locationCity}{e.locationState && (<>, {e.locationState}</>)}</span>
+                            <span className="block w-[25px] md:flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left relative overflow-hidden pr-3">
+                              <span className="block">
+                                <span className="hidden md:block">{e.locationCity}{e.locationState && (<>, {e.locationState}</>)}</span>
+
+                                <span className="block md:hidden">{e.locationState && (<>{e.locationState}</>)}</span>
+                              </span>
                             </span>
                             <span className="block w-[140px] md:w-[150px] xl:w-[160px] md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-right relative overflow-hidden">
-                              <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">{e.year}</span>
-                              <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">{e.year}</span>
+                              <span className="block">{e.year}</span>
                             </span>
                           </a>
                         </Link>

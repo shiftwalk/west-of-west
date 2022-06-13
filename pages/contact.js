@@ -82,16 +82,14 @@ export default function Contact(initialData) {
                 <li className="block">
                   <a
                     href={`mailto:${contact.generalEmail}`}
-                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group transition-opacity ease-in-out duration-300 relative archive-list__item`}
+                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item`}
                   >
                     <span className="absolute top-0 left-0 right-0 w-full h-[1px] bg-[#EFEFEF] mt-[0px]mt-[-1px]"></span>
                     <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
-                      <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">General Enquiries</span>
-                      <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">General Enquiries</span>
+                      <span className="block">General Enquiries</span>
                     </span>
                     <span className="block w-auto md:w-auto xl:w-auto md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-right relative overflow-hidden">
-                      <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">{contact.generalEmail}</span>
-                      <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">{contact.generalEmail}</span>
+                      <span className="block">{contact.generalEmail}</span>
                       <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                     </span>
                   </a>
@@ -99,16 +97,14 @@ export default function Contact(initialData) {
                 <li className="block">
                   <a
                     href={`mailto:${contact.newBusinessEmail}`}
-                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group transition-opacity ease-in-out duration-300 relative archive-list__item`}
+                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item`}
                   >
                     <span className="absolute top-0 left-0 right-0 w-full h-[1px] bg-[#EFEFEF] mt-[-1px]"></span>
                     <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
-                      <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">New Business</span>
-                      <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">New Business</span>
+                      <span className="block">New Business</span>
                     </span>
                     <span className="block w-auto md:w-auto xl:w-auto md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-right relative overflow-hidden">
-                      <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">{contact.newBusinessEmail}</span>
-                      <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">{contact.newBusinessEmail}</span>
+                      <span className="block">{contact.newBusinessEmail}</span>
                       <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                     </span>
                   </a>
@@ -116,16 +112,14 @@ export default function Contact(initialData) {
                 <li className="block">
                   <a
                     href={`mailto:${contact.pressEmail}`}
-                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group transition-opacity ease-in-out duration-300 relative archive-list__item`}
+                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item`}
                   >
                     <span className="absolute top-0 left-0 right-0 w-full h-[1px] bg-[#EFEFEF] mt-[-1px]"></span>
                     <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
-                      <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Press</span>
-                      <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Press</span>
+                      <span className="block">Press</span>
                     </span>
                     <span className="block w-auto md:w-auto xl:w-auto md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-right relative overflow-hidden">
-                      <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">{contact.pressEmail}</span>
-                      <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">{contact.pressEmail}</span>
+                      <span className="block">{contact.pressEmail}</span>
                       <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                     </span>
                   </a>
@@ -133,16 +127,14 @@ export default function Contact(initialData) {
                 <li className="block">
                   <a
                     href={`mailto:${contact.employmentEmail}`}
-                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group transition-opacity ease-in-out duration-300 relative archive-list__item`}
+                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item`}
                   >
                     <span className="absolute top-0 left-0 right-0 w-full h-[1px] bg-[#EFEFEF] mt-[-1px]"></span>
                     <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
-                      <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Employment</span>
-                      <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Employment</span>
+                      <span className="block">Employment</span>
                     </span>
                     <span className="block w-auto md:w-auto xl:w-auto md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-right relative overflow-hidden">
-                      <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">{contact.employmentEmail}</span>
-                      <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">{contact.employmentEmail}</span>
+                      <span className="block">{contact.employmentEmail}</span>
                       <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                     </span>
                   </a>
@@ -150,16 +142,14 @@ export default function Contact(initialData) {
                 <li className="block">
                   <a
                     href={`tel:${contact.telephone}`}
-                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group transition-opacity ease-in-out duration-300 relative archive-list__item`}
+                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item`}
                   >
                     <span className="absolute top-0 left-0 right-0 w-full h-[1px] bg-[#EFEFEF] mt-[-1px]"></span>
                     <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
-                      <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">Call</span>
-                      <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">Call</span>
+                      <span className="block">Call</span>
                     </span>
                     <span className="block w-auto md:w-auto xl:w-auto md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-right relative overflow-hidden">
-                      <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300">{contact.telephone}</span>
-                      <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300">{contact.telephone}</span>
+                      <span className="block">{contact.telephone}</span>
                       <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                     </span>
                   </a>
