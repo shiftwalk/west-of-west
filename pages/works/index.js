@@ -92,6 +92,7 @@ export default function Works(initialData) {
     if (e.sector === 'living') livingLength++;
     if (e.expertise == 'architecture-and-interiors' || e.expertise == 'architecture') architectureLength++;
     if (e.expertise == 'architecture-and-interiors' || e.expertise == 'interiors') interiorsLength++;
+    
   }
 
   const updateImage = (e) => {
@@ -113,7 +114,7 @@ export default function Works(initialData) {
   
   const updateTypeAndTray = (e) => {
     setActiveFilters(true)
-    
+
     if (e == 'all') {
       setActiveFilters(false)
     }
