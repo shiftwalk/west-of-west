@@ -17,11 +17,27 @@ const query = `{
     thumbnailImage {
       asset-> {
         ...
-      }
+      },
+      overrideVideo {
+        asset-> {
+          ...
+        }
+      },
+      caption,
+      alt,
+      hotspot {
+        x,
+        y
+      },
     },
     heroImages[] {
       asset-> {
         ...,
+      },
+      overrideVideo {
+        asset-> {
+          ...
+        }
       },
       caption,
       alt,
@@ -41,11 +57,27 @@ const query = `{
     thumbnailImage {
       asset-> {
         ...
-      }
+      },
+      overrideVideo {
+        asset-> {
+          ...
+        }
+      },
+      caption,
+      alt,
+      hotspot {
+        x,
+        y
+      },
     },
     heroImages[] {
       asset-> {
         ...,
+      },
+      overrideVideo {
+        asset-> {
+          ...
+        }
       },
       caption,
       alt,

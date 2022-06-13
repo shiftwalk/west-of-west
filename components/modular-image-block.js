@@ -21,6 +21,11 @@ export default function ModularImageBlock({ image, layout }) {
     cols = 'col-span-6'
     start = 'col-start-3'
   }
+  if (layout == 'centered-portrait') {
+    width = 1200
+    cols = 'col-span-6 md:col-span-4'
+    start = 'col-start-3 md:col-start-4'
+  }
   if (layout == 'right-aligned') {
     width = 900
     cols = 'col-span-7'
