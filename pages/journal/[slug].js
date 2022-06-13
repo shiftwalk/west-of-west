@@ -6,9 +6,23 @@ import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import SanityPageService from '@/services/sanityPageService'
 import Link from 'next/link'
+import Image from '@/components/image'
+import SanityBlockContent from '@sanity/block-content-to-react'
 
 const query = `*[_type == "journal" && slug.current == $slug][0]{
   title,
+  contentText,
+  contentImages[] {
+    asset-> {
+      ...,
+    },
+    caption,
+    alt,
+    hotspot {
+      x,
+      y
+    },
+  },
   slug {
     current
   },
@@ -20,7 +34,7 @@ const query = `*[_type == "journal" && slug.current == $slug][0]{
 const pageService = new SanityPageService(query)
 
 export default function JournalSlug(initialData) {
-  const { data: { title, slug, works } } = pageService.getPreviewHook(initialData)()
+  const { data: { title, contentText, contentImages, slug, works } } = pageService.getPreviewHook(initialData)()
 
   return (
     <Layout>
@@ -33,18 +47,42 @@ export default function JournalSlug(initialData) {
           initial="initial"
           animate="enter"
           exit="exit"
-          className="pt-24 md:pt-32 xl:pt-40"
+          className="flex flex-wrap -m-2"
         >
-          <m.article>
-            <h1 className="text-3xl md:text-4xl xl:text-5xl leading-[1.1] md:leading-[1.1] xl:leading-[1.1] mb-4 md:max-w-[60vw]">{title}</h1>
-            <Link href="/journal"><a className="inline-block underline">← Back to all Journal entries</a></Link>
-
-            <div className="content max-w-3xl mb-4 mt-4 md:mt-6">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
-
-              <p>Velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <m.article className="w-full md:w-1/2 h-screen p-2 pt-16 md:pt-20 xl:pt-20 sticky top-0 flex flex-wrap">
+            <div className="w-full">
+              <div className="max-w-[450px]">
+                <h1 className="text-3xl md:text-4xl xl:text-5xl leading-[1.1] md:leading-[1.1] xl:leading-[1.1] mb-4 md:max-w-[60vw]">{title}</h1>
+              </div>
             </div>
+
+            {contentText && (
+              <div className="w-full mt-auto">
+                <div className="content max-w-[400px]">
+                  <SanityBlockContent serializers={{ container: ({ children }) => children }} blocks={contentText} />
+                </div>
+              </div>
+            )}
           </m.article>
+          <m.aside className="w-full md:w-1/2 pt-16 md:pt-32 xl:pt-48 p-2 md:pl-5 xl:pl-0 self-end">
+          {contentImages && (
+            <div className="w-full">
+                {contentImages.map((e, i) => {
+                  return (
+                    <div className={`relative overflow-hidden w-full ${(i + 1) !== contentImages.length ? 'mb-4' : 'mb-0'}`} key={i}>
+                      <Image
+                        image={e}
+                        focalPoint={e.asset.hotspot}
+                        layout="responsive"
+                        className={`block w-full`}
+                        noCaption
+                      />
+                    </div>
+                  )
+                })}
+            </div>
+          )}
+          </m.aside>
         </m.main>
       </LazyMotion>
 
