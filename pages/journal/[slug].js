@@ -25,6 +25,23 @@ const query = `*[_type == "journal" && slug.current == $slug][0]{
       y
     },
   },
+  projectLinks[]->{
+    title,
+    slug {
+      current
+    }
+  },
+  journalLinks[]->{
+    title,
+    shortTitle,
+    slug {
+      current
+    }
+  },
+  externalLinks[] {
+    linkTitle,
+    linkUrl
+  },
   slug {
     current
   },
@@ -60,7 +77,7 @@ const query = `*[_type == "journal" && slug.current == $slug][0]{
 const pageService = new SanityPageService(query)
 
 export default function JournalSlug(initialData) {
-  const { data: { title, contentText, contentImages, slug, works, related } } = pageService.getPreviewHook(initialData)()
+  const { data: { title, contentText, contentImages, journalLinks, projectLinks, externalLinks, slug, works, related } } = pageService.getPreviewHook(initialData)()
 
   return (
     <Layout>
@@ -80,6 +97,51 @@ export default function JournalSlug(initialData) {
               <div className="max-w-[450px]">
                 <h1 className="text-3xl md:text-4xl xl:text-5xl leading-[1.1] md:leading-[1.1] xl:leading-[1.1] mb-4 md:max-w-[60vw]">{title}</h1>
               </div>
+
+              {(projectLinks || externalLinks || journalLinks) && (
+                <div className="mt-8">
+                  
+                  {projectLinks.map((e, i) => {
+                    return (
+                      <div key={i}>
+                        <Link href={`/works/${e.slug.current}`}>
+                          <a className="inline-block text-xl md:text-xl group relative overflow-hidden">
+                            <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300 delay-[50ms]">See {e.title}</span>
+                            <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300 delay-[50ms]">See {e.title}</span>
+                            <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                          </a>
+                        </Link>
+                      </div>
+                    )
+                  })}
+                  
+                  {journalLinks.map((e, i) => {
+                    return (
+                      <div key={i}>
+                        <Link href={`/journal/${e.slug.current}`}>
+                          <a className="inline-block text-xl md:text-xl group relative overflow-hidden">
+                            <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300 delay-[50ms]">See {e.shortTitle ? e.shortTitle : e.title}</span>
+                            <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300 delay-[50ms]">See {e.shortTitle ? e.shortTitle : e.title}</span>
+                            <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                          </a>
+                        </Link>
+                      </div>
+                    )
+                  })}
+                  
+                  {externalLinks.map((e, i) => {
+                    return (
+                      <div key={i}>
+                        <a target="_blank" rel="noreferrer noopener" href={e.linkUrl} className="inline-block text-xl md:text-xl group relative overflow-hidden">
+                          <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300 delay-[50ms]">{e.linkTitle}</span>
+                          <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300 delay-[50ms]">See {e.linkTitle}</span>
+                          <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                        </a>
+                      </div>
+                    )
+                  })}
+                </div>
+              )}
             </div>
 
             {contentText && (
@@ -111,7 +173,7 @@ export default function JournalSlug(initialData) {
           </m.aside>
         </m.main>
 
-        <m.div className="pt-20 md:pt-32 xl:pt-40">
+        <m.div className="pt-20 md:pt-40 xl:pt-56">
           <div className="mb-3">
             <span className="inline-block text-xl leading-tight lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight">Latest News</span>
             <Link href="/journal">

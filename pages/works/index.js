@@ -246,48 +246,48 @@ export default function Works(initialData) {
                     layout = 'col-span-10 md:col-start-6 md:col-span-2'
                     height = 'h-[60vw] md:h-[13vw]'
                   }
-                  if (i == 2 || i == 14 || i == 25) {
+                  if (i == 2 || i == 14 || i == 26) {
                     layout = 'col-span-10 md:col-start-9 md:col-span-2'
                     height = 'h-[60vw] md:h-[19vw]'
                   }
-                  if (i == 3 || i == 15 || i == 26) {
+                  if (i == 3 || i == 15 || i == 27) {
                     layout = 'col-span-10 md:col-span-2'
                     height = 'h-[60vw] md:h-[19vw]'
                   }
-                  if (i == 4 || i == 16 || i == 27) {
+                  if (i == 4 || i == 16 || i == 28) {
                     layout = 'col-span-10 md:col-start-4 md:col-span-2'
                     height = 'h-[60vw] md:h-[13vw]'
                   }
-                  if (i == 5 || i == 17 || i == 28) {
+                  if (i == 5 || i == 17 || i == 29) {
                     layout = 'col-span-10 md:col-start-7 md:col-span-4'
                     height = 'h-[60vw] md:h-[27vw]'
                   }
-                  if (i == 6 || i == 18 || i == 29) {
+                  if (i == 6 || i == 18 || i == 30) {
                     layout = 'col-span-10 md:col-span-3'
                     height = 'h-[60vw] md:h-[19vw]'
                   }
 
-                  if (i == 7 || i == 19 || i == 30) {
+                  if (i == 7 || i == 19 || i == 31) {
                     layout = 'col-span-10 md:col-span-2 md:col-start-6'
                     height = 'h-[60vw] md:h-[18vw]'
                   }
 
-                  if (i == 8 || i == 20 || i == 31) {
+                  if (i == 8 || i == 20 || i == 32) {
                     layout = 'col-span-10 md:col-span-2 md:col-start-9'
                     height = 'h-[60vw] md:h-[13vw]'
                   }
 
-                  if (i == 9 || i == 21 || i == 32) {
+                  if (i == 9 || i == 21 || i == 33) {
                     layout = 'col-span-10 md:col-span-2'
                     height = 'h-[60vw] md:h-[24vw]'
                   }
 
-                  if (i == 10 || i == 22 || i == 33) {
+                  if (i == 10 || i == 22 || i == 34) {
                     layout = 'col-span-10 md:col-span-2 md:col-start-4'
                     height = 'h-[60vw] md:h-[18vw]'
                   }
 
-                  if (i == 11 || i == 23 || i == 34) {
+                  if (i == 11 || i == 23 || i == 35) {
                     layout = 'col-span-10 md:col-span-4 md:col-start-7'
                     height = 'h-[60vw] md:h-[27vw]'
                   }
@@ -309,6 +309,7 @@ export default function Works(initialData) {
                       <a
                         className={`${layout} block group mb-4 md:mb-0 ${disabledClass}`}
                       >
+                        
                         <ReactCursorPosition>
                           <Teaser
                             height={height}

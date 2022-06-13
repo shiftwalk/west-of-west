@@ -75,31 +75,31 @@ export default function Journal(initialData) {
                 let height = 'h-[60vw] md:h-[13vw]'
                 // let disabledClass = 'grayscale opacity-30'
 
-                if (i == 0) {
+                if (i == 0 || i == 8  || i == 17) {
                   layout = 'md:col-start-1'
                 }
-                if (i == 1) {
+                if (i == 1 || i == 9  || i == 18) {
                   layout = 'md:col-start-6'
                 }
-                if (i == 2) {
+                if (i == 2 || i == 10  || i == 19) {
                   layout = 'md:col-start-9'
                 }
-                if (i == 3) {
+                if (i == 3 || i == 11  || i == 20) {
                   layout = 'md:col-start-2'
                 }
-                if (i == 4) {
+                if (i == 4 || i == 12  || i == 21) {
                   layout = 'md:col-start-4'
                 }
-                if (i == 5) {
+                if (i == 5 || i == 13  || i == 22) {
                   layout = 'md:col-start-9'
                 }
-                if (i == 6) {
+                if (i == 6 || i == 14 || i == 23) {
                   layout = 'md:col-start-0'
                 }
-                if (i == 7) {
+                if (i == 7 || i == 15 || i == 24) {
                   layout = 'md:col-start-7'
                 }
-                if (i == 8) {
+                if (i == 8 || i == 16 || i == 25) {
                   layout = 'md:col-start-1'
                 }
 
