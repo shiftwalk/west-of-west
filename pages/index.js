@@ -160,8 +160,7 @@ export default function Home(initialData) {
                     </ReactCursorPosition>
 
                     <span className="inline-block overflow-hidden relative text-lg md:text-xl xl:text-2xl">
-                      <span className="inline-block group-hover:translate-y-full transition-translate ease-in-out duration-300 delay-[50ms]">Explore Works</span>
-                      <span className="inline-block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300 delay-[50ms]">Explore Works</span>
+                      <span className="inline-block">Explore Works</span>
                       <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                     </span>
                   </a>
@@ -181,8 +180,7 @@ export default function Home(initialData) {
                     </ReactCursorPosition>
 
                     <span className="inline-block overflow-hidden relative text-lg md:text-xl xl:text-2xl">
-                      <span className="inline-block group-hover:translate-y-full transition-translate ease-in-out duration-300 delay-[50ms]">See Studio</span>
-                      <span className="inline-block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300 delay-[50ms]">See Studio</span>
+                      <span className="inline-block">See Studio</span>
                       <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                     </span>
                   </a>
@@ -202,8 +200,7 @@ export default function Home(initialData) {
                     </ReactCursorPosition>
 
                     <span className="inline-block overflow-hidden relative text-lg md:text-xl xl:text-2xl">
-                      <span className="inline-block group-hover:translate-y-full transition-translate ease-in-out duration-300 delay-[50ms]">{home.featuredJournalEntry.title}</span>
-                      <span className="inline-block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300 delay-[50ms]">{home.featuredJournalEntry.title}</span>
+                      <span className="inline-block ">{home.featuredJournalEntry.title}</span>
                       <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                     </span>
                   </a>

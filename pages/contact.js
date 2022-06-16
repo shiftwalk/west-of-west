@@ -47,6 +47,7 @@ export default function Contact(initialData) {
       
       <LazyMotion features={domAnimation}>
         <m.main
+          variants={fade}
           initial="initial"
           animate="enter"
           exit="exit"

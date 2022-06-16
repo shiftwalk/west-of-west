@@ -189,6 +189,7 @@ export default function WorksSlug(initialData) {
       
       <LazyMotion features={domAnimation}>
         <m.main
+          variants={fade}
           initial="initial"
           animate="enter"
           exit="exit"

@@ -64,6 +64,7 @@ export default function Error404(initialData) {
       
       <LazyMotion features={domAnimation}>
         <m.main
+          variants={fade}
           initial="initial"
           animate="enter"
           exit="exit"
