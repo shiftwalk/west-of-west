@@ -69,15 +69,13 @@ export default function Footer({ noPad }) {
           <div>
             <div>
               <a className="inline-block mb-[-6px] leading-tight group relative overflow-hidden" href="#">
-                <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-[400ms] delay-[50ms]">971-266-1001</span>
-                <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-[400ms] delay-[50ms]">971-266-1001</span>
+                <span className="block">971-266-1001</span>
                 <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
               </a>
             </div>
             <div>
               <a className="inline-block leading-tight group relative overflow-hidden mb-[-5px]" href="#">
-                <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-[400ms] delay-[50ms]">info@westofwest.com</span>
-                <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-[400ms] delay-[50ms]">info@westofwest.com</span>
+                <span className="block">info@westofwest.com</span>
                 <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
               </a>
             </div>
@@ -89,8 +87,7 @@ export default function Footer({ noPad }) {
             <span className="flex items-center w-full leading-tight space-x-1 md:justify-end">
               <span className="block">Site by</span>
               <a href="https://shiftwalk.studio" target="_blank" rel="noopener noreferrer" className="block relative overflow-hidden group">
-                <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-[400ms] delay-[50ms]">ShiftWalk</span>
-                <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-[400ms] delay-[50ms]">ShiftWalk</span>
+                <span className="block">ShiftWalk</span>
                 <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
               </a>
             </span>
