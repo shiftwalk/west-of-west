@@ -117,6 +117,7 @@ export default function Home(initialData) {
       
       <LazyMotion features={domAnimation}>
         <m.div
+          variants={fade}
           initial="initial"
           animate="enter"
           exit="exit"

@@ -2,7 +2,7 @@ import Img from 'next/image'
 import sanity from '@/services/sanity'
 import { useNextSanityImage } from 'next-sanity-image'
 
-export default function Image({ image, layout, widthOverride, heightOverride, focalPoint, className, priority, noCaption }) {
+export default function Image({ image, layout, widthOverride, heightOverride, focalPoint, className, priority, noCaption, noBg }) {
   // Pass in custom URL builder props
   const myCustomImageBuilder = (imageUrlBuilder, options) => {
     return imageUrlBuilder
@@ -38,7 +38,7 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
       )}
     </div>
 	) : (
-    <figure className={`image bg-gray bg-opacity-20 ${className} ${layout == 'fill' && 'cover-image' }`}>
+    <figure className={`image ${noBg ? '' : 'bg-gray'} bg-opacity-20 ${className} ${layout == 'fill' && 'cover-image' }`}>
 		  <Img {...imageProps} {...attributes} />
       
       {(image.caption && !noCaption) && (

@@ -8,7 +8,7 @@ export default function ModularDoubleImageBlock({ image1, image2, text, layout }
   return (
     <div className={`grid grid-cols-10 md:grid-rows-1 gap-5`}>
       <div className={`col-span-10 md:col-span-5 md:row-start-1 relative overflow-hidden mb-8 md:mb-0 ${layout == 'left-aligned' ? 'md:col-start-6' : 'md:col-start-0'}`}>
-        <div className={`w-full relative overflow-hidden`}>
+        <div className={`w-full relative overflow-hidden ${image1Height}`}>
           <Image
             image={image1}
             focalPoint={image1.hotspot}
@@ -25,7 +25,7 @@ export default function ModularDoubleImageBlock({ image1, image2, text, layout }
           </div>
         )}
 
-        <div className={`w-full relative overflow-hidden`}>
+        <div className={`w-full relative overflow-hidden ${image2Height}`}>
           <Image
             image={image2}
             focalPoint={image2.hotspot}

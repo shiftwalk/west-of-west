@@ -11,7 +11,7 @@ export default function ModularTripleImageBlock({ image1, image2, image3, text, 
       <div className={`col-span-10 md:row-start-1 relative overflow-hidden mb-8 md:mb-0 md:mt-[15vw] ${layout == 'right-aligned' ? 'md:col-span-6 md:col-start-5' : 'md:col-span-5 md:col-start-1'}`}>
 
         <div className={`grid gap-5 ${layout == 'right-aligned' ? 'grid-cols-6' : 'grid-cols-5' }`}>
-          <div className={`relative overflow-hidden mb-4 md:mb-0 ${layout == 'right-aligned' ? 'col-span-6 md:col-start-3 md:col-span-4' : 'col-span-5 md:col-span-4' }`}>
+          <div className={`relative overflow-hidden mb-4 md:mb-0 ${image1Height} ${layout == 'right-aligned' ? 'col-span-6 md:col-start-3 md:col-span-4' : 'col-span-5 md:col-span-4' }`}>
             <Image
               image={image1}
               focalPoint={image1.hotspot}
@@ -38,7 +38,7 @@ export default function ModularTripleImageBlock({ image1, image2, image3, text, 
 
       <div className={`col-span-10 md:row-start-1 relative overflow-hidden ${layout == 'right-aligned' ? 'md:col-span-4 md:col-start-1' : 'md:col-span-5 md:col-start-6'}`}>
         <div className="grid grid-cols-5 gap-5">
-          <div className={`relative overflow-hidden mb-5 md:mb-[15vw] col-span-5`}>
+          <div className={`relative overflow-hidden mb-5 md:mb-[15vw] col-span-5 ${image2Height}`}>
             <Image
               image={image2}
               focalPoint={image2.hotspot}
@@ -48,7 +48,7 @@ export default function ModularTripleImageBlock({ image1, image2, image3, text, 
             />
           </div>
 
-          <div className={`col-span-4 md:col-span-3 ${layout == 'right-aligned' ? 'md:col-start-1' : 'md:col-start-3' } relative overflow-hidden`}>
+          <div className={`col-span-5 md:col-span-3 ${layout == 'right-aligned' ? 'md:col-start-1' : 'md:col-start-3' } relative overflow-hidden ${image3Height}`}>
             <Image
               image={image3}
               focalPoint={image3.hotspot}

@@ -4,6 +4,14 @@
     @apply mb-5 last-of-type:mb-0 md:text-lg xl:text-lg leading-tight md:leading-tight xl:leading-tight;
   }
 
+  & > ul {
+    @apply md:text-lg xl:text-lg leading-tight md:leading-tight xl:leading-tight;
+
+    li {
+      @apply mb-1;
+    }
+  }
+
   & > p > a {
     @apply underline hover:text-opacity-25 focus:text-opacity-25;
   }
@@ -16,6 +24,17 @@
     @apply text-2xl md:text-3xl;
   }
 }
+
+.content--sm {
+  & > p {
+    @apply md:text-sm xl:text-sm leading-tight md:leading-tight xl:leading-tight;
+  }
+
+  & > ul {
+    @apply md:text-sm xl:text-sm leading-tight md:leading-tight xl:leading-tight;
+  }
+}
+
 
 .content--no-link {
   & > p > a {

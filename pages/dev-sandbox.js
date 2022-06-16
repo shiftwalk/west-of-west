@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Layout from '@/components/layout'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
@@ -15,6 +15,20 @@ const OBJModel = dynamic(
 )
 
 export default function Dev() {
+  const [introOne, setIntroOne] = useState(false);
+  const [introTwo, setIntroTwo] = useState(false);
+  const [introThree, setIntroThree] = useState(false);
+
+  const toggleIntroOne = () => {
+    setIntroOne(!introOne)
+  }
+  const toggleIntroTwo = () => {
+    setIntroTwo(!introTwo)
+  }
+  const toggleIntroThree = () => {
+    setIntroThree(!introThree)
+  }
+
   return (
     <Layout>
       <NextSeo title="Dev" />
@@ -22,6 +36,23 @@ export default function Dev() {
       <Header />
       
       <LazyMotion features={domAnimation}>
+        {introOne && (
+          <div className="fixed inset-0 h-screen w-full z-[100] bg-red-500">
+            <button onClick={toggleIntroOne}>Intro One</button>
+          </div>
+        )}
+
+        {introTwo && (
+          <div className="fixed inset-0 h-screen w-full z-[100] bg-blue-500">
+            <button onClick={toggleIntroTwo}>Intro Two</button>
+          </div>
+        )}
+
+        {introThree && (
+          <div className="fixed inset-0 h-screen w-full z-[100] bg-green-500">
+            <button onClick={toggleIntroThree}>Intro Three</button>
+          </div>
+        )}
         <m.main
           initial="initial"
           animate="enter"
@@ -32,6 +63,25 @@ export default function Dev() {
             <h1 className="text-3xl md:text-4xl xl:text-5xl mb-4">Dev Sandbox</h1>
             <div className="content max-w-3xl mb-4">
               <p>Various work in progress components and playground for dev testing. Not representative of final development, accessibility or design.</p>
+            </div>
+
+            <div className="my-16 md:my-24 xl:my-36 content max-w-3xl">
+              <h2 className="text-xl md:text-2xl xl:text-3xl mb-4 mt-12">↘ Intro Tests</h2>
+              <p>Example of triggering site intros for testing</p>
+
+              <div className="bg-gray bg-opacity-[15%] p-2 max-w-[550px] mt-4 md:mt-6">
+                <button onClick={toggleIntroOne} className="block text-xl md:text-2xl group relative overflow-hidden mb-4">
+                  <span className="block">Trigger Intro One</span>
+                </button>
+
+                <button onClick={toggleIntroTwo} className="block text-xl md:text-2xl group relative overflow-hidden mb-4">
+                  <span className="block">Trigger Intro Two</span>
+                </button>
+                
+                <button onClick={toggleIntroThree} className="block text-xl md:text-2xl group relative overflow-hidden">
+                  <span className="block">Trigger Intro Three</span>
+                </button>
+              </div>
             </div>
             
             <div className="my-16 md:my-24 xl:my-36 content max-w-3xl">
