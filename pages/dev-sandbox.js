@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Layout from '@/components/layout'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
@@ -9,6 +9,7 @@ import dynamic from 'next/dynamic'
 import Clock from 'react-live-clock'
 import SanityPageService from '@/services/sanityPageService'
 import Image from '@/components/image'
+import { IntroContext } from 'context/intro'
 
 const query = `{
   "home": *[_type == "home"][0]{
@@ -46,6 +47,11 @@ export default function Dev(initialData) {
   const [introOne, setIntroOne] = useState(false);
   const [introTwo, setIntroTwo] = useState(false);
   const [introThree, setIntroThree] = useState(false);
+  const [introContext, setIntroContext] = useContext(IntroContext);
+
+  useEffect(() => {
+    setIntroContext(true)
+  },[]);
 
   const toggleIntroOne = () => {
     setIntroOne(!introOne)

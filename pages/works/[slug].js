@@ -10,9 +10,10 @@ import BodyRenderer from '@/components/body-renderer'
 import Link from 'next/link'
 import BlockContent from '@sanity/block-content-to-react'
 import Image from '@/components/image'
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import ReactCursorPosition from 'react-cursor-position'
 import Teaser from '@/components/teaser'
+import { IntroContext } from 'context/intro'
 
 const query = `*[_type == "works" && slug.current == $slug][0]{
   title,
@@ -178,8 +179,12 @@ const pageService = new SanityPageService(query)
 
 export default function WorksSlug(initialData) {
   const { data: { title, introText, projectCode, credits, locationCity, locationState, heroImages, client, year, status, sector, contentBlocks, slug, worksAll, related } } = pageService.getPreviewHook(initialData)()
-
   const [currentHero, setCurrentHero] = useState(0);
+  const [introContext, setIntroContext] = useContext(IntroContext);
+  
+  useEffect(() => {
+    setIntroContext(true)
+  },[]);
 
   return (
     <Layout>

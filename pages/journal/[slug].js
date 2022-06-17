@@ -10,6 +10,8 @@ import Image from '@/components/image'
 import SanityBlockContent from '@sanity/block-content-to-react'
 import ReactCursorPosition from 'react-cursor-position'
 import Teaser from '@/components/teaser'
+import { IntroContext } from 'context/intro'
+import { useContext, useEffect } from 'react'
 
 const query = `*[_type == "journal" && slug.current == $slug][0]{
   title,
@@ -78,6 +80,11 @@ const pageService = new SanityPageService(query)
 
 export default function JournalSlug(initialData) {
   const { data: { title, contentText, contentImages, journalLinks, projectLinks, externalLinks, slug, works, related } } = pageService.getPreviewHook(initialData)()
+  const [introContext, setIntroContext] = useContext(IntroContext);
+  
+  useEffect(() => {
+    setIntroContext(true)
+  },[]);
 
   return (
     <Layout>

@@ -8,6 +8,8 @@ import SanityPageService from '@/services/sanityPageService'
 import Link from 'next/link'
 import ReactCursorPosition from 'react-cursor-position'
 import Teaser from '@/components/teaser'
+import { IntroContext } from 'context/intro'
+import { useContext, useEffect } from 'react'
 
 const query = `{
   "journal": *[_type == "journal"]{
@@ -49,6 +51,11 @@ const pageService = new SanityPageService(query)
 
 export default function Journal(initialData) {
   const { data: { journal, works } } = pageService.getPreviewHook(initialData)()
+  const [introContext, setIntroContext] = useContext(IntroContext);
+  
+  useEffect(() => {
+    setIntroContext(true)
+  },[]);
 
   return (
     <Layout>

@@ -42,3 +42,12 @@ canvas {
     @apply object-cover object-center;
   }
 }
+
+.blink:hover {
+  animation: blink 0.45s steps(1) 2;
+  -webkit-animation: blink 0.45s steps(1) 2;
+}
+@keyframes blink { 
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+}

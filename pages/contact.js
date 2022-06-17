@@ -5,7 +5,8 @@ import { fade } from '@/helpers/transitions'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import SanityPageService from '@/services/sanityPageService'
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { IntroContext } from 'context/intro'
 
 const query = `{
   "contact": *[_type == "contact"][0]{
@@ -38,6 +39,11 @@ const pageService = new SanityPageService(query)
 export default function Contact(initialData) {
   const { data: { contact, works } } = pageService.getPreviewHook(initialData)()
   const [hovering, setHovering] = useState(false);
+  const [introContext, setIntroContext] = useContext(IntroContext);
+
+  useEffect(() => {
+    setIntroContext(true)
+  },[]);
 
   return (
     <Layout>

@@ -7,7 +7,8 @@ import { NextSeo } from 'next-seo'
 import SanityPageService from '@/services/sanityPageService'
 import Image from '@/components/image'
 import SanityBlockContent from '@sanity/block-content-to-react'
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { IntroContext } from 'context/intro'
 
 const query = `{
   "studio": *[_type == "studio"][0]{
@@ -110,6 +111,11 @@ export default function Studio(initialData) {
   const { data: { studio, team, works } } = pageService.getPreviewHook(initialData)()
   const [hovering, setHovering] = useState(false);
   const [currentTeamBio, setCurrentTeamBio] = useState(null);
+  const [introContext, setIntroContext] = useContext(IntroContext);
+
+  useEffect(() => {
+    setIntroContext(true)
+  },[]);
 
   const updateTeamBio = (e) => {
     setCurrentTeamBio(e)

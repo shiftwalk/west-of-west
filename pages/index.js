@@ -9,6 +9,8 @@ import Image from '@/components/image'
 import Link from 'next/link'
 import ReactCursorPosition from 'react-cursor-position'
 import Teaser from '@/components/teaser'
+import { useContext, useEffect } from 'react'
+import { IntroContext } from '@/context/intro'
 
 const query = `{
   "home": *[_type == "home"][0]{
@@ -109,6 +111,18 @@ const pageService = new SanityPageService(query)
 
 export default function Home(initialData) {
   const { data: { home, works } } = pageService.getPreviewHook(initialData)()
+  const [introContext, setIntroContext] = useContext(IntroContext);
+  
+  const imageScale = {
+    visible: { scale: 1 },
+    hidden: { scale: 1.125 }
+  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIntroContext(true)
+    }, 2400);
+  },[]);
 
   return (
     <Layout>
@@ -126,15 +140,19 @@ export default function Home(initialData) {
           <div className="sticky top-0">
             <div className="h-[65vh] md:h-screen w-full">
               <div className="bg-gray bg-opacity-40 w-full h-full relative overflow-hidden">
-                <Image
-                  image={home.heroFeaturedWorks[0].heroImages[0]}
-                  focalPoint={home.heroFeaturedWorks[0].heroImages[0].asset.hotspot}
-                  layout="fill"
-                  priority
-                  widthOverride={1400}
-                  className="w-full h-full absolute inset-0 object-cover object-center"
-                  noCaption
-                />
+                <div
+                  className="absolute inset-0 w-full h-full"
+                >
+                  <Image
+                    image={home.heroFeaturedWorks[0].heroImages[0]}
+                    focalPoint={home.heroFeaturedWorks[0].heroImages[0].asset.hotspot}
+                    layout="fill"
+                    priority
+                    widthOverride={1400}
+                    className="w-full h-full absolute inset-0 object-cover object-center"
+                    noCaption
+                  />
+                </div>
               </div>
             </div>
           </div>

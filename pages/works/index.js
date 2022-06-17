@@ -6,10 +6,11 @@ import Link from 'next/link'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import SanityPageService from '@/services/sanityPageService'
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Image from '@/components/image'
 import ReactCursorPosition from 'react-cursor-position'
 import Teaser from '@/components/teaser'
+import { IntroContext } from 'context/intro'
 
 const query = `{
   "works": *[_type == "works" && gridProject == true]{
@@ -111,6 +112,7 @@ export default function Works(initialData) {
   const [activeFilters, setActiveFilters] = useState(false);
   const [current, setCurrent] = useState(0);
   const [hovering, setHovering] = useState(false);
+  const [introContext, setIntroContext] = useContext(IntroContext);
 
   let retailAndHospitalityLength = 0;
   let workingLength = 0;
@@ -124,8 +126,11 @@ export default function Works(initialData) {
     if (e.sector === 'living') livingLength++;
     if (e.expertise == 'architecture-and-interiors' || e.expertise == 'architecture') architectureLength++;
     if (e.expertise == 'architecture-and-interiors' || e.expertise == 'interiors') interiorsLength++;
-
   }
+
+  useEffect(() => {
+    setIntroContext(true)
+  },[]);
 
   const updateImage = (e) => {
     setCurrent(e)

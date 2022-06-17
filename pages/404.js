@@ -6,8 +6,9 @@ import { NextSeo } from 'next-seo'
 import { fade } from '@/helpers/transitions'
 import SanityPageService from '@/services/sanityPageService'
 import Image from '@/components/image'
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Link from 'next/link'
+import { IntroContext } from 'context/intro'
 
 const query = `{
   "studio": *[_type == "studio"][0]{
@@ -56,6 +57,11 @@ const pageService = new SanityPageService(query)
 export default function Error404(initialData) {
   const { data: { studio, team, worksAll } } = pageService.getPreviewHook(initialData)()
   const [hovering, setHovering] = useState(false);
+  const [introContext, setIntroContext] = useContext(IntroContext);
+
+  useEffect(() => {
+    setIntroContext(true)
+  },[]);
 
   return (
     <Layout>
