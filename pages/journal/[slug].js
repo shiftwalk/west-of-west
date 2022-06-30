@@ -108,46 +108,57 @@ export default function JournalSlug(initialData) {
 
               {(projectLinks || externalLinks || journalLinks) && (
                 <div className="mt-8">
+                  {(projectLinks) && (
+                    <>
+                      {projectLinks.map((e, i) => {
+                        return (
+                          <div key={i}>
+                            <Link href={`/works/${e.slug.current}`}>
+                              <a className="inline-block text-xl md:text-xl group relative overflow-hidden">
+                                <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300 delay-[50ms]">See {e.title}</span>
+                                <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300 delay-[50ms]">See {e.title}</span>
+                                <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                              </a>
+                            </Link>
+                          </div>
+                        )
+                      })}
+                    </>
+                  )}
                   
-                  {projectLinks.map((e, i) => {
-                    return (
-                      <div key={i}>
-                        <Link href={`/works/${e.slug.current}`}>
-                          <a className="inline-block text-xl md:text-xl group relative overflow-hidden">
-                            <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300 delay-[50ms]">See {e.title}</span>
-                            <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300 delay-[50ms]">See {e.title}</span>
-                            <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
-                          </a>
-                        </Link>
-                      </div>
-                    )
-                  })}
+                  {(journalLinks) && (
+                    <>
+                      {journalLinks.map((e, i) => {
+                        return (
+                          <div key={i}>
+                            <Link href={`/journal/${e.slug.current}`}>
+                              <a className="inline-block text-xl md:text-xl group relative overflow-hidden">
+                                <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300 delay-[50ms]">See {e.shortTitle ? e.shortTitle : e.title}</span>
+                                <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300 delay-[50ms]">See {e.shortTitle ? e.shortTitle : e.title}</span>
+                                <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                              </a>
+                            </Link>
+                          </div>
+                        )
+                      })}
+                    </>
+                  )}
                   
-                  {journalLinks.map((e, i) => {
-                    return (
-                      <div key={i}>
-                        <Link href={`/journal/${e.slug.current}`}>
-                          <a className="inline-block text-xl md:text-xl group relative overflow-hidden">
-                            <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300 delay-[50ms]">See {e.shortTitle ? e.shortTitle : e.title}</span>
-                            <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300 delay-[50ms]">See {e.shortTitle ? e.shortTitle : e.title}</span>
-                            <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
-                          </a>
-                        </Link>
-                      </div>
-                    )
-                  })}
-                  
-                  {externalLinks.map((e, i) => {
-                    return (
-                      <div key={i}>
-                        <a target="_blank" rel="noreferrer noopener" href={e.linkUrl} className="inline-block text-xl md:text-xl group relative overflow-hidden">
-                          <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300 delay-[50ms]">{e.linkTitle}</span>
-                          <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300 delay-[50ms]">See {e.linkTitle}</span>
-                          <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
-                        </a>
-                      </div>
-                    )
-                  })}
+                  {(externalLinks) && (
+                    <>
+                      {externalLinks.map((e, i) => {
+                        return (
+                          <div key={i}>
+                            <a target="_blank" rel="noreferrer noopener" href={e.linkUrl} className="inline-block text-xl md:text-xl group relative overflow-hidden">
+                              <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300 delay-[50ms]">{e.linkTitle ? e.linkTitle : 'More Information' }</span>
+                              <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300 delay-[50ms]">{e.linkTitle ? e.linkTitle : 'More Information' }</span>
+                              <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                            </a>
+                          </div>
+                        )
+                      })}
+                    </>
+                  )}
                 </div>
               )}
             </div>

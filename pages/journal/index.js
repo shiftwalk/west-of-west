@@ -83,31 +83,31 @@ export default function Journal(initialData) {
                 let height = 'h-[60vw] md:h-[13vw]'
                 // let disabledClass = 'grayscale opacity-30'
 
-                if (i == 0 || i == 8  || i == 17) {
+                if (i == 0 || i == 8  || i == 17 || i == 26 || i == 35  || i == 44 || i == 53) {
                   layout = 'md:col-start-1'
                 }
-                if (i == 1 || i == 9  || i == 18) {
+                if (i == 1 || i == 9  || i == 18 || i == 27 || i == 36 || i == 45 || i == 54) {
                   layout = 'md:col-start-6'
                 }
-                if (i == 2 || i == 10  || i == 19) {
+                if (i == 2 || i == 10  || i == 19 || i == 28 || i == 37 || i == 46 || i == 55) {
                   layout = 'md:col-start-9'
                 }
-                if (i == 3 || i == 11  || i == 20) {
+                if (i == 3 || i == 11  || i == 20 || i == 29 || i == 38 || i == 47 || i == 56) {
                   layout = 'md:col-start-2'
                 }
-                if (i == 4 || i == 12  || i == 21) {
+                if (i == 4 || i == 12  || i == 21 || i == 30 || i == 39 || i == 48 || i == 57) {
                   layout = 'md:col-start-4'
                 }
-                if (i == 5 || i == 13  || i == 22) {
+                if (i == 5 || i == 13  || i == 22 || i == 31 || i == 40 || i == 49 || i == 58) {
                   layout = 'md:col-start-9'
                 }
-                if (i == 6 || i == 14 || i == 23) {
+                if (i == 6 || i == 14 || i == 23 || i == 32 || i == 41 || i == 50 || i == 59) {
                   layout = 'md:col-start-0'
                 }
-                if (i == 7 || i == 15 || i == 24) {
+                if (i == 7 || i == 15 || i == 24 || i == 33 || i == 42 || i == 51 || i == 60) {
                   layout = 'md:col-start-7'
                 }
-                if (i == 8 || i == 16 || i == 25) {
+                if (i == 8 || i == 16 || i == 25 || i == 34 || i == 43 || i == 52 || i == 61) {
                   layout = 'md:col-start-1'
                 }
 
