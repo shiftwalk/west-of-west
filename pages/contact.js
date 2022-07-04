@@ -11,8 +11,7 @@ import Map from '@/components/map'
 import mapboxgl from "mapbox-gl";
 import geoJson from "../helpers/locations.json";
 
-mapboxgl.accessToken = `${process.env.NEXT_PUBLIC_MAPBOX_TOKEN}`;
-console.log(process.env.NEXT_PUBLIC_MAPBOX_TOKEN)
+mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
 const query = `{
   "contact": *[_type == "contact"][0]{
