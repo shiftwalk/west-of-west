@@ -9,7 +9,14 @@ module.exports = {
     //     'react-dom': 'preact/compat',
     //   });
     // }
+    
+    config.module.rules.push({
+      test: /csp-worker\.js$/,
+      use: { loader: "worker-loader" },
+    })
+  
+    config.output.chunkLoadingGlobal = 'this'
 
-    return config;
+    return config
   },
 };

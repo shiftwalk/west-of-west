@@ -10,7 +10,7 @@
   "bugs": {
     "url": "https://github.com/samuelgoddard/next-tailwind-motion/issues"
   },
-  "browserslist": "> 0.25%, not dead",
+  "browserslist": ">0.2%, not dead, not ie 11, not chrome < 51, not safari < 10, not android < 51",
   "license": "ISC",
   "keywords": [
     "nextjs",
@@ -32,6 +32,7 @@
     "@types/mapbox-gl": "^2.7.3",
     "framer-motion": "^6.3.3",
     "mapbox-gl": "^2.9.1",
+    "maplibre-gl": "^2.1.9",
     "moment-timezone": "^0.5.34",
     "next": "^12.0.8",
     "next-sanity": "^0.3.0",
