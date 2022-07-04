@@ -10,6 +10,7 @@
   "bugs": {
     "url": "https://github.com/samuelgoddard/next-tailwind-motion/issues"
   },
+  "browserslist": "> 0.25%, not dead",
   "license": "ISC",
   "keywords": [
     "nextjs",
