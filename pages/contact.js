@@ -7,7 +7,7 @@ import { NextSeo } from 'next-seo'
 import SanityPageService from '@/services/sanityPageService'
 import { useContext, useEffect, useState, useRef } from 'react'
 import { IntroContext } from 'context/intro'
-import mapboxgl from '!mapbox-gl'
+import mapboxgl from 'mapbox-gl'
 import geoJson from "../helpers/locations.json";
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
