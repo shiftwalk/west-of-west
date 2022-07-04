@@ -9,8 +9,9 @@ import Image from '@/components/image'
 import Link from 'next/link'
 import ReactCursorPosition from 'react-cursor-position'
 import Teaser from '@/components/teaser'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { IntroContext } from '@/context/intro'
+import HomeHeroHover from '@/components/home-hero-hover'
 
 const query = `{
   "home": *[_type == "home"][0]{
@@ -51,6 +52,10 @@ const query = `{
     },
     heroFeaturedWorks[] -> {
       title,
+      projectCode,
+      locationCity,
+      locationState,
+      year,
       heroImages[] {
         asset-> {
           ...,
@@ -112,6 +117,7 @@ const pageService = new SanityPageService(query)
 export default function Home(initialData) {
   const { data: { home, works } } = pageService.getPreviewHook(initialData)()
   const [introContext, setIntroContext] = useContext(IntroContext);
+  const [current, setCurrent] = useState(0);
   
   const imageScale = {
     visible: { scale: 1 },
@@ -123,6 +129,10 @@ export default function Home(initialData) {
       setIntroContext(true)
     }, 2400);
   },[]);
+
+  const updateHero = (e) => {
+    setCurrent(e)
+  }
 
   return (
     <Layout>
@@ -137,25 +147,7 @@ export default function Home(initialData) {
           exit="exit"
           className="-m-2"
         >
-          <div className="sticky top-0">
-            <div className="h-[65vh] md:h-screen w-full">
-              <div className="bg-gray bg-opacity-40 w-full h-full relative overflow-hidden">
-                <div
-                  className="absolute inset-0 w-full h-full"
-                >
-                  <Image
-                    image={home.heroFeaturedWorks[0].heroImages[0]}
-                    focalPoint={home.heroFeaturedWorks[0].heroImages[0].asset.hotspot}
-                    layout="fill"
-                    priority
-                    widthOverride={1400}
-                    className="w-full h-full absolute inset-0 object-cover object-center"
-                    noCaption
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+          <HomeHeroHover items={home.heroFeaturedWorks}></HomeHeroHover>
           
           <div className="bg-white relative z-[10] p-2 pt-12 md:pt-16 xl:pt-24">
             <div className="grid grid-cols-10 gap-3 md:gap-5 bg-white">

@@ -214,7 +214,7 @@ export default function Dev(initialData) {
                   <div className="relative overflow-hidden mb-3">
                     <img src="images/test.jpg" className="w-full" alt="test" />
                     <div className="bg-black bg-opacity-40 flex items-center justify-center absolute inset-0 z-10 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity ease-in-out duration-500">
-                      <svg className="w-10" viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#fff" stroke-width="2" d="M34 17.903H0M16.822 35.002V.998"/></svg>
+                      <svg className="w-10" viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#fff" strokeWidth="2" d="M34 17.903H0M16.822 35.002V.998"/></svg>
                     </div>
                   </div>
                   <span className="block text-lg leading-none mb-1">Flats House</span>
@@ -242,7 +242,7 @@ export default function Dev(initialData) {
                   <div className="relative overflow-hidden mb-3">
                     <img src="images/test.jpg" className="w-full" alt="test" />
                     <div className="bg-black bg-opacity-40 flex items-center justify-center absolute inset-0 z-10 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity ease-in-out duration-500">
-                      <svg className="w-10" viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#fff" stroke-width="2" d="M34 17.903H0M16.822 35.002V.998"/></svg>
+                      <svg className="w-10" viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#fff" strokeWidth="2" d="M34 17.903H0M16.822 35.002V.998"/></svg>
                     </div>
                   </div>
                   <span className="block overflow-hidden relative">

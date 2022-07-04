@@ -200,7 +200,7 @@ export default function WorksSlug(initialData) {
           exit="exit"
         >
           <m.article>
-            <div className="md:h-[calc(100vh-16px)] grid grid-cols-10 gap-5 items-end pt-20 mb-20 md:mb-32 xl:mb-52">
+            <div className="md:h-[calc(100vh-16px)] grid grid-cols-10 gap-5 items-end pt-20 sticky top-0 z-0">
               <div className="col-span-10 md:col-span-2 mb-3 md:mb-0">
                 <span className="block text-[10px] uppercase mb-8">ww.{projectCode}</span>
                 <h1 className="block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight mb-0 pb-0">{title}</h1>
@@ -248,7 +248,7 @@ export default function WorksSlug(initialData) {
               </div>
             </div>
 
-            <div className="grid grid-cols-10 gap-5 mb-20 md:mb-32 xl:mb-52">
+            <div className="grid grid-cols-10 gap-5 pb-20 md:pb-32 xl:pb-52 pt-20 md:pt-32 xl:pt-52 bg-white relative z-10">
               <div className="col-span-9 md:col-span-3 mb-8 md:mb-0">
                 { client && (
                   <div className="mb-3">
@@ -292,12 +292,14 @@ export default function WorksSlug(initialData) {
                 </div>
               </div>
             </div>
-
-            <BodyRenderer body={contentBlocks} />
+            
+            <div className="bg-white relative z-10">
+              <BodyRenderer body={contentBlocks} />
+            </div>
           </m.article>
         </m.main>
 
-        <m.div className="pt-20 md:pt-32 xl:pt-40">
+        <m.div className="pt-20 md:pt-32 xl:pt-40 bg-white relative z-10">
           <div className="mb-3">
             <span className="inline-block text-xl leading-tight lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight">More Work</span>
             <Link href="/works">

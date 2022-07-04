@@ -7,7 +7,7 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
   const myCustomImageBuilder = (imageUrlBuilder, options) => {
     return imageUrlBuilder
       .width((widthOverride ? widthOverride : options.width) || Math.min(( widthOverride ? widthOverride : options.originalImageDimensions.width), 800))
-      .quality(90)
+      .quality(95)
       .fit('clip')
   };
   
