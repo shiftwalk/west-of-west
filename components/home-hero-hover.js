@@ -41,7 +41,7 @@ export default function HomeHeroHover({ items, isActive, position }) {
                       focalPoint={e.heroImages[0].asset.hotspot}
                       layout="fill"
                       priority
-                      widthOverride={2000}
+                      widthOverride={1600}
                       className="w-full h-full absolute inset-0 object-cover object-center"
                       noCaption
                     />
