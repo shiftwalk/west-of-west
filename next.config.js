@@ -10,6 +10,12 @@ module.exports = {
       });
     }
 
+    // for loading node_modules/mapbox-gl/dist/mapbox-gl-csp-worker.js
+    config.module.rules.push({
+      test: /csp-worker\.js$/,
+      use: { loader: "worker-loader" },
+    })
+
     return config;
   },
 };
