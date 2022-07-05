@@ -12,7 +12,7 @@ import { IntroContext } from 'context/intro'
 import { useContext, useEffect } from 'react'
 
 const query = `{
-  "journal": *[_type == "journal"]{
+  "journal": *[_type == "journal"] | order(date desc){
     title,
     heroImage {
       asset-> {

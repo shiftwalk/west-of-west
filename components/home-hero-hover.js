@@ -1,10 +1,13 @@
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import Image from "./image";
+import { m } from 'framer-motion'
+import { IntroContext } from "@/context/intro";
 
 export default function HomeHeroHover({ items, isActive, position }) {
   const ref = useRef(null);
   const [current, setCurrent] = useState(0);
+  const [introContext, setIntroContext] = useContext(IntroContext);
 
   const updateHero = (e) => {
     setCurrent(e)
@@ -13,6 +16,11 @@ export default function HomeHeroHover({ items, isActive, position }) {
   // useEffect(() => {
   //   setRelativeWidth(ref.current.offsetWidth)
   // }, []);
+
+  const revealTranslate = {
+    visible: { y: 0 },
+    hidden: { y: '105%' }
+  }
 
   return(
     <>
@@ -53,29 +61,56 @@ export default function HomeHeroHover({ items, isActive, position }) {
           </div>
 
           <div className="absolute bottom-0 left-0 right-0 grid grid-cols-10 gap-3 md:gap-5 z-[20] p-3 text-white">
-            <div className="col-span-2 space-x-2 items-end hidden lg:flex">
+            <div className="col-span-2 space-x-2 items-end hidden lg:flex overflow-hidden relative">
               {items.map((e, i) => {
                 return (
-                  <span className={`block uppercase text-xs ${i == current ? 'opacity-100' : 'opacity-30'}`} key={i}>ww.{e.projectCode}</span>
+                  <m.span initial="hidden" animate="visible" exit="hidden" variants={revealTranslate} transition={{ delay: introContext ? 0 : 2.65, duration: 0.5, ease: [0.83, 0, 0.17, 1]  }} className={`block uppercase text-xs ${i == current ? 'opacity-100' : 'opacity-30'}`} key={i}>ww.{e.projectCode}</m.span>
                 )
               })}
             </div>
 
-            <div className="col-span-4 block text-sm md:text-lg xl:text-xl relative leading-none md:leading-none lg:leading-none xl:leading-none ">
-              {items[current].title}
+            <div className="col-span-4 block text-sm md:text-lg xl:text-xl leading-none md:leading-none lg:leading-none xl:leading-none overflow-hidden relative">
+              <m.span
+                className="block"
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={revealTranslate}
+                transition={{ delay: introContext ? 0 : 2.65, duration: 0.5, ease: [0.83, 0, 0.17, 1]  }}
+              >
+                {items[current].title}
+              </m.span>
             </div>
 
-            <div className="col-span-4 lg:col-span-2 block text-sm md:text-lg xl:text-xl relative leading-none md:leading-none lg:leading-none xl:leading-none ">
-              {items[current].locationCity}, {items[current].locationState}
+            <div className="col-span-4 lg:col-span-2 block text-sm md:text-lg xl:text-xl relative leading-none md:leading-none lg:leading-none xl:leading-none overflow-hidden">
+              <m.span
+                className="block"
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={revealTranslate}
+                transition={{ delay: introContext ? 0 : 2.65, duration: 0.5, ease: [0.83, 0, 0.17, 1]  }}
+              >
+                {items[current].locationCity}, {items[current].locationState}
+              </m.span>
             </div>
 
-            <div className="col-span-2 text-right block text-sm md:text-lg xl:text-xl relative leading-none md:leading-none  xl:leading-none lg:leading-none">
-              <Link href="/works">
-                <a className="inline-block mb-[-6px] leading-tight group relative overflow-hidden" href="#">
-                  <span className="block">All Works</span>
-                  <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-white absolute bottom-0 left-0 right-0"></span>
-                </a>
-              </Link>
+            <div className="col-span-2 text-right block text-sm md:text-lg xl:text-xl relative leading-none md:leading-none  xl:leading-none lg:leading-none overflow-hidden">
+              <m.span
+                className="block pb-[4px]"
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={revealTranslate}
+                transition={{ delay: introContext ? 0 : 2.65, duration: 0.5, ease: [0.83, 0, 0.17, 1]  }}
+              >
+                <Link href="/works">
+                  <a className="inline-block mb-[-6px] leading-tight group relative overflow-hidden" href="#">
+                    <span className="block">All Works</span>
+                    <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-white absolute bottom-0 left-0 right-0"></span>
+                  </a>
+                </Link>
+              </m.span>
             </div>
           </div>
           

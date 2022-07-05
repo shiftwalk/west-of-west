@@ -8,8 +8,8 @@ export default function Header({ active, works }) {
   const [introContext, setIntroContext] = useContext(IntroContext);
   
   const reveal = {
-    visible: {opacity: '100%' },
-    hidden: { opacity: introContext ? '100%' : 0 }
+    visible: {y: 0 },
+    hidden: { y: introContext ? 0 : '-105%' }
   }
 
   const toggleMenu = () => {
@@ -20,13 +20,13 @@ export default function Header({ active, works }) {
     <>
       <header className="fixed top-0 left-0 right-0 p-2 z-[60]">
         <LazyMotion features={domAnimation}>
-          <div className="grid grid-cols-10 gap-5">
+          <div className="grid grid-cols-10 gap-5 overflow-hidden relative">
             <m.div 
               className="col-span-1 col-start-1"
               initial="hidden"
               animate="visible"
               variants={reveal}
-              transition={{ delay: introContext ? 0 : 1.85, duration: 0 }}
+              transition={{ delay: introContext ? 0 : 2.65, duration: 0.5, ease: [0.83, 0, 0.17, 1] }}
             >
               <Link href="/">
                 <a className="block w-[120px]">
@@ -40,7 +40,7 @@ export default function Header({ active, works }) {
                 initial="hidden"
                 animate="visible"
                 variants={reveal}
-                transition={{ delay: introContext ? 0 : 1.9, duration: 0 }}
+                transition={{ delay: introContext ? 0 : 2.65, duration: 0.5, ease: [0.83, 0, 0.17, 1] }}
               >
                 <Link href="/studio">
                   <a className={`block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden hover:text-black focus-visible:text-black ${ (active == 'studio' || active == 'home') ? 'text-black' : 'text-gray' } hover:text-black focus-visible:text-black ${ (active == 'home' || active !== 'studio') ? 'group' : '' }`}>
@@ -53,7 +53,7 @@ export default function Header({ active, works }) {
                 initial="hidden"
                 animate="visible"
                 variants={reveal}
-                transition={{ delay: introContext ? 0 : 1.95, duration: 0 }}
+                transition={{ delay: introContext ? 0 : 2.65, duration: 0.5, ease: [0.83, 0, 0.17, 1] }}
               >
                 <Link href="/works">
                   <a className={`block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight hover:text-black focus-visible:text-black ${ (active == 'works' || active == 'home') ? 'text-black' : 'text-gray' } hover:text-black focus-visible:text-black ${ (active == 'home' || active !== 'works') ? 'group' : '' }`}>
@@ -76,7 +76,7 @@ export default function Header({ active, works }) {
                 initial="hidden"
                 animate="visible"
                 variants={reveal}
-                transition={{ delay: introContext ? 0 : 2, duration: 0 }}
+                transition={{ delay: introContext ? 0 : 2.65, duration: 0.5, ease: [0.83, 0, 0.17, 1] }}
               >
                 <button onClick={toggleMenu} className={`block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden ${menuOpen ? 'text-black' : '' }`}>
                   <span className="block">
@@ -92,7 +92,7 @@ export default function Header({ active, works }) {
                 initial="hidden"
                 animate="visible"
                 variants={reveal}
-                transition={{ delay: introContext ? 0 : 2.05, duration: 0 }}
+                transition={{ delay: introContext ? 0 : 2.65, duration: 0.5, ease: [0.83, 0, 0.17, 1] }}
               >
                 <Link href="/journal">
                   <a className={`block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden hover:text-black focus-visible:text-black ${ (active == 'journal' || active == 'home') ? 'text-black' : 'text-gray' } hover:text-black focus-visible:text-black ${ (active == 'home' || active !== 'journal') ? 'group' : '' }`}>
@@ -105,7 +105,7 @@ export default function Header({ active, works }) {
                 initial="hidden"
                 animate="visible"
                 variants={reveal}
-                transition={{ delay: introContext ? 0 : 2.1, duration: 0 }}
+                transition={{ delay: introContext ? 0 : 2.65, duration: 0.5, ease: [0.83, 0, 0.17, 1] }}
               >
                 <Link href="/contact">
                   <a className={`block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden hover:text-black focus-visible:text-black ${ (active == 'contact' || active == 'home') ? 'text-black' : 'text-gray' } hover:text-black focus-visible:text-black ${ (active == 'home' || active !== 'contact') ? 'group' : '' }`}>
@@ -120,7 +120,7 @@ export default function Header({ active, works }) {
                 initial="hidden"
                 animate="visible"
                 variants={reveal}
-                transition={{ delay: introContext ? 0 : 2.15, duration: 0 }}
+                transition={{ delay: introContext ? 0 : 2.65, duration: 0.5, ease: [0.83, 0, 0.17, 1] }}
               >
                 <a href="https://www.instagram.com/west_of_west/?hl=en" target="_blank" rel="noreferrer noopener" className={`inline-block lg:text-xl xl:text-2xl md:leading-tight xl:leading-tight group relative overflow-hidden hover:text-black focus-visible:text-black ${ active == 'home' ? 'text-black' : 'text-gray' }`}>
                   <span className="block">Instagram</span>

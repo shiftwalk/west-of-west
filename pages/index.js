@@ -124,10 +124,15 @@ export default function Home(initialData) {
     hidden: { scale: 1.125 }
   }
 
+  const revealTranslate = {
+    visible: { y: 0 },
+    hidden: { y: '105%' }
+  }
+
   useEffect(() => {
     setTimeout(() => {
       setIntroContext(true)
-    }, 2400);
+    }, 3150);
   },[]);
 
   const updateHero = (e) => {
@@ -211,7 +216,7 @@ export default function Home(initialData) {
 
                     <span className="inline-block overflow-hidden relative text-lg md:text-xl xl:text-2xl">
                       <span className="inline-block ">{home.featuredJournalEntry.title}</span>
-                      <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                      {/* <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span> */}
                     </span>
                   </a>
                 </Link>

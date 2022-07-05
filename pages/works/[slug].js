@@ -149,7 +149,31 @@ const query = `*[_type == "works" && slug.current == $slug][0]{
   "worksAll": *[_type == "works"]{
     title
   },
-  "related": *[_type == "works" && slug.current != $slug][0..2]{
+  "related": *[_type == "works" && order > ^.order && sector == ^.sector && slug.current != $slug] | order(order asc)[0..2] {
+    title,
+    sector,
+    thumbnailImage {
+      asset-> {
+        ...
+      },
+      overrideVideo {
+        asset-> {
+          ...
+        }
+      },
+      caption,
+      alt,
+      hotspot {
+        x,
+        y
+      },
+    },
+    date,
+    slug {
+      current
+    }
+  },
+  "relatedFirst": *[_type == "works" && sector == ^.sector && slug.current != $slug] | order(order asc)[0..2] {
     title,
     sector,
     thumbnailImage {
@@ -178,7 +202,7 @@ const query = `*[_type == "works" && slug.current == $slug][0]{
 const pageService = new SanityPageService(query)
 
 export default function WorksSlug(initialData) {
-  const { data: { title, introText, projectCode, credits, locationCity, locationState, heroImages, client, year, status, sector, contentBlocks, slug, worksAll, related } } = pageService.getPreviewHook(initialData)()
+  const { data: { title, introText, projectCode, credits, locationCity, locationState, heroImages, client, year, status, sector, contentBlocks, slug, worksAll, related, relatedFirst } } = pageService.getPreviewHook(initialData)()
   const [currentHero, setCurrentHero] = useState(0);
   const [introContext, setIntroContext] = useContext(IntroContext);
   
@@ -198,9 +222,10 @@ export default function WorksSlug(initialData) {
           initial="initial"
           animate="enter"
           exit="exit"
+          className="-m-2"
         >
           <m.article>
-            <div className="md:h-[calc(100vh-16px)] grid grid-cols-10 gap-5 items-end pt-20 sticky top-0 z-0">
+            <div className="md:h-screen grid grid-cols-10 gap-x-5 items-end pt-20 sticky top-0 z-0 p-2">
               <div className="col-span-10 md:col-span-2 mb-3 md:mb-0">
                 <span className="block text-[10px] uppercase mb-8">ww.{projectCode}</span>
                 <h1 className="block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight mb-0 pb-0">{title}</h1>
@@ -248,7 +273,7 @@ export default function WorksSlug(initialData) {
               </div>
             </div>
 
-            <div className="grid grid-cols-10 gap-5 pb-20 md:pb-32 xl:pb-52 pt-20 md:pt-32 xl:pt-52 bg-white relative z-10">
+            <div className="grid grid-cols-10 gap-5 pb-20 md:pb-32 xl:pb-52 pt-20 md:pt-32 xl:pt-52 bg-white relative z-10 p-2">
               <div className="col-span-9 md:col-span-3 mb-8 md:mb-0">
                 { client && (
                   <div className="mb-3">
@@ -293,7 +318,7 @@ export default function WorksSlug(initialData) {
               </div>
             </div>
             
-            <div className="bg-white relative z-10">
+            <div className="bg-white relative z-10 p-2">
               <BodyRenderer body={contentBlocks} />
             </div>
           </m.article>
@@ -301,58 +326,107 @@ export default function WorksSlug(initialData) {
 
         <m.div className="pt-20 md:pt-32 xl:pt-40 bg-white relative z-10">
           <div className="mb-3">
-            <span className="inline-block text-xl leading-tight lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight">More Work</span>
+            <span className="inline-block text-xl leading-tight lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight">More in <span className="capitalize">{sector.replace(/-/g, ' ')}</span></span>
             <Link href="/works">
               <a className="inline-block text-xl leading-tight lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight text-gray ml-2 hover:text-black focus:text-black">See All</a>
             </Link>
           </div>
           
-          <div className="grid grid-cols-10 gap-2 md:gap-5">
-            {related.map((e, i) => {
-              let layout = 'md:col-start-0'
-              let height = 'h-[60vw] md:h-[18vw]'
-              // let disabledClass = 'grayscale opacity-30'
+          { related.length > 2 ? (
+            <div className="grid grid-cols-10 gap-2 md:gap-5">
+              {related.map((e, i) => {
+                let layout = 'md:col-start-0'
+                let height = 'h-[60vw] md:h-[18vw]'
+                // let disabledClass = 'grayscale opacity-30'
 
-              if (i == 0) {
-                layout = 'md:col-start-1'
-              }
-              if (i == 1) {
-                layout = 'md:col-start-4'
-              }
-              if (i == 2) {
-                layout = 'md:col-start-8'
-              }
+                if (i == 0) {
+                  layout = 'md:col-start-1'
+                }
+                if (i == 1) {
+                  layout = 'md:col-start-4'
+                }
+                if (i == 2) {
+                  layout = 'md:col-start-8'
+                }
 
-              return (
-                <div className={`${layout} col-span-10 md:col-span-3 block group mb-4 md:mb-0`} key={i}>
-                  <Link href={`/works/${e.slug.current}`}>
-                    <a
-                      className={`block w-full group`}
-                    >
-                      <ReactCursorPosition>
-                        <Teaser
-                          height={height}
-                          image={e.thumbnailImage}
-                        />
-                      </ReactCursorPosition>
+                return (
+                  <div className={`${layout} col-span-10 md:col-span-3 block group mb-4 md:mb-0`} key={i}>
+                    <Link href={`/works/${e.slug.current}`}>
+                      <a
+                        className={`block w-full group`}
+                      >
+                        <ReactCursorPosition>
+                          <Teaser
+                            height={height}
+                            image={e.thumbnailImage}
+                          />
+                        </ReactCursorPosition>
 
-                      <span className="block overflow-hidden relative">
-                        <span className="block text-lg leading-none mb-1">{e.title}</span>
+                        <span className="block overflow-hidden relative">
+                          <span className="block text-lg leading-none mb-1">{e.title}</span>
+                        </span>
+                      </a>
+                    </Link>
+                    
+                    <span className="block overflow-hidden relative">
+                      <span
+                        className="block text-lg leading-none mb-1 text-gray capitalize"
+                      >
+                        {e.sector.replace(/-/g, ' ').replace('and', '&')}
                       </span>
-                    </a>
-                  </Link>
-                  
-                  <span className="block overflow-hidden relative">
-                    <span
-                      className="block text-lg leading-none mb-1 text-gray capitalize"
-                    >
-                      {e.sector.replace(/-/g, ' ').replace('and', '&')}
                     </span>
-                  </span>
-                </div>
-              )
-            })}
-          </div>
+                  </div>
+                )
+              })}
+            </div>
+          ) : (
+            <div className="grid grid-cols-10 gap-2 md:gap-5">
+              {relatedFirst.map((e, i) => {
+                let layout = 'md:col-start-0'
+                let height = 'h-[60vw] md:h-[18vw]'
+                // let disabledClass = 'grayscale opacity-30'
+
+                if (i == 0) {
+                  layout = 'md:col-start-1'
+                }
+                if (i == 1) {
+                  layout = 'md:col-start-4'
+                }
+                if (i == 2) {
+                  layout = 'md:col-start-8'
+                }
+
+                return (
+                  <div className={`${layout} col-span-10 md:col-span-3 block group mb-4 md:mb-0`} key={i}>
+                    <Link href={`/works/${e.slug.current}`}>
+                      <a
+                        className={`block w-full group`}
+                      >
+                        <ReactCursorPosition>
+                          <Teaser
+                            height={height}
+                            image={e.thumbnailImage}
+                          />
+                        </ReactCursorPosition>
+
+                        <span className="block overflow-hidden relative">
+                          <span className="block text-lg leading-none mb-1">{e.title}</span>
+                        </span>
+                      </a>
+                    </Link>
+                    
+                    <span className="block overflow-hidden relative">
+                      <span
+                        className="block text-lg leading-none mb-1 text-gray capitalize"
+                      >
+                        {e.sector.replace(/-/g, ' ').replace('and', '&')}
+                      </span>
+                    </span>
+                  </div>
+                )
+              })}
+            </div>
+          )}
         </m.div>
       </LazyMotion>
 
@@ -364,7 +438,7 @@ export default function WorksSlug(initialData) {
 export async function getStaticProps(context) {
   const props = await pageService.fetchQuery(context)
   return {
-    props
+    props,
   };
 }
 
