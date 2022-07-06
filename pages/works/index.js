@@ -3,7 +3,7 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import { fade } from '@/helpers/transitions'
 import Link from 'next/link'
-import { LazyMotion, domAnimation, m } from 'framer-motion'
+import { LazyMotion, domAnimation, m, AnimatePresence } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import SanityPageService from '@/services/sanityPageService'
 import { useContext, useEffect, useState } from 'react'
@@ -11,6 +11,7 @@ import Image from '@/components/image'
 import ReactCursorPosition from 'react-cursor-position'
 import Teaser from '@/components/teaser'
 import { IntroContext } from 'context/intro'
+import Typewriter from 'typewriter-effect'
 
 const query = `{
   "works": *[_type == "works" && gridProject == true]{
@@ -279,9 +280,18 @@ export default function Works(initialData) {
               </div>
             </div>
           </m.div>
-          <m.article>
+
+        <m.article>  
+          <AnimatePresence exitBeforeEnter>
             { active == 'gallery' && (
-              <ul className="mt-4 md:mt-6 grid grid-cols-10 gap-x-5 gap-y-[8vw] items-end">
+              <m.ul
+                key="gallery"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4, ease: [0.83, 0, 0.17, 1] }}
+                className="mt-4 md:mt-6 grid grid-cols-10 gap-x-5 gap-y-[8vw] items-end"
+              >
                 {works.map((e, i) => {
                   let layout = 'col-span-10 md:col-span-3'
                   let height = 'h-[60vw] md:h-[22vw]'
@@ -354,10 +364,10 @@ export default function Works(initialData) {
                   }
 
                   return (
-                    <div className={`${layout} block mb-4 md:mb-0 ${disabledClass}`}>
+                    <div className={`${layout} block mb-4 group md:mb-0 ${disabledClass}`}>
                       <Link href={`/works/${e.slug.current}`} key={i}>
                         <a
-                          className={`block group`}
+                          className={`block`}
                         >
                           
                           <ReactCursorPosition>
@@ -368,7 +378,7 @@ export default function Works(initialData) {
                           </ReactCursorPosition>
 
                           <span className="block overflow-hidden relative">
-                            <span className="block text-lg leading-none mb-1">{e.title}</span>
+                            <span className="block text-lg leading-[1.1] mb-[2px]">{e.title}</span>
                           </span>
                         </a>
                       </Link>
@@ -376,18 +386,38 @@ export default function Works(initialData) {
                       <span className="block overflow-hidden relative">
                         <button 
                           onClick={() => updateTypeAndTray(e.sector)}
-                          className="block text-lg leading-none mb-1 text-gray hover:text-black focus-visible:text-black capitalize outline-none border-none focus-visible:outline-none focus:border-none"
+                          className="block text-lg leading-[1.2] mb-1 text-gray hover:text-black focus-visible:text-black capitalize outline-none border-none focus-visible:outline-none focus:border-none"
                         >
-                          {e.sector.replace(/-/g, ' ').replace('and', '&')}
+                          <div className="relative">
+                            <span className="block">{e.sector.replace(/-/g, ' ').replace('and', '&')}</span>
+
+                            {/* <span className="block opacity-0 group-hover:opacity-100 absolute inset-0 text-left">
+                              <Typewriter
+                                options={{
+                                  strings: [`${e.sector.replace(/-/g, ' ').replace('and', '&')}`, `${e.sector.replace(/-/g, ' ').replace('and', '&')}`, `${e.sector.replace(/-/g, ' ').replace('and', '&')}`, `${e.sector.replace(/-/g, ' ').replace('and', '&')}`, `${e.sector.replace(/-/g, ' ').replace('and', '&')}`],
+                                  autoStart: true,
+                                  delay: 100,
+                                  loop: true,
+                                }}
+                              />
+                            </span> */}
+                          </div>
                         </button>
                       </span>
                     </div>
                   )
                 })}
-              </ul>
+              </m.ul>
             )}
             { active == 'archive' && (
-              <div className="grid grid-cols-10 gap-5 mt-6 md:mt-8 items-start">
+              <m.div
+                key="archive"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4, ease: [0.83, 0, 0.17, 1] }}
+                className="grid grid-cols-10 gap-5 mt-6 md:mt-8 items-start"
+              >
                 <div className="col-span-2 col-start-0 md:sticky md:top-32 xl:top-40">
                   <div className={`w-full h-[12vw] relative overflow-hidden hidden md:block opacity-0 ${hovering ? 'opacity-100' : 'opacity-0' }`}>
                     <Image
@@ -450,8 +480,9 @@ export default function Works(initialData) {
                     )
                   })}
                 </ul>
-              </div>
+              </m.div>
             )}
+            </AnimatePresence>
           </m.article>
         </m.main>
       </LazyMotion>

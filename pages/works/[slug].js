@@ -273,7 +273,7 @@ export default function WorksSlug(initialData) {
               </div>
             </div>
 
-            <div className="grid grid-cols-10 gap-5 pb-20 md:pb-32 xl:pb-52 pt-20 md:pt-32 xl:pt-52 bg-white relative z-10 p-2">
+            <div className="grid grid-cols-10 gap-5 pb-20 md:pb-32 xl:pb-52 pt-20 md:pt-32 xl:pt-52 bg-white relative z-[20] safari-sticky p-2 safari-sticky">
               <div className="col-span-9 md:col-span-3 mb-8 md:mb-0">
                 { client && (
                   <div className="mb-3">
@@ -318,13 +318,13 @@ export default function WorksSlug(initialData) {
               </div>
             </div>
             
-            <div className="bg-white relative z-10 p-2">
+            <div className="bg-white relative z-[20] safari-sticky p-2">
               <BodyRenderer body={contentBlocks} />
             </div>
           </m.article>
         </m.main>
 
-        <m.div className="pt-20 md:pt-32 xl:pt-40 bg-white relative z-10">
+        <m.div className="pt-20 md:pt-32 xl:pt-40 bg-white relative z-[20] safari-sticky">
           <div className="mb-3">
             <span className="inline-block text-xl leading-tight lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight">More in <span className="capitalize">{sector.replace(/-/g, ' ')}</span></span>
             <Link href="/works">

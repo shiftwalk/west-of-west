@@ -1,6 +1,53 @@
+import { useEffect, useRef } from 'react';
 import Clock from 'react-live-clock'
+import { DateTime } from "luxon";
 
 export default function Footer({ noPad }) {
+  const wowSecondHandle = useRef(null);
+  const wowMinuteHandle = useRef(null);
+  const wowHourHandle = useRef(null);
+  const wowSecondHandle2 = useRef(null);
+  const wowMinuteHandle2 = useRef(null);
+  const wowHourHandle2 = useRef(null);
+  const userSecondHandle = useRef(null);
+  const userMinuteHandle = useRef(null);
+  const userHourHandle = useRef(null);
+  const userSecondHandle2 = useRef(null);
+  const userMinuteHandle2 = useRef(null);
+  const userHourHandle2 = useRef(null);
+
+  let wowDateStamp = DateTime.local({ zone: "America/Los_Angeles" }).toFormat('ZZZZ')
+  let userDateStamp = DateTime.local().toFormat('ZZZZ')
+
+  useEffect(() => {
+    let wowDate = DateTime.local({ zone: "America/Los_Angeles" });
+    let userDate = DateTime.local();
+
+    let wowSs = wowDate.second;
+    let wowMm = wowDate.minute;
+    let wowHh = wowDate.hour;
+    
+    let userSs = userDate.second;
+    let userMm = userDate.minute;
+    let userHh = userDate.hour;
+
+    wowSecondHandle.current.style.transform = `rotateZ(${wowSs * 6}deg)`;
+    wowMinuteHandle.current.style.transform = `rotateZ(${wowMm * 6}deg)`;
+    wowHourHandle.current.style.transform = `rotateZ(${wowHh * 30}deg)`;
+
+    wowSecondHandle2.current.style.transform = `rotateZ(${wowSs * 6}deg)`;
+    wowMinuteHandle2.current.style.transform = `rotateZ(${wowMm * 6}deg)`;
+    wowHourHandle2.current.style.transform = `rotateZ(${wowHh * 30}deg)`;
+    
+    userSecondHandle.current.style.transform = `rotateZ(${userSs * 6}deg)`;
+    userMinuteHandle.current.style.transform = `rotateZ(${userMm * 6}deg)`;
+    userHourHandle.current.style.transform = `rotateZ(${userHh * 30}deg)`;
+
+    userSecondHandle2.current.style.transform = `rotateZ(${userSs * 6}deg)`;
+    userMinuteHandle2.current.style.transform = `rotateZ(${userMm * 6}deg)`;
+    userHourHandle2.current.style.transform = `rotateZ(${userHh * 30}deg)`;
+  }, []);
+
   return (
     <footer className={`border-t border-gray border-opacity-30 pt-12 md:pt-20 xl:pt-28 lg:text-lg ${noPad ? '' : 'mt-12 md:mt-20 xl:mt-28' }`}>
       <div className="grid grid-cols-10 gap-5">
@@ -35,7 +82,7 @@ export default function Footer({ noPad }) {
         </div>
         
         <div className="md:col-start-3 col-span-10 md:col-span-2 mb-5 md:mb-0 flex items-end">
-          <div className="w-full">
+          <div className="w-full group">
             <address className="not-italic leading-tight">
               Portland<br/>
               110 SE Main St,<br/>
@@ -43,13 +90,46 @@ export default function Footer({ noPad }) {
               Portland, OR. 97214
             </address>
 
-            <span className="flex leading-tight mt-2 space-x-[6px]">
-              <svg className="w-[14px]" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="6.5" cy="6.5" r="6" stroke="#333"/><path stroke="#333" d="M6.5 3v4M6 6.5h4"/></svg>
-              <span className="tabular-nums"><Clock format={'HH:mm:ss'} ticking={true} timezone={'US/Pacific'} /> PST</span>
-            </span>
+            <div className="relative">
+              <span className="flex leading-tight mt-2 space-x-[6px] opacity-100 group-hover:opacity-0">
+                <div className="clock-container">
+                  <div className="clock">
+                    <div ref={wowHourHandle} className="hor" id="hor">
+                      <div className="hr"></div>
+                    </div>
+                    <div ref={wowMinuteHandle} className="min" id="min">
+                      <div className="mn"></div>
+                    </div>
+                    <div ref={wowSecondHandle} className="sec opacity-10" id="sec">
+                      <div className="sc"></div>
+                    </div>
+                  </div>
+                </div>
+                
+                <span className="tabular-nums"><Clock format={'HH:mm:ss'} ticking={true} timezone={'US/Pacific'} /> {wowDateStamp}</span>
+              </span>
+
+              <span className="flex leading-tight space-x-[6px] absolute inset-0 opacity-0 group-hover:opacity-100">
+                <div className="clock-container">
+                  <div className="clock">
+                    <div ref={userHourHandle} className="hor" id="hor">
+                      <div className="hr"></div>
+                    </div>
+                    <div ref={userMinuteHandle} className="min" id="min">
+                      <div className="mn"></div>
+                    </div>
+                    <div ref={userSecondHandle} className="sec opacity-10" id="sec">
+                      <div className="sc"></div>
+                    </div>
+                  </div>
+                </div>
+                
+                <span className="tabular-nums"><Clock format={'HH:mm:ss'} ticking={true} /> {userDateStamp}</span>
+              </span>
+            </div>
           </div>
         </div>
-        <div className="md:col-start-5 col-span-10 md:col-span-2 mb-5 md:mb-0 flex justify-end">
+        <div className="md:col-start-5 col-span-10 md:col-span-2 mb-5 md:mb-0 flex justify-end group">
           <div className="w-full">
             <address className="not-italic leading-tight">
               Los Angeles<br/>
@@ -58,10 +138,43 @@ export default function Footer({ noPad }) {
               Los Angeles, CA. 90012
             </address>
 
-            <span className="flex leading-tight mt-2 space-x-[6px]">
-              <svg className="w-[14px]" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="6.5" cy="6.5" r="6" stroke="#333"/><path stroke="#333" d="M6.5 3v4M6 6.5h4"/></svg>
-              <span className="tabular-nums"><Clock format={'HH:mm:ss'} ticking={true} timezone={'US/Pacific'} /> PST</span>
-            </span>
+            <div className="relative">
+              <span className="flex leading-tight mt-2 space-x-[6px] opacity-100 group-hover:opacity-0">
+                <div className="clock-container">
+                  <div className="clock">
+                    <div ref={wowHourHandle2} className="hor" id="hor">
+                      <div className="hr"></div>
+                    </div>
+                    <div ref={wowMinuteHandle2} className="min" id="min">
+                      <div className="mn"></div>
+                    </div>
+                    <div ref={wowSecondHandle2} className="sec opacity-10" id="sec">
+                      <div className="sc"></div>
+                    </div>
+                  </div>
+                </div>
+                
+                <span className="tabular-nums"><Clock format={'HH:mm:ss'} ticking={true} timezone={'US/Pacific'} /> {wowDateStamp}</span>
+              </span>
+
+              <span className="flex leading-tight space-x-[6px] absolute inset-0 opacity-0 group-hover:opacity-100 ">
+                <div className="clock-container">
+                  <div className="clock">
+                    <div ref={userHourHandle2} className="hor" id="hor">
+                      <div className="hr"></div>
+                    </div>
+                    <div ref={userMinuteHandle2} className="min" id="min">
+                      <div className="mn"></div>
+                    </div>
+                    <div ref={userSecondHandle2} className="sec opacity-10" id="sec">
+                      <div className="sc"></div>
+                    </div>
+                  </div>
+                </div>
+                
+                <span className="tabular-nums"><Clock format={'HH:mm:ss'} ticking={true} /> {userDateStamp}</span>
+              </span>
+            </div>
           </div>
         </div>
 

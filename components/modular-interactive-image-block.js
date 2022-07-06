@@ -1,7 +1,7 @@
 import InteractiveImage from "@/components/interactive-image";
 import ReactCursorPosition from 'react-cursor-position'
 
-export default function ModularInteractiveImageBlock({ images, layout }) {
+export default function ModularInteractiveImageBlock({ images, layout, autoplay }) {
 
   let cols = 'col-span-10';
   let start = 'col-start-0'
@@ -49,6 +49,7 @@ export default function ModularInteractiveImageBlock({ images, layout }) {
           <ReactCursorPosition >
             <InteractiveImage
               images={images}
+              autoplay={autoplay}
               width={width}
             ></InteractiveImage>
           </ReactCursorPosition>

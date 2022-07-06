@@ -72,7 +72,7 @@ export default function Journal(initialData) {
           className="pt-24 md:pt-32 xl:pt-40"
         >
           <m.article>
-            <ul className="mt-4 md:mt-6 grid grid-cols-10 gap-x-5 gap-y-[5vw] items-start">
+            <ul className="mt-4 md:mt-6 grid grid-cols-10 gap-x-5 gap-y-[10vw] items-start">
               {journal.map((e, i) => {
                 let d = new Date(e.date);
                 let ye = new Intl.DateTimeFormat('en', { year: '2-digit' }).format(d);
@@ -107,9 +107,6 @@ export default function Journal(initialData) {
                 if (i == 7 || i == 15 || i == 24 || i == 33 || i == 42 || i == 51 || i == 60) {
                   layout = 'md:col-start-7'
                 }
-                if (i == 8 || i == 16 || i == 25 || i == 34 || i == 43 || i == 52 || i == 61) {
-                  layout = 'md:col-start-1'
-                }
 
                 return (
                   <Link href={`/journal/${e.slug.current}`} key={i}>
@@ -123,11 +120,11 @@ export default function Journal(initialData) {
                         />
                       </ReactCursorPosition>
                       <span className="block overflow-hidden relative">
-                        <span className="block text-[10px] leading-none my-1 md:my-2 text-gray uppercase">{da}.{mo}.{ye}</span>
+                        <span className="block text-[10px] leading-none mb-1 md:mb-2 text-gray uppercase">{da}.{mo}.{ye}</span>
                       </span>
 
                       <span className="block overflow-hidden relative">
-                        <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] mb-1">{e.title}</span>
+                        <span className="block text-lg leading-none xl:leading-[1.15] mb-1">{e.title}</span>
                       </span>
                     </a>
                   </Link>

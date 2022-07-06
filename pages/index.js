@@ -154,7 +154,7 @@ export default function Home(initialData) {
         >
           <HomeHeroHover items={home.heroFeaturedWorks}></HomeHeroHover>
           
-          <div className="bg-white relative z-[10] p-2 pt-12 md:pt-16 xl:pt-24">
+          <div className="bg-white relative z-[10] p-2 pt-12 md:pt-16 xl:pt-24 safari-sticky">
             <div className="grid grid-cols-10 gap-3 md:gap-5 bg-white">
               <div className="col-span-10 md:col-span-8 xl:col-span-7">
                 <h1 className="block indent-[25.35%] xl:indent-[28.95%] text-[9vw] md:text-[7.25vw] xl:text-[5.85vw] leading-[0.95] md:leading-[0.95] xl:leading-[0.95] max-w-[80vw] mb-12 md:mb-20 xl:mb-32">We are an architecture &amp; design studio that creates experience driven buildings and interiors.</h1>
@@ -215,8 +215,8 @@ export default function Home(initialData) {
                     </ReactCursorPosition>
 
                     <span className="inline-block overflow-hidden relative text-lg md:text-xl xl:text-2xl">
-                      <span className="inline-block ">{home.featuredJournalEntry.title}</span>
-                      {/* <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span> */}
+                      <span className="inline-block ">Read Journal</span>
+                      <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                     </span>
                   </a>
                 </Link>

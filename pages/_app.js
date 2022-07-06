@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }) {
   const router = useRouter()
   const [introContext, setIntroContext] = useState(false);
   const [grid, setGrid] = useState(false);
-  const isIdle = useIdle(10e3);
+  const isIdle = useIdle(13e3);
 
   const container = {
     hidden: { opacity: 0 },
@@ -25,7 +25,7 @@ export default function App({ Component, pageProps }) {
     }
   }
   
-  const item = {
+const item = {
     hidden: { y: '105%' },
     show: { y: 0 }
   }
@@ -74,7 +74,7 @@ export default function App({ Component, pageProps }) {
                   {Array.from(Array(40), (e, i) => {
                     return (
                       <div className="relative overflow-hidden mb-4" key={i} style={{ marginLeft: `${i * 2.5}vw` }}>
-                        <m.span variants={item} transition={{ duration: 0.75, ease: [0.83, 0, 0.17, 1] }} className={`block text-sm uppercase tracking-tight transform`}>Practise Takes Practise</m.span>
+                        <m.span variants={item} transition={{ duration: 0.75, ease: [0.83, 0, 0.17, 1] }} className={`block text-sm uppercase tracking-tight transform`}>Practice Takes Practise</m.span>
                       </div>
                     )
                   })}
