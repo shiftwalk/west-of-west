@@ -14,7 +14,7 @@ import { IntroContext } from 'context/intro'
 import Typewriter from 'typewriter-effect'
 
 const query = `{
-  "works": *[_type == "works" && gridProject == true]{
+  "works": *[_type == "works" && gridProject == true] | order(orderRank){
     title,
     thumbnailImage {
       asset-> {
