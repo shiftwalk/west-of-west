@@ -190,7 +190,7 @@ export default function Works(initialData) {
 
                   <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[13px] translate-y-[2px]">
                     <span className="block relative overflow-hidden tabular-nums">
-                      <span className="block">{works.length}</span>
+                      <span className="block">{worksAll.length}</span>
                     </span>
                   </span>
                 </button>
@@ -281,7 +281,7 @@ export default function Works(initialData) {
             </div>
           </m.div>
 
-        <m.article>  
+        <m.article> 
           <AnimatePresence exitBeforeEnter>
             { active == 'gallery' && (
               <m.ul
