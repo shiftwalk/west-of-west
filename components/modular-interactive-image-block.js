@@ -1,10 +1,6 @@
-import dynamic from 'next/dynamic';
 import ReactCursorPosition from 'react-cursor-position'
 import InteractiveImage from '@/components/interactive-image'
-
-// const InteractiveImage = dynamic(() => import('@/components/interactive-image'), {
-//   ssr: false,
-//  });
+import { isMobile } from 'react-device-detect';
 
 export default function ModularInteractiveImageBlock({ images, layout, autoplay }) {
 
@@ -53,6 +49,7 @@ export default function ModularInteractiveImageBlock({ images, layout, autoplay 
       <div className={`${cols} ${start} relative`}>
           <ReactCursorPosition >
             <InteractiveImage
+              isMobile={isMobile}
               images={images}
               autoplay={autoplay}
               width={width}

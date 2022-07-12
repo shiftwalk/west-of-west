@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "@/components/image";
-import { isMobile } from 'react-device-detect';
 
-export default function InteractiveImage({ height, images, width, isActive, position, autoplay, deviceType }) {
+export default function InteractiveImage({ height, images, width, isActive, position, autoplay, deviceType, isMobile }) {
   const ref = useRef(null);
   const [relativeWidth, setRelativeWidth] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
