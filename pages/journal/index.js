@@ -10,10 +10,17 @@ import ReactCursorPosition from 'react-cursor-position'
 import Teaser from '@/components/teaser'
 import { IntroContext } from 'context/intro'
 import { useContext, useEffect } from 'react'
+import ConditionalWrap from 'conditional-wrap'
+import Image from '@/components/image'
 
 const query = `{
   "journal": *[_type == "journal"] | order(date desc){
     title,
+    routedArticle,
+    externalLinks[] {
+      linkTitle,
+      linkUrl
+    },
     heroImage {
       asset-> {
         ...,
@@ -109,25 +116,95 @@ export default function Journal(initialData) {
                 }
 
                 return (
-                  <Link href={`/journal/${e.slug.current}`} key={i}>
-                    <a
-                      className={`${layout} col-span-10 md:col-span-2 block group mb-4 md:mb-0`}
-                    >
-                      <ReactCursorPosition>
-                        <Teaser
-                          height={height}
-                          image={e.heroImage}
-                        />
-                      </ReactCursorPosition>
-                      <span className="block overflow-hidden relative">
-                        <span className="block text-[10px] leading-none mb-1 md:mb-2 text-gray uppercase">{da}.{mo}.{ye}</span>
-                      </span>
+                  <div className={`${layout} col-span-10 md:col-span-2 block group mb-4 md:mb-0`}>
+                    {e.routedArticle && (
+                      <Link href={`/journal/${e.slug.current}`} key={i}>
+                        <a className={`w-full block`}>
+                          <div className="w-full">
+                            { e.routedArticle ? (
+                              <ReactCursorPosition>
+                                <Teaser
+                                  height={height}
+                                  image={e.heroImage}
+                                />
+                              </ReactCursorPosition>
+                            ) : (
+                              <div className={`mb-3 relative overflow-hidden ${height}`}>
+                                <Image
+                                  image={e.heroImage}
+                                  focalPoint={e.heroImage.hotspot}
+                                  layout="fill"
+                                  widthOverride={1000}
+                                  className={`w-full inset-0 h-full object-cover object-center`}
+                                />
 
-                      <span className="block overflow-hidden relative">
-                        <span className="block text-lg leading-none xl:leading-[1.15] mb-1">{e.title}</span>
-                      </span>
-                    </a>
-                  </Link>
+                              </div>
+                            )}
+                            <span className="block overflow-hidden relative">
+                              <span className="block text-[10px] leading-none mb-1 md:mb-2 text-gray uppercase">{da}.{mo}.{ye}</span>
+                            </span>
+
+                            <span className="block overflow-hidden relative">
+                              <span className="block text-lg leading-none xl:leading-[1.15] mb-1">{e.title}</span>
+                            </span>
+
+                            { e.routedArticle && (
+                              <span className="inline-block overflow-hidden text-sm lg:text-base xl:text-base relative md:leading-tight xl:leading-tight mt-2">
+                                <span className="block">Read More</span>
+                                <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                              </span>
+                            )}
+                          </div>
+                        </a>
+                      </Link>
+                    )}
+                    { e.externalLinks && !e.routedArticle && (
+                      <a className={`w-full block`} href={e.externalLinks[0].linkUrl} target="_blank" rel="noreferrer noopener">
+                        <div className="w-full">
+                          <ReactCursorPosition>
+                            <Teaser
+                              external
+                              height={height}
+                              image={e.heroImage}
+                            />
+                          </ReactCursorPosition>
+                          <span className="block overflow-hidden relative">
+                            <span className="block text-[10px] leading-none mb-1 md:mb-2 text-gray uppercase">{da}.{mo}.{ye}</span>
+                          </span>
+
+                          <span className="block overflow-hidden relative">
+                            <span className="block text-lg leading-none xl:leading-[1.15] mb-1">{e.title}</span>
+                          </span>
+
+                          <span className="inline-block overflow-hidden text-sm lg:text-base xl:text-base relative md:leading-tight xl:leading-tight mt-2">
+                            <span className="block">External Article</span>
+                            <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                          </span>
+                        </div>
+                      </a>
+                    )}
+                    { !e.externalLinks && !e.routedArticle && (
+                      <div className="w-full">
+                        <div className={`mb-3 relative overflow-hidden ${height}`}>
+                          <Image
+                            image={e.heroImage}
+                            focalPoint={e.heroImage.hotspot}
+                            layout="fill"
+                            widthOverride={1000}
+                            className={`w-full inset-0 h-full object-cover object-center`}
+                          />
+
+                        </div>
+                        <span className="block overflow-hidden relative">
+                          <span className="block text-[10px] leading-none mb-1 md:mb-2 text-gray uppercase">{da}.{mo}.{ye}</span>
+                        </span>
+
+                        <span className="block overflow-hidden relative">
+                          <span className="block text-lg leading-none xl:leading-[1.15] mb-1">{e.title}</span>
+                        </span>
+                      </div>
+                    )}
+                  </div>
                 )
               })}
             </ul>

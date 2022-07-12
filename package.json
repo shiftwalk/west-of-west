@@ -30,6 +30,7 @@
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/client": "^2.13.0",
     "@types/mapbox-gl": "^2.7.3",
+    "conditional-wrap": "^1.0.2",
     "framer-motion": "^6.3.3",
     "luxon": "^2.4.0",
     "mapbox-gl": "^2.9.1",

@@ -215,9 +215,15 @@ export default function Home(initialData) {
                     </ReactCursorPosition>
 
                     <span className="inline-block overflow-hidden relative text-lg md:text-xl xl:text-2xl">
-                      <span className="inline-block ">Read Journal</span>
-                      <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                      <span className="inline-block ">{home.featuredJournalEntry.title}</span>
                     </span>
+
+                    <div className="block mt-1">
+                      <span className="inline-block overflow-hidden lg:text-lg xl:text-xl relative md:leading-tight xl:leading-tight">
+                        <span className="block">Read More</span>
+                        <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                      </span>
+                    </div>
                   </a>
                 </Link>
               </div>
