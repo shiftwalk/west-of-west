@@ -6,7 +6,6 @@ import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import SanityPageService from '@/services/sanityPageService'
 import BodyRenderer from '@/components/body-renderer'
-
 import Link from 'next/link'
 import BlockContent from '@sanity/block-content-to-react'
 import Image from '@/components/image'

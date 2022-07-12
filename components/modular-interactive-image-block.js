@@ -1,5 +1,10 @@
-import InteractiveImage from "@/components/interactive-image";
+import dynamic from 'next/dynamic';
 import ReactCursorPosition from 'react-cursor-position'
+import InteractiveImage from '@/components/interactive-image'
+
+// const InteractiveImage = dynamic(() => import('@/components/interactive-image'), {
+//   ssr: false,
+//  });
 
 export default function ModularInteractiveImageBlock({ images, layout, autoplay }) {
 

@@ -68,8 +68,9 @@ const query = `*[_type == "journal" && slug.current == $slug][0]{
   "works": *[_type == "works"]{
     title
   },
-  "related": *[_type == "journal" && date < ^.date && slug.current != $slug] | order(date desc)[0..2] {
+  "related": *[_type == "journal" && date < ^.date && slug.current != $slug && routedArticle] | order(date desc)[0..2] {
     title,
+    routedArticle,
     heroImage {
       asset-> {
         ...,
@@ -92,8 +93,9 @@ const query = `*[_type == "journal" && slug.current == $slug][0]{
       current
     }
   },
-  "relatedFirst": *[_type == "journal" && slug.current != $slug] | order(date desc)[0..2] {
+  "relatedFirst": *[_type == "journal" && slug.current != $slug && routedArticle] | order(date desc)[0..2] {
     title,
+    routedArticle,
     heroImage {
       asset-> {
         ...,
