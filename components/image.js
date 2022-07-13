@@ -2,7 +2,7 @@ import Img from 'next/image'
 import sanity from '@/services/sanity'
 import { useNextSanityImage } from 'next-sanity-image'
 
-export default function Image({ image, layout, widthOverride, heightOverride, focalPoint, className, priority, noCaption, noBg }) {
+export default function Image({ image, layout, widthOverride, heightOverride, focalPoint, className, priority, noCaption, noBg, sizes }) {
   // Pass in custom URL builder props
   const myCustomImageBuilder = (imageUrlBuilder, options) => {
     return imageUrlBuilder
@@ -16,6 +16,7 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
 
   // Generate attributes for Img component
   const attributes = {};
+
   if (focalPoint?.x && focalPoint?.y) {
     const { x, y } = focalPoint;
     attributes.objectPosition = `${x * 100}% ${y * 100}%`;
@@ -24,6 +25,7 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
   if (image.alt) { attributes.alt = image.alt } else { attributes.alt = 'MISSING ALT TEXT' }
   if (layout) { attributes.layout = layout } else { attributes.layout = 'responsive' }
   if (priority) { attributes.priority = true } else { attributes.priority = false }
+  if (sizes) { attributes.sizes = sizes }
 
 	return image.overrideVideo ? (
     <div className={`image ${className} w-full h-full overflow-hidden relative ${layout == 'fill' && 'cover-image' }`}>
