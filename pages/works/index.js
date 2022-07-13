@@ -424,7 +424,7 @@ export default function Works(initialData) {
                       image={worksArchive[current].thumbnailImage}
                       focalPoint={worksArchive[current].thumbnailImage.hotspot}
                       layout="fill"
-                      widthOverride={1000}
+                      sizes="(max-width: 768px) 40vw,100vw"
                       className={`w-full inset-0 h-full object-cover object-center`}
                     />
                   </div>
