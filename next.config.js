@@ -1,5 +1,9 @@
 module.exports = {
   // swcMinify: true,
+  images: {
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256],
+  },
   webpack: (config, { dev, isServer }) => {
     // Replace React with Preact only in client production build
     if (!dev && !isServer) {
@@ -12,5 +16,4 @@ module.exports = {
 
     return config
   },
-  
 };
