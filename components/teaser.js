@@ -1,6 +1,6 @@
 import Image from "@/components/image";
 
-export default function Teaser({ height, image, isActive, position, external }) {
+export default function Teaser({ height, image, isActive, position, external, preload }) {
   return(
     <div className={`mb-3 relative overflow-hidden ${height} cursor-none`}>
       <Image
@@ -8,6 +8,7 @@ export default function Teaser({ height, image, isActive, position, external }) 
         focalPoint={image.hotspot}
         layout="fill"
         widthOverride={1000}
+        priority={preload ? preload : false}
         className={`w-full inset-0 h-full object-cover object-center`}
       />
       

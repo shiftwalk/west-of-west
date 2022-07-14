@@ -296,6 +296,12 @@ export default function Works(initialData) {
                   let layout = 'col-span-10 md:col-span-3'
                   let height = 'h-[60vw] md:h-[22vw]'
                   let disabledClass = 'grayscale opacity-30'
+                  let preloadImage = false
+
+                  // Preload the first two images...
+                  if (i == 0 || i == 1) {
+                    preloadImage = true
+                  }
 
                   if (i == 0 || i == 12 || i == 24) {
                     layout = 'col-span-10 md:col-span-4'
@@ -374,6 +380,7 @@ export default function Works(initialData) {
                             <Teaser
                               height={height}
                               image={e.thumbnailImage}
+                              preload={preloadImage}
                             />
                           </ReactCursorPosition>
 
