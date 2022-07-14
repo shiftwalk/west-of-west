@@ -37,7 +37,6 @@ export default function HomeHeroHover({ items, isActive, position }) {
                   )
                 })}
               </div>
-            
             </div>
             
             {items.map((e, i) => {
