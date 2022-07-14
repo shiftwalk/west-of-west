@@ -10,7 +10,8 @@ export default function Header({ active, works }) {
   
   const reveal = {
     visible: {y: 0 },
-    hidden: { y: introContext ? 0 : '-105%' }
+    // hidden: { y: introContext ? 0 : '-105%' }
+    hidden: { y: introContext ? 0 : 0 }
   }
 
   const toggleMenu = () => {
