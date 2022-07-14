@@ -89,7 +89,13 @@ export default function Journal(initialData) {
                 let layout = 'md:col-start-0'
                 let height = 'h-[60vw] md:h-[13vw]'
                 // let disabledClass = 'grayscale opacity-30'
+                let preloadImage = false
 
+                // Preload the first two images...
+                if (i == 0 || i == 1) {
+                  preloadImage = true
+                }
+                
                 if (i == 0 || i == 8  || i == 17 || i == 26 || i == 35  || i == 44 || i == 53) {
                   layout = 'md:col-start-1'
                 }
@@ -126,6 +132,7 @@ export default function Journal(initialData) {
                                 <Teaser
                                   height={height}
                                   image={e.heroImage}
+                                  preload={preloadImage}
                                 />
                               </ReactCursorPosition>
                             ) : (

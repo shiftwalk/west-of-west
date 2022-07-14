@@ -262,7 +262,7 @@ export default function WorksSlug(initialData) {
                         focalPoint={heroImages[currentHero].asset.hotspot}
                         layout="fill"
                         priority
-                        sizes="(max-width: 768px) 75vw, 100vw"
+                        sizes="(min-width: 768px) 75vw, 100vw"
                         className="w-full h-full absolute inset-0 object-cover object-center"
                         noCaption
                       />

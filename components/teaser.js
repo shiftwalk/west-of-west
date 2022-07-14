@@ -7,7 +7,7 @@ export default function Teaser({ height, image, isActive, position, external, pr
         image={image}
         focalPoint={image.hotspot}
         layout="fill"
-        widthOverride={1000}
+        sizes="(min-width: 768px) 33vw, 100vw"
         priority={preload ? preload : false}
         className={`w-full inset-0 h-full object-cover object-center`}
       />
