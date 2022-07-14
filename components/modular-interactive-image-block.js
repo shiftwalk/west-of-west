@@ -2,7 +2,7 @@ import ReactCursorPosition from 'react-cursor-position'
 import InteractiveImage from '@/components/interactive-image'
 import { isMobile } from 'react-device-detect';
 
-export default function ModularInteractiveImageBlock({ images, layout, autoplay }) {
+export default function ModularInteractiveImageBlock({ images, layout, autoplay, crossfade }) {
 
   let cols = 'col-span-10';
   let start = 'col-start-0'
@@ -52,6 +52,7 @@ export default function ModularInteractiveImageBlock({ images, layout, autoplay 
               isMobile={isMobile}
               images={images}
               autoplay={autoplay}
+              crossfade={crossfade}
               width={width}
             ></InteractiveImage>
           </ReactCursorPosition>

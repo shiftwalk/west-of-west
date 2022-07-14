@@ -106,7 +106,7 @@ const item = {
                           initial="hidden"
                           animate="visible"
                           variants={revealTranslate}
-                          transition={{ delay: 0.1, duration: 0.85, ease: [0.83, 0, 0.17, 1]  }}
+                          transition={{ duration: 0.75, ease: [0.83, 0, 0.17, 1]  }}
                         >
                         </m.span>
                       </div>

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "@/components/image";
 
-export default function InteractiveImage({ height, images, width, isActive, position, autoplay, deviceType, isMobile }) {
+export default function InteractiveImage({ height, images, width, isActive, position, autoplay, deviceType, isMobile, crossfade }) {
   const ref = useRef(null);
   const [relativeWidth, setRelativeWidth] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
@@ -11,6 +11,15 @@ export default function InteractiveImage({ height, images, width, isActive, posi
   }, []);
 
   useEffect(() => {
+    let speed = 500
+
+    if (isMobile) {
+      speed = 1000
+    }
+
+    if (crossfade) {
+      speed = 1750
+    }
     // Set an interval that updates the currentProject every 3 seconds on mobile to rotate the projects
     if (autoplay || isMobile) {
       const i_id = setInterval(() => {
@@ -21,7 +30,7 @@ export default function InteractiveImage({ height, images, width, isActive, posi
           // Else... Tick along...
           setCurrentImage(currentImage => currentImage+1)
         }
-      }, isMobile ? 1000 : 500);
+      }, speed);
       return () => {
         clearInterval(i_id);
       }
@@ -61,7 +70,7 @@ export default function InteractiveImage({ height, images, width, isActive, posi
         <div className={`mb-3 relative overflow-hidden ${height} ${ autoplay ? '' : 'cursor-none'}`} onMouseMove={ autoplay ? null : updateImages}>
           {images.map((e, i) => {
             return (
-              <div ref={ref} className={`${i == 0 ? 'relative' : 'absolute inset-0' } ${i == currentImage ? 'z-[10]' : 'z-[1] opacity-0' }`}>
+              <div ref={ref} className={`${crossfade ? 'transition-opacity duration-500 ease-in-out' : '' } ${i == 0 ? 'relative' : 'absolute inset-0' } ${i == currentImage ? 'z-[10]' : 'z-[1] opacity-0' }`}>
                 <Image
                   noBg
                   image={e}
@@ -72,7 +81,7 @@ export default function InteractiveImage({ height, images, width, isActive, posi
                   className="w-full"
                 />
                 {(e.caption) && (
-                  <div className={`mt-2 ${i == currentImage ? 'opacity-100' : 'opacity-0' }`}>
+                  <div className={`mt-2 ${crossfade ? 'transition-opacity duration-500 ease-in-out' : '' } ${i == currentImage ? 'opacity-100' : 'opacity-0' }`}>
                     <figcaption className={`text-base md:text-lg xl:text-xl leading-tight xl:leading-tight md:leading-tight`}>{e.caption}{e.captionSubHeading && (<span className="block text-gray">{e.captionSubHeading}</span>)}</figcaption>
                   </div>
                 )}
