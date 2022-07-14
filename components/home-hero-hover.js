@@ -56,7 +56,6 @@ export default function HomeHeroHover({ items, isActive, position }) {
                 </>
               )
             })}
-
           </div>
 
           <div className="absolute bottom-0 left-0 right-0 grid grid-cols-10 gap-3 md:gap-5 z-[20] p-3 text-white">
