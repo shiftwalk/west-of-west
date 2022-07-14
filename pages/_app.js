@@ -87,7 +87,7 @@ const item = {
               initial="visible"
               animate="hidden"
               variants={introEnd}
-              transition={{ delay: 2.55, duration: 0.6, ease: [0.83, 0, 0.17, 1] }}
+              transition={{ delay: 2.1, duration: 0.6, ease: [0.83, 0, 0.17, 1] }}
               className="bg-white fixed inset-0 z-[100] pointer-events-none flex flex-col p-[14px] md:p-[20px]"
             >
               <div className="bg-white fixed inset-0 z-[100] pointer-events-none flex flex-col p-[14px] md:p-[20px] h-full">
