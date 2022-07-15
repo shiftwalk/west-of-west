@@ -148,15 +148,15 @@ export default function Journal(initialData) {
                               </div>
                             )}
                             <span className="block overflow-hidden relative">
-                              <span className="block text-[10px] leading-none mb-1 md:mb-2 text-gray uppercase">{da}.{mo}.{ye}</span>
+                              <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] mb-2 md:mb-2 text-gray uppercase">{mo}.{da}.{ye}</span>
                             </span>
 
                             <span className="block overflow-hidden relative">
-                              <span className="block text-lg leading-none xl:leading-[1.15] mb-1">{e.title}</span>
+                              <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] mb-1">{e.title}</span>
                             </span>
 
                             { e.routedArticle && (
-                              <span className="inline-block overflow-hidden text-sm lg:text-base xl:text-base relative md:leading-tight xl:leading-tight mt-2">
+                              <span className="inline-block overflow-hidden text-lg leading-none xl:text-xl xl:leading-[1.15] relative mt-2">
                                 <span className="block">Read More</span>
                                 <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                               </span>
@@ -176,14 +176,14 @@ export default function Journal(initialData) {
                             />
                           </ReactCursorPosition>
                           <span className="block overflow-hidden relative">
-                            <span className="block text-[10px] leading-none mb-1 md:mb-2 text-gray uppercase">{da}.{mo}.{ye}</span>
+                            <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] mb-2 md:mb-2 text-gray uppercase">{mo}.{da}.{ye}</span>
                           </span>
 
                           <span className="block overflow-hidden relative">
-                            <span className="block text-lg leading-none xl:leading-[1.15] mb-1">{e.title}</span>
+                            <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] mb-1">{e.title}</span>
                           </span>
 
-                          <span className="inline-block overflow-hidden text-sm lg:text-base xl:text-base relative md:leading-tight xl:leading-tight mt-2">
+                          <span className="inline-block overflow-hidden text-lg leading-none xl:text-xl xl:leading-[1.15] relative mt-2">
                             <span className="block">External Article</span>
                             <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                           </span>
@@ -203,11 +203,11 @@ export default function Journal(initialData) {
 
                         </div>
                         <span className="block overflow-hidden relative">
-                          <span className="block text-[10px] leading-none mb-1 md:mb-2 text-gray uppercase">{da}.{mo}.{ye}</span>
+                          <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] mb-2 md:mb-2 text-gray uppercase">{mo}.{da}.{ye}</span>
                         </span>
 
                         <span className="block overflow-hidden relative">
-                          <span className="block text-lg leading-none xl:leading-[1.15] mb-1">{e.title}</span>
+                          <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] mb-1">{e.title}</span>
                         </span>
                       </div>
                     )}

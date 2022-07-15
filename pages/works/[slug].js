@@ -277,25 +277,25 @@ export default function WorksSlug(initialData) {
                 { client && (
                   <div className="mb-3">
                     <span className="uppercase text-[10px]">Client</span>
-                    <span className="block">{client}</span>
+                    <span className="block text-lg leading-none xl:text-xl xl:leading-[1.15]">{client}</span>
                   </div>
                 )}
                 { year && (
                   <div className="mb-3">
                     <span className="uppercase text-[10px]">Year</span>
-                    <span className="block">{year}</span>
+                    <span className="block text-lg leading-none xl:text-xl xl:leading-[1.15]">{year}</span>
                   </div>
                 )}
                 { status && (
                   <div className="mb-3">
                     <span className="uppercase text-[10px]">Status</span>
-                    <span className="block">{status}</span>
+                    <span className="block text-lg leading-none xl:text-xl xl:leading-[1.15]">{status}</span>
                   </div>
                 )}
                 { sector && (
                   <div className="mb-3">
                     <span className="uppercase text-[10px]">Sector</span>
-                    <span className="block capitalize">{sector.replace(/-/g, ' ')}</span>
+                    <span className="block text-lg leading-none xl:text-xl xl:leading-[1.15] capitalize">{sector.replace(/-/g, ' ')}</span>
                   </div>
                 )}
                 { credits && (
@@ -303,14 +303,14 @@ export default function WorksSlug(initialData) {
                     <span className="uppercase text-[10px]">Credits</span>
                     {credits.map((e, i) => {
                       return (
-                        <span className="block capitalize">{e.job} – {e.name}</span>
+                        <span className="block text-lg leading-none xl:text-xl xl:leading-[1.15] capitalize">{e.job} – {e.name}</span>
                       )
                     })}
                   </div>
                 )}
               </div>
 
-              <div className="md:col-start-5 col-span-9 md:col-span-4">
+              <div className="md:col-start-5 col-span-9 md:col-span-4 md:translate-y-[-23px]">
                 <div className="content content--fancy">
                   <BlockContent serializers={{ container: ({ children }) => children }} blocks={introText} />
                 </div>
@@ -325,9 +325,9 @@ export default function WorksSlug(initialData) {
 
         <m.div className="pt-20 md:pt-32 xl:pt-40 bg-white relative z-[20] safari-sticky">
           <div className="mb-3">
-            <span className="inline-block text-xl leading-tight lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight">More in <span className="capitalize">{sector.replace(/-/g, ' ')}</span></span>
+            <span className="inline-block text-lg leading-tight  xl:text-xl relative xl:leading-tight">More in <span className="capitalize">{sector.replace(/-/g, ' ')}</span></span>
             <Link href="/works">
-              <a className="inline-block text-xl leading-tight lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight text-gray ml-2 hover:text-black focus:text-black">See All</a>
+              <a className="block text-lg leading-tight  xl:text-xl relative xl:leading-tight text-gray hover:text-black focus:text-black">See All</a>
             </Link>
           </div>
           
@@ -362,14 +362,14 @@ export default function WorksSlug(initialData) {
                         </ReactCursorPosition>
 
                         <span className="block overflow-hidden relative">
-                          <span className="block text-lg leading-none mb-1">{e.title}</span>
+                          <span className="block text-lg leading-none xl:text-xl xl:leading-[1] mb-1">{e.title}</span>
                         </span>
                       </a>
                     </Link>
                     
                     <span className="block overflow-hidden relative">
                       <span
-                        className="block text-lg leading-none mb-1 text-gray capitalize"
+                        className="block text-lg leading-none xl:text-xl xl:leading-[1] mb-1 text-gray capitalize"
                       >
                         {e.sector.replace(/-/g, ' ').replace('and', '&')}
                       </span>

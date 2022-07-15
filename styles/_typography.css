@@ -1,11 +1,11 @@
 /* Content Stylings */
 .content {
   & > p {
-    @apply mb-5 last-of-type:mb-0 md:text-lg xl:text-lg leading-tight md:leading-tight xl:leading-tight;
+    @apply mb-5 last-of-type:mb-0 md:text-lg xl:text-xl leading-tight md:leading-tight xl:leading-tight;
   }
 
   & > ul {
-    @apply md:text-lg xl:text-lg leading-tight md:leading-tight xl:leading-tight;
+    @apply md:text-lg xl:text-lg leading-tight md:leading-tight xl:leading-tight xl:text-xl;
 
     li {
       @apply mb-1;

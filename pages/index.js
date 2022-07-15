@@ -174,15 +174,19 @@ export default function Home(initialData) {
                       />
                     </ReactCursorPosition>
 
-                    <span className="inline-block overflow-hidden relative text-lg md:text-xl xl:text-2xl">
-                      <span className="inline-block">Explore Works</span>
+                    <div>
+                      <span className="inline-block overflow-hidden relative text-lg leading-none xl:leading-[1.15] xl:text-xl w-10/12">Experience duality at the monolithic Roadside Hotel in Palm Springs.</span>
+                    </div>
+
+                    <span className="inline-block overflow-hidden relative text-lg leading-none xl:leading-[1.2] xl:text-xl mt-1">
+                      <span className="inline-block">Explore Project</span>
                       <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                     </span>
                   </a>
                 </Link>
               </div>
 
-              <div className="md:col-start-7 col-span-10 md:col-span-4 md:mt-32 xl:mt-48 md:text-right">
+              <div className="md:col-start-7 col-span-10 md:col-span-4 md:mt-32 xl:mt-48">
                 <Link href={`/studio`}>
                   <a
                     className={`block group mb-4 md:mb-0`}
@@ -194,8 +198,13 @@ export default function Home(initialData) {
                       />
                     </ReactCursorPosition>
 
-                    <span className="inline-block overflow-hidden relative text-lg md:text-xl xl:text-2xl">
-                      <span className="inline-block">See Studio</span>
+
+                    <div>
+                      <span className="inline-block overflow-hidden relative text-lg leading-none xl:leading-[1.15] xl:text-xl w-10/12">We are all about vision, strategy, adaptability, communication, and quality.</span>
+                    </div>
+
+                    <span className="inline-block overflow-hidden relative text-lg leading-none xl:leading-[1.2] xl:text-xl mt-1">
+                      <span className="inline-block">The Studio</span>
                       <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                     </span>
                   </a>
@@ -209,17 +218,17 @@ export default function Home(initialData) {
                   >
                   <ReactCursorPosition>
                       <Teaser
-                        height={'h-[60vw] md:h-[19vw]'}
+                        height={'h-[60vw] md:h-[19vw]'}f
                         image={home.featuredJournalEntry.heroImage}
                       />
                     </ReactCursorPosition>
 
-                    <span className="inline-block overflow-hidden relative text-lg md:text-xl xl:text-2xl">
+                    <span className="inline-block overflow-hidden relative text-lg leading-none xl:leading-[1.15] xl:text-xl w-10/12">
                       <span className="inline-block ">{home.featuredJournalEntry.title}</span>
                     </span>
 
                     <div className="block mt-1">
-                      <span className="inline-block overflow-hidden lg:text-lg xl:text-xl relative md:leading-tight xl:leading-tight">
+                      <span className="inline-block overflow-hidden text-lg leading-none xl:leading-[1.2] xl:text-xl relative">
                         <span className="block">Read More</span>
                         <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                       </span>

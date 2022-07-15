@@ -385,7 +385,7 @@ export default function Works(initialData) {
                           </ReactCursorPosition>
 
                           <span className="block overflow-hidden relative">
-                            <span className="block text-lg leading-[1.1] mb-[2px]">{e.title}</span>
+                            <span className="block text-lg xl:text-xl leading-[1.1] xl:leading-[1.15] mb-[2px]">{e.title}</span>
                           </span>
                         </a>
                       </Link>
@@ -393,7 +393,7 @@ export default function Works(initialData) {
                       <span className="block overflow-hidden relative">
                         <button 
                           onClick={() => updateTypeAndTray(e.sector)}
-                          className="block text-lg leading-[1.2] mb-1 text-gray hover:text-black focus-visible:text-black capitalize outline-none border-none focus-visible:outline-none focus:border-none"
+                          className="block text-lg xl:text-xl xl:leading-[1.2] leading-[1.2] mb-1 text-gray hover:text-black focus-visible:text-black capitalize outline-none border-none focus-visible:outline-none focus:border-none text-left"
                         >
                           <div className="relative">
                             <span className="block">{e.sector.replace(/-/g, ' ').replace('and', '&')}</span>

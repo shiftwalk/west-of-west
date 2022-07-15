@@ -25,7 +25,6 @@ export default function ModularTripleImageBlock({ image1, image2, image3, text, 
             <div className={`mt-8 md:mt-[12vw] ${layout == 'right-aligned' ? 'col-span-6' : 'col-span-5' }`}>
               <div className={`grid gap-5 ${layout == 'right-aligned' ? 'grid-cols-6' : 'grid-cols-5' }`}>
                 <div className={`${layout == 'right-aligned' ? 'md:col-span-1 col-span-6' : 'md:col-span-2 col-span-5' }`}>
-                  <span className="block uppercase text-[10px] mb-3 md:mb-0">Heading</span>
                 </div>
                 <div className={`${layout == 'right-aligned' ? 'col-span-5 md:col-span-3 md:col-start-3' : 'col-span-5 md:col-span-3' } content`}>
                   <BlockContent serializers={{ container: ({ children }) => children }} blocks={text} />

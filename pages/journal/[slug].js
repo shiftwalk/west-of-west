@@ -146,7 +146,7 @@ export default function JournalSlug(initialData) {
         >
           <m.article className="w-full md:w-1/2 h-screen p-2 pt-16 md:pt-20 xl:pt-20 sticky top-0 flex flex-wrap">
             <div className="w-full">
-              <div className="max-w-[450px]">
+              <div className="max-w-[500px]">
                 <h1 className="text-3xl md:text-4xl xl:text-5xl leading-[1.1] md:leading-[1.1] xl:leading-[1.1] mb-4 md:max-w-[60vw]">{title}</h1>
               </div>
 
@@ -159,8 +159,7 @@ export default function JournalSlug(initialData) {
                           <div key={i}>
                             <Link href={`/works/${e.slug.current}`}>
                               <a className="inline-block text-xl md:text-xl group relative overflow-hidden">
-                                <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300 delay-[50ms]">See {e.title}</span>
-                                <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300 delay-[50ms]">See {e.title}</span>
+                                <span className="block">See {e.title}</span>
                                 <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                               </a>
                             </Link>
@@ -177,8 +176,7 @@ export default function JournalSlug(initialData) {
                           <div key={i}>
                             <Link href={`/journal/${e.slug.current}`}>
                               <a className="inline-block text-xl md:text-xl group relative overflow-hidden">
-                                <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300 delay-[50ms]">See {e.shortTitle ? e.shortTitle : e.title}</span>
-                                <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300 delay-[50ms]">See {e.shortTitle ? e.shortTitle : e.title}</span>
+                                <span className="block">See {e.shortTitle ? e.shortTitle : e.title}</span>
                                 <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                               </a>
                             </Link>
@@ -194,8 +192,7 @@ export default function JournalSlug(initialData) {
                         return (
                           <div key={i}>
                             <a target="_blank" rel="noreferrer noopener" href={e.linkUrl} className="inline-block text-xl md:text-xl group relative overflow-hidden">
-                              <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-300 delay-[50ms]">{e.linkTitle ? e.linkTitle : 'More Information' }</span>
-                              <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-300 delay-[50ms]">{e.linkTitle ? e.linkTitle : 'More Information' }</span>
+                              <span className="block">{e.linkTitle ? e.linkTitle : 'More Information' }</span>
                               <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                             </a>
                           </div>
@@ -249,9 +246,9 @@ export default function JournalSlug(initialData) {
 
         <m.div className="pt-20 md:pt-40 xl:pt-56">
           <div className="mb-3">
-            <span className="inline-block text-xl leading-tight lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight">More News</span>
+            <span className="inline-block text-lg leading-tight  xl:text-xl relative xl:leading-tight">More News</span>
             <Link href="/journal">
-              <a className="inline-block text-xl leading-tight lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight text-gray ml-2 hover:text-black focus:text-black">See All</a>
+              <a className="block text-lg leading-tight  xl:text-xl relative xl:leading-tight text-gray hover:text-black focus:text-black">See All</a>
             </Link>
           </div>
 
@@ -289,11 +286,11 @@ export default function JournalSlug(initialData) {
                         />
                       </ReactCursorPosition>
                       <span className="block overflow-hidden relative">
-                        <span className="block text-[10px] leading-none my-1 md:my-2 text-gray uppercase">{da}.{mo}.{ye}</span>
+                        <span className="block text-lg leading-none xl:text-xl xl:leading-[1] my-1 md:my-2 text-gray uppercase">{da}.{mo}.{ye}</span>
                       </span>
 
                       <span className="block overflow-hidden relative">
-                        <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] mb-1">{e.title}</span>
+                        <span className="block text-lg leading-[1.15] xl:text-xl xl:leading-[1.15] mb-1 w-9/12">{e.title}</span>
                       </span>
                     </a>
                   </Link>

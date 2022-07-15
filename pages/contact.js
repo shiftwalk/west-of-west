@@ -136,15 +136,15 @@ export default function Contact(initialData) {
           <m.article>
             <div className="grid grid-cols-10 gap-x-5 gap-y-2 md:h-[calc(100vh-8px)] pt-24 md:pt-32 xl:pt-40 mb-8 md:mb-32 xl:mb-40">
               <div className="col-span-10 md:col-span-2 flex flex-wrap h-full">
-                <div className="content--lg w-full pb-5">
+                <div className="block text-lg leading-[1.15] xl:leading-[1.15] xl:text-xl w-full pb-5">
                   <p className="w-[95%] lg:w-8/12">{contact.heroHeading}</p>
                 </div>
                 
                 <div className="w-full self-end">
                   {contact.locations.map((e, i) => {
                     return (
-                      <div className={`${ i == 0 ? 'mb-4' : 'mb-2' } ${currentLocation == i ? '' : 'text-gray' }`}>
-                        <button onClick={ ()=> setCurrentLocation(i)} id={`location-${i}`} key={i} className={`w-full md:w-11/12 lg:w-10/12 xl:w-1/2 max-w-[130px] block  text-left leading-tight`}>
+                      <div className={`block text-lg leading-none xl:leading-[1.15] xl:text-xl ${ i == 0 ? 'mb-6' : 'mb-2' } ${currentLocation == i ? '' : 'text-gray' }`}>
+                        <button onClick={ ()=> setCurrentLocation(i)} id={`location-${i}`} key={i} className={`w-full md:w-11/12 lg:w-10/12 xl:w-1/2 max-w-[130px] block  text-left leading-[1.15] xl:leading-[1.15]`}>
                           <span className="block">{e.title}</span>
                           <span className="block">{e.address}</span>
                         </button>

@@ -102,7 +102,7 @@ const item = {
                     >
                       <div className="block overflow-hidden">
                         <m.span
-                          className="w-[120px] h-[34px] bg-[#000000] block mx-auto"
+                          className="w-[120px] h-[34px] bg-[#231F20] block mx-auto"
                           initial="hidden"
                           animate="visible"
                           variants={revealTranslate}

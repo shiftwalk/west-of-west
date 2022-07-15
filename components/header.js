@@ -45,7 +45,7 @@ export default function Header({ active, works }) {
                 transition={{ delay: introContext ? 0 : 2.65, duration: 0.5, ease: [0.83, 0, 0.17, 1] }}
               >
                 <Link href="/studio">
-                  <a className={`block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden hover:text-black focus-visible:text-black hover:opacity-100 focus-visible:opacity-100 transition ease-in-out duration-300 mix-blend ${hovering ? 'opacity-30' : 'text-black' } ${ (active == 'studio' || active == 'home') ? 'text-black' : 'opacity-30' } hover:text-black focus-visible:text-black hover:opacity-100 focus-visible:opacity-100 ${ (active == 'home' || active !== 'studio') ? 'group' : '' }`} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
+                  <a className={`block md:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden hover:text-black focus-visible:text-black hover:opacity-100 focus-visible:opacity-100 transition ease-in-out duration-300 mix-blend ${hovering ? 'opacity-30' : 'text-black' } ${ (active == 'studio' || active == 'home') ? 'text-black' : 'opacity-30' } hover:text-black focus-visible:text-black hover:opacity-100 focus-visible:opacity-100 ${ (active == 'home' || active !== 'studio') ? 'group' : '' }`} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
                     <span className="block">Studio,</span>
                   </a>
                 </Link>
@@ -58,7 +58,7 @@ export default function Header({ active, works }) {
                 transition={{ delay: introContext ? 0 : 2.65, duration: 0.5, ease: [0.83, 0, 0.17, 1] }}
               >
                 <Link href="/works">
-                  <a className={`block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight hover:text-black focus-visible:text-black hover:opacity-100 focus-visible:opacity-100 transition ease-in-out duration-300 ${hovering ? 'opacity-30' : 'text-black' } ${ (active == 'works' || active == 'home') ? 'text-black' : 'opacity-30' } hover:text-black focus-visible:text-black hover:opacity-100 focus-visible:opacity-100 ${ (active == 'home' || active !== 'works') ? 'group' : '' }`} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
+                  <a className={`block md:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight hover:text-black focus-visible:text-black hover:opacity-100 focus-visible:opacity-100 transition ease-in-out duration-300 ${hovering ? 'opacity-30' : 'text-black' } ${ (active == 'works' || active == 'home') ? 'text-black' : 'opacity-30' } hover:text-black focus-visible:text-black hover:opacity-100 focus-visible:opacity-100 ${ (active == 'home' || active !== 'works') ? 'group' : '' }`} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
                     <div className="relative overflow-hidden">
                       <span className="block">Works</span>
                     </div>
@@ -80,7 +80,7 @@ export default function Header({ active, works }) {
                 variants={reveal}
                 transition={{ delay: introContext ? 0 : 2.65, duration: 0.5, ease: [0.83, 0, 0.17, 1] }}
               >
-                <button onClick={toggleMenu} className={`block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden ${menuOpen ? 'text-black' : '' }`}>
+                <button onClick={toggleMenu} className={`block md:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden ${menuOpen ? 'text-black' : '' }`}>
                   <span className="block">
                     <span className="block w-[39px] bg-black h-[3px] mb-[5px]"></span>
                     <span className="block w-[39px] bg-black h-[3px]"></span>
@@ -97,7 +97,7 @@ export default function Header({ active, works }) {
                 transition={{ delay: introContext ? 0 : 2.65, duration: 0.5, ease: [0.83, 0, 0.17, 1] }}
               >
                 <Link href="/journal">
-                  <a className={`block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden hover:text-black focus-visible:text-black hover:opacity-100 focus-visible:opacity-100 transition ease-in-out duration-300 ${hovering ? 'opacity-30' : 'text-black' } ${ (active == 'journal' || active == 'home') ? 'text-black' : 'opacity-30' } hover:text-black focus-visible:text-black hover:opacity-100 focus-visible:opacity-100 ${ (active == 'home' || active !== 'journal') ? 'group' : '' }`} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
+                  <a className={`block md:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden hover:text-black focus-visible:text-black hover:opacity-100 focus-visible:opacity-100 transition ease-in-out duration-300 ${hovering ? 'opacity-30' : 'text-black' } ${ (active == 'journal' || active == 'home') ? 'text-black' : 'opacity-30' } hover:text-black focus-visible:text-black hover:opacity-100 focus-visible:opacity-100 ${ (active == 'home' || active !== 'journal') ? 'group' : '' }`} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
                     <span className="block">Journal,</span>
                   </a>
                 </Link>
@@ -110,7 +110,7 @@ export default function Header({ active, works }) {
                 transition={{ delay: introContext ? 0 : 2.65, duration: 0.5, ease: [0.83, 0, 0.17, 1] }}
               >
                 <Link href="/contact">
-                  <a className={`block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden hover:text-black focus-visible:text-black hover:opacity-100 focus-visible:opacity-100 transition ease-in-out duration-300 ${hovering ? 'opacity-30' : 'text-black' } ${ (active == 'contact' || active == 'home') ? 'text-black' : 'opacity-30' } hover:text-black focus-visible:text-black hover:opacity-100 focus-visible:opacity-100 ${ (active == 'home' || active !== 'contact') ? 'group' : '' }`} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
+                  <a className={`block md:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden hover:text-black focus-visible:text-black hover:opacity-100 focus-visible:opacity-100 transition ease-in-out duration-300 ${hovering ? 'opacity-30' : 'text-black' } ${ (active == 'contact' || active == 'home') ? 'text-black' : 'opacity-30' } hover:text-black focus-visible:text-black hover:opacity-100 focus-visible:opacity-100 ${ (active == 'home' || active !== 'contact') ? 'group' : '' }`} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
                     <span className="block">Contact</span>
                   </a>
                 </Link>
@@ -124,7 +124,7 @@ export default function Header({ active, works }) {
                 variants={reveal}
                 transition={{ delay: introContext ? 0 : 2.65, duration: 0.5, ease: [0.83, 0, 0.17, 1] }}
               >
-                <a href="https://www.instagram.com/west_of_west/?hl=en" target="_blank" rel="noreferrer noopener" className={`inline-block lg:text-xl xl:text-2xl md:leading-tight xl:leading-tight group relative overflow-hidden hover:text-black focus-visible:text-black hover:opacity-100 focus-visible:opacity-100 transition ease-in-out duration-300 ${hovering ? 'opacity-30' : 'text-black' } ${ active == 'home' ? 'text-black' : 'opacity-30' }`} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
+                <a href="https://www.instagram.com/west_of_west/?hl=en" target="_blank" rel="noreferrer noopener" className={`inline-block md:text-xl xl:text-2xl md:leading-tight xl:leading-tight group relative overflow-hidden hover:text-black focus-visible:text-black hover:opacity-100 focus-visible:opacity-100 transition ease-in-out duration-300 ${hovering ? 'opacity-30' : 'text-black' } ${ active == 'home' ? 'text-black' : 'opacity-30' }`} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
                   <span className="block">Instagram</span>
                 </a>
               </m.div>

@@ -82,7 +82,7 @@ export default function InteractiveImage({ height, images, width, isActive, posi
                 />
                 {(e.caption) && (
                   <div className={`mt-2 ${crossfade ? 'transition-opacity duration-500 ease-in-out' : '' } ${i == currentImage ? 'opacity-100' : 'opacity-0' }`}>
-                    <figcaption className={`text-base md:text-lg xl:text-xl leading-tight xl:leading-tight md:leading-tight`}>{e.caption}{e.captionSubHeading && (<span className="block text-gray">{e.captionSubHeading}</span>)}</figcaption>
+                    <figcaption className={`block text-lg leading-none xl:leading-[1.15] xl:text-xl`}>{e.caption}{e.captionSubHeading && (<span className="block text-gray">{e.captionSubHeading}</span>)}</figcaption>
                   </div>
                 )}
               </div>
