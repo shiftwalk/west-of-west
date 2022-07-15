@@ -163,13 +163,17 @@ export default function Contact(initialData) {
               <div className="col-span-10 md:col-span-8 pb-2">
                 <div className="w-full h-[66vw] md:h-full bg-white relative overflow-hidden">
                   <div className="absolute inset-0 w-full h-full object-cover bg-gray bg-opacity-20">
-                    <Image
-                      image={contact.locations[currentLocation].image}
-                      focalPoint={contact.locations[currentLocation].image.hotspot}
-                      layout="fill"
-                      widthOverride={1500}
-                      className={`w-full inset-0 h-full object-cover object-center`}
-                    />
+                    {contact.locations.map((e, i) => {
+                      return (
+                        <Image
+                          image={e.image}
+                          focalPoint={e.image.hotspot}
+                          layout="fill"
+                          widthOverride={1500}
+                          className={`w-full inset-0 h-full object-cover object-center transition-opacity ease-in-out duration-[500ms] ${ i == currentLocation ? 'opacity-100' : 'opacity-0'}`}
+                        />
+                      )
+                    })}
                   </div>
                 </div>
               </div>

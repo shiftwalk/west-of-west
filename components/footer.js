@@ -56,11 +56,11 @@ export default function Footer({ noPad }) {
             <div className="animate-marquee whitespace-nowrap">
               <span className="mx-[3px] leading-tight uppercase">Quality above all else</span>
               <span className="mx-[3px] leading-tight uppercase">—</span>
-              <span className="mx-[3px] leading-tight uppercase">Practise takes practise</span>
+              <span className="mx-[3px] leading-tight uppercase">Practice takes practise</span>
               <span className="mx-[3px] leading-tight uppercase">—</span>
               <span className="mx-[3px] leading-tight uppercase">Quality above all else</span>
               <span className="mx-[3px] leading-tight uppercase">—</span>
-              <span className="mx-[3px] leading-tight uppercase">Practise takes practise</span>
+              <span className="mx-[3px] leading-tight uppercase">Practice takes practise</span>
               <span className="mx-[3px] leading-tight uppercase">—</span>
               <span className="mx-[3px] leading-tight uppercase">Quality above all else</span>
               <span className="mx-[3px] leading-tight uppercase">—</span>
@@ -69,11 +69,11 @@ export default function Footer({ noPad }) {
             <div className="absolute top-0 animate-marquee2 whitespace-nowrap">
               <span className="mx-[3px] leading-tight uppercase">Quality above all else</span>
               <span className="mx-[3px] leading-tight uppercase">—</span>
-              <span className="mx-[3px] leading-tight uppercase">Practise takes practise</span>
+              <span className="mx-[3px] leading-tight uppercase">Practice takes practise</span>
               <span className="mx-[3px] leading-tight uppercase">—</span>
               <span className="mx-[3px] leading-tight uppercase">Quality above all else</span>
               <span className="mx-[3px] leading-tight uppercase">—</span>
-              <span className="mx-[3px] leading-tight uppercase">Practise takes practise</span>
+              <span className="mx-[3px] leading-tight uppercase">Practice takes practise</span>
               <span className="mx-[3px] leading-tight uppercase">—</span>
               <span className="mx-[3px] leading-tight uppercase">Quality above all else</span>
               <span className="mx-[3px] leading-tight uppercase">—</span>
