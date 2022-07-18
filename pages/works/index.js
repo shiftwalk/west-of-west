@@ -427,7 +427,7 @@ export default function Works(initialData) {
                 className="grid grid-cols-10 gap-5 mt-6 md:mt-8 items-start"
               >
                 <div className="col-span-2 col-start-0 md:sticky md:top-32 xl:top-40">
-                  <div className={`w-full h-[12vw] relative overflow-hidden hidden md:block opacity-0 ${hovering ? 'opacity-100' : 'opacity-0' }`}>
+                  <div className={`w-full h-[12vw] relative overflow-hidden hidden md:block ${hovering ? 'opacity-100' : 'opacity-0' }`}>
                     <Image
                       image={worksArchive[current].thumbnailImage}
                       focalPoint={worksArchive[current].thumbnailImage.hotspot}
