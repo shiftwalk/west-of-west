@@ -226,7 +226,7 @@ export default function WorksSlug(initialData) {
           <m.article>
             <div className="md:h-screen grid grid-cols-10 gap-x-5 items-end pt-20 sticky top-0 z-0 p-2">
               <div className="col-span-10 md:col-span-2 mb-3 md:mb-0">
-                <span className="block text-[10px] uppercase mb-8">{projectCode}</span>
+                <span className="block text-[12px] uppercase mb-8">{projectCode}</span>
                 <h1 className="block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight mb-0 pb-0">{title}</h1>
                 <span className="block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight mb-0 pb-0 text-gray">{locationCity}{locationState && (<>, {locationState}</>)}</span>
               </div>
@@ -276,31 +276,31 @@ export default function WorksSlug(initialData) {
               <div className="col-span-9 md:col-span-3 mb-8 md:mb-0">
                 { client && (
                   <div className="mb-3">
-                    <span className="uppercase text-[10px]">Client</span>
+                    <span className="text-lg leading-none xl:text-xl xl:leading-[1.15] text-gray">Client</span>
                     <span className="block text-lg leading-none xl:text-xl xl:leading-[1.15]">{client}</span>
                   </div>
                 )}
                 { year && (
                   <div className="mb-3">
-                    <span className="uppercase text-[10px]">Year</span>
+                    <span className="text-lg leading-none xl:text-xl xl:leading-[1.15] text-gray">Year</span>
                     <span className="block text-lg leading-none xl:text-xl xl:leading-[1.15]">{year}</span>
                   </div>
                 )}
                 { status && (
                   <div className="mb-3">
-                    <span className="uppercase text-[10px]">Status</span>
+                    <span className="text-lg leading-none xl:text-xl xl:leading-[1.15] text-gray">Status</span>
                     <span className="block text-lg leading-none xl:text-xl xl:leading-[1.15]">{status}</span>
                   </div>
                 )}
                 { sector && (
                   <div className="mb-3">
-                    <span className="uppercase text-[10px]">Sector</span>
+                    <span className="text-lg leading-none xl:text-xl xl:leading-[1.15] text-gray">Sector</span>
                     <span className="block text-lg leading-none xl:text-xl xl:leading-[1.15] capitalize">{sector.replace(/-/g, ' ')}</span>
                   </div>
                 )}
                 { credits && (
                   <div className="mb-3">
-                    <span className="uppercase text-[10px]">Credits</span>
+                    <span className="text-lg leading-none xl:text-xl xl:leading-[1.15] text-gray">Credits</span>
                     {credits.map((e, i) => {
                       return (
                         <span className="block text-lg leading-none xl:text-xl xl:leading-[1.15] capitalize">{e.job} – {e.name}</span>
