@@ -522,7 +522,7 @@ export default function Works(initialData) {
 
                 <ul className="md:col-start-3 col-span-10 md:col-span-8 w-full block archive-list" onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
                   {worksArchive.map((e, i) => {
-                    let archiveDisabledClass = 'hidden md:flex grayscale opacity-30'
+                    let archiveDisabledClass = 'grayscale opacity-30'
                     
                     if (activeType == 'all' && activeGenre == 'all') {
                       archiveDisabledClass = 'grayscale-0 opacity-100'

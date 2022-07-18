@@ -127,26 +127,28 @@ export default function Journal(initialData) {
                       <Link href={`/journal/${e.slug.current}`} key={i}>
                         <a className={`w-full block`}>
                           <div className="w-full">
-                            { e.routedArticle ? (
-                              <ReactCursorPosition>
-                                <Teaser
-                                  height={height}
-                                  image={e.heroImage}
-                                  preload={preloadImage}
-                                />
-                              </ReactCursorPosition>
-                            ) : (
-                              <div className={`mb-3 relative overflow-hidden ${height}`}>
-                                <Image
-                                  image={e.heroImage}
-                                  focalPoint={e.heroImage.hotspot}
-                                  layout="fill"
-                                  widthOverride={1000}
-                                  className={`w-full inset-0 h-full object-cover object-center`}
-                                />
+                            <div className="hidden md:block">
+                              { e.routedArticle ? (
+                                <ReactCursorPosition>
+                                  <Teaser
+                                    height={height}
+                                    image={e.heroImage}
+                                    preload={preloadImage}
+                                  />
+                                </ReactCursorPosition>
+                              ) : (
+                                <div className={`mb-3 relative overflow-hidden ${height}`}>
+                                  <Image
+                                    image={e.heroImage}
+                                    focalPoint={e.heroImage.hotspot}
+                                    layout="fill"
+                                    widthOverride={1000}
+                                    className={`w-full inset-0 h-full object-cover object-center`}
+                                  />
 
-                              </div>
-                            )}
+                                </div>
+                              )}
+                            </div>
                             <span className="block overflow-hidden relative">
                               <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] mb-2 md:mb-2 text-gray uppercase">{mo}.{da}.{ye}</span>
                             </span>
@@ -168,13 +170,15 @@ export default function Journal(initialData) {
                     { e.externalLinks && !e.routedArticle && (
                       <a className={`w-full block`} href={e.externalLinks[0].linkUrl} target="_blank" rel="noreferrer noopener">
                         <div className="w-full">
-                          <ReactCursorPosition>
-                            <Teaser
-                              external
-                              height={height}
-                              image={e.heroImage}
-                            />
-                          </ReactCursorPosition>
+                          <div className="hidden md:block">
+                            <ReactCursorPosition>
+                              <Teaser
+                                external
+                                height={height}
+                                image={e.heroImage}
+                              />
+                            </ReactCursorPosition>
+                          </div>
                           <span className="block overflow-hidden relative">
                             <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] mb-2 md:mb-2 text-gray uppercase">{mo}.{da}.{ye}</span>
                           </span>
@@ -194,7 +198,7 @@ export default function Journal(initialData) {
                     )}
                     { !e.externalLinks && !e.routedArticle && (
                       <div className="w-full">
-                        <div className={`mb-3 relative overflow-hidden ${height}`}>
+                        <div className={`mb-3 relative overflow-hidden ${height} hidden md:block`}>
                           <Image
                             image={e.heroImage}
                             focalPoint={e.heroImage.hotspot}
@@ -202,7 +206,6 @@ export default function Journal(initialData) {
                             widthOverride={1000}
                             className={`w-full inset-0 h-full object-cover object-center`}
                           />
-
                         </div>
                         <span className="block overflow-hidden relative">
                           <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] mb-2 md:mb-2 text-gray uppercase">{mo}.{da}.{ye}</span>

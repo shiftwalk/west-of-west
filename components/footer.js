@@ -218,7 +218,7 @@ export default function Footer({ noPad }) {
             </div>
             <div className="relative md:text-right">
               <span className="flex md:justify-end text-base leading-[1.15] xl:text-xl xl:leading-[1.15] space-x-[6px] opacity-100 mb-[3px]">
-                <span className="tabular-nums"><Clock format={'HH:mm:ss'} ticking={true} timezone={'US/Pacific'} /> {userDateStamp}</span>
+                <span className="tabular-nums"><Clock format={'HH:mm:ss'} ticking={true} /> {userDateStamp}</span>
 
                 <div className="clock-container">
                   <div className="clock">
