@@ -4,40 +4,45 @@ export default function ModularImageBlock({ image, layout }) {
 
   let cols = 'col-span-10';
   let start = 'col-start-0'
-  let width = 1600
+  let width = '(min-width: 768px) 90vw, 100vw'
 
   if (layout == 'left-aligned') {
-    width = 1200
+    width = '(min-width: 768px) 90vw, 100vw'
     cols = 'col-span-7'
     start = 'col-start-0'
   }
+  if (layout == 'full-bleed') {
+    width = '(min-width: 768px) 100vw, 100vw'
+    cols = 'col-span-10'
+    start = 'col-start-0'
+  }
   if (layout == 'left-aligned-portrait') {
-    width = 1200
+    width = '(min-width: 768px) 90vw, 100vw'
     cols = 'col-span-5 md:col-span-4'
     start = 'col-start-0'
   }
   if (layout == 'centered') {
-    width = 1200
+    width = '(min-width: 768px) 100vw, 100vw'
     cols = 'col-span-6'
     start = 'col-start-3'
   }
   if (layout == 'centered-portrait') {
-    width = 1200
+    width = '(min-width: 768px) 90vw, 100vw'
     cols = 'col-span-6 md:col-span-4'
     start = 'col-start-3 md:col-start-4'
   }
   if (layout == 'right-aligned') {
-    width = 900
+    width = '(min-width: 768px) 70vw, 100vw'
     cols = 'col-span-7'
     start = 'col-start-4'
   }
   if (layout == 'right-aligned-portrait') {
-    width = 1200
+    width = '(min-width: 768px) 90vw, 100vw'
     cols = 'col-span-5 md:col-span-4'
     start = 'col-start-6 md:col-start-7'
   }
   if (layout == 'contained-square') {
-    width = 900
+    width = '(min-width: 768px) 70vw, 100vw'
     cols = 'col-span-5'
     start = 'col-start-3'
   }
@@ -49,7 +54,7 @@ export default function ModularImageBlock({ image, layout }) {
           image={image}
           focalPoint={image.hotspot}
           layout="responsive"
-          widthOverride={width}
+          sizes={width}
           className="w-full"
         />
       </div>

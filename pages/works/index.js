@@ -371,7 +371,7 @@ export default function Works(initialData) {
                   }
 
                   return (
-                    <div className={`${layout} block mb-4 group md:mb-0 ${disabledClass}`}>
+                    <div className={`${layout} block mb-4 group md:mb-0 ${disabledClass}`} key={i}>
                       <Link href={`/works/${e.slug.current}`} key={i}>
                         <a
                           className={`block`}

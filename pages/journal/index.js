@@ -122,7 +122,7 @@ export default function Journal(initialData) {
                 }
 
                 return (
-                  <div className={`${layout} col-span-10 md:col-span-2 block group mb-4 md:mb-0`}>
+                  <div className={`${layout} col-span-10 md:col-span-2 block group mb-4 md:mb-0`} key={i}>
                     {e.routedArticle && (
                       <Link href={`/journal/${e.slug.current}`} key={i}>
                         <a className={`w-full block`}>
@@ -184,8 +184,10 @@ export default function Journal(initialData) {
                           </span>
 
                           <span className="inline-block overflow-hidden text-lg leading-none xl:text-xl xl:leading-[1.15] relative mt-2">
-                            <span className="block">External Article</span>
-                            <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                            <span className="block align-top">
+                              <span className="inline-block">Read More</span>
+                              <svg className={`w-[11px] ml-[5px] mt-[-13px] inline-block text-black`} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" fillRule="evenodd" clipRule="evenodd"><path d="M14 4h-13v18h20v-11h1v12h-22v-20h14v1zm10 5h-1v-6.293l-11.646 11.647-.708-.708 11.647-11.646h-6.293v-1h8v8z"/></svg></span>
+                            <span className="w-[85%] group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                           </span>
                         </div>
                       </a>

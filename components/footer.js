@@ -35,21 +35,21 @@ export default function Footer({ noPad }) {
     wowMinuteHandle.current.style.transform = `rotateZ(${wowMm * 6}deg)`;
     wowHourHandle.current.style.transform = `rotateZ(${wowHh * 30}deg)`;
 
-    wowSecondHandle2.current.style.transform = `rotateZ(${wowSs * 6}deg)`;
-    wowMinuteHandle2.current.style.transform = `rotateZ(${wowMm * 6}deg)`;
-    wowHourHandle2.current.style.transform = `rotateZ(${wowHh * 30}deg)`;
+    // wowSecondHandle2.current.style.transform = `rotateZ(${wowSs * 6}deg)`;
+    // wowMinuteHandle2.current.style.transform = `rotateZ(${wowMm * 6}deg)`;
+    // wowHourHandle2.current.style.transform = `rotateZ(${wowHh * 30}deg)`;
     
     userSecondHandle.current.style.transform = `rotateZ(${userSs * 6}deg)`;
     userMinuteHandle.current.style.transform = `rotateZ(${userMm * 6}deg)`;
     userHourHandle.current.style.transform = `rotateZ(${userHh * 30}deg)`;
 
-    userSecondHandle2.current.style.transform = `rotateZ(${userSs * 6}deg)`;
-    userMinuteHandle2.current.style.transform = `rotateZ(${userMm * 6}deg)`;
-    userHourHandle2.current.style.transform = `rotateZ(${userHh * 30}deg)`;
+    // userSecondHandle2.current.style.transform = `rotateZ(${userSs * 6}deg)`;
+    // userMinuteHandle2.current.style.transform = `rotateZ(${userMm * 6}deg)`;
+    // userHourHandle2.current.style.transform = `rotateZ(${userHh * 30}deg)`;
   }, []);
 
   return (
-    <footer className={`border-t border-gray border-opacity-30 pt-12 md:pt-20 xl:pt-28 lg:text-lg ${noPad ? '' : 'mt-12 md:mt-20 xl:mt-28' }`}>
+    <footer className={`pt-10 md:pt-16 xl:pt-20 lg:text-lg ${noPad ? '' : 'mt-12 md:mt-20 xl:mt-28' }`}>
       <div className="grid grid-cols-10 gap-5">
         <div className="mb-5 md:mb-0 flex items-end w-full md:w-auto col-span-10 md:col-auto">
           <div className="relative flex overflow-x-hidden text-xs w-full md:w-auto">
@@ -90,7 +90,7 @@ export default function Footer({ noPad }) {
               Portland, OR. 97214
             </address>
 
-            <div className="relative">
+            {/* <div className="relative">
               <span className="flex text-base leading-[1.15] xl:text-xl xl:leading-[1.15] mt-2 space-x-[6px] opacity-100 group-hover:opacity-0">
                 <div className="clock-container">
                   <div className="clock">
@@ -126,7 +126,7 @@ export default function Footer({ noPad }) {
                 
                 <span className="tabular-nums"><Clock format={'HH:mm:ss'} ticking={true} /> {userDateStamp}</span>
               </span>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="md:col-start-5 col-span-10 md:col-span-2 mb-5 md:mb-0 flex justify-end group">
@@ -138,7 +138,7 @@ export default function Footer({ noPad }) {
               Los Angeles, CA. 90012
             </address>
 
-            <div className="relative">
+            {/* <div className="relative">
               <span className="flex text-base leading-[1.15] xl:text-xl xl:leading-[1.15] mt-2 space-x-[6px] opacity-100 group-hover:opacity-0">
                 <div className="clock-container">
                   <div className="clock">
@@ -174,7 +174,7 @@ export default function Footer({ noPad }) {
                 
                 <span className="tabular-nums"><Clock format={'HH:mm:ss'} ticking={true} /> {userDateStamp}</span>
               </span>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -197,13 +197,44 @@ export default function Footer({ noPad }) {
 
         <div className="md:col-start-9 col-span-10 md:col-span-2 mb-5 md:mb-0 flex items-end md:justify-end md:text-right">
           <div>
-            <span className="flex items-center w-full text-base leading-[1.15] xl:text-xl xl:leading-[1.15] space-x-1 md:justify-end">
-              <span className="block">Site by</span>
-              <a href="https://shiftwalk.studio" target="_blank" rel="noopener noreferrer" className="block relative overflow-hidden group">
-                <span className="block">ShiftWalk</span>
-                <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
-              </a>
-            </span>
+            <div className="relative md:text-right mb-[2px]">
+              <span className="flex md:justify-end text-base leading-[1.15] xl:text-xl xl:leading-[1.15] mt-2 space-x-[6px] opacity-100">
+              <span className="tabular-nums"><Clock format={'HH:mm:ss'} ticking={true} timezone={'US/Pacific'} /> {wowDateStamp}</span>
+
+                <div className="clock-container">
+                  <div className="clock">
+                    <div ref={wowHourHandle} className="hor" id="hor">
+                      <div className="hr"></div>
+                    </div>
+                    <div ref={wowMinuteHandle} className="min" id="min">
+                      <div className="mn"></div>
+                    </div>
+                    <div ref={wowSecondHandle} className="sec opacity-10" id="sec">
+                      <div className="sc"></div>
+                    </div>
+                  </div>
+                </div>
+              </span>
+            </div>
+            <div className="relative md:text-right">
+              <span className="flex md:justify-end text-base leading-[1.15] xl:text-xl xl:leading-[1.15] space-x-[6px] opacity-100 mb-[3px]">
+                <span className="tabular-nums"><Clock format={'HH:mm:ss'} ticking={true} timezone={'US/Pacific'} /> {userDateStamp}</span>
+
+                <div className="clock-container">
+                  <div className="clock">
+                    <div ref={userHourHandle} className="hor" id="hor">
+                      <div className="hr"></div>
+                    </div>
+                    <div ref={userMinuteHandle} className="min" id="min">
+                      <div className="mn"></div>
+                    </div>
+                    <div ref={userSecondHandle} className="sec opacity-10" id="sec">
+                      <div className="sc"></div>
+                    </div>
+                  </div>
+                </div>
+              </span>
+            </div>
             <span className="block w-full text-base leading-[1.15] xl:text-xl xl:leading-[1.15]">© West of West<span className="inline md:hidden lg:inline">&nbsp;— 2022</span></span>
           </div>
         </div>
