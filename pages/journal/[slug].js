@@ -144,7 +144,7 @@ export default function JournalSlug(initialData) {
           exit="exit"
           className="flex flex-wrap -m-2"
         >
-          <m.article className="w-full md:w-1/2 h-screen p-2 pt-16 md:pt-20 xl:pt-20 sticky top-0 flex flex-wrap">
+          <m.article className="w-full md:w-1/2 md:h-screen p-2 pt-16 md:pt-20 xl:pt-20 md:sticky top-0 flex flex-wrap">
             <div className="w-full">
               <div className="max-w-[500px]">
                 <h1 className="text-3xl md:text-4xl xl:text-5xl leading-[1.1] md:leading-[1.1] xl:leading-[1.1] mb-4 md:max-w-[60vw]">{title}</h1>
@@ -192,8 +192,9 @@ export default function JournalSlug(initialData) {
                         return (
                           <div key={i}>
                             <a target="_blank" rel="noreferrer noopener" href={e.linkUrl} className="inline-block text-xl md:text-xl group relative overflow-hidden">
-                              <span className="block">{e.linkTitle ? e.linkTitle : 'More Information' }</span>
-                              <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                              <span className="inline-block">{e.linkTitle ? e.linkTitle : 'More Information' }</span>
+                              <svg className={`w-[11px] ml-[5px] mt-[-13px] inline-block text-black`} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" fillRule="evenodd" clipRule="evenodd"><path d="M14 4h-13v18h20v-11h1v12h-22v-20h14v1zm10 5h-1v-6.293l-11.646 11.647-.708-.708 11.647-11.646h-6.293v-1h8v8z"/></svg>
+                              <span className="w-[90%] group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                             </a>
                           </div>
                         )
@@ -205,8 +206,8 @@ export default function JournalSlug(initialData) {
             </div>
 
             {contentText && (
-              <div className="w-full mt-auto">
-                <div className="content max-w-[400px]">
+              <div className="w-full mt-24 md:mt-auto">
+                <div className="content max-w-[500px]">
                   <SanityBlockContent serializers={{ container: ({ children }) => children }} blocks={contentText} />
                 </div>
               </div>
