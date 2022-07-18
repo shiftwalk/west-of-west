@@ -18,56 +18,56 @@ const bodySerializers = {
   block: {
     component: BlockContentWrapper,
     wrapper: ({ children }) => 
-      <div className="mb-20 md:mb-32 xl:mb-52">
+      <div className="mb-[1px] md:mb-32 xl:mb-52">
         {children}
       </div>
   },
   modularImageBlock: {
     component: ModularImageBlock,
     wrapper: ({ children }) => 
-      <div className="mb-20 md:mb-32 xl:mb-52">
+      <div className="mb-[1px] md:mb-32 xl:mb-52">
         {children}
       </div>
   },
   modularInteractiveImageBlock: {
     component: ModularInteractiveImageBlock,
     wrapper: ({ children }) => 
-      <div className="mb-20 md:mb-32 xl:mb-52">
+      <div className="mb-[1px] md:mb-32 xl:mb-52">
         {children}
       </div>
   },
   modularBeforeAfterBlock: {
     component: ModularBeforeAfterBlock,
     wrapper: ({ children }) => 
-      <div className="mb-20 md:mb-32 xl:mb-52">
+      <div className="mb-[1px] md:mb-32 xl:mb-52">
         {children}
       </div>
   },
   textBlock: {
     component: ModularTextBlock,
     wrapper: ({ children }) => 
-      <div className="mb-20 md:mb-32 xl:mb-52">
+      <div className="mb-[1px] md:mb-32 xl:mb-52">
         {children}
       </div>
   },
   modularDoubleImageBlock: {
     component: ModularDoubleImageBlock,
     wrapper: ({ children }) => 
-      <div className="mb-20 md:mb-32 xl:mb-52">
+      <div className="mb-[1px] md:mb-32 xl:mb-52">
         {children}
       </div>
   },
   modularTripleImageBlock: {
     component: ModularTripleImageBlock,
     wrapper: ({ children }) => 
-      <div className="mb-20 md:mb-32 xl:mb-52">
+      <div className="mb-[1px] md:mb-32 xl:mb-52">
         {children}
       </div>
   },
   modularSideBySideImageBlock: {
     component: ModularSideBySideImageBlock,
     wrapper: ({ children }) => 
-      <div className="mb-20 md:mb-32 xl:mb-52">
+      <div className="mb-[1px] md:mb-32 xl:mb-52">
         {children}
       </div>
   }

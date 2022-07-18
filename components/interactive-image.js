@@ -67,7 +67,7 @@ export default function InteractiveImage({ height, images, width, isActive, posi
 
   return(
       <div className="group block">
-        <div className={`mb-3 relative overflow-hidden ${height} ${ autoplay ? '' : 'cursor-none'}`} onMouseMove={ autoplay ? null : updateImages}>
+        <div className={`mb-3 relative overflow-hidden ${height} ${ autoplay ? '' : 'cursor-none'} -mx-2 md:-mx-0`} onMouseMove={ autoplay ? null : updateImages}>
           {images.map((e, i) => {
             return (
               <div ref={ref} className={`${crossfade ? 'transition-opacity duration-500 ease-in-out' : '' } ${i == 0 ? 'relative' : 'absolute inset-0' } ${i == currentImage ? 'z-[10]' : 'z-[1] opacity-0' }`}>
@@ -81,7 +81,7 @@ export default function InteractiveImage({ height, images, width, isActive, posi
                   className="w-full"
                 />
                 {(e.caption) && (
-                  <div className={`mt-2 ${crossfade ? 'transition-opacity duration-500 ease-in-out' : '' } ${i == currentImage ? 'opacity-100' : 'opacity-0' }`}>
+                  <div className={`mt-2 ${crossfade ? 'transition-opacity duration-500 ease-in-out' : '' } ${i == currentImage ? 'opacity-100' : 'opacity-0' } px-2 md:px-0`}>
                     <figcaption className={`block text-lg leading-none xl:leading-[1.15] xl:text-xl`}>{e.caption}{e.captionSubHeading && (<span className="block text-gray">{e.captionSubHeading}</span>)}</figcaption>
                   </div>
                 )}

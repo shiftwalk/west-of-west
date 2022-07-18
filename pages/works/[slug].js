@@ -21,6 +21,7 @@ const query = `*[_type == "works" && slug.current == $slug][0]{
   locationState,
   client,
   year,
+  superWideHero,
   status,
   sector,
   projectCode,
@@ -148,8 +149,9 @@ const query = `*[_type == "works" && slug.current == $slug][0]{
   "worksAll": *[_type == "works"]{
     title
   },
-  "related": *[_type == "works" && order > ^.order && sector == ^.sector && slug.current != $slug] | order(order asc)[0..2] {
+  "related": *[_type == "works" && order > ^.order && sector == ^.sector && slug.current != $slug && gridProject] | order(order asc)[0..2] {
     title,
+    gridProject,
     sector,
     thumbnailImage {
       asset-> {
@@ -201,7 +203,7 @@ const query = `*[_type == "works" && slug.current == $slug][0]{
 const pageService = new SanityPageService(query)
 
 export default function WorksSlug(initialData) {
-  const { data: { title, introText, projectCode, credits, locationCity, locationState, heroImages, client, year, status, sector, contentBlocks, slug, worksAll, related, relatedFirst } } = pageService.getPreviewHook(initialData)()
+  const { data: { title, introText, projectCode, credits, locationCity, locationState, heroImages, client, year, status, sector, contentBlocks, slug, superWideHero, worksAll, related, relatedFirst } } = pageService.getPreviewHook(initialData)()
   const [currentHero, setCurrentHero] = useState(0);
   const [introContext, setIntroContext] = useContext(IntroContext);
   
@@ -224,9 +226,9 @@ export default function WorksSlug(initialData) {
           className="-m-2"
         >
           <m.article>
-            <div className="md:h-screen grid grid-cols-10 gap-x-5 items-end pt-20 sticky top-0 z-0 p-2">
-              <div className="col-span-10 md:col-span-2 mb-3 md:mb-0">
-                <span className="block text-[12px] uppercase mb-8">{projectCode}</span>
+            <div className="h-screen grid grid-cols-10 gap-x-5 items-end pt-20 sticky top-0 z-0 p-2">
+              <div className="col-span-10 md:col-span-2 mb-auto md:mb-0">
+                <span className="block text-[12px] uppercase mb-5 md:mb-8">{projectCode}</span>
                 <h1 className="block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight mb-0 pb-0">{title}</h1>
                 <span className="block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight mb-0 pb-0 text-gray">{locationCity}{locationState && (<>, {locationState}</>)}</span>
               </div>
@@ -256,7 +258,7 @@ export default function WorksSlug(initialData) {
                     </div>
                   )}
                   <div className="w-full md:flex-1 order-1 md:order-2">
-                    <div className="bg-gray bg-opacity-40 w-full h-[60vh] md:h-[75vh] relative overflow-hidden">
+                    <div className={`bg-gray bg-opacity-40 w-full relative overflow-hidden ${superWideHero ? 'h-[60vw] md:h-[55vh]' : 'h-[70vw] md:h-[75vh]' }`}>
                       <Image
                         image={heroImages[currentHero]}
                         focalPoint={heroImages[currentHero].asset.hotspot}
@@ -272,7 +274,7 @@ export default function WorksSlug(initialData) {
               </div>
             </div>
 
-            <div className="grid grid-cols-10 gap-5 pb-20 md:pb-32 xl:pb-52 pt-20 md:pt-32 xl:pt-52 bg-white relative z-[20] safari-sticky p-2 safari-sticky">
+            <div className="grid grid-cols-10 gap-5 pb-12 md:pb-32 xl:pb-52 pt-20 md:pt-32 xl:pt-52 bg-white relative z-[20] safari-sticky p-2 safari-sticky">
               <div className="col-span-9 md:col-span-3 mb-8 md:mb-0">
                 { client && (
                   <div className="mb-3">

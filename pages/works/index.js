@@ -281,8 +281,90 @@ export default function Works(initialData) {
               </div>
             </div>
           </m.div>
-
         <m.article> 
+          
+          {/* MOBILE FILTERS */}
+          <div className="block md:hidden mb-4 md:mb-0">
+            <button onClick={() => updateType('all')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black ${ activeType == 'all' ? 'text-black' : 'text-gray' }`}>
+              <div className="relative overflow-hidden">
+                <span className="block">All</span>
+              </div>
+
+              <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[15px] md:translate-x-[13px] translate-y-[2px]">
+                <span className="block relative overflow-hidden tabular-nums">
+                  <span className="block">{worksAll.length}</span>
+                </span>
+              </span>
+            </button>
+            <button onClick={() => updateType('retail-and-hospitality')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black ${ activeType == 'retail-and-hospitality' ? 'text-black' : 'text-gray' }`}>
+              <div className="relative overflow-hidden">
+                <span className="block">Retail &amp; Hospitality</span>
+              </div>
+
+              <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[15px] md:translate-x-[13px] translate-y-[2px]">
+                <span className="block relative overflow-hidden tabular-nums">
+                  <span className="block">{retailAndHospitalityLength}</span>
+                </span>
+              </span>
+            </button>
+            <button onClick={() => updateType('living')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black ${ activeType == 'living' ? 'text-black' : 'text-gray' }`}>
+              <div className="relative overflow-hidden">
+                <span className="block">Living</span>
+              </div>
+
+              <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[15px] md:translate-x-[13px] translate-y-[2px]">
+                <span className="block relative overflow-hidden tabular-nums">
+                  <span className="block">{livingLength}</span>
+                </span>
+              </span>
+            </button>
+            <button onClick={() => updateType('working')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black mb-3 ${ activeType == 'working' ? 'text-black' : 'text-gray' }`}>
+              <div className="relative overflow-hidden">
+                <span className="block">Working</span>
+              </div>
+
+              <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[15px] md:translate-x-[13px] translate-y-[2px]">
+                <span className="block relative overflow-hidden tabular-nums">
+                  <span className="block">{workingLength}</span>
+                </span>
+              </span>
+            </button>
+          
+            <button onClick={() => updateGenre('architecture')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black ${ activeGenre == 'architecture' ? 'text-black' : 'text-gray' }`}>
+              <div className="relative overflow-hidden">
+                <span className="block">Architecture</span>
+              </div>
+
+              <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[15px] md:translate-x-[13px] translate-y-[2px]">
+                <span className="block relative overflow-hidden tabular-nums">
+                  <span className="block">{architectureLength}</span>
+                </span>
+              </span>
+            </button>
+
+            <button onClick={() => updateGenre('interiors')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black ${ activeGenre == 'interiors' ? 'text-black' : 'text-gray' }`}>
+              <div className="relative overflow-hidden">
+                <span className="block">Interiors</span>
+              </div>
+
+              <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[15px] md:translate-x-[13px] translate-y-[2px]">
+                <span className="block relative overflow-hidden tabular-nums">
+                  <span className="block">{interiorsLength}</span>
+                </span>
+              </span>
+            </button>
+          </div>
+
+          <div className="flex md:hidden items-center justify-end space-x-3">
+            <button onClick={() => updateActive('gallery')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden group ${ active == 'gallery' ? 'text-black' : 'text-gray text-opacity-80' }`}>
+              <svg viewBox="0 0 16 12" className="w-[20px]" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M9 0h7v5H9zM0 0h7v12H0z"/></svg>
+            </button>
+            <button onClick={() => updateActive('archive')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden group ${ active == 'archive' ? 'text-black' : 'text-gray text-opacity-80' }`}>
+              <svg viewBox="0 0 16 12" className="w-[20px]" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M0 0h7v2H0zM0 5h7v2H0zM0 10h7v2H0zM9 0h7v2H9zM9 5h7v2H9zM9 10h7v2H9z"/></svg>
+            </button>
+          </div>
+          {/* END MOBILE FILTERS */}
+          
           <AnimatePresence exitBeforeEnter>
             { active == 'gallery' && (
               <m.ul
@@ -291,12 +373,12 @@ export default function Works(initialData) {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.4, ease: [0.83, 0, 0.17, 1] }}
-                className="mt-4 md:mt-6 grid grid-cols-10 gap-x-5 gap-y-[8vw] items-end"
+                className="mt-4 md:mt-6 grid grid-cols-10 gap-x-5 gap-y-3 md:gap-y-[8vw] items-end"
               >
                 {works.map((e, i) => {
                   let layout = 'col-span-10 md:col-span-3'
                   let height = 'h-[60vw] md:h-[22vw]'
-                  let disabledClass = 'grayscale opacity-30'
+                  let disabledClass = 'hidden md:block grayscale opacity-30'
                   let preloadImage = false
 
                   // Preload the first two images...
@@ -440,7 +522,7 @@ export default function Works(initialData) {
 
                 <ul className="md:col-start-3 col-span-10 md:col-span-8 w-full block archive-list" onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
                   {worksArchive.map((e, i) => {
-                    let archiveDisabledClass = 'grayscale opacity-30'
+                    let archiveDisabledClass = 'hidden md:flex grayscale opacity-30'
                     
                     if (activeType == 'all' && activeGenre == 'all') {
                       archiveDisabledClass = 'grayscale-0 opacity-100'
@@ -458,7 +540,7 @@ export default function Works(initialData) {
                       <li className="block" key={i}>
                         <Link href={`/works/${e.slug.current}`}>
                           <a
-                            className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item ${archiveDisabledClass}`}
+                            className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-3 md:py-4 group relative archive-list__item ${archiveDisabledClass}`}
                             onMouseEnter={() => updateImage(i)}
                             onMouseLeave={() => updateImage(i)}
                           >
@@ -479,7 +561,7 @@ export default function Works(initialData) {
                                 <span className="block md:hidden">{e.locationState && (<>{e.locationState}</>)}</span>
                               </span>
                             </span>
-                            <span className="block w-[140px] md:w-[150px] xl:w-[160px] md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-right relative overflow-hidden">
+                            <span className="hidden md:block w-[140px] md:w-[150px] xl:w-[160px] md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-right relative overflow-hidden">
                               <span className="block">{e.year}</span>
                             </span>
                           </a>
@@ -488,7 +570,7 @@ export default function Works(initialData) {
                     ) : (
                       <li className="block" key={i}>
                         <div
-                          className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 cursor-not-allowed group relative archive-list__item ${archiveDisabledClass}`}
+                          className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-3 md:py-4 cursor-not-allowed group relative archive-list__item ${archiveDisabledClass}`}
                           onMouseEnter={() => updateImage(i)}
                           onMouseLeave={() => updateImage(i)}
                         >
@@ -509,7 +591,7 @@ export default function Works(initialData) {
                               <span className="block md:hidden">{e.locationState && (<>{e.locationState}</>)}</span>
                             </span>
                           </span>
-                          <span className="block w-[140px] md:w-[150px] xl:w-[160px] md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-right relative overflow-hidden">
+                          <span className="hidden md:block w-[140px] md:w-[150px] xl:w-[160px] md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-right relative overflow-hidden">
                             <span className="block">{e.year}</span>
                           </span>
                         </div>
