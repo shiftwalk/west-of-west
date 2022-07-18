@@ -379,7 +379,7 @@ export default function WorksSlug(initialData) {
               })}
             </div>
           ) : (
-            <div className="grid grid-cols-10 gap-2 md:gap-5" key={i}>
+            <div className="grid grid-cols-10 gap-2 md:gap-5">
               {relatedFirst.map((e, i) => {
                 let layout = 'md:col-start-0'
                 let height = 'h-[60vw] md:h-[18vw]'
