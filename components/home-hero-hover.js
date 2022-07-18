@@ -60,7 +60,7 @@ export default function HomeHeroHover({ items, isActive, position }) {
 
           <div className="absolute bottom-0 left-0 right-0 grid grid-cols-10 gap-3 md:gap-5 z-[20] p-3 text-white">
             <div className="col-span-2 space-x-2 items-end hidden lg:flex overflow-hidden relative">
-              <m.span initial="hidden" animate="visible" exit="hidden" variants={revealTranslate} transition={{ delay: introContext ? 0 : 2.3, duration: 0.5, ease: [0.83, 0, 0.17, 1]  }} className={`block uppercase text-xs `}>ww.{items[current].projectCode}</m.span>
+              <m.span initial="hidden" animate="visible" exit="hidden" variants={revealTranslate} transition={{ delay: introContext ? 0 : 2.3, duration: 0.5, ease: [0.83, 0, 0.17, 1]  }} className={`block uppercase text-sm md:text-lg xl:text-xl leading-none md:leading-none lg:leading-none xl:leading-none`}>{items[current].projectCode}</m.span>
             </div>
 
             <div className="col-span-4 block text-sm md:text-lg xl:text-xl leading-none md:leading-none lg:leading-none xl:leading-none overflow-hidden relative">

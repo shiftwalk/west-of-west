@@ -12,7 +12,8 @@ export default function App({ Component, pageProps }) {
   const router = useRouter()
   const [introContext, setIntroContext] = useState(false);
   const [grid, setGrid] = useState(false);
-  const isIdle = useIdle(30e3);
+  // const isIdle = useIdle(30e3);
+  const isIdle = useIdle(120e3);
 
   const container = {
     hidden: { opacity: 0 },

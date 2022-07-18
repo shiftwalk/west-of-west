@@ -226,7 +226,7 @@ export default function WorksSlug(initialData) {
           <m.article>
             <div className="md:h-screen grid grid-cols-10 gap-x-5 items-end pt-20 sticky top-0 z-0 p-2">
               <div className="col-span-10 md:col-span-2 mb-3 md:mb-0">
-                <span className="block text-[10px] uppercase mb-8">ww.{projectCode}</span>
+                <span className="block text-[10px] uppercase mb-8">{projectCode}</span>
                 <h1 className="block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight mb-0 pb-0">{title}</h1>
                 <span className="block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight mb-0 pb-0 text-gray">{locationCity}{locationState && (<>, {locationState}</>)}</span>
               </div>
