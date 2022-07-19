@@ -2,6 +2,8 @@ import { IntroContext } from 'context/intro';
 import Link from 'next/link'
 import { domAnimation, LazyMotion, m } from 'framer-motion'
 import { useContext, useState } from 'react'
+import CursorDot from '@/components/cursor-dot'
+import ReactCursorPosition from 'react-cursor-position'
 
 export default function Header({ active, works }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -38,18 +40,15 @@ export default function Header({ active, works }) {
             </m.div>
             
             <div className="hidden md:flex space-x-1 col-start-3 col-span-2">
-              <m.div
-                initial="hidden"
-                animate="visible"
-                variants={reveal}
-                transition={{ delay: introContext ? 0 : 2.65, duration: 0.5, ease: [0.83, 0, 0.17, 1] }}
-              >
-                <Link href="/studio">
-                  <a className={`block md:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden hover:text-black focus-visible:text-black hover:opacity-100 focus-visible:opacity-100 transition ease-in-out duration-300 mix-blend ${hovering ? 'opacity-30' : 'text-black' } ${ (active == 'studio' || active == 'home') ? 'text-black' : 'opacity-30' } hover:text-black focus-visible:text-black hover:opacity-100 focus-visible:opacity-100 ${ (active == 'home' || active !== 'studio') ? 'group' : '' }`} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
-                    <span className="block">Studio,</span>
-                  </a>
-                </Link>
-              </m.div>
+              <Link href="/studio">
+                <a className={`block md:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden hover:text-black focus-visible:text-black hover:opacity-100 cursor-default focus-visible:opacity-100 transition ease-in-out duration-300 mix-blend ${hovering ? 'opacity-30' : 'text-black' } ${ (active == 'studio' || active == 'home') ? 'text-black' : 'opacity-30' } hover:text-black focus-visible:text-black hover:opacity-100 focus-visible:opacity-100 ${ (active == 'home' || active !== 'studio') ? 'group' : '' }`} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
+                  <ReactCursorPosition>
+                    <CursorDot>
+                      <span className="block">Studio,</span>         
+                    </CursorDot>
+                  </ReactCursorPosition>
+                </a>
+              </Link>         
 
               <m.div
                 initial="hidden"
