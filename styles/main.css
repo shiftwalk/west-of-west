@@ -18,7 +18,11 @@ html {
 }
 
 body {
-  @apply font-sans antialiased text-black bg-white tracking-tight selection:bg-black selection:text-white;
+  @apply font-sans antialiased text-black bg-white tracking-tight selection:bg-black selection:text-white cursor-default md:cursor-none;
+}
+
+a, button {
+  @apply cursor-none;
 }
 
 canvas {

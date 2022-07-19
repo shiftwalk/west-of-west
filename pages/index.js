@@ -12,8 +12,6 @@ import Teaser from '@/components/teaser'
 import { useContext, useEffect, useState } from 'react'
 import { IntroContext } from '@/context/intro'
 import HomeHeroHover from '@/components/home-hero-hover'
-import FancyLink from '@/components/cursor-dot'
-import CursorDot from '@/components/cursor-dot'
 
 const query = `{
   "home": *[_type == "home"][0]{
@@ -193,24 +191,21 @@ export default function Home(initialData) {
                   <a
                     className={`block group mb-4 md:mb-0`}
                   >
-                    <ReactCursorPosition>
+                  <ReactCursorPosition>
                       <Teaser
                         height={'h-[60vw] md:h-[41vw]'}
                         image={home.studioImage}
                       />
                     </ReactCursorPosition>
+
+                    <div>
+                      <span className="inline-block overflow-hidden relative text-lg leading-none xl:leading-[1.15] xl:text-xl w-10/12">We are all about vision, strategy, adaptability, communication, and quality.</span>
+                    </div>
                     
-                    <ReactCursorPosition>
-                      <CursorDot>
-                        <div>
-                          <span className="inline-block overflow-hidden relative text-lg leading-none xl:leading-[1.15] xl:text-xl w-10/12">We are all about vision, strategy, adaptability, communication, and quality.</span>
-                        </div>
-                        <span className="inline-block overflow-hidden relative text-lg leading-none xl:leading-[1.2] xl:text-xl mt-1">
-                          <span className="inline-block">Explore Project</span>
-                          <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
-                        </span>
-                      </CursorDot>
-                    </ReactCursorPosition>
+                    <span className="inline-block overflow-hidden relative text-lg leading-none xl:leading-[1.2] xl:text-xl mt-1">
+                      <span className="inline-block">The Studio</span>
+                      <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                    </span>
                   </a>
                 </Link>
               </div>
