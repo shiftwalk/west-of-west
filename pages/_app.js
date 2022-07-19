@@ -7,7 +7,6 @@ import SEO from '@/helpers/seo.config'
 import useKeypress from 'react-use-keypress'
 import { IntroContext } from '@/context/intro'
 import {useIdle} from 'react-use';
-import Cursor from 'react-cursor-follow'
 
 export default function App({ Component, pageProps }) {
   const router = useRouter()
@@ -56,14 +55,6 @@ const item = {
     <>
       <DefaultSeo {...SEO} />
       <IntroContext.Provider value={[introContext, setIntroContext]}>
-
-      <div className="fixed z-[1000] hiddem md:block">
-        <Cursor 
-          color="#333333"
-          duration={0}
-          size={13}
-        />
-      </div>
 
         <LazyMotion features={domAnimation}>
           <AnimatePresence>

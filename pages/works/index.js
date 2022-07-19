@@ -570,7 +570,7 @@ export default function Works(initialData) {
                     ) : (
                       <li className="block" key={i}>
                         <div
-                          className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-3 md:py-4 group relative archive-list__item ${archiveDisabledClass}`}
+                          className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-3 md:py-4 cursor-not-allowed group relative archive-list__item ${archiveDisabledClass}`}
                           onMouseEnter={() => updateImage(i)}
                           onMouseLeave={() => updateImage(i)}
                         >
