@@ -168,7 +168,7 @@ export default function Journal(initialData) {
                       </Link>
                     )}
                     { e.externalLinks && !e.routedArticle && (
-                      <a className={`w-full block`} href={e.externalLinks[0].linkUrl} target="_blank" rel="noreferrer noopener">
+                      <a className={`w-full block cursor-ne-resize`} href={e.externalLinks[0].linkUrl} target="_blank" rel="noreferrer noopener">
                         <div className="w-full">
                           <div className="hidden md:block">
                             <ReactCursorPosition>
@@ -188,9 +188,10 @@ export default function Journal(initialData) {
                           </span>
 
                           <span className="inline-block overflow-hidden text-lg leading-none xl:text-xl xl:leading-[1.15] relative mt-2">
-                            <span className="block align-top">
+                            <span className="block">
                               <span className="inline-block">Read More</span>
-                              <svg className={`w-[11px] ml-[5px] mt-[-13px] inline-block text-black`} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" fillRule="evenodd" clipRule="evenodd"><path d="M14 4h-13v18h20v-11h1v12h-22v-20h14v1zm10 5h-1v-6.293l-11.646 11.647-.708-.708 11.647-11.646h-6.293v-1h8v8z"/></svg></span>
+                              <svg className={`w-[12px] ml-[6px] mt-[-2px] inline-block text-black`} viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.8 10.267H.733v-8.25h4.4v-.734H0V11h9.533V5.867H8.8v4.4Z" fill="currentColor"/><path d="M6.6 0v.733h3.148L3.957 6.524l.519.519 5.79-5.791V4.4H11V0H6.6Z" fill="currentColor"/></svg></span>
+
                             <span className="w-[85%] group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                           </span>
                         </div>

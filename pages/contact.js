@@ -149,7 +149,7 @@ export default function Contact(initialData) {
                           <span className="block">{e.address}</span>
                         </button>
                         <div className=" block">
-                          <a href={e.directionsUrl} target="_blank" rel="noopener noreferrer" className="group inline-block relative overflow-hidden mt-1">
+                          <a href={e.directionsUrl} target="_blank" rel="noopener noreferrer" className="group inline-block relative overflow-hidden mt-1 cursor-ne-resize">
                             <span className="block">Get Directions</span>
                             <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-current absolute bottom-0 left-0 right-0"></span>
                           </a>
@@ -185,7 +185,7 @@ export default function Contact(initialData) {
                 <li className="block">
                   <a
                     href={`mailto:${contact.generalEmail}`}
-                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item`}
+                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item cursor-ne-resize`}
                   >
                     <span className="absolute top-0 left-0 right-0 w-full h-[1px] bg-[#EFEFEF] mt-[0px]mt-[-1px]"></span>
                     <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
@@ -200,7 +200,7 @@ export default function Contact(initialData) {
                 <li className="block">
                   <a
                     href={`mailto:${contact.newBusinessEmail}`}
-                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item`}
+                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item cursor-ne-resize`}
                   >
                     <span className="absolute top-0 left-0 right-0 w-full h-[1px] bg-[#EFEFEF] mt-[-1px]"></span>
                     <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
@@ -215,7 +215,7 @@ export default function Contact(initialData) {
                 <li className="block">
                   <a
                     href={`mailto:${contact.pressEmail}`}
-                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item`}
+                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item cursor-ne-resize`}
                   >
                     <span className="absolute top-0 left-0 right-0 w-full h-[1px] bg-[#EFEFEF] mt-[-1px]"></span>
                     <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
@@ -230,7 +230,7 @@ export default function Contact(initialData) {
                 <li className="block">
                   <a
                     href={`mailto:${contact.employmentEmail}`}
-                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item`}
+                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item cursor-ne-resize`}
                   >
                     <span className="absolute top-0 left-0 right-0 w-full h-[1px] bg-[#EFEFEF] mt-[-1px]"></span>
                     <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
@@ -245,7 +245,7 @@ export default function Contact(initialData) {
                 <li className="block">
                   <a
                     href={`tel:${contact.telephone}`}
-                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item`}
+                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item cursor-ne-resize`}
                   >
                     <span className="absolute top-0 left-0 right-0 w-full h-[1px] bg-[#EFEFEF] mt-[-1px]"></span>
                     <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">

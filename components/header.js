@@ -124,7 +124,7 @@ export default function Header({ active, works }) {
                 variants={reveal}
                 transition={{ delay: introContext ? 0 : 2.65, duration: 0.5, ease: [0.83, 0, 0.17, 1] }}
               >
-                <a href="https://www.instagram.com/west_of_west/?hl=en" target="_blank" rel="noreferrer noopener" className={`inline-block md:text-xl xl:text-2xl md:leading-tight xl:leading-tight group relative overflow-hidden hover:text-black focus-visible:text-black hover:opacity-100 focus-visible:opacity-100 transition ease-in-out duration-300 ${hovering ? 'opacity-30' : 'text-black' } ${ active == 'home' ? 'text-black' : 'opacity-30' }`} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
+                <a href="https://www.instagram.com/west_of_west/?hl=en" target="_blank" rel="noreferrer noopener" className={`inline-block md:text-xl xl:text-2xl md:leading-tight xl:leading-tight group relative overflow-hidden hover:text-black focus-visible:text-black hover:opacity-100 focus-visible:opacity-100 transition ease-in-out duration-300 cursor-ne-resize ${hovering ? 'opacity-30' : 'text-black' } ${ active == 'home' ? 'text-black' : 'opacity-30' }`} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
                   <span className="block">Instagram</span>
                 </a>
               </m.div>

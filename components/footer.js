@@ -181,13 +181,13 @@ export default function Footer({ noPad }) {
         <div className="md:col-start-7 col-span-10 md:col-span-2 mb-5 md:mb-0 flex items-end">
           <div>
             <div>
-              <a className="inline-block mb-[-6px] text-base leading-[1.15] xl:text-xl xl:leading-[1.15] group relative overflow-hidden" href="#">
+              <a className="inline-block mb-[-6px] text-base leading-[1.15] xl:text-xl xl:leading-[1.15] group relative overflow-hidden cursor-ne-resize" href="tel:971-266-1001">
                 <span className="block">971-266-1001</span>
                 <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
               </a>
             </div>
             <div>
-              <a className="inline-block text-base leading-[1.15] xl:text-xl xl:leading-[1.15] group relative overflow-hidden mb-[-5px]" href="#">
+              <a className="inline-block text-base leading-[1.15] xl:text-xl xl:leading-[1.15] group relative overflow-hidden mb-[-5px] cursor-ne-resize" href="mailto:info@westofwest.com">
                 <span className="block">info@westofwest.com</span>
                 <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
               </a>

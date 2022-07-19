@@ -510,13 +510,17 @@ export default function Works(initialData) {
               >
                 <div className="col-span-2 col-start-0 md:sticky md:top-32 xl:top-40">
                   <div className={`w-full h-[12vw] relative overflow-hidden hidden md:block ${hovering ? 'opacity-100' : 'opacity-0' }`}>
-                    <Image
-                      image={worksArchive[current].thumbnailImage}
-                      focalPoint={worksArchive[current].thumbnailImage.hotspot}
-                      layout="fill"
-                      sizes="(max-width: 768px) 40vw,100vw"
-                      className={`w-full inset-0 h-full object-cover object-center`}
-                    />
+                    {worksArchive.map((e, i) => {
+                      return (
+                        <Image
+                          image={e.thumbnailImage}
+                          focalPoint={e.thumbnailImage.hotspot}
+                          layout="fill"
+                          sizes="(max-width: 768px) 40vw,100vw"
+                          className={`w-full inset-0 h-full object-cover object-center ${i == current ? 'opacity-100' : 'opacity-0' }`}
+                        />
+                      )
+                    })}
                   </div>
                 </div>
 
