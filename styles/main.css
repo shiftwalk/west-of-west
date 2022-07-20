@@ -32,6 +32,12 @@ a, button {
   } 
 }
 
+@supports (-ms-ime-align:auto) {
+  a, button {
+    @apply cursor-pointer !important;
+  } 
+}
+
 canvas {
   @apply w-full h-auto !important;
 }
