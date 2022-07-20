@@ -50,6 +50,7 @@
     "react-device-detect": "^2.2.2",
     "react-dom": "^17.0.2",
     "react-live-clock": "^5.10.0",
+    "react-modal": "^3.15.1",
     "react-moment": "^1.1.2",
     "react-pixelify": "^0.2.2",
     "react-use": "^17.4.0",

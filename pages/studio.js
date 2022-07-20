@@ -9,6 +9,7 @@ import Image from '@/components/image'
 import SanityBlockContent from '@sanity/block-content-to-react'
 import { useContext, useEffect, useState } from 'react'
 import { IntroContext } from 'context/intro'
+import TeamModal from '@/components/team-modal'
 
 const query = `{
   "studio": *[_type == "studio"][0]{
@@ -188,7 +189,6 @@ export default function Studio(initialData) {
                     </div>
                     
                     {team[currentTeamBio].bioText && (
-
                       <div className="content content--sm lg:w-11/12 xl:w-7/12 xl:pl-6">
                         <span className="block text-xl mb-1 text-gray">{team[currentTeamBio].role}</span>
                         
@@ -206,6 +206,32 @@ export default function Studio(initialData) {
               </div>
 
               <div className="col-span-10 md:col-span-8 md:col-start-3 lg:col-span-7 lg:col-start-4 xl:col-span-6 xl:col-start-5 relative">
+                {/* {team.map((e, i) => {
+                  return (
+                    <TeamModal title={e.name}>
+                      <div className="w-full">
+                        <div className="w-full bg-white p-3">
+                          <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15]">Clayton Taylor</span>
+                          <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] text-gray">Principal, Architect</span>
+                          <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] text-gray">NCARB, AIA</span>
+
+                          <div className="content md:absolute bottom-0 left-0 md:ml-[40%] md:pr-[20%] pb-3 mt-8 md:mt-0">
+                            <p>Clayton is a founding partner of W/W. He holds a Master of Architecture degree from the University of California, Los Angeles, and a Bachelor of Architecture degree from California Polytechnic State University, San Luis Obispo. Clayton has worked at a series of well-recognized Architectural Design firms including Coop Himmelblau in Vienna, as a Project Designer at Morphosis Architects (Los Angeles), and as an Associate at Rios Clementi Hale Studios in Hollywood. At RCHS, Clayton led design efforts on many creative office and multi-family developments in the Los Angeles area including, Columbia Square, Crossroads of the World, The Telephone Building, and Flight at Tustin Legacy. He also completed many competitive design proposals for RCHS like the Rancho Cienega Sports Complex and the Southwest School of</p>
+                          </div>
+                          <div className="absolute bottom-0 left-0 m-3 w-[250px] h-[400px] overflow-hidden hidden md:block">
+                            <Image
+                              image={team[0].image}
+                              focalPoint={team[0].image.hotspot}
+                              layout="fill"
+                              widthOverride={720}
+                              className={`w-full inset-0 h-full object-cover object-center`}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </TeamModal>
+                  )
+                })} */}
                 <ul className="archive-list" onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
                   {team.map((e, i) => {
                     return (
@@ -231,6 +257,31 @@ export default function Studio(initialData) {
                     )
                   })}
                 </ul>
+
+                <div className="mt-12">
+                  <TeamModal title={'Modal Example'}>
+                    <div className="w-full">
+                      <div className="w-full bg-white p-3">
+                        <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15]">Clayton Taylor</span>
+                        <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] text-gray">Principal, Architect</span>
+                        <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] text-gray">NCARB, AIA</span>
+
+                        <div className="content md:absolute bottom-0 left-0 md:ml-[40%] md:pr-[20%] pb-3 mt-8 md:mt-0">
+                          <p>Clayton is a founding partner of W/W. He holds a Master of Architecture degree from the University of California, Los Angeles, and a Bachelor of Architecture degree from California Polytechnic State University, San Luis Obispo. Clayton has worked at a series of well-recognized Architectural Design firms including Coop Himmelblau in Vienna, as a Project Designer at Morphosis Architects (Los Angeles), and as an Associate at Rios Clementi Hale Studios in Hollywood. At RCHS, Clayton led design efforts on many creative office and multi-family developments in the Los Angeles area including, Columbia Square, Crossroads of the World, The Telephone Building, and Flight at Tustin Legacy. He also completed many competitive design proposals for RCHS like the Rancho Cienega Sports Complex and the Southwest School of</p>
+                        </div>
+                        <div className="absolute bottom-0 left-0 m-3 w-[250px] h-[400px] overflow-hidden hidden md:block">
+                          <Image
+                            image={team[0].image}
+                            focalPoint={team[0].image.hotspot}
+                            layout="fill"
+                            widthOverride={720}
+                            className={`w-full inset-0 h-full object-cover object-center`}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </TeamModal>
+                </div>
               </div>
 
               <div className="col-span-10 gap-5 -m-2 mb-12 md:mb-20 xl:mb-32 2xl:mb-32 mt-12 md:mt-20 xl:mt-32 2xl:mt-36">

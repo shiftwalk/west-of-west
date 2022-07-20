@@ -149,9 +149,11 @@ const item = {
           </div>
         )}
 
-        <AnimatePresence exitBeforeEnter>
-          <Component {...pageProps} key={router.asPath} />
-        </AnimatePresence>
+        <div id="body-wrapper">
+          <AnimatePresence exitBeforeEnter>
+            <Component {...pageProps} key={router.asPath} />
+          </AnimatePresence>
+        </div>
       </IntroContext.Provider>
     </>
   )
