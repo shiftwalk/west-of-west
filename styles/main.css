@@ -21,8 +21,15 @@ body {
   @apply font-sans antialiased text-black bg-white tracking-tight selection:bg-black selection:text-white;
 }
 
+
 a, button {
   @apply cursor-w-resize;
+}
+
+@media screen and (min-width:0\0) and (min-resolution: +72dpi) { 
+  a, button {
+    @apply cursor-pointer !important;
+  } 
 }
 
 canvas {
