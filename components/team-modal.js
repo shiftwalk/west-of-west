@@ -3,10 +3,10 @@ import Modal from 'react-modal';
 
 const customStyles = {
   content : {
-    top                   : '5%',
+    top                   : '10%',
     left                  : '10%',
     right                 : '10%',
-    bottom                : '5%',
+    bottom                : '10%',
     // marginRight           : '-20%',
     overflow              : 'visible',
     // transform             : 'translate(-50%, -50%)',
@@ -30,8 +30,10 @@ export default function TeamModal({ children, title }) {
 
   return (
     <div className="relative">
-      <button className="tracking-tight block text-lg xl:text-xl leading-none xl:leading-[1.15] underline" onClick={openModal}>
+      <button className="tracking-tight block text-lg xl:text-xl leading-none xl:leading-[1.15] text-left relative overflow-hidden group border-none outline-none focus:border-none focus:outline-none" onClick={openModal}>
         <span className="block relative z-10">{title}</span>
+
+        <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
       </button>
 
       <Modal

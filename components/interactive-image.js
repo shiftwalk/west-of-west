@@ -70,7 +70,7 @@ export default function InteractiveImage({ height, images, width, isActive, posi
         <div className={`mb-3 relative overflow-hidden ${height} ${ autoplay ? '' : 'cursor-none'} -mx-2 md:-mx-0`} onMouseMove={ autoplay ? null : updateImages}>
           {images.map((e, i) => {
             return (
-              <div ref={ref} className={`${crossfade ? 'transition-opacity duration-500 ease-in-out' : '' } ${i == 0 ? 'relative' : 'absolute inset-0' } ${i == currentImage ? 'z-[10]' : 'z-[1] opacity-0' }`}>
+              <div ref={ref} className={`cursor-crosshair ${crossfade ? 'transition-opacity duration-500 ease-in-out' : '' } ${i == 0 ? 'relative' : 'absolute inset-0' } ${i == currentImage ? 'z-[10]' : 'z-[1] opacity-0' }`}>
                 <Image
                   noBg
                   image={e}

@@ -49,9 +49,9 @@ const query = `{
   },
   "team": *[_type == "team"] | order(order asc) {
     name,
-    location,
+    accreditations,
     role,
-    principle,
+    hasBio,
     image {
       asset-> {
         ...,
@@ -164,7 +164,54 @@ export default function Studio(initialData) {
                     return (
                       <li className="flex flex-wrap w-full" key={i}>
                         <span className="block flex-1 text-gray">{e.role}</span>
-                        <span className="block w-1/3 text-left ml-auto">{e.name}</span>
+                        {e.hasBio ? (
+                          <span className="block w-1/3 text-left ml-auto">
+                            <TeamModal title={e.name}>
+                              <div className="w-full">
+                                <div className="w-full bg-white p-3">
+                                  <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15]">{e.name}</span>
+                                  <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] text-gray">{e.role}</span>
+                                  {e.accreditations && (
+                                    <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] text-gray">{e.accreditations}</span>
+                                  )}
+
+                                  {e.image && (
+                                    <div className="w-[200px] h-[250px] overflow-hidden relative block md:hidden mt-2">
+                                      <Image
+                                        image={e.image}
+                                        focalPoint={e.image.hotspot}
+                                        layout="fill"
+                                        widthOverride={720}
+                                        className={`w-full inset-0 h-full object-cover object-center`}
+                                      />
+                                    </div>
+                                  )}
+                                  
+                                  {e.bioText && (
+                                    <div className="content md:absolute bottom-0 left-0 md:ml-[50%] xl:ml-[40%] md:pr-[10%] xl:pr-[20%] pb-3 mt-5 md:mt-0">
+                                      <div className="content">
+                                        <SanityBlockContent serializers={{ container: ({ children }) => children }} blocks={e.bioText} />
+                                      </div>
+                                    </div>
+                                  )}
+                                  {e.image && (
+                                    <div className="absolute bottom-0 left-0 m-3 w-[250px] h-[400px] overflow-hidden hidden md:block">
+                                      <Image
+                                        image={e.image}
+                                        focalPoint={e.image.hotspot}
+                                        layout="fill"
+                                        widthOverride={720}
+                                        className={`w-full inset-0 h-full object-cover object-center`}
+                                      />
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
+                            </TeamModal>
+                          </span>
+                        ) : (
+                          <span className="block w-1/3 text-left ml-auto">{e.name}</span>
+                        )}
                       </li>
                     )
                   })}

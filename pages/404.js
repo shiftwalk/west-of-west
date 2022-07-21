@@ -81,15 +81,14 @@ export default function Error404(initialData) {
                   <p>Sorry, that page could not be found.<br/>
                     <Link href="/">
                       <a className="inline-block leading-tight group relative overflow-hidden mb-[-5px]">
-                        <span className="block group-hover:translate-y-full transition-translate ease-in-out duration-[400ms] delay-[50ms]">Back home</span>
-                        <span className="block absolute top-0 left-0 right-0 -translate-y-full group-hover:translate-y-0 transition-translate ease-in-out duration-[400ms] delay-[50ms]">Back home</span>
+                        <span className="block">Back home</span>
                         <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                       </a>
                     </Link>
                   </p>
                 </div>
 
-                <div className="w-full h-[70vw] md:h-[49vw] overflow-hidden relative">
+                {/* <div className="w-full h-[70vw] md:h-[49vw] overflow-hidden relative">
                   <Image
                     image={studio.contentImage}
                     focalPoint={studio.contentImage.hotspot}
@@ -97,7 +96,7 @@ export default function Error404(initialData) {
                     widthOverride={1400}
                     className={`w-full inset-0 h-full object-cover object-center`}
                   />
-                </div>
+                </div> */}
               </div>
             </div>
           </m.article>
