@@ -511,7 +511,7 @@ export default function Works(initialData) {
                 transition={{ duration: 0.4, ease: [0.83, 0, 0.17, 1] }}
                 className="grid grid-cols-10 gap-5 mt-6 md:mt-8 items-start"
               >
-                <div className="col-span-2 col-start-0 md:sticky md:top-32 xl:top-40">
+                <div className="col-span-2 col-start-0 md:sticky md:top-32 xl:top-40 hidden lg:block">
                   <div className={`w-full h-[12vw] relative overflow-hidden hidden md:block ${hovering ? 'opacity-100' : 'opacity-0' }`}>
                     {worksArchive.map((e, i) => {
                       return (
@@ -527,7 +527,7 @@ export default function Works(initialData) {
                   </div>
                 </div>
 
-                <ul className="md:col-start-3 col-span-10 md:col-span-8 w-full block archive-list" onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
+                <ul className="lg:col-start-3 col-span-10 lg:col-span-8 w-full block archive-list" onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
                   {worksArchive.map((e, i) => {
                     let archiveDisabledClass = 'grayscale opacity-30'
                     
@@ -555,6 +555,13 @@ export default function Works(initialData) {
                             <span className="block w-[58px] md:w-20 lg:w-24 xl:w-32 uppercase text-[10px] md:text-xs leading-tight overflow-hidden relative pr-4 md:pr-12 xl:pr-20 self-center">
                               <span className="block tabular-nums">{e.projectCode}</span>
                             </span>
+
+                            {!e.nonRoutedProjects && (
+                              <span className="block flex-1 text-sm leading-tight md:text-base xl:text-lg md:leading-tight xl:leading-tight text-left overflow-hidden pr-3 pt-[2px] md:pt-[1px] absolute left-0 pl-[35px] md:pl-[50px] lg:pl-[57px] xl:pl-[70px]">
+                                <span className="block">+</span>
+                              </span>
+                            )}
+                            
                             <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
                               <span className="block">{e.title}</span>
                             </span>
@@ -563,9 +570,9 @@ export default function Works(initialData) {
                               </span>
                             <span className="block w-[25px] md:flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left relative overflow-hidden pr-3">
                               <span className="block">
-                                <span className="hidden md:block">{e.locationCity}{e.locationState && (<>, {e.locationState}</>)}</span>
+                                <span className="hidden lg:block">{e.locationCity}{e.locationState && (<>, {e.locationState}</>)}</span>
 
-                                <span className="block md:hidden">{e.locationState && (<>{e.locationState}</>)}</span>
+                                <span className="block lg:hidden">{e.locationState && (<>{e.locationState}</>)}</span>
                               </span>
                             </span>
                             <span className="hidden md:block w-[140px] md:w-[150px] xl:w-[160px] md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-right relative overflow-hidden">
@@ -585,6 +592,13 @@ export default function Works(initialData) {
                           <span className="block w-[58px] md:w-20 lg:w-24 xl:w-32 uppercase text-[10px] md:text-xs leading-tight overflow-hidden relative pr-4 md:pr-12 xl:pr-20 self-center">
                             <span className="block tabular-nums">{e.projectCode}</span>
                           </span>
+
+                          {!e.nonRoutedProjects && (
+                            <span className="block flex-1 text-sm leading-tight md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden pr-3 pt-[2px] md:pt-0 absolute left-0 pl-[35px] md:pl-[50px] lg:pl-[57px] xl:pl-[70px]">
+                              <span className="block">+</span>
+                            </span>
+                          )}
+                          
                           <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
                             <span className="block">{e.title}</span>
                           </span>
@@ -593,9 +607,9 @@ export default function Works(initialData) {
                             </span>
                           <span className="block w-[25px] md:flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left relative overflow-hidden pr-3">
                             <span className="block">
-                              <span className="hidden md:block">{e.locationCity}{e.locationState && (<>, {e.locationState}</>)}</span>
+                              <span className="hidden lg:block">{e.locationCity}{e.locationState && (<>, {e.locationState}</>)}</span>
 
-                              <span className="block md:hidden">{e.locationState && (<>{e.locationState}</>)}</span>
+                              <span className="block lg:hidden">{e.locationState && (<>{e.locationState}</>)}</span>
                             </span>
                           </span>
                           <span className="hidden md:block w-[140px] md:w-[150px] xl:w-[160px] md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-right relative overflow-hidden">
