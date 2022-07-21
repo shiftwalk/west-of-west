@@ -527,33 +527,33 @@ export default function Works(initialData) {
                   </div>
                 </div>
 
-                <ul className="lg:col-start-3 col-span-10 lg:col-span-8 w-full block archive-list" onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
+                <ul className={`lg:col-start-3 col-span-10 lg:col-span-8 w-full block archive-list ${(activeGenre !== 'all' || activeType !== 'all') && 'filter-on'}`} onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
                   {worksArchive.map((e, i) => {
-                    let archiveDisabledClass = 'grayscale opacity-30'
+                    let archiveDisabledClass = 'grayscale opacity-30 filtered'
                     
                     if (activeType == 'all' && activeGenre == 'all') {
                       archiveDisabledClass = 'grayscale-0 opacity-100'
                     }
   
                     if (e.sector == activeType) {
-                      archiveDisabledClass = 'grayscale-0 opacity-100'
+                      archiveDisabledClass = 'grayscale-0 opacity-100 filtered-enabled'
                     }
   
                     if (e.expertise == activeGenre || e.expertise == 'architecture-and-interiors' && activeType == 'all') {
-                      archiveDisabledClass = 'grayscale-0 opacity-100'
+                      archiveDisabledClass = 'grayscale-0 opacity-100 filtered-enabled'
                     }
 
                     return !e.nonRoutedProjects ? (
                       <li className="block" key={i}>
                         <Link href={`/works/${e.slug.current}`}>
                           <a
-                            className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-3 md:py-4 group relative archive-list__item ${archiveDisabledClass}`}
+                            className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start pt-[12px] pb-[7px] md:pt-[16px] md:pb-[11px] group relative archive-list__item ${archiveDisabledClass}`}
                             onMouseEnter={() => updateImage(i)}
                             onMouseLeave={() => updateImage(i)}
                           >
                             <span className={`absolute top-0 left-0 right-0 w-full h-[1px] bg-[#EFEFEF] ${ i == 0 ? 'mt-[0px]' : 'mt-[-1px]' }`}></span>
                             <span className="block w-[58px] md:w-20 lg:w-24 xl:w-32 uppercase text-[10px] md:text-xs leading-tight overflow-hidden relative pr-4 md:pr-12 xl:pr-20 self-center">
-                              <span className="block tabular-nums">{e.projectCode}</span>
+                              <span className="block tabular-nums mb-[7px] md:mb-[4px]">{e.projectCode}</span>
                             </span>
 
                             {!e.nonRoutedProjects && (
@@ -563,7 +563,11 @@ export default function Works(initialData) {
                             )}
                             
                             <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
-                              <span className="block">{e.title}</span>
+                              <span className="inline-block overflow-hidden relative">
+                                <span className="block">{e.title}</span>
+                                
+                                <span className="archive-list__item--underline w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                              </span>
                             </span>
                             <span className="flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left hidden md:block relative overflow-hidden pr-3">
                               <span className="block capitalize">{e.expertise.replace(/-/g, ' ').replace('and', '&')}</span>

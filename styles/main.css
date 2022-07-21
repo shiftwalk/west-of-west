@@ -45,8 +45,32 @@ canvas {
   }
 }
 
+
+.archive-list__item.filtered, .archive-list__item.filtered-enabled {
+  &:hover {
+    .archive-list__item--underline {
+      @apply w-full;
+    }
+  }
+}
+
 .archive-list__item {
   @apply hover:opacity-100 !important;
+}
+
+.archive-list.filter-on {
+  &:hover {
+    .archive-list__item {
+      @apply opacity-[100%] !important;
+
+      &:hover {
+        @apply opacity-[100%] !important;
+      }
+    }
+    .archive-list__item.filtered {
+      @apply opacity-[35%] !important;
+    }
+  }
 }
 
 .cover-image {
