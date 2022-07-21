@@ -7,28 +7,30 @@ import SEO from '@/helpers/seo.config'
 import useKeypress from 'react-use-keypress'
 import { IntroContext } from '@/context/intro'
 import {useIdle} from 'react-use';
+import Image from 'next/image'
 
 export default function App({ Component, pageProps }) {
   const router = useRouter()
   const [introContext, setIntroContext] = useState(false);
   const [grid, setGrid] = useState(false);
   // const isIdle = useIdle(30e3);
-  const isIdle = useIdle(120e3);
+  const isIdle = useIdle(10e3);
 
   const container = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
+      duration: 0,
       transition: {
-        delayChildren: 0.25,
-        staggerChildren: 0.45,
+        delayChildren: 0.5,
+        staggerChildren: 0.88,
       }
     }
   }
   
 const item = {
-    hidden: { y: '105%' },
-    show: { y: 0 }
+    hidden: { opacity: 0 },
+    show: { opacity: '100%' }
   }
   
   
@@ -65,23 +67,81 @@ const item = {
                 exit="hidden"
                 variants={introEnd}
                 transition={{ duration: 0.4, ease: [0.83, 0, 0.17, 1] }}
-                className="fixed inset-0 bg-white z-[10000] text-black p-2 whitespace-nowrap"
+                className="fixed inset-0 bg-transparent z-[10000] whitespace-nowrap"
               >
                 <m.div
                   variants={container}
                   initial="hidden"
                   animate="show"
                 >
-                  {Array.from(Array(40), (e, i) => {
-                    return (
-                      <div className="relative overflow-hidden mb-4" key={i} style={{ marginLeft: `${i * 2.5}vw` }}>
-                        <m.span variants={item} transition={{ duration: 0.75, ease: [0.83, 0, 0.17, 1] }} className={`block text-sm uppercase tracking-tight transform`}>Practice Takes Practise</m.span>
-                      </div>
-                    )
-                  })}
+                  <m.div
+                    className="w-[28vw] max-w-[500px] absolute top-0 left-0 ml-[33vw] mt-[15vw] -rotate-12"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/01.png'}
+                      layout="responsive"
+                      width={850}
+                      height={520}
+                    />
+                  </m.div>
+                  <m.div
+                    className="w-[18vw] max-w-[330px] absolute bottom-0 right-0 mr-[7vw] mb-[4vw] rotate-12"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/03.jpg'}
+                      layout="responsive"
+                      width={500}
+                      height={120}
+                    />
+                  </m.div>
+                  <m.div
+                    className="w-[18vw] max-w-[330px] absolute bottom-0 left-0 mb-[12vw] ml-[20vw] rotate-6"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/02.jpg'}
+                      layout="responsive"
+                      width={500}
+                      height={500}
+                    />
+                  </m.div>
+                  <m.div
+                    className="w-[18vw] max-w-[330px] absolute top-0 right-0 mt-[12vw] mr-[3vw]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/04.jpg'}
+                      layout="responsive"
+                      width={320}
+                      height={80}
+                    />
+                  </m.div>
+                  <m.div
+                    className="w-[18vw] max-w-[330px] absolute top-0 left-0 ml-[5vw] mt-[2vw] rotate-3"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/05.jpg'}
+                      layout="responsive"
+                      width={500}
+                      height={500}
+                    />
+                  </m.div>
                 </m.div>
               </m.div>
-            )}
+            )} 
           </AnimatePresence>
           { !introContext && router.asPath == '/' && (
             <m.div 
