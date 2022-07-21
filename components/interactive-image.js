@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "@/components/image";
 
-export default function InteractiveImage({ height, images, width, isActive, position, autoplay, deviceType, isMobile, crossfade }) {
+export default function InteractiveImage({ height, images, width, isActive, position, autoplay, deviceType, isMobile, crossfade, layout }) {
   const ref = useRef(null);
   const [relativeWidth, setRelativeWidth] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
@@ -67,7 +67,7 @@ export default function InteractiveImage({ height, images, width, isActive, posi
 
   return(
       <div className="group block">
-        <div className={`mb-3 relative overflow-hidden ${height} ${ autoplay ? '' : 'cursor-crosshair'} -mx-2 md:-mx-0`} onMouseMove={ autoplay ? null : updateImages}>
+        <div className={`mb-3 relative overflow-hidden ${height} ${ autoplay ? '' : 'cursor-crosshair'} ${layout == 'full-bleed' ? '' : '-mx-2' }`} onMouseMove={ autoplay ? null : updateImages}>
           {images.map((e, i) => {
             return (
               <div ref={ref} className={`${crossfade ? 'transition-opacity duration-500 ease-in-out' : '' } ${i == 0 ? 'relative' : 'absolute inset-0' } ${i == currentImage ? 'z-[10]' : 'z-[1] opacity-0' }`}>
@@ -88,6 +88,7 @@ export default function InteractiveImage({ height, images, width, isActive, posi
               </div>
             )
           })}
+
         </div>
       </div>
   )

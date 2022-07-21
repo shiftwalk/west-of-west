@@ -182,7 +182,7 @@ export default function Works(initialData) {
           className="pt-24 md:pt-32 xl:pt-40"
         >
           <m.div>
-            <div className="fixed bottom-0 left-0 right-0 w-full bg-white border-t border-gray border-opacity-40 z-40 px-2 py-3 hidden md:flex">
+            <div className="fixed bottom-0 left-0 right-0 w-full bg-white border-t border-gray border-opacity-40 z-40 px-2 py-3 hidden lg:flex">
               <div className="mr-auto flex space-x-6">
                 <button onClick={() => updateType('all')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black ${ !activeFilters ? 'text-black' : 'text-gray' }`}>
                   <div className="relative overflow-hidden">
@@ -205,14 +205,14 @@ export default function Works(initialData) {
                 { activeFilters && (
                   <>
                     <div className="flex space-x-8 md:pl-[3.1vw] xl:pl-[10vw]">
-                      <button onClick={() => updateType('retail-and-hospitality')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black ${ activeType == 'retail-and-hospitality' ? 'text-black' : 'text-gray' }`}>
+                      <button onClick={() => updateType('living')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black ${ activeType == 'living' ? 'text-black' : 'text-gray' }`}>
                         <div className="relative overflow-hidden">
-                          <span className="block">Retail &amp; Hospitality</span>
+                          <span className="block">Living</span>
                         </div>
 
                         <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[13px] translate-y-[2px]">
-                          <span className="block relative overflow-hidden tabular-nums">
-                            <span className="block">{retailAndHospitalityLength}</span>
+                          <span className="block relative tabular-nums">
+                            <span className="block">{livingLength}</span>
                           </span>
                         </span>
                       </button>
@@ -228,15 +228,15 @@ export default function Works(initialData) {
                           </span>
                         </span>
                       </button>
-                      
-                      <button onClick={() => updateType('living')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black ${ activeType == 'living' ? 'text-black' : 'text-gray' }`}>
+
+                      <button onClick={() => updateType('retail-and-hospitality')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black ${ activeType == 'retail-and-hospitality' ? 'text-black' : 'text-gray' }`}>
                         <div className="relative overflow-hidden">
-                          <span className="block">Living</span>
+                          <span className="block">Retail &amp; Hospitality</span>
                         </div>
 
-                        <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[10px] translate-y-[2px]">
+                        <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[13px] translate-y-[2px]">
                           <span className="block relative overflow-hidden tabular-nums">
-                            <span className="block">{livingLength}</span>
+                            <span className="block">{retailAndHospitalityLength}</span>
                           </span>
                         </span>
                       </button>
@@ -284,7 +284,7 @@ export default function Works(initialData) {
         <m.article> 
           
           {/* MOBILE FILTERS */}
-          <div className="block md:hidden mb-4 md:mb-0">
+          <div className="block lg:hidden mb-4 md:mb-0">
             <button onClick={() => updateType('all')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black ${ activeType == 'all' ? 'text-black' : 'text-gray' }`}>
               <div className="relative overflow-hidden">
                 <span className="block">All</span>
@@ -296,17 +296,19 @@ export default function Works(initialData) {
                 </span>
               </span>
             </button>
-            <button onClick={() => updateType('retail-and-hospitality')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black ${ activeType == 'retail-and-hospitality' ? 'text-black' : 'text-gray' }`}>
+
+            <button onClick={() => updateType('working')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black ${ activeType == 'working' ? 'text-black' : 'text-gray' }`}>
               <div className="relative overflow-hidden">
-                <span className="block">Retail &amp; Hospitality</span>
+                <span className="block">Working</span>
               </div>
 
               <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[15px] md:translate-x-[13px] translate-y-[2px]">
                 <span className="block relative overflow-hidden tabular-nums">
-                  <span className="block">{retailAndHospitalityLength}</span>
+                  <span className="block">{workingLength}</span>
                 </span>
               </span>
             </button>
+
             <button onClick={() => updateType('living')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black ${ activeType == 'living' ? 'text-black' : 'text-gray' }`}>
               <div className="relative overflow-hidden">
                 <span className="block">Living</span>
@@ -318,14 +320,15 @@ export default function Works(initialData) {
                 </span>
               </span>
             </button>
-            <button onClick={() => updateType('working')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black mb-3 ${ activeType == 'working' ? 'text-black' : 'text-gray' }`}>
+
+            <button onClick={() => updateType('retail-and-hospitality')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black mb-3 ${ activeType == 'retail-and-hospitality' ? 'text-black' : 'text-gray' }`}>
               <div className="relative overflow-hidden">
-                <span className="block">Working</span>
+                <span className="block">Retail &amp; Hospitality</span>
               </div>
 
               <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[15px] md:translate-x-[13px] translate-y-[2px]">
                 <span className="block relative overflow-hidden tabular-nums">
-                  <span className="block">{workingLength}</span>
+                  <span className="block">{retailAndHospitalityLength}</span>
                 </span>
               </span>
             </button>
@@ -355,7 +358,7 @@ export default function Works(initialData) {
             </button>
           </div>
 
-          <div className="flex md:hidden items-center justify-end space-x-3">
+          <div className="flex lg:hidden items-center justify-end space-x-3">
             <button onClick={() => updateActive('gallery')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight overflow-hidden group ${ active == 'gallery' ? 'text-black' : 'text-gray text-opacity-80' }`}>
               <svg viewBox="0 0 16 12" className="w-[20px]" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M9 0h7v5H9zM0 0h7v12H0z"/></svg>
             </button>
@@ -574,7 +577,7 @@ export default function Works(initialData) {
                     ) : (
                       <li className="block" key={i}>
                         <div
-                          className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-3 md:py-4 cursor-not-allowed group relative archive-list__item ${archiveDisabledClass}`}
+                          className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-3 md:py-4 cursor-default group relative archive-list__item ${archiveDisabledClass}`}
                           onMouseEnter={() => updateImage(i)}
                           onMouseLeave={() => updateImage(i)}
                         >

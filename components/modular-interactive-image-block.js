@@ -54,6 +54,7 @@ export default function ModularInteractiveImageBlock({ images, layout, autoplay,
               autoplay={autoplay}
               crossfade={crossfade}
               width={width}
+              layout={layout}
             ></InteractiveImage>
           </ReactCursorPosition>
       </div>

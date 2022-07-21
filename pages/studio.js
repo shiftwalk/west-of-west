@@ -259,7 +259,7 @@ export default function Studio(initialData) {
                 </div>
               </div>
               <div className="col-span-7 md:col-span-6 col-start-3 max-w-[700px]">
-                <a href="https://shiftwalk.studio" className="group inline-block relative overflow-hidden md:text-lg xl:text-xl leading-tight md:leading-tight xl:leading-tight">
+                <a href="https://shiftwalk.studio" rel="noopener noreferrer" target="_blank" className="group inline-block relative overflow-hidden md:text-lg xl:text-xl leading-tight md:leading-tight xl:leading-tight">
                   ShiftWalk Studio
                   <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                 </a>

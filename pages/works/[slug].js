@@ -223,16 +223,16 @@ export default function WorksSlug(initialData) {
           initial="initial"
           animate="enter"
           exit="exit"
-          className="-m-2"
+          className="md:-m-2"
         >
           <m.article>
-            <div className="h-screen grid grid-cols-10 gap-x-5 items-end pt-20 sticky top-0 z-0 p-2">
-              <div className="col-span-10 md:col-span-2 mb-auto md:mb-0">
-                <span className="block text-[12px] uppercase mb-5 md:mb-8">{projectCode}</span>
-                <h1 className="block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight mb-0 pb-0">{title}</h1>
-                <span className="block lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight mb-0 pb-0 text-gray">{locationCity}{locationState && (<>, {locationState}</>)}</span>
+            <div className="md:h-screen grid grid-cols-10 gap-x-5 items-end pt-20 md:sticky top-0 z-0 md:p-2">
+              <div className="col-span-10 md:col-span-2 mb-24 md:mb-0">
+                <span className="block text-lg md:text-[12px] uppercase mb-2 md:mb-8">{projectCode}</span>
+                <h1 className="block text-lg leading-tight lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight mb-0 pb-0">{title}</h1>
+                <span className="block text-lg lg:text-xl xl:text-2xl relative leading-tight md:leading-tight xl:leading-tight mb-0 pb-0 text-gray">{locationCity}{locationState && (<>, {locationState}</>)}</span>
               </div>
-              <div className="col-span-10 md:col-span-8">
+              <div className="col-span-10 md:col-span-8 -mx-2 md:mx-0">
                 <div className="flex flex-wrap w-full">
                   {heroImages.length > 1 && (
                     <div className="w-full md:w-[75px] order-2 md:order-1 md:mr-4">
@@ -258,7 +258,7 @@ export default function WorksSlug(initialData) {
                     </div>
                   )}
                   <div className="w-full md:flex-1 order-1 md:order-2">
-                    <div className={`bg-gray bg-opacity-40 w-full relative overflow-hidden ${superWideHero ? 'h-[60vw] md:h-[55vh]' : 'h-[70vw] md:h-[75vh]' }`}>
+                    <div className={`bg-gray bg-opacity-40 w-full relative overflow-hidden  ${superWideHero ? 'h-[60vw] md:h-[55vh]' : 'h-[70vw] md:h-[75vh]' }`}>
                       <Image
                         image={heroImages[currentHero]}
                         focalPoint={heroImages[currentHero].asset.hotspot}
@@ -274,7 +274,7 @@ export default function WorksSlug(initialData) {
               </div>
             </div>
 
-            <div className="grid grid-cols-10 gap-5 pb-12 md:pb-32 xl:pb-52 pt-20 md:pt-32 xl:pt-52 bg-white relative z-[20] safari-sticky p-2 safari-sticky">
+            <div className="grid grid-cols-10 gap-5 pb-12 md:pb-32 xl:pb-52 pt-3 md:pt-32 xl:pt-52 bg-white relative z-[20] safari-sticky md:p-2 safari-sticky">
               <div className="col-span-9 md:col-span-3 mb-8 md:mb-0">
                 { client && (
                   <div className="mb-3">
@@ -319,7 +319,7 @@ export default function WorksSlug(initialData) {
               </div>
             </div>
             
-            <div className="bg-white relative z-[20] safari-sticky p-2">
+            <div className="bg-white relative z-[20] safari-sticky md:p-2">
               <BodyRenderer body={contentBlocks} />
             </div>
           </m.article>
