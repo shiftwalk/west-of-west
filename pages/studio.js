@@ -134,9 +134,121 @@ export default function Studio(initialData) {
           initial="initial"
           animate="enter"
           exit="exit"
-          className="pt-24 md:pt-32 xl:pt-40"
+          className="pt-24 md:pt-48 xl:pt-56"
         >
-          <m.article>
+          <article>
+            <div className="mb-16 md:mb-32 xl:mb-48">
+              <h1 className="block text-[5.55vw] md:text-[3.5vw] lg:text-[3.2vw] xl:text-[2.8vw] 2xl:text-[2.5vw] leading-[1.1] md:leading-[1.1] xl:leading-[1.1] max-w-[70vw] xl:max-w-[60vw] mb-16 md:mb-24 xl:mb-32 2xl:mb-40">West of West is an architecture studio that designs parts of the city to shape contemporary life and the built environment.</h1>
+
+              <div className="grid grid-cols-10 grid-gap-5">
+                <div className="col-span-2">
+                  <div className="content">
+                    <p className="">Work</p>
+                  </div>
+                </div>
+                <div className="col-span-7 md:col-span-5 col-start-3 content max-w-[900px]">
+                  <p>These parts of the city can be at any scale and include buildings and spaces for living, working, and leisure.  Each project endeavors to establish a new relationship between the surrounding context, the physical building, and the people that use it. We work with a select group of ambitious clients on projects that include new ways of living, emerging workplace typologies, and creative spaces focused on the production of contemporary media. The studio has completed numerous projects in cities including Los Angeles, New York, San Francisco, Seattle, Austin, and Portland.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mb-16 md:mb-32 xl:mb-48 w-full h-[60vw] md:h-[55vw] overflow-hidden relative">
+              <Image
+                image={studio.contentImages[0]}
+                focalPoint={studio.contentImages[0].hotspot}
+                layout="fill"
+                widthOverride={1400}
+                className={`w-full inset-0 h-full object-cover object-center`}
+              />
+            </div>
+
+            <div className="mb-16 md:mb-32 xl:mb-48">
+              <h2 className="block text-[5.55vw] md:text-[3.5vw] lg:text-[3.2vw] xl:text-[2.8vw] 2xl:text-[2.5vw] leading-[1.1] md:leading-[1.1] xl:leading-[1.1] max-w-[70vw] xl:max-w-[60vw] mb-16 md:mb-24 xl:mb-32 2xl:mb-40">West of West is a process-driven design practice that creates value through vision. Our work produces experiences engaged in the worlds of art, culture, technology, and lifestyle.</h2>
+
+              <div className="grid grid-cols-10 grid-gap-5">
+                <div className="col-span-2">
+                  <div className="content">
+                    <p className="">Practice</p>
+                  </div>
+                </div>
+                <div className="col-span-7 md:col-span-5 col-start-3 content max-w-[900px]">
+                  <p>The studio balances the specific, social, cultural, economic, and environmental conditions of every project with function, beauty, and opportunity. In pursuit of this balance our tools are composition, form, space, and material. We think, draw, model, talk about, build, re-build, re-think and create buildings, objects and spaces while taking a critical view of the past and an optimistic view of the future. The studio is committed to a collaborative, team-driven approach to every project where all stakeholders have a voice. West of West was established in 2014 and is led by Clayton Taylor and Jai Kumaran. Currently the studio has offices in Los Angeles and Portland with active projects across the US.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mb-16 md:mb-32 xl:mb-48">
+              <h2 className="block text-[5.55vw] md:text-[3.5vw] lg:text-[3.2vw] xl:text-[2.8vw] 2xl:text-[2.5vw] leading-[1.1] md:leading-[1.1] xl:leading-[1.1] max-w-[70vw] xl:max-w-[60vw] mb-16 md:mb-24 xl:mb-32 2xl:mb-40">West of West is a process-driven design practice that creates value through vision. Our work produces experiences engaged in the worlds of art, culture, technology, and lifestyle.<span className="block text-gray">- Surface Magazine</span></h2>
+            </div>
+
+            <div className="grid grid-cols-10 grid-gap-5 mb-12 md:mb-20 xl:mb-28">
+              <div className="col-span-2">
+                <div className="content">
+                  <p className="">Team</p>
+                </div>
+              </div>
+              <div className="col-span-8 md:col-span-6 col-start-3 content md:max-w-[440px]">
+                <ul className="w-full">
+                  {team.map((e, i) => {
+                    return (
+                      <li className="flex flex-wrap w-full" key={i}>
+                        <span className="block flex-1 text-gray">{e.role}</span>
+                        <span className="block w-auto text-left ml-auto">{e.name}</span>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-10 grid-gap-5 mb-12 md:mb-20 xl:mb-28">
+              <div className="col-span-2">
+                <div className="content">
+                  <p className="">Past Team</p>
+                </div>
+              </div>
+              <div className="col-span-7 md:col-span-6 col-start-3 content max-w-[700px]">
+                <p>Serena Abouchar, Liz Chrisco, Justin Cua, Ameya Dalal, Michael Gastineau, Jen Endozo, Cami Kamigaki, Connor Katalbas, Erik Larson, Brittany Menear, Keely O’Brien, Jared Younger</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-10 grid-gap-5 mb-12 md:mb-20 xl:mb-28">
+              <div className="col-span-2">
+                <div className="content">
+                  <p className="">Recognition</p>
+                </div>
+              </div>
+              <div className="col-span-7 md:col-span-6 col-start-3 content max-w-[700px]">
+                <p>Obel Award, UIA Gold Medal, Praemium Imperiale, MUSE Design Awards, Good Design Award, DNA Paris Design Awards</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-10 grid-gap-5 mb-12 md:mb-20 xl:mb-28">
+              <div className="col-span-2">
+                <div className="content">
+                  <p className="">Publications</p>
+                </div>
+              </div>
+              <div className="col-span-7 md:col-span-6 col-start-3 content max-w-[700px]">
+                <p>Architectural Record, Dezeen, ArchDaily, Archinect, GLCO, The Architects Newspaper, Gray Magazine, FRAME Magazine</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-10 grid-gap-5 mb-12 md:mb-20 xl:mb-28">
+              <div className="col-span-2">
+                <div className="content">
+                  <p className="">Site By</p>
+                </div>
+              </div>
+              <div className="col-span-7 md:col-span-6 col-start-3 max-w-[700px]">
+                <a href="https://shiftwalk.studio" className="group inline-block relative overflow-hidden md:text-lg xl:text-xl leading-tight md:leading-tight xl:leading-tight">
+                  ShiftWalk Studio
+                  <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                </a>
+              </div>
+            </div>
+          </article>
+          {/* <m.article>
             <div className="grid grid-cols-10 gap-5">
               <div className="col-span-10 md:col-span-5">
                 <div className="w-full h-[70vw] md:h-[58vw] overflow-hidden relative">
@@ -206,32 +318,6 @@ export default function Studio(initialData) {
               </div>
 
               <div className="col-span-10 md:col-span-8 md:col-start-3 lg:col-span-7 lg:col-start-4 xl:col-span-6 xl:col-start-5 relative">
-                {/* {team.map((e, i) => {
-                  return (
-                    <TeamModal title={e.name}>
-                      <div className="w-full">
-                        <div className="w-full bg-white p-3">
-                          <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15]">Clayton Taylor</span>
-                          <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] text-gray">Principal, Architect</span>
-                          <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] text-gray">NCARB, AIA</span>
-
-                          <div className="content md:absolute bottom-0 left-0 md:ml-[40%] md:pr-[20%] pb-3 mt-8 md:mt-0">
-                            <p>Clayton is a founding partner of W/W. He holds a Master of Architecture degree from the University of California, Los Angeles, and a Bachelor of Architecture degree from California Polytechnic State University, San Luis Obispo. Clayton has worked at a series of well-recognized Architectural Design firms including Coop Himmelblau in Vienna, as a Project Designer at Morphosis Architects (Los Angeles), and as an Associate at Rios Clementi Hale Studios in Hollywood. At RCHS, Clayton led design efforts on many creative office and multi-family developments in the Los Angeles area including, Columbia Square, Crossroads of the World, The Telephone Building, and Flight at Tustin Legacy. He also completed many competitive design proposals for RCHS like the Rancho Cienega Sports Complex and the Southwest School of</p>
-                          </div>
-                          <div className="absolute bottom-0 left-0 m-3 w-[250px] h-[400px] overflow-hidden hidden md:block">
-                            <Image
-                              image={team[0].image}
-                              focalPoint={team[0].image.hotspot}
-                              layout="fill"
-                              widthOverride={720}
-                              className={`w-full inset-0 h-full object-cover object-center`}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </TeamModal>
-                  )
-                })} */}
                 <ul className="archive-list" onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
                   {team.map((e, i) => {
                     return (
@@ -314,7 +400,7 @@ export default function Studio(initialData) {
                 </div>
               </div>
             </div>
-          </m.article>
+          </m.article> */}
         </m.main>
       </LazyMotion>
 
