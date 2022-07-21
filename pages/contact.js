@@ -131,10 +131,127 @@ export default function Contact(initialData) {
           initial="initial"
           animate="enter"
           exit="exit"
-          className=""
+          className="pt-20 md:pt-24"
         >
           <m.article>
-            <div className="grid grid-cols-10 gap-x-5 gap-y-2 md:h-[calc(100vh-8px)] pt-24 md:pt-32 xl:pt-40 mb-8 md:mb-32 xl:mb-40">
+            <div className="mb-24 md:mb-[35vh] xl:mb-[30vh]">
+              <ul>
+                <li className="block w-full">
+                  <a
+                    href={`mailto:${contact.generalEmail}`}
+                    className={`grid grid-cols-10 gap-x-5 group`}
+                  >
+                    <span className="col-span-3 md:col-span-2 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
+                      <span className="block text-gray">General</span>
+                    </span>
+                    <span className="block md:col-start-3 md:text-lg col-span-4 xl:text-xl md:leading-tight xl:leading-tight relative overflow-hidden">
+                      <span className="inline-block relative overflow-hidden">
+                      <span className="block">{contact.generalEmail}</span>
+                        <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                      </span>
+                    </span>
+                  </a>
+                </li>
+
+                <li className="block w-full">
+                  <a
+                    href={`mailto:${contact.newBusinessEmail}`}
+                    className={`grid grid-cols-10 gap-x-5 group`}
+                  >
+                    <span className="col-span-3 md:col-span-2 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
+                      <span className="block text-gray">New Business</span>
+                    </span>
+                    <span className="block md:col-start-3 md:text-lg col-span-4 xl:text-xl md:leading-tight xl:leading-tight relative overflow-hidden">
+                      <span className="inline-block relative overflow-hidden">
+                      <span className="block">{contact.newBusinessEmail}</span>
+                        <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                      </span>
+                    </span>
+                  </a>
+                </li>
+
+                <li className="block w-full">
+                  <a
+                    href={`mailto:${contact.pressEmail}`}
+                    className={`grid grid-cols-10 gap-x-5 group`}
+                  >
+                    <span className="col-span-3 md:col-span-2 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
+                      <span className="block text-gray">Press</span>
+                    </span>
+                    <span className="block md:col-start-3 md:text-lg col-span-4 xl:text-xl md:leading-tight xl:leading-tight relative overflow-hidden">
+                      <span className="inline-block relative overflow-hidden">
+                      <span className="block">{contact.pressEmail}</span>
+                        <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                      </span>
+                    </span>
+                  </a>
+                </li>
+
+                <li className="block w-full">
+                  <a
+                    href={`mailto:${contact.employmentEmail}`}
+                    className={`grid grid-cols-10 gap-x-5 group`}
+                  >
+                    <span className="col-span-3 md:col-span-2 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
+                      <span className="block text-gray">Employment</span>
+                    </span>
+                    <span className="block md:col-start-3 md:text-lg col-span-4 xl:text-xl md:leading-tight xl:leading-tight relative overflow-hidden">
+                      <span className="inline-block relative overflow-hidden">
+                      <span className="block">{contact.employmentEmail}</span>
+                        <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                      </span>
+                    </span>
+                  </a>
+                </li>
+
+                <li className="block w-full">
+                  <a
+                    href={`tel:${contact.telephone}`}
+                    className={`grid grid-cols-10 gap-x-5 group`}
+                  >
+                    <span className="col-span-3 md:col-span-2 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
+                      <span className="block text-gray">Call</span>
+                    </span>
+                    <span className="block md:col-start-3 md:text-lg col-span-4 xl:text-xl md:leading-tight xl:leading-tight relative overflow-hidden">
+                      <span className="inline-block relative overflow-hidden">
+                      <span className="block">{contact.telephone}</span>
+                        <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                      </span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="grid grid-cols-10 gap-x-3">
+              {contact.locations.map((e, i) => {
+                return (
+                  <div className={`block md:text-lg leading-none xl:leading-[1.15] xl:text-xl col-span-10 md:col-span-5 ${ i == 0 ? 'mb-5 md:mb-0' : '' }`} key={i}>
+                    <span className={`w-full block max-w-[160px] md:max-w-[200px] text-left leading-[1.2] xl:leading-[1.2] mb-2 md:mb-4`}>
+                      <span className="block">{e.title}</span>
+                      <span className="block">{e.address}</span>
+                    </span>
+                    <div className="block mb-4 md:mb-3">
+                      <a href={e.directionsUrl} target="_blank" rel="noopener noreferrer" className="group inline-block relative overflow-hidden">
+                        <span className="block">Get Directions</span>
+                        <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-current absolute bottom-0 left-0 right-0"></span>
+                      </a>
+                    </div>
+                    
+                    <div className="w-full overflow-hidden relative h-[60vw] md:h-[33vw]">
+                      <Image
+                        image={e.image}
+                        focalPoint={e.image.hotspot}
+                        layout="fill"
+                        widthOverride={1500}
+                        className={`w-full inset-0 h-full object-cover object-center`}
+                      />
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+            {/* <div className="grid grid-cols-10 gap-x-5 gap-y-2 md:h-[calc(100vh-8px)] pt-24 md:pt-32 xl:pt-40 mb-8 md:mb-32 xl:mb-40">
               <div className="col-span-10 md:col-span-2 flex flex-wrap h-full">
                 <div className="block text-lg leading-[1.15] xl:leading-[1.15] xl:text-xl w-full pb-5">
                   <p className="w-[95%] lg:w-8/12">{contact.heroHeading}</p>
@@ -149,7 +266,7 @@ export default function Contact(initialData) {
                           <span className="block">{e.address}</span>
                         </button>
                         <div className=" block">
-                          <a href={e.directionsUrl} target="_blank" rel="noopener noreferrer" className="group inline-block relative overflow-hidden mt-1 cursor-ne-resize">
+                          <a href={e.directionsUrl} target="_blank" rel="noopener noreferrer" className="group inline-block relative overflow-hidden mt-1 ">
                             <span className="block">Get Directions</span>
                             <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-current absolute bottom-0 left-0 right-0"></span>
                           </a>
@@ -177,15 +294,15 @@ export default function Contact(initialData) {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
-            <div className="grid grid-cols-10 gap-x-5 gap-y-2 mb-12 md:mb-32 xl:mb-40">
+            {/* <div className="grid grid-cols-10 gap-x-5 gap-y-2 mb-12 md:mb-32 xl:mb-40">
               <div className="col-span-10 md:col-span-5 md:col-start-3">
               <ul className="archive-list" onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
                 <li className="block">
                   <a
                     href={`mailto:${contact.generalEmail}`}
-                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item cursor-ne-resize`}
+                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item `}
                   >
                     <span className="absolute top-0 left-0 right-0 w-full h-[1px] bg-[#EFEFEF] mt-[0px]mt-[-1px]"></span>
                     <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
@@ -200,7 +317,7 @@ export default function Contact(initialData) {
                 <li className="block">
                   <a
                     href={`mailto:${contact.newBusinessEmail}`}
-                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item cursor-ne-resize`}
+                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item `}
                   >
                     <span className="absolute top-0 left-0 right-0 w-full h-[1px] bg-[#EFEFEF] mt-[-1px]"></span>
                     <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
@@ -215,7 +332,7 @@ export default function Contact(initialData) {
                 <li className="block">
                   <a
                     href={`mailto:${contact.pressEmail}`}
-                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item cursor-ne-resize`}
+                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item `}
                   >
                     <span className="absolute top-0 left-0 right-0 w-full h-[1px] bg-[#EFEFEF] mt-[-1px]"></span>
                     <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
@@ -230,7 +347,7 @@ export default function Contact(initialData) {
                 <li className="block">
                   <a
                     href={`mailto:${contact.employmentEmail}`}
-                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item cursor-ne-resize`}
+                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item `}
                   >
                     <span className="absolute top-0 left-0 right-0 w-full h-[1px] bg-[#EFEFEF] mt-[-1px]"></span>
                     <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
@@ -245,7 +362,7 @@ export default function Contact(initialData) {
                 <li className="block">
                   <a
                     href={`tel:${contact.telephone}`}
-                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item cursor-ne-resize`}
+                    className={`w-full border-b border-b-[#EFEFEF] flex flex-wrap items-start py-4 group relative archive-list__item `}
                   >
                     <span className="absolute top-0 left-0 right-0 w-full h-[1px] bg-[#EFEFEF] mt-[-1px]"></span>
                     <span className="block flex-1 md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
@@ -259,7 +376,7 @@ export default function Contact(initialData) {
                 </li>
               </ul>
               </div>
-            </div>
+            </div> */}
           </m.article>
         </m.main>
       </LazyMotion>

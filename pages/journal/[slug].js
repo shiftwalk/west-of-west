@@ -191,7 +191,7 @@ export default function JournalSlug(initialData) {
                       {externalLinks.map((e, i) => {
                         return (
                           <div key={i}>
-                            <a target="_blank" rel="noreferrer noopener" href={e.linkUrl} className="inline-block text-xl md:text-xl group relative overflow-hidden cursor-ne-resize">
+                            <a target="_blank" rel="noreferrer noopener" href={e.linkUrl} className="inline-block text-xl md:text-xl group relative overflow-hidden ">
                               <span className="inline-block">{e.linkTitle ? e.linkTitle : 'More Information' }</span>
                               <svg className={`w-[12px] ml-[6px] mt-[-4px] inline-block text-black`} viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.8 10.267H.733v-8.25h4.4v-.734H0V11h9.533V5.867H8.8v4.4Z" fill="currentColor"/><path d="M6.6 0v.733h3.148L3.957 6.524l.519.519 5.79-5.791V4.4H11V0H6.6Z" fill="currentColor"/></svg>
                               <span className="w-[90%] group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>

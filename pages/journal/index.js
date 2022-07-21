@@ -168,7 +168,7 @@ export default function Journal(initialData) {
                       </Link>
                     )}
                     { e.externalLinks && !e.routedArticle && (
-                      <a className={`w-full block cursor-ne-resize`} href={e.externalLinks[0].linkUrl} target="_blank" rel="noreferrer noopener">
+                      <a className={`w-full block `} href={e.externalLinks[0].linkUrl} target="_blank" rel="noreferrer noopener">
                         <div className="w-full">
                           <div className="hidden md:block">
                             <ReactCursorPosition>

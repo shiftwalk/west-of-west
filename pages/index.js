@@ -33,6 +33,23 @@ const query = `{
         y
       }
     },
+    journalImage {
+      asset-> {
+        ...,
+      },
+      overrideVideo {
+        asset-> {
+          ...
+        }
+      },
+      caption,
+      captionSubHeading,
+      alt,
+      hotspot {
+        x,
+        y
+      }
+    },
     studioImage {
       asset-> {
         ...,
@@ -57,29 +74,6 @@ const query = `{
       locationState,
       year,
       heroImages[] {
-        asset-> {
-          ...,
-        },
-        overrideVideo {
-          asset-> {
-            ...
-          }
-        },
-        caption,
-        captionSubHeading,
-        alt,
-        hotspot {
-          x,
-          y
-        },
-      },
-      slug {
-        current
-      }
-    },
-    featuredJournalEntry -> {
-      title,
-      heroImage {
         asset-> {
           ...,
         },
@@ -162,73 +156,91 @@ export default function Home(initialData) {
             </div>
 
             <div className="grid grid-cols-10 gap-3 md:gap-5 mb-5">
-              <div className="col-span-10 md:col-span-3">
+              <div className="col-span-10 md:col-span-5">
                 <Link href={`/works`}>
                   <a
                     className={`block group mb-4 md:mb-0`}
                   >
-                  <ReactCursorPosition>
-                      <Teaser
-                        height={'h-[60vw] md:h-[25vw]'}
+                    <div className={`mb-3 relative overflow-hidden h-[60vw] md:h-[33vw] cursor-crosshair`}>
+                      <Image
                         image={home.worksImage}
+                        focalPoint={home.worksImage.hotspot}
+                        layout="fill"
+                        sizes="(min-width: 768px) 50vw, 100vw"
+                        className={`w-full inset-0 h-full object-cover object-center`}
                       />
-                    </ReactCursorPosition>
-
-                    <div>
-                      <span className="inline-block overflow-hidden relative text-lg leading-none xl:leading-[1.15] xl:text-xl w-10/12">Experience duality at the monolithic Roadside Hotel in Palm Springs.</span>
+                      
+                      <div className="bg-black bg-opacity-40 flex items-center justify-center absolute inset-0 z-[10001] opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity ease-in-out duration-[250ms]">
+                      </div>
                     </div>
 
-                    <span className="inline-block overflow-hidden relative text-lg leading-none xl:leading-[1.2] xl:text-xl mt-1">
-                      <span className="inline-block">Explore Project</span>
+                    {/* <div>
+                      <span className="inline-block overflow-hidden relative text-lg leading-none xl:leading-[1.15] xl:text-xl w-10/12">Experience duality at the monolithic Roadside Hotel in Palm Springs.</span>
+                    </div> */}
+
+                    <span className="inline-block overflow-hidden relative text-lg leading-none xl:leading-[1.2] xl:text-xl">
+                      <span className="inline-block">Explore Works</span>
                       <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                     </span>
                   </a>
                 </Link>
               </div>
 
-              <div className="md:col-start-7 col-span-10 md:col-span-4 md:mt-32 xl:mt-48">
+              <div className="col-span-10 md:col-span-5">
+                <Link href={`/journal`}>
+                  <a
+                    className={`block group mb-4 md:mb-0`}
+                  >
+                    <div className={`mb-3 relative overflow-hidden h-[60vw] md:h-[33vw] cursor-crosshair`}>
+                      <Image
+                        image={home.journalImage}
+                        focalPoint={home.journalImage.hotspot}
+                        layout="fill"
+                        sizes="(min-width: 768px) 50vw, 100vw"
+                        className={`w-full inset-0 h-full object-cover object-center`}
+                      />
+                      
+                      <div className="bg-black bg-opacity-40 flex items-center justify-center absolute inset-0 z-[10001] opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity ease-in-out duration-[250ms]">
+                      </div>
+                    </div>
+
+                    {/* <div>
+                      <span className="inline-block overflow-hidden relative text-lg leading-none xl:leading-[1.15] xl:text-xl w-10/12">We are all about vision, strategy, adaptability, communication, and quality.</span>
+                    </div> */}
+                    
+                    <span className="inline-block overflow-hidden relative text-lg leading-none xl:leading-[1.2] xl:text-xl">
+                      <span className="inline-block">Read Journal</span>
+                      <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                    </span>
+                  </a>
+                </Link>
+              </div>
+
+              <div className="col-span-10 md:mt-5">
                 <Link href={`/studio`}>
                   <a
                     className={`block group mb-4 md:mb-0`}
                   >
-                  <ReactCursorPosition>
-                      <Teaser
-                        height={'h-[60vw] md:h-[41vw]'}
+                    <div className={`mb-3 relative overflow-hidden h-[60vw] cursor-crosshair`}>
+                      <Image
                         image={home.studioImage}
+                        focalPoint={home.studioImage.hotspot}
+                        layout="fill"
+                        sizes="(min-width: 768px) 99vw, 100vw"
+                        className={`w-full inset-0 h-full object-cover object-center`}
                       />
-                    </ReactCursorPosition>
-
-                    <div>
-                      <span className="inline-block overflow-hidden relative text-lg leading-none xl:leading-[1.15] xl:text-xl w-10/12">We are all about vision, strategy, adaptability, communication, and quality.</span>
+                      
+                      <div className="bg-black bg-opacity-40 flex items-center justify-center absolute inset-0 z-[10001] opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity ease-in-out duration-[250ms]">
+                      </div>
                     </div>
-                    
-                    <span className="inline-block overflow-hidden relative text-lg leading-none xl:leading-[1.2] xl:text-xl mt-1">
-                      <span className="inline-block">The Studio</span>
-                      <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
-                    </span>
-                  </a>
-                </Link>
-              </div>
 
-              <div className="col-span-10 md:col-start-3 md:col-span-3 md:-mt-32 xl:-mt-48">
-                <Link href={`/journal/${home.featuredJournalEntry.slug.current}`}>
-                  <a
-                    className={`block group mb-4 md:mb-0`}
-                  >
-                  <ReactCursorPosition>
-                      <Teaser
-                        height={'h-[60vw] md:h-[19vw]'}f
-                        image={home.featuredJournalEntry.heroImage}
-                      />
-                    </ReactCursorPosition>
-
-                    <span className="inline-block overflow-hidden relative text-lg leading-none xl:leading-[1.15] xl:text-xl w-10/12">
+                    {/* <span className="inline-block overflow-hidden relative text-lg leading-none xl:leading-[1.15] xl:text-xl w-10/12">
                       <span className="inline-block ">{home.featuredJournalEntry.title}</span>
-                    </span>
+                    </span> */}
 
-                    <div className="block mt-1">
+                    <div className="block">
                       <span className="inline-block overflow-hidden text-lg leading-none xl:leading-[1.2] xl:text-xl relative">
-                        <span className="block">Read More</span>
+                        <span className="block">Explore Studio</span>
                         <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                       </span>
                     </div>
