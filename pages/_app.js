@@ -114,7 +114,7 @@ const item = {
                     />
                   </m.div>
                   <m.div
-                    className="w-[18vw] max-w-[330px] absolute top-0 right-0 mt-[12vw] mr-[3vw]"
+                    className="w-[18vw] max-w-[330px] absolute top-0 right-0 mt-[12vw] mr-[3vw] rotate-[12deg]"
                     variants={item}
                     transition={{ duration: 0 }}
                   >
@@ -139,6 +139,238 @@ const item = {
                       height={500}
                     />
                   </m.div>
+
+
+
+                  <m.div
+                    className="w-[33vw] max-w-[600px] absolute top-0 left-0 ml-[-10vw] mt-[32vw] -rotate-45"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/01.png'}
+                      layout="responsive"
+                      width={850}
+                      height={520}
+                    />
+                  </m.div>
+                  <m.div
+                    className="w-[28vw] max-w-[550px] absolute bottom-0 right-0 mr-[60vw] mb-[30vw] -rotate-12"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/03.jpg'}
+                      layout="responsive"
+                      width={500}
+                      height={120}
+                    />
+                  </m.div>
+                  <m.div
+                    className="w-[28vw] max-w-[550px] absolute top-0 right-0 mt-[22vw] mr-[10vw] -rotate-45"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/02.jpg'}
+                      layout="responsive"
+                      width={500}
+                      height={500}
+                    />
+                  </m.div>
+                  <m.div
+                    className="w-[24vw] max-w-[440px] absolute bottom-0 right-0 mb-[12vw] mr-[33vw] rotate-[110deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/04.jpg'}
+                      layout="responsive"
+                      width={320}
+                      height={80}
+                    />
+                  </m.div>
+                  <m.div
+                    className="w-[23vw] max-w-[440px] absolute bottom-0 right-0 mr-[8vw] mb-[3vw] rotate-[33deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/05.jpg'}
+                      layout="responsive"
+                      width={500}
+                      height={500}
+                    />
+                  </m.div>
+
+
+
+                  <m.div
+                    className="w-[60vw] max-w-[900px] absolute top-0 right-0 mr-[-10vw] mt-[-9vw] rotate-[30deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/01.png'}
+                      layout="responsive"
+                      width={850}
+                      height={520}
+                    />
+                  </m.div>
+                  <m.div
+                    className="w-[50vw] max-w-[900px] absolute top-0 right-0 mr-[20vw] mt-[-3vw] rotate-[25deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/03.jpg'}
+                      layout="responsive"
+                      width={500}
+                      height={120}
+                    />
+                  </m.div>
+                  <m.div
+                    className="w-[40vw] max-w-[700px] absolute top-0 left-0 mt-[-10vw] ml-[10vw] rotate-[15deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/02.jpg'}
+                      layout="responsive"
+                      width={500}
+                      height={500}
+                    />
+                  </m.div>
+                  <m.div
+                    className="w-[40vw] max-w-[720px] absolute top-0 right-0 mt-[16vw] mr-[10vw] rotate-[12deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/04.jpg'}
+                      layout="responsive"
+                      width={320}
+                      height={80}
+                    />
+                  </m.div>
+                  <m.div
+                    className="w-[40vw] max-w-[650px] absolute bottom-0 right-0 mr-[40vw] mb-[-12vw] -rotate-[12deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/05.jpg'}
+                      layout="responsive"
+                      width={500}
+                      height={500}
+                    />
+                  </m.div>
+
+
+
+                  <m.div
+                    className="w-[80vw] max-w-[1000px] absolute bottom-0 right-0 mr-[-10vw] mb-[-9vw] rotate-[-20deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/01.png'}
+                      layout="responsive"
+                      width={850}
+                      height={520}
+                    />
+                  </m.div>
+                  <m.div
+                    className="w-[55vw] max-w-[1000px] absolute top-0 right-0 mr-[2vw] mt-[24vw] rotate-[10deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/03.jpg'}
+                      layout="responsive"
+                      width={500}
+                      height={120}
+                    />
+                  </m.div>
+                  <m.div
+                    className="w-[40vw] max-w-[800px] absolute top-0 right-0 mt-[10vw] mr-[-10vw] rotate-[60deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/02.jpg'}
+                      layout="responsive"
+                      width={500}
+                      height={500}
+                    />
+                  </m.div>
+                  <m.div
+                    className="w-[55vw] max-w-[800px] absolute bottom-0 left-0 mb-[12vw] ml-[-3vw] rotate-[12deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/04.jpg'}
+                      layout="responsive"
+                      width={320}
+                      height={80}
+                    />
+                  </m.div>
+                  <m.div
+                    className="w-[40vw] max-w-[800px] absolute top-0 left-0 ml-[-4vw] mt-[-6vw] -rotate-[120deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/05.jpg'}
+                      layout="responsive"
+                      width={500}
+                      height={500}
+                    />
+                  </m.div>
+
+                  <m.div
+                    className="w-[70vw] max-w-[1600px] absolute bottom-0 left-0 mb-[3vw] ml-[3vw] rotate-[10deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/03.jpg'}
+                      layout="responsive"
+                      width={500}
+                      height={120}
+                    />
+                  </m.div>
+                  <m.div
+                    className="w-[60vw] max-w-[1000px] absolute bottom-0 left-0 ml-[-10vw] mb-[-9vw] rotate-[-20deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/01.png'}
+                      layout="responsive"
+                      width={850}
+                      height={520}
+                    />
+                  </m.div>
+                  
                 </m.div>
               </m.div>
             )} 
