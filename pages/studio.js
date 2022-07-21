@@ -14,7 +14,16 @@ import TeamModal from '@/components/team-modal'
 const query = `{
   "studio": *[_type == "studio"][0]{
     title,
-    heroImageLeft {
+    workBlockHeading,
+    workBlockText,
+    practiceBlockHeading,
+    practiceBlockText,
+    quote,
+    quoteAuthor,
+    pastTeam,
+    recognition,
+    publications,
+    contentImage {
       asset-> {
         ...,
       },
@@ -31,44 +40,6 @@ const query = `{
         y
       }
     },
-    heroImageRight {
-      asset-> {
-        ...,
-      },
-      overrideVideo {
-        asset-> {
-          ...
-        }
-      },
-      caption,
-      captionSubHeading,
-      alt,
-      hotspot {
-        x,
-        y
-      }
-    },
-    contentImages[] {
-      asset-> {
-        ...,
-      },
-      overrideVideo {
-        asset-> {
-          ...
-        }
-      },
-      caption,
-      captionSubHeading,
-      alt,
-      hotspot {
-        x,
-        y
-      }
-    },
-    heroText,
-    servicesText,
-    services[],
-    contentHeading,
     seo {
       ...,
       shareGraphic {
@@ -138,50 +109,50 @@ export default function Studio(initialData) {
         >
           <article>
             <div className="mb-16 md:mb-32 xl:mb-48">
-              <h1 className="block text-[5.55vw] md:text-[3.5vw] lg:text-[3.2vw] xl:text-[2.8vw] 2xl:text-[2.5vw] leading-[1.1] md:leading-[1.1] xl:leading-[1.1] max-w-[70vw] xl:max-w-[60vw] mb-16 md:mb-24 xl:mb-32 2xl:mb-40">West of West is an architecture studio that designs parts of the city to shape contemporary life and the built environment.</h1>
+              <h1 className="block text-[5.55vw] md:text-[3.5vw] lg:text-[3.2vw] xl:text-[2.8vw] 2xl:text-[2.5vw] leading-[1.1] md:leading-[1.1] xl:leading-[1.1] max-w-[70vw] xl:max-w-[60vw] mb-16 md:mb-24 xl:mb-32 2xl:mb-40">{studio.workBlockHeading}</h1>
 
-              <div className="grid grid-cols-10 grid-gap-5">
+              <div className="grid grid-cols-10 gap-5">
                 <div className="col-span-2">
                   <div className="content">
                     <p className="">Work</p>
                   </div>
                 </div>
                 <div className="col-span-7 md:col-span-5 col-start-3 content max-w-[900px]">
-                  <p>These parts of the city can be at any scale and include buildings and spaces for living, working, and leisure.  Each project endeavors to establish a new relationship between the surrounding context, the physical building, and the people that use it. We work with a select group of ambitious clients on projects that include new ways of living, emerging workplace typologies, and creative spaces focused on the production of contemporary media. The studio has completed numerous projects in cities including Los Angeles, New York, San Francisco, Seattle, Austin, and Portland.</p>
+                  <p>{studio.workBlockText}</p>
                 </div>
               </div>
             </div>
 
             <div className="mb-16 md:mb-32 xl:mb-48 w-full h-[60vw] md:h-[55vw] overflow-hidden relative">
               <Image
-                image={studio.contentImages[0]}
-                focalPoint={studio.contentImages[0].hotspot}
+                image={studio.contentImage}
+                focalPoint={studio.contentImage.hotspot}
                 layout="fill"
-                widthOverride={1400}
+                sizes="(min-width: 768px) 99vw, 100vw"
                 className={`w-full inset-0 h-full object-cover object-center`}
               />
             </div>
 
             <div className="mb-16 md:mb-32 xl:mb-48">
-              <h2 className="block text-[5.55vw] md:text-[3.5vw] lg:text-[3.2vw] xl:text-[2.8vw] 2xl:text-[2.5vw] leading-[1.1] md:leading-[1.1] xl:leading-[1.1] max-w-[70vw] xl:max-w-[60vw] mb-16 md:mb-24 xl:mb-32 2xl:mb-40">West of West is a process-driven design practice that creates value through vision. Our work produces experiences engaged in the worlds of art, culture, technology, and lifestyle.</h2>
+              <h2 className="block text-[5.55vw] md:text-[3.5vw] lg:text-[3.2vw] xl:text-[2.8vw] 2xl:text-[2.5vw] leading-[1.1] md:leading-[1.1] xl:leading-[1.1] max-w-[70vw] xl:max-w-[60vw] mb-16 md:mb-24 xl:mb-32 2xl:mb-40">{studio.practiceBlockHeading}</h2>
 
-              <div className="grid grid-cols-10 grid-gap-5">
+              <div className="grid grid-cols-10 gap-5">
                 <div className="col-span-2">
                   <div className="content">
                     <p className="">Practice</p>
                   </div>
                 </div>
                 <div className="col-span-7 md:col-span-5 col-start-3 content max-w-[900px]">
-                  <p>The studio balances the specific, social, cultural, economic, and environmental conditions of every project with function, beauty, and opportunity. In pursuit of this balance our tools are composition, form, space, and material. We think, draw, model, talk about, build, re-build, re-think and create buildings, objects and spaces while taking a critical view of the past and an optimistic view of the future. The studio is committed to a collaborative, team-driven approach to every project where all stakeholders have a voice. West of West was established in 2014 and is led by Clayton Taylor and Jai Kumaran. Currently the studio has offices in Los Angeles and Portland with active projects across the US.</p>
+                  <p>{studio.practiceBlockText}</p>
                 </div>
               </div>
             </div>
 
             <div className="mb-16 md:mb-32 xl:mb-48">
-              <h2 className="block text-[5.55vw] md:text-[3.5vw] lg:text-[3.2vw] xl:text-[2.8vw] 2xl:text-[2.5vw] leading-[1.1] md:leading-[1.1] xl:leading-[1.1] max-w-[70vw] xl:max-w-[60vw] mb-16 md:mb-24 xl:mb-32 2xl:mb-40">West of West is a process-driven design practice that creates value through vision. Our work produces experiences engaged in the worlds of art, culture, technology, and lifestyle.<span className="block text-gray">- Surface Magazine</span></h2>
+              <h2 className="block text-[5.55vw] md:text-[3.5vw] lg:text-[3.2vw] xl:text-[2.8vw] 2xl:text-[2.5vw] leading-[1.1] md:leading-[1.1] xl:leading-[1.1] max-w-[70vw] xl:max-w-[60vw] mb-16 md:mb-24 xl:mb-32 2xl:mb-40">“{studio.quote}”<span className="block text-gray">- {studio.quoteAuthor}</span></h2>
             </div>
 
-            <div className="grid grid-cols-10 grid-gap-5 mb-12 md:mb-20 xl:mb-28">
+            <div className="grid grid-cols-10 gap-5 mb-12 md:mb-20 xl:mb-28">
               <div className="col-span-2">
                 <div className="content">
                   <p className="">Team</p>
@@ -193,7 +164,7 @@ export default function Studio(initialData) {
                     return (
                       <li className="flex flex-wrap w-full" key={i}>
                         <span className="block flex-1 text-gray">{e.role}</span>
-                        <span className="block w-auto text-left ml-auto">{e.name}</span>
+                        <span className="block w-1/3 text-left ml-auto">{e.name}</span>
                       </li>
                     )
                   })}
@@ -201,40 +172,40 @@ export default function Studio(initialData) {
               </div>
             </div>
 
-            <div className="grid grid-cols-10 grid-gap-5 mb-12 md:mb-20 xl:mb-28">
+            <div className="grid grid-cols-10 gap-5 mb-12 md:mb-20 xl:mb-28">
               <div className="col-span-2">
                 <div className="content">
                   <p className="">Past Team</p>
                 </div>
               </div>
               <div className="col-span-7 md:col-span-6 col-start-3 content max-w-[700px]">
-                <p>Serena Abouchar, Liz Chrisco, Justin Cua, Ameya Dalal, Michael Gastineau, Jen Endozo, Cami Kamigaki, Connor Katalbas, Erik Larson, Brittany Menear, Keely O’Brien, Jared Younger</p>
+                <p>{studio.pastTeam}</p>
               </div>
             </div>
 
-            <div className="grid grid-cols-10 grid-gap-5 mb-12 md:mb-20 xl:mb-28">
+            <div className="grid grid-cols-10 gap-5 mb-12 md:mb-20 xl:mb-28">
               <div className="col-span-2">
                 <div className="content">
                   <p className="">Recognition</p>
                 </div>
               </div>
               <div className="col-span-7 md:col-span-6 col-start-3 content max-w-[700px]">
-                <p>Obel Award, UIA Gold Medal, Praemium Imperiale, MUSE Design Awards, Good Design Award, DNA Paris Design Awards</p>
+                <p>{studio.recognition}</p>
               </div>
             </div>
 
-            <div className="grid grid-cols-10 grid-gap-5 mb-12 md:mb-20 xl:mb-28">
+            <div className="grid grid-cols-10 gap-5 mb-12 md:mb-20 xl:mb-28">
               <div className="col-span-2">
                 <div className="content">
                   <p className="">Publications</p>
                 </div>
               </div>
               <div className="col-span-7 md:col-span-6 col-start-3 content max-w-[700px]">
-                <p>Architectural Record, Dezeen, ArchDaily, Archinect, GLCO, The Architects Newspaper, Gray Magazine, FRAME Magazine</p>
+                <p>{studio.publications}</p>
               </div>
             </div>
 
-            <div className="grid grid-cols-10 grid-gap-5 mb-12 md:mb-20 xl:mb-28">
+            <div className="grid grid-cols-10 gap-5 mb-12 md:mb-20 xl:mb-28">
               <div className="col-span-2">
                 <div className="content">
                   <p className="">Site By</p>
