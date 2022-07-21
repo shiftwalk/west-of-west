@@ -67,10 +67,10 @@ export default function InteractiveImage({ height, images, width, isActive, posi
 
   return(
       <div className="group block">
-        <div className={`mb-3 relative overflow-hidden ${height} ${ autoplay ? '' : 'cursor-none'} -mx-2 md:-mx-0`} onMouseMove={ autoplay ? null : updateImages}>
+        <div className={`mb-3 relative overflow-hidden ${height} ${ autoplay ? '' : 'cursor-crosshair'} -mx-2 md:-mx-0`} onMouseMove={ autoplay ? null : updateImages}>
           {images.map((e, i) => {
             return (
-              <div ref={ref} className={`cursor-crosshair ${crossfade ? 'transition-opacity duration-500 ease-in-out' : '' } ${i == 0 ? 'relative' : 'absolute inset-0' } ${i == currentImage ? 'z-[10]' : 'z-[1] opacity-0' }`}>
+              <div ref={ref} className={`${crossfade ? 'transition-opacity duration-500 ease-in-out' : '' } ${i == 0 ? 'relative' : 'absolute inset-0' } ${i == currentImage ? 'z-[10]' : 'z-[1] opacity-0' }`}>
                 <Image
                   noBg
                   image={e}
@@ -88,12 +88,6 @@ export default function InteractiveImage({ height, images, width, isActive, posi
               </div>
             )
           })}
-          
-          {!autoplay && (
-            <div className="flex items-center justify-center absolute inset-0 z-[10] opacity-0 group-hover:opacity-100 group-focus:opacity-100"> 
-              <svg className={`w-10 absolute pointer-events-none ${isActive ? 'opacity-100' : 'opacity-0'}`} style={{ top: position.y - 20, left: position.x - 20 }} viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#fff" strokeWidth="2" d="M34 17.903H0M16.822 35.002V.998"/></svg>
-            </div>
-          )}
         </div>
       </div>
   )
