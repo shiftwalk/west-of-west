@@ -12,24 +12,7 @@ import { IntroContext } from 'context/intro'
 
 const query = `{
   "studio": *[_type == "studio"][0]{
-    heroImageLeft {
-      asset-> {
-        ...,
-      },
-      overrideVideo {
-        asset-> {
-          ...
-        }
-      },
-      caption,
-      captionSubHeading,
-      alt,
-      hotspot {
-        x,
-        y
-      }
-    },
-    heroImageRight {
+    contentImage {
       asset-> {
         ...,
       },
@@ -82,8 +65,8 @@ export default function Error404(initialData) {
               <div className="col-span-10 md:col-span-5">
                 <div className="w-full h-[70vw] md:h-[58vw] overflow-hidden relative">
                   <Image
-                    image={studio.heroImageLeft}
-                    focalPoint={studio.heroImageLeft.hotspot}
+                    image={studio.contentImage}
+                    focalPoint={studio.contentImage.hotspot}
                     layout="fill"
                     widthOverride={1400}
                     className={`w-full inset-0 h-full object-cover object-center`}
@@ -108,8 +91,8 @@ export default function Error404(initialData) {
 
                 <div className="w-full h-[70vw] md:h-[49vw] overflow-hidden relative">
                   <Image
-                    image={studio.heroImageRight}
-                    focalPoint={studio.heroImageRight.hotspot}
+                    image={studio.contentImage}
+                    focalPoint={studio.contentImage.hotspot}
                     layout="fill"
                     widthOverride={1400}
                     className={`w-full inset-0 h-full object-cover object-center`}
