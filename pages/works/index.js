@@ -519,6 +519,7 @@ export default function Works(initialData) {
                           image={e.thumbnailImage}
                           focalPoint={e.thumbnailImage.hotspot}
                           layout="fill"
+                          nonRelative
                           sizes="(max-width: 768px) 40vw,100vw"
                           className={`w-full inset-0 h-full object-cover object-center ${i == current ? 'opacity-100' : 'opacity-0' }`}
                         />

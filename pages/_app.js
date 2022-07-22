@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }) {
   const [introContext, setIntroContext] = useState(false);
   const [grid, setGrid] = useState(false);
   // const isIdle = useIdle(30e3);
-  const isIdle = useIdle(10e3);
+  const isIdle = useIdle(30e3);
 
   const container = {
     hidden: { opacity: 0 },
@@ -67,7 +67,7 @@ const item = {
                 exit="hidden"
                 variants={introEnd}
                 transition={{ duration: 0.4, ease: [0.83, 0, 0.17, 1] }}
-                className="fixed inset-0 bg-transparent z-[10000] whitespace-nowrap"
+                className="fixed inset-0 bg-transparent z-[10000] whitespace-nowrap hidden md:block"
               >
                 <m.div
                   variants={container}

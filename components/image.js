@@ -2,7 +2,7 @@ import Img from 'next/image'
 import sanity from '@/services/sanity'
 import { useNextSanityImage } from 'next-sanity-image'
 
-export default function Image({ image, layout, widthOverride, heightOverride, focalPoint, className, priority, noCaption, noBg, sizes }) {
+export default function Image({ image, layout, widthOverride, heightOverride, focalPoint, className, priority, noCaption, noBg, sizes, nonRelative }) {
   // Pass in custom URL builder props
   const myCustomImageBuilder = (imageUrlBuilder, options) => {
     return imageUrlBuilder
@@ -28,7 +28,7 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
   if (sizes) { attributes.sizes = sizes }
 
 	return image.overrideVideo ? (
-    <div className={`image ${className} w-full aspect-video h-full overflow-hidden relative ${layout == 'fill' && 'cover-image' }`}>
+    <div className={`image ${className} w-full aspect-video h-full overflow-hidden ${nonRelative ? '' : 'relative'} ${layout == 'fill' && 'cover-image' }`}>
     <video loop={true} autoPlay="autoplay" playsInline={true} muted className={`object-cover object-center w-full h-full absolute inset-0`}>
         <source src={ image.overrideVideo.asset.url } type="video/mp4" />
 

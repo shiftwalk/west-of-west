@@ -125,7 +125,7 @@ export default function Journal(initialData) {
                   <div className={`${layout} col-span-10 md:col-span-2 block group mb-4 md:mb-0`} key={i}>
                     {e.routedArticle && (
                       <Link href={`/journal/${e.slug.current}`} key={i}>
-                        <a className={`w-full block`}>
+                        <a className={`w-full block border-t border-[#EFEFEF] md:border-none pt-3 md:pt-0`}>
                           <div className="w-full">
                             <div className="hidden md:block">
                               { e.routedArticle ? (
@@ -153,7 +153,7 @@ export default function Journal(initialData) {
                               <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] mb-2 md:mb-2 text-gray uppercase">{mo}.{da}.{ye}</span>
                             </span>
 
-                            <span className="block overflow-hidden relative">
+                            <span className="block overflow-hidden relative w-10/12 md:w-full">
                               <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] mb-1">{e.title}</span>
                             </span>
 
@@ -168,7 +168,7 @@ export default function Journal(initialData) {
                       </Link>
                     )}
                     { e.externalLinks && !e.routedArticle && (
-                      <a className={`w-full block `} href={e.externalLinks[0].linkUrl} target="_blank" rel="noreferrer noopener">
+                      <a className={`w-full block border-t border-[#EFEFEF] md:border-none pt-3 md:pt-0`} href={e.externalLinks[0].linkUrl} target="_blank" rel="noreferrer noopener">
                         <div className="w-full">
                           <div className="hidden md:block">
                             <ReactCursorPosition>
@@ -183,7 +183,7 @@ export default function Journal(initialData) {
                             <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] mb-2 md:mb-2 text-gray uppercase">{mo}.{da}.{ye}</span>
                           </span>
 
-                          <span className="block overflow-hidden relative">
+                          <span className="block overflow-hidden relative w-10/12 md:w-full">
                             <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] mb-1">{e.title}</span>
                           </span>
 
@@ -198,7 +198,7 @@ export default function Journal(initialData) {
                       </a>
                     )}
                     { !e.externalLinks && !e.routedArticle && (
-                      <div className="w-full">
+                      <div className="w-full border-t border-[#EFEFEF] md:border-none pt-3 md:pt-0">
                         <div className={`mb-3 relative overflow-hidden ${height} hidden md:block`}>
                           <Image
                             image={e.heroImage}
@@ -212,7 +212,7 @@ export default function Journal(initialData) {
                           <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] mb-2 md:mb-2 text-gray uppercase">{mo}.{da}.{ye}</span>
                         </span>
 
-                        <span className="block overflow-hidden relative">
+                        <span className="block overflow-hidden relative w-10/12 md:w-full">
                           <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] mb-1">{e.title}</span>
                         </span>
                       </div>

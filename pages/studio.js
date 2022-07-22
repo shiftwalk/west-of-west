@@ -158,7 +158,7 @@ export default function Studio(initialData) {
                   <p className="">Team</p>
                 </div>
               </div>
-              <div className="col-span-8 md:col-span-6 col-start-3 content md:max-w-[440px]">
+              <div className="col-span-8 md:col-span-6 col-start-3 content md:max-w-[500px]">
                 <ul className="w-full">
                   {team.map((e, i) => {
                     return (

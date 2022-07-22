@@ -1,3 +1,4 @@
+import { AnimatePresence, LazyMotion, m, domAnimation } from 'framer-motion';
 import React from 'react';
 import Modal from 'react-modal';
 
@@ -11,12 +12,13 @@ const customStyles = {
     overflow              : 'visible',
     // transform             : 'translate(-50%, -50%)',
     // maxHeight             : '50vh',
-    maxWidth: 1600,
+    maxWidth: 1200,
     margin: 'auto'
   }
 };
 
 Modal.setAppElement('#body-wrapper')
+
 
 export default function TeamModal({ children, title }) {
   const [modalIsOpen,setIsOpen] = React.useState(false);
@@ -42,13 +44,25 @@ export default function TeamModal({ children, title }) {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <div className="absolute top-0 right-0 mr-3 mt-2">
-          <button className="block relative group z-[100000]" onClick={closeModal}>
-            Close
-          </button>
-        </div>
-    
-        { children }
+        <LazyMotion features={domAnimation}>
+          <AnimatePresence>
+            { modalIsOpen && (
+              <m.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}    
+              >
+                <div className="absolute top-0 right-0 mr-3 mt-2">
+                  <button className="block relative group z-[100000]" onClick={closeModal}>
+                    Close
+                  </button>
+                </div>
+            
+                { children }
+              </m.div>
+            )}
+          </AnimatePresence>
+        </LazyMotion>
       </Modal>
     </div>
   )
