@@ -465,6 +465,7 @@ export default function Works(initialData) {
                           <ReactCursorPosition>
                             <Teaser
                               height={height}
+                              noTransition={disabledClass == 'hidden md:block grayscale opacity-30' ? true : false}
                               image={e.thumbnailImage}
                               preload={preloadImage}
                             />
