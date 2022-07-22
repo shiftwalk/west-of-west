@@ -47,7 +47,7 @@ const query = `{
       }
     }
   },
-  "team": *[_type == "team"] | order(order asc) {
+  "team": *[_type == "team"] | order(orderRank) {
     name,
     accreditations,
     role,
@@ -69,8 +69,7 @@ const query = `{
         y
       }
     },
-    bioText,
-    order
+    bioText
   },
   "works": *[_type == "works"]{
     title

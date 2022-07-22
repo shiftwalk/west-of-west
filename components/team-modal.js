@@ -53,7 +53,7 @@ export default function TeamModal({ children, title }) {
                 exit={{ opacity: 0 }}    
               >
                 <div className="absolute top-0 right-0 mr-3 mt-2">
-                  <button className="block relative group z-[100000]" onClick={closeModal}>
+                  <button className="text-lg xl:text-xl leading-[1.1] xl:leading-[1.15] block relative group z-[100000] tracking-tight" onClick={closeModal}>
                     Close
                   </button>
                 </div>
