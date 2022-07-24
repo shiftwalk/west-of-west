@@ -46,7 +46,7 @@ canvas {
 }
 
 
-.archive-list__item.filtered, .archive-list__item.filtered-enabled {
+.archive-list__item {
   &:hover {
     .archive-list__item--underline {
       @apply w-full;
