@@ -101,13 +101,16 @@ const query = `{
   },
   "worksAll": *[_type == "works"]{
     title
+  },
+  "globals": *[_type == "globals"][0]{
+    footerTickerItems[]
   }
 }`
 
 const pageService = new SanityPageService(query)
 
 export default function Works(initialData) {
-  const { data: { works, worksArchive, worksAll } } = pageService.getPreviewHook(initialData)()
+  const { data: { works, worksArchive, worksAll, globals } } = pageService.getPreviewHook(initialData)()
   const [active, setActive] = useState('gallery');
   const [activeType, setActiveType] = useState('all');
   const [activeGenre, setActiveGenre] = useState('all');
@@ -634,7 +637,7 @@ export default function Works(initialData) {
       </LazyMotion>
       
       <div className="pb-16">
-        <Footer />
+        <Footer footerTickerItems={globals.footerTickerItems}/>
       </div>
     </Layout>
   )

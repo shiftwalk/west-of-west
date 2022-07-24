@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import Clock from 'react-live-clock'
 import { DateTime } from "luxon";
 
-export default function Footer({ noPad }) {
+export default function Footer({ noPad, footerTickerItems }) {
   const wowSecondHandle = useRef(null);
   const wowMinuteHandle = useRef(null);
   const wowHourHandle = useRef(null);
@@ -52,9 +52,18 @@ export default function Footer({ noPad }) {
     <footer className={`pt-10 md:pt-16 xl:pt-16 lg:text-lg ${noPad ? '' : 'mt-12 md:mt-20 xl:mt-28' }`}>
       <div className="grid grid-cols-10 gap-5">
         <div className="mb-5 md:mb-0 flex items-end w-full md:w-auto col-span-10 md:col-auto">
+        {/* {JSON.stringify(footerTickerItems)} */}
           <div className="relative flex overflow-x-hidden text-xs w-full md:w-auto">
             <div className="animate-marquee whitespace-nowrap">
-              <span className="mx-[3px] leading-tight uppercase">Quality above all else</span>
+              {footerTickerItems.map((e, i) => {
+                return (
+                  <>
+                    <span className="mx-[3px] leading-tight uppercase">{e}</span>
+                    <span className="mx-[3px] leading-tight uppercase">—</span>
+                  </>
+                )
+              })}
+              {/* <span className="mx-[3px] leading-tight uppercase">Quality above all else</span>
               <span className="mx-[3px] leading-tight uppercase">—</span>
               <span className="mx-[3px] leading-tight uppercase">Practice takes practise</span>
               <span className="mx-[3px] leading-tight uppercase">—</span>
@@ -63,11 +72,19 @@ export default function Footer({ noPad }) {
               <span className="mx-[3px] leading-tight uppercase">Practice takes practise</span>
               <span className="mx-[3px] leading-tight uppercase">—</span>
               <span className="mx-[3px] leading-tight uppercase">Quality above all else</span>
-              <span className="mx-[3px] leading-tight uppercase">—</span>
+              <span className="mx-[3px] leading-tight uppercase">—</span> */}
             </div>
 
             <div className="absolute top-0 animate-marquee2 whitespace-nowrap">
-              <span className="mx-[3px] leading-tight uppercase">Quality above all else</span>
+              {footerTickerItems.map((e, i) => {
+                return (
+                  <>
+                    <span className="mx-[3px] leading-tight uppercase">{e}</span>
+                    <span className="mx-[3px] leading-tight uppercase">—</span>
+                  </>
+                )
+              })}
+              {/* <span className="mx-[3px] leading-tight uppercase">Quality above all else</span>
               <span className="mx-[3px] leading-tight uppercase">—</span>
               <span className="mx-[3px] leading-tight uppercase">Practice takes practise</span>
               <span className="mx-[3px] leading-tight uppercase">—</span>
@@ -76,7 +93,7 @@ export default function Footer({ noPad }) {
               <span className="mx-[3px] leading-tight uppercase">Practice takes practise</span>
               <span className="mx-[3px] leading-tight uppercase">—</span>
               <span className="mx-[3px] leading-tight uppercase">Quality above all else</span>
-              <span className="mx-[3px] leading-tight uppercase">—</span>
+              <span className="mx-[3px] leading-tight uppercase">—</span> */}
             </div>
           </div>
         </div>

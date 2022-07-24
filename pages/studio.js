@@ -92,13 +92,16 @@ const query = `{
   },
   "works": *[_type == "works"]{
     title
+  },
+  "globals": *[_type == "globals"][0]{
+    footerTickerItems[]
   }
 }`
 
 const pageService = new SanityPageService(query)
 
 export default function Studio(initialData) {
-  const { data: { studio, team, works } } = pageService.getPreviewHook(initialData)()
+  const { data: { studio, team, works, globals } } = pageService.getPreviewHook(initialData)()
   const [hovering, setHovering] = useState(false);
   const [currentTeamBio, setCurrentTeamBio] = useState(null);
   const [introContext, setIntroContext] = useContext(IntroContext);
@@ -222,7 +225,7 @@ export default function Studio(initialData) {
                                   )}
                                   
                                   {e.bioText && (
-                                    <div className="content md:absolute bottom-0 left-0 md:ml-[50%] xl:ml-[40%] md:pr-[10%] xl:pr-[20%] pb-3 mt-5 md:mt-0">
+                                    <div className="content content--bio md:absolute bottom-0 left-0 md:ml-[50%] xl:ml-[40%] md:pr-[10%] xl:pr-[20%] pb-3 mt-5 md:mt-0 max-h-[35vh] md:max-h-[50vh] overflow-y-scroll">
                                       <div className="content">
                                         <SanityBlockContent serializers={{ container: ({ children }) => children }} blocks={e.bioText} />
                                       </div>
@@ -464,7 +467,7 @@ export default function Studio(initialData) {
         </m.main>
       </LazyMotion>
 
-      <Footer />
+      <Footer footerTickerItems={globals.footerTickerItems}/>
     </Layout>
   )
 }

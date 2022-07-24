@@ -42,6 +42,16 @@
   }
 }
 
+.content--bio {
+  overflow-y: hidden;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar { display: none; }
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
+}
+
 .content--lg {
   & > p {
     @apply mb-5 last-of-type:mb-0 xl:text-xl leading-tight xl:leading-tight;

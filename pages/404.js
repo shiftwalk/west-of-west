@@ -32,13 +32,16 @@ const query = `{
   },
   "worksAll": *[_type == "works"]{
     title
+  },
+  "globals": *[_type == "globals"][0]{
+    footerTickerItems[]
   }
 }`
 
 const pageService = new SanityPageService(query)
 
 export default function Error404(initialData) {
-  const { data: { studio, team, worksAll } } = pageService.getPreviewHook(initialData)()
+  const { data: { studio, team, worksAll, globals } } = pageService.getPreviewHook(initialData)()
   const [hovering, setHovering] = useState(false);
   const [introContext, setIntroContext] = useContext(IntroContext);
 
@@ -103,7 +106,7 @@ export default function Error404(initialData) {
         </m.main>
       </LazyMotion>
 
-      <Footer />
+      <Footer footerTickerItems={globals.footerTickerItems} />
     </Layout>
   )
 }

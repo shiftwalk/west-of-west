@@ -51,13 +51,16 @@ const query = `{
   },
   "works": *[_type == "works"]{
     title
+  },
+  "globals": *[_type == "globals"][0]{
+    footerTickerItems[]
   }
 }`
 
 const pageService = new SanityPageService(query)
 
 export default function Journal(initialData) {
-  const { data: { journal, works } } = pageService.getPreviewHook(initialData)()
+  const { data: { journal, works, globals } } = pageService.getPreviewHook(initialData)()
   const [introContext, setIntroContext] = useContext(IntroContext);
   
   useEffect(() => {
@@ -225,7 +228,7 @@ export default function Journal(initialData) {
         </m.main>
       </LazyMotion>
 
-      <Footer />
+      <Footer footerTickerItems={globals.footerTickerItems} />
     </Layout>
   )
 }

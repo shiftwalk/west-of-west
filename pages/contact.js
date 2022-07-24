@@ -54,13 +54,16 @@ const query = `{
   },
   "works": *[_type == "works"]{
     title
+  },
+  "globals": *[_type == "globals"][0]{
+    footerTickerItems[]
   }
 }`
 
 const pageService = new SanityPageService(query)
 
 export default function Contact(initialData) {
-  const { data: { contact, works } } = pageService.getPreviewHook(initialData)()
+  const { data: { contact, works, globals } } = pageService.getPreviewHook(initialData)()
   const [hovering, setHovering] = useState(false);
   const [introContext, setIntroContext] = useContext(IntroContext);
   const [currentLocation, setCurrentLocation] = useState(0);
@@ -381,7 +384,7 @@ export default function Contact(initialData) {
         </m.main>
       </LazyMotion>
 
-      <Footer />
+      <Footer footerTickerItems={globals.footerTickerItems} />
     </Layout>
   )
 }

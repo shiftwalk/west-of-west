@@ -117,13 +117,16 @@ const query = `*[_type == "journal" && slug.current == $slug][0]{
     slug {
       current
     }
+  },
+  "globals": *[_type == "globals"][0]{
+    footerTickerItems[]
   }
 }`
 
 const pageService = new SanityPageService(query)
 
 export default function JournalSlug(initialData) {
-  const { data: { title, contentText, contentImages, journalLinks, projectLinks, externalLinks, slug, works, related, relatedFirst, heroImage } } = pageService.getPreviewHook(initialData)()
+  const { data: { title, contentText, contentImages, journalLinks, projectLinks, externalLinks, slug, works, related, relatedFirst, heroImage, globals } } = pageService.getPreviewHook(initialData)()
   const [introContext, setIntroContext] = useContext(IntroContext);
   
   useEffect(() => {
@@ -347,7 +350,7 @@ export default function JournalSlug(initialData) {
         </m.div>
       </LazyMotion>
 
-      <Footer />
+      <Footer footerTickerItems={globals.footerTickerItems} />
     </Layout>
   )
 }
