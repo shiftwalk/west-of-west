@@ -13,8 +13,8 @@ export default function App({ Component, pageProps }) {
   const router = useRouter()
   const [introContext, setIntroContext] = useState(false);
   const [grid, setGrid] = useState(false);
-  const isIdle = useIdle(30e3);
-  // const isIdle = useIdle(1e3);
+  // const isIdle = useIdle(30e3);
+  const isIdle = useIdle(1e3);
 
   const container = {
     hidden: { opacity: 0 },
@@ -74,7 +74,7 @@ const item = {
                   initial="hidden"
                   animate="show"
                 >
-                  <m.div
+                  {/* <m.div
                     className="w-[28vw] max-w-[500px] absolute top-0 left-0 ml-[33vw] mt-[15vw] -rotate-12"
                     variants={item}
                     transition={{ duration: 0 }}
@@ -86,7 +86,7 @@ const item = {
                       width={850}
                       height={520}
                     />
-                  </m.div>
+                  </m.div> */}
                   <m.div
                     className="w-[18vw] max-w-[330px] absolute bottom-0 right-0 mr-[7vw] mb-[4vw] rotate-12"
                     variants={item}
@@ -184,7 +184,7 @@ const item = {
 
 
 
-                  <m.div
+                  {/* <m.div
                     className="w-[33vw] max-w-[600px] absolute top-0 left-0 ml-[-10vw] mt-[32vw] -rotate-45"
                     variants={item}
                     transition={{ duration: 0 }}
@@ -196,9 +196,9 @@ const item = {
                       width={850}
                       height={520}
                     />
-                  </m.div>
+                  </m.div> */}
                   <m.div
-                    className="w-[28vw] max-w-[550px] absolute bottom-0 right-0 mr-[60vw] mb-[30vw] -rotate-12"
+                    className="w-[33vw] max-w-[650px] absolute bottom-0 right-0 mr-[44vw] mb-[28vw] -rotate-12"
                     variants={item}
                     transition={{ duration: 0 }}
                   >
@@ -251,7 +251,7 @@ const item = {
                   </m.div>
 
                   <m.div
-                    className="w-[25vw] max-w-[440px] absolute bottom-0 right-0 mr-[10vw] mb-[25vw] rotate-[33deg]"
+                    className="w-[25vw] max-w-[380px] absolute bottom-0 right-0 mr-[10vw] mb-[25vw] rotate-[33deg]"
                     variants={item}
                     transition={{ duration: 0 }}
                   >
@@ -264,7 +264,7 @@ const item = {
                     />
                   </m.div>
                   <m.div
-                    className="w-[24vw] max-w-[440px] absolute top-0 right-0 mb-[22vw] mt-[10vw]"
+                    className="w-[24vw] max-w-[380px] absolute top-0 right-0 mb-[22vw] mt-[10vw]"
                     variants={item}
                     transition={{ duration: 0 }}
                   >
@@ -277,7 +277,7 @@ const item = {
                     />
                   </m.div>
                   <m.div
-                    className="w-[23vw] max-w-[440px] absolute bottom-0 left-0 ml-[8vw] mb-[3vw] rotate-[33deg]"
+                    className="w-[23vw] max-w-[380px] absolute bottom-0 left-0 ml-[8vw] mb-[3vw] rotate-[33deg]"
                     variants={item}
                     transition={{ duration: 0 }}
                   >
@@ -292,7 +292,7 @@ const item = {
 
 
 
-                  <m.div
+                  {/* <m.div
                     className="w-[60vw] max-w-[900px] absolute top-0 right-0 mr-[-10vw] mt-[-9vw] rotate-[30deg]"
                     variants={item}
                     transition={{ duration: 0 }}
@@ -304,7 +304,7 @@ const item = {
                       width={850}
                       height={520}
                     />
-                  </m.div>
+                  </m.div> */}
                   <m.div
                     className="w-[50vw] max-w-[900px] absolute top-0 right-0 mr-[20vw] mt-[-3vw] rotate-[25deg]"
                     variants={item}
@@ -359,7 +359,7 @@ const item = {
                   </m.div>
 
                   <m.div
-                    className="w-[40vw] max-w-[650px] absolute bottom-0 right-0 mr-[20vw] mb-[-12vw] -rotate-[12deg]"
+                    className="w-[40vw] max-w-[420px] absolute bottom-0 right-0 mr-[20vw] mb-[-12vw] -rotate-[12deg]"
                     variants={item}
                     transition={{ duration: 0 }}
                   >
@@ -373,7 +373,7 @@ const item = {
                   </m.div>
 
                   <m.div
-                    className="w-[40vw] max-w-[720px] absolute top-0 left-0 mt-[11vw] ml-[-12vw] rotate-[12deg]"
+                    className="w-[40vw] max-w-[360px] absolute top-0 left-0 mt-[11vw] ml-[-12vw] rotate-[12deg]"
                     variants={item}
                     transition={{ duration: 0 }}
                   >
@@ -387,7 +387,7 @@ const item = {
                   </m.div>
 
                   <m.div
-                    className="w-[40vw] max-w-[650px] absolute top-0 right-0 mr-[2vw] mt-[-12vw] -rotate-[12deg]"
+                    className="w-[40vw] max-w-[380px] absolute top-0 right-0 mr-[2vw] mt-[-12vw] -rotate-[12deg]"
                     variants={item}
                     transition={{ duration: 0 }}
                   >
@@ -399,10 +399,11 @@ const item = {
                       height={500}
                     />
                   </m.div>
+                  
 
 
 
-                  <m.div
+                  {/* <m.div
                     className="w-[80vw] max-w-[1000px] absolute bottom-0 right-0 mr-[-10vw] mb-[-9vw] rotate-[-20deg]"
                     variants={item}
                     transition={{ duration: 0 }}
@@ -414,7 +415,7 @@ const item = {
                       width={850}
                       height={520}
                     />
-                  </m.div>
+                  </m.div> */}
                   <m.div
                     className="w-[55vw] max-w-[1000px] absolute top-0 right-0 mr-[2vw] mt-[24vw] rotate-[10deg]"
                     variants={item}
@@ -469,7 +470,36 @@ const item = {
                   </m.div>
 
                   <m.div
-                    className="w-[70vw] max-w-[1600px] absolute bottom-0 left-0 mb-[3vw] ml-[3vw] rotate-[10deg]"
+                    className="w-[70vw] max-w-[1600px] absolute bottom-0 left-0 mb-[3vw] ml-[-33vw] rotate-[100deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/03.jpg'}
+                      layout="responsive"
+                      width={500}
+                      height={120}
+                    />
+                  </m.div>
+                  {/* <m.div
+                    className="w-[60vw] max-w-[1000px] absolute bottom-0 left-0 ml-[-10vw] mb-[-9vw] rotate-[-20deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/01.png'}
+                      layout="responsive"
+                      width={850}
+                      height={520}
+                    />
+                  </m.div> */}
+                  
+                  
+                  
+                  <m.div
+                    className="w-[55vw] max-w-[700px] absolute bottom-0 right-0 mr-[-10vw] mt-[33vw] rotate-[20deg]"
                     variants={item}
                     transition={{ duration: 0 }}
                   >
@@ -482,19 +512,123 @@ const item = {
                     />
                   </m.div>
                   <m.div
-                    className="w-[60vw] max-w-[1000px] absolute bottom-0 left-0 ml-[-10vw] mb-[-9vw] rotate-[-20deg]"
+                    className="w-[40vw] max-w-[660px] absolute left-0 bottom-0 ml-[10vw] mb-[-10vw] rotate-[40deg]"
                     variants={item}
                     transition={{ duration: 0 }}
                   >
                     <Image
                       alt="West Of West Sticker"
-                      src={'/images/stickers/01.png'}
+                      src={'/images/stickers/02.jpg'}
                       layout="responsive"
-                      width={850}
-                      height={520}
+                      width={500}
+                      height={500}
+                    />
+                  </m.div>
+
+                  <m.div
+                    className="w-[55vw] max-w-[660px] absolute bottom-0 left-0 mb-[40vw] ml-[24vw] rotate-[60deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/04.jpg'}
+                      layout="responsive"
+                      width={320}
+                      height={80}
+                    />
+                  </m.div>
+
+
+
+                
+                
+
+                  <m.div
+                    className="w-[55vw] max-w-[660px] absolute bottom-0 right-0 mb-[-3vw] mr-[20vw] rotate-[10deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/04.jpg'}
+                      layout="responsive"
+                      width={320}
+                      height={80}
+                    />
+                  </m.div>
+
+                  <m.div
+                    className="w-[40vw] max-w-[550px] absolute left-0 top-0 ml-[10vw] mt-[16vw] rotate-[-10deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/02.jpg'}
+                      layout="responsive"
+                      width={500}
+                      height={500}
+                    />
+                  </m.div>
+
+                  <m.div
+                    className="w-[55vw] max-w-[560px] absolute top-0 right-0 mt-[0vw] mr-[20vw] rotate-[-10deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/04.jpg'}
+                      layout="responsive"
+                      width={320}
+                      height={80}
+                    />
+                  </m.div>
+
+                  <m.div
+                    className="w-[55vw] max-w-[580px] absolute bottom-0 right-0 mr-[10vw] mb-[33vw] rotate-[-60deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/03.jpg'}
+                      layout="responsive"
+                      width={500}
+                      height={120}
+                    />
+                  </m.div>
+
+                  <m.div
+                    className="w-[40vw] max-w-[580px] absolute bottom-0 right-0 mr-[14vw] mb-[3vw] -rotate-[80deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/05.jpg'}
+                      layout="responsive"
+                      width={500}
+                      height={500}
+                    />
+                  </m.div>
+
+                  <m.div
+                    className="w-[55vw] max-w-[770px] absolute bottom-0 right-0 mb-[0vw] mr-[-15vw] rotate-[110deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/04.jpg'}
+                      layout="responsive"
+                      width={320}
+                      height={80}
                     />
                   </m.div>
                   
+
                 </m.div>
               </m.div>
             )} 
