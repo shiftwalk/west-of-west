@@ -13,8 +13,8 @@ export default function App({ Component, pageProps }) {
   const router = useRouter()
   const [introContext, setIntroContext] = useState(false);
   const [grid, setGrid] = useState(false);
-  // const isIdle = useIdle(30e3);
-  const isIdle = useIdle(15e3);
+  const isIdle = useIdle(30e3);
+  // const isIdle = useIdle(1e3);
 
   const container = {
     hidden: { opacity: 0 },
@@ -140,6 +140,48 @@ const item = {
                     />
                   </m.div>
 
+                  <m.div
+                    className="w-[22vw] max-w-[400px] absolute top-0 left-0 ml-[15vw] mt-[12vw] rotate-3"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/06.png'}
+                      layout="responsive"
+                      width={500}
+                      height={500}
+                    />
+                  </m.div>
+
+                  <m.div
+                    className="w-[22vw] max-w-[400px] absolute top-0 left-0 ml-[32vw] mt-[32vw] rotate-3"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/07.png'}
+                      layout="responsive"
+                      width={500}
+                      height={500}
+                    />
+                  </m.div>
+
+                  <m.div
+                    className="w-[22vw] max-w-[390px] absolute bottom-0 right-0 mr-[22vw] mb-[13vw] rotate-3"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/08.png'}
+                      layout="responsive"
+                      width={500}
+                      height={500}
+                    />
+                  </m.div>
+
 
 
                   <m.div
@@ -208,6 +250,46 @@ const item = {
                     />
                   </m.div>
 
+                  <m.div
+                    className="w-[25vw] max-w-[440px] absolute bottom-0 right-0 mr-[10vw] mb-[25vw] rotate-[33deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/06.png'}
+                      layout="responsive"
+                      width={500}
+                      height={500}
+                    />
+                  </m.div>
+                  <m.div
+                    className="w-[24vw] max-w-[440px] absolute top-0 right-0 mb-[22vw] mt-[10vw]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/07.png'}
+                      layout="responsive"
+                      width={500}
+                      height={500}
+                    />
+                  </m.div>
+                  <m.div
+                    className="w-[23vw] max-w-[440px] absolute bottom-0 left-0 ml-[8vw] mb-[3vw] rotate-[33deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/08.png'}
+                      layout="responsive"
+                      width={500}
+                      height={500}
+                    />
+                  </m.div>
+
 
 
                   <m.div
@@ -270,6 +352,48 @@ const item = {
                     <Image
                       alt="West Of West Sticker"
                       src={'/images/stickers/05.jpg'}
+                      layout="responsive"
+                      width={500}
+                      height={500}
+                    />
+                  </m.div>
+
+                  <m.div
+                    className="w-[40vw] max-w-[650px] absolute bottom-0 right-0 mr-[20vw] mb-[-12vw] -rotate-[12deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/06.png'}
+                      layout="responsive"
+                      width={500}
+                      height={500}
+                    />
+                  </m.div>
+
+                  <m.div
+                    className="w-[40vw] max-w-[720px] absolute top-0 left-0 mt-[11vw] ml-[-12vw] rotate-[12deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/07.png'}
+                      layout="responsive"
+                      width={500}
+                      height={500}
+                    />
+                  </m.div>
+
+                  <m.div
+                    className="w-[40vw] max-w-[650px] absolute top-0 right-0 mr-[2vw] mt-[-12vw] -rotate-[12deg]"
+                    variants={item}
+                    transition={{ duration: 0 }}
+                  >
+                    <Image
+                      alt="West Of West Sticker"
+                      src={'/images/stickers/08.png'}
                       layout="responsive"
                       width={500}
                       height={500}

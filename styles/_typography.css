@@ -1,7 +1,7 @@
 /* Content Stylings */
 .content {
   & > p {
-    @apply mb-5 last-of-type:mb-0 md:text-lg xl:text-xl leading-tight md:leading-tight xl:leading-tight;
+    @apply mb-5 last-of-type:mb-0 text-lg md:text-lg xl:text-xl leading-tight md:leading-tight xl:leading-tight;
   }
 
   & > ul {
@@ -57,6 +57,14 @@
     @apply md:w-10/12;
   }
 }
+
+.content--fancy-no-indent {
+  p:first-of-type {
+    @apply block text-[5.55vw] md:text-[3.3vw] xl:text-[2.5vw] leading-[1.1] md:leading-[1.1] xl:leading-[1.1] max-w-[80vw] mt-4 md:mt-6 mb-8 md:mb-12 md:w-full;
+  }
+  p {
+    @apply md:w-8/12 max-w-[1000px];
+  }}
 
 /* Heading Defaults */
 h1, .h1, h2, .h2, h3, .h3 {

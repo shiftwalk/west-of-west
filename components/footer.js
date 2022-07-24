@@ -199,7 +199,7 @@ export default function Footer({ noPad }) {
           <div>
             <div className="relative md:text-right mb-[2px]">
               <div className="relative group">
-                <span className="flex justify-end text-base leading-[1.15] xl:text-xl xl:leading-[1.15] mt-2 space-x-[6px] opacity-100 group-hover:opacity-0">
+                <span className="flex md:justify-end text-base leading-[1.15] xl:text-xl xl:leading-[1.15] mt-2 space-x-[6px] opacity-100 group-hover:opacity-0">
                   <div className="clock-container">
                     <div className="clock">
                       <div ref={wowHourHandle} className="hor" id="hor">
@@ -217,7 +217,7 @@ export default function Footer({ noPad }) {
                   <span className="tabular-nums"><Clock format={'HH:mm:ss'} ticking={true} timezone={'US/Pacific'} /> {wowDateStamp}</span>
                 </span>
 
-                <span className="flex justify-end text-base leading-[1.15] xl:text-xl xl:leading-[1.15] space-x-[6px] absolute inset-0 opacity-0 group-hover:opacity-100">
+                <span className="flex md:justify-end text-base leading-[1.15] xl:text-xl xl:leading-[1.15] space-x-[6px] absolute inset-0 opacity-0 group-hover:opacity-100">
                   <div className="clock-container">
                     <div className="clock">
                       <div ref={userHourHandle} className="hor" id="hor">

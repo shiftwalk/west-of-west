@@ -275,47 +275,49 @@ export default function WorksSlug(initialData) {
             </div>
 
             <div className="grid grid-cols-10 gap-5 pb-12 md:pb-32 xl:pb-52 pt-3 md:pt-32 xl:pt-52 bg-white relative z-[20] safari-sticky md:p-2 safari-sticky">
-              <div className="col-span-9 md:col-span-3 mb-8 md:mb-0">
+              <div className="md:col-start-0 col-span-9 md:col-span-10 mt-8 md:mt-0 mb-8 md:mb-12 xl:mb-20">
+                <div className="content content--fancy-no-indent">
+                  <BlockContent serializers={{ container: ({ children }) => children }} blocks={introText} />
+                </div>
+              </div>
+
+              <div className="col-span-10 mt-8 md:mt-0">
                 { client && (
-                  <div className="mb-3">
-                    <span className="text-lg leading-none xl:text-xl xl:leading-[1.15] text-gray">Client</span>
-                    <span className="block text-lg leading-none xl:text-xl xl:leading-[1.15]">{client}</span>
+                  <div className="mb-2 grid grid-cols-10 gap-5">
+                    <span className="text-lg leading-tight xl:text-xl xl:leading-[1.15] text-gray">Client</span>
+                    <span className="block text-lg leading-tight xl:text-xl xl:leading-[1.15] col-start-3 col-span-7">{client}</span>
                   </div>
                 )}
                 { year && (
-                  <div className="mb-3">
-                    <span className="text-lg leading-none xl:text-xl xl:leading-[1.15] text-gray">Year</span>
-                    <span className="block text-lg leading-none xl:text-xl xl:leading-[1.15]">{year}</span>
+                  <div className="mb-2 grid grid-cols-10 gap-5">
+                    <span className="text-lg leading-tight xl:text-xl xl:leading-[1.15] text-gray">Year</span>
+                    <span className="block text-lg leading-tight xl:text-xl xl:leading-[1.15] col-start-3 col-span-7">{year}</span>
                   </div>
                 )}
                 { status && (
-                  <div className="mb-3">
-                    <span className="text-lg leading-none xl:text-xl xl:leading-[1.15] text-gray">Status</span>
-                    <span className="block text-lg leading-none xl:text-xl xl:leading-[1.15]">{status}</span>
+                  <div className="mb-2 grid grid-cols-10 gap-5">
+                    <span className="text-lg leading-tight xl:text-xl xl:leading-[1.15] text-gray">Status</span>
+                    <span className="block text-lg leading-tight xl:text-xl xl:leading-[1.15] col-start-3 col-span-7">{status}</span>
                   </div>
                 )}
                 { sector && (
-                  <div className="mb-3">
-                    <span className="text-lg leading-none xl:text-xl xl:leading-[1.15] text-gray">Sector</span>
-                    <span className="block text-lg leading-none xl:text-xl xl:leading-[1.15] capitalize">{sector.replace(/-/g, ' ')}</span>
+                  <div className="mb-2 grid grid-cols-10 gap-5">
+                    <span className="text-lg leading-tight xl:text-xl xl:leading-[1.15] text-gray">Sector</span>
+                    <span className="block text-lg leading-tight xl:text-xl xl:leading-[1.15] col-start-3 col-span-7 capitalize">{sector.replace(/-/g, ' ')}</span>
                   </div>
                 )}
                 { credits && (
-                  <div className="mb-3">
-                    <span className="text-lg leading-none xl:text-xl xl:leading-[1.15] text-gray">Credits</span>
-                    {credits.map((e, i) => {
-                      return (
-                        <span className="block text-lg leading-none xl:text-xl xl:leading-[1.15] capitalize">{e.job} – {e.name}</span>
-                      )
-                    })}
+                  <div className="mb-2 grid grid-cols-10 gap-5">
+                    <span className="text-lg leading-tight xl:text-xl xl:leading-[1.15] text-gray">Credits</span>
+                    <span className="block text-lg leading-tight xl:text-xl xl:leading-[1.15] col-start-3 col-span-7 capitalize">
+                      {credits.map((e, i) => {
+                        return (
+                          <span className="block">{e.job} – {e.name}</span>
+                        )
+                      })}
+                    </span>
                   </div>
                 )}
-              </div>
-
-              <div className="md:col-start-5 col-span-9 md:col-span-4 md:translate-y-[-23px]">
-                <div className="content content--fancy">
-                  <BlockContent serializers={{ container: ({ children }) => children }} blocks={introText} />
-                </div>
               </div>
             </div>
             

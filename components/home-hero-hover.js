@@ -76,7 +76,7 @@ export default function HomeHeroHover({ items, isActive, position }) {
               </m.span>
             </div>
 
-            <div className="col-span-4 lg:col-span-2 block text-sm md:text-lg xl:text-xl relative leading-none md:leading-none lg:leading-none xl:leading-none overflow-hidden">
+            <div className="col-span-4 lg:col-span-2 block text-sm md:text-lg xl:text-xl relative leading-none md:leading-none lg:leading-none xl:leading-none overflow-hidden ">
               <m.span
                 className="block"
                 initial="hidden"
@@ -89,7 +89,7 @@ export default function HomeHeroHover({ items, isActive, position }) {
               </m.span>
             </div>
 
-            <div className="col-span-2 text-right block text-sm md:text-lg xl:text-xl relative leading-none md:leading-none lg:leading-none xl:leading-none overflow-hidden">
+            <div className="col-span-2 text-right block text-sm md:text-lg xl:text-xl relative leading-none md:leading-none lg:leading-none xl:leading-none overflow-hidden mt-[-3px] md:mt-[-2px]">
               <m.span
                 className="block pb-[4px]"
                 initial="hidden"

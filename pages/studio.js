@@ -15,8 +15,10 @@ const query = `{
   "studio": *[_type == "studio"][0]{
     title,
     workBlockHeading,
+    workBlockMetaTitle,
     workBlockText,
     practiceBlockHeading,
+    practiceBlockMetaTitle,
     practiceBlockText,
     quote,
     quoteAuthor,
@@ -24,6 +26,23 @@ const query = `{
     recognition,
     publications,
     contentImage {
+      asset-> {
+        ...,
+      },
+      overrideVideo {
+        asset-> {
+          ...
+        }
+      },
+      caption,
+      captionSubHeading,
+      alt,
+      hotspot {
+        x,
+        y
+      }
+    },
+    contentImageTwo {
       asset-> {
         ...,
       },
@@ -111,68 +130,84 @@ export default function Studio(initialData) {
               <h1 className="block text-[5.55vw] md:text-[3.5vw] lg:text-[3.2vw] xl:text-[2.8vw] 2xl:text-[2.5vw] leading-[1.1] md:leading-[1.1] xl:leading-[1.1] max-w-[70vw] xl:max-w-[60vw] mb-16 md:mb-24 xl:mb-32 2xl:mb-40">{studio.workBlockHeading}</h1>
 
               <div className="grid grid-cols-10 gap-5">
-                <div className="col-span-2">
+                <div className="col-span-10 md:col-span-2">
                   <div className="content">
-                    <p className="">Work</p>
+                    <p className="">{studio.workBlockMetaTitle}</p>
                   </div>
                 </div>
-                <div className="col-span-7 md:col-span-5 col-start-3 content max-w-[900px]">
+                <div className="col-span-10 md:col-span-5 md:col-start-3 content max-w-[900px]">
                   <p>{studio.workBlockText}</p>
                 </div>
               </div>
             </div>
 
-            <div className="mb-16 md:mb-32 xl:mb-48 w-full h-[60vw] md:h-[55vw] overflow-hidden relative">
-              <Image
-                image={studio.contentImage}
-                focalPoint={studio.contentImage.hotspot}
-                layout="fill"
-                sizes="(min-width: 768px) 99vw, 100vw"
-                className={`w-full inset-0 h-full object-cover object-center`}
-              />
-            </div>
+            {studio.contentImage && (
+              <div className="mb-16 md:mb-32 xl:mb-48 w-full h-[60vw] md:h-[55vw] overflow-hidden relative">
+                <Image
+                  image={studio.contentImage}
+                  focalPoint={studio.contentImage.hotspot}
+                  layout="fill"
+                  sizes="(min-width: 768px) 99vw, 100vw"
+                  className={`w-full inset-0 h-full object-cover object-center`}
+                />
+              </div>
+            )}
 
             <div className="mb-16 md:mb-32 xl:mb-48">
               <h2 className="block text-[5.55vw] md:text-[3.5vw] lg:text-[3.2vw] xl:text-[2.8vw] 2xl:text-[2.5vw] leading-[1.1] md:leading-[1.1] xl:leading-[1.1] max-w-[70vw] xl:max-w-[60vw] mb-16 md:mb-24 xl:mb-32 2xl:mb-40">{studio.practiceBlockHeading}</h2>
 
               <div className="grid grid-cols-10 gap-5">
-                <div className="col-span-2">
+                <div className="col-span-10 md:col-span-2">
                   <div className="content">
-                    <p className="">Practice</p>
+                    <p className="">{studio.practiceBlockMetaTitle}</p>
                   </div>
                 </div>
-                <div className="col-span-7 md:col-span-5 col-start-3 content max-w-[900px]">
+                <div className="col-span-10 md:col-span-5 md:col-start-3 content max-w-[900px]">
                   <p>{studio.practiceBlockText}</p>
                 </div>
               </div>
             </div>
+          
+            {studio.quote && (
+              <div className="mb-16 md:mb-32 xl:mb-48">
+                <h2 className="block text-[5.55vw] md:text-[3.5vw] lg:text-[3.2vw] xl:text-[2.8vw] 2xl:text-[2.5vw] leading-[1.1] md:leading-[1.1] xl:leading-[1.1] max-w-[85vw] xl:max-w-[60vw] mb-16 md:mb-24 xl:mb-32 2xl:mb-40">“{studio.quote}”<span className="block text-gray">{studio.quoteAuthor && (`- ${studio.quoteAuthor}`)}</span></h2>
+              </div>
+            )}
 
-            <div className="mb-16 md:mb-32 xl:mb-48">
-              <h2 className="block text-[5.55vw] md:text-[3.5vw] lg:text-[3.2vw] xl:text-[2.8vw] 2xl:text-[2.5vw] leading-[1.1] md:leading-[1.1] xl:leading-[1.1] max-w-[70vw] xl:max-w-[60vw] mb-16 md:mb-24 xl:mb-32 2xl:mb-40">“{studio.quote}”<span className="block text-gray">- {studio.quoteAuthor}</span></h2>
-            </div>
+            {studio.contentImageTwo && (
+              <div className="mb-16 md:mb-32 xl:mb-48 w-full h-[60vw] md:h-[55vw] overflow-hidden relative">
+                <Image
+                  image={studio.contentImageTwo}
+                  focalPoint={studio.contentImageTwo.hotspot}
+                  layout="fill"
+                  sizes="(min-width: 768px) 99vw, 100vw"
+                  className={`w-full inset-0 h-full object-cover object-center`}
+                />
+              </div>
+            )}
 
             <div className="grid grid-cols-10 gap-5 mb-12 md:mb-20 xl:mb-28">
-              <div className="col-span-2">
+              <div className="col-span-10 md:col-span-2">
                 <div className="content">
                   <p className="">Team</p>
                 </div>
               </div>
-              <div className="col-span-8 md:col-span-6 col-start-3 content md:max-w-[500px]">
+              <div className="col-span-10 md:col-span-7 md:col-start-3 content md:max-w-[650px]">
                 <ul className="w-full">
                   {team.map((e, i) => {
                     return (
                       <li className="flex flex-wrap w-full" key={i}>
-                        <span className="block flex-1 text-gray">{e.role}</span>
+                        <span className="block flex-1 text-gray text-lg xl:text-xl leading-[1.12] xl:leading-[1.15]">{e.role}</span>
                         {e.hasBio ? (
-                          <span className="block w-1/3 text-left ml-auto">
-                            <TeamModal title={e.name}>
+                          <span className="block w-[60%] text-left ml-auto">
+                            <TeamModal title={`${e.name}${e.accreditations && (`, ${e.accreditations}`)}`}>
                               <div className="w-full">
                                 <div className="w-full bg-white p-3">
-                                  <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15]">{e.name}</span>
-                                  <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] text-gray">{e.role}</span>
+                                  <span className="block text-lg xl:text-xl leading-[1.12] xl:leading-[1.15]">{e.name}</span>
                                   {e.accreditations && (
-                                    <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] text-gray">{e.accreditations}</span>
+                                    <span className="block text-lg xl:text-xl leading-[1.12] xl:leading-[1.15] text-gray">{e.accreditations}</span>
                                   )}
+                                  <span className="block text-lg xl:text-xl leading-[1.12] xl:leading-[1.15] text-gray">{e.role}</span>
 
                                   {e.image && (
                                     <div className="w-[200px] h-[250px] overflow-hidden relative block md:hidden mt-2">
@@ -209,7 +244,9 @@ export default function Studio(initialData) {
                             </TeamModal>
                           </span>
                         ) : (
-                          <span className="block w-1/3 text-left ml-auto">{e.name}</span>
+                          <span className="block w-[60%] text-left text-lg xl:text-xl leading-[1.12] xl:leading-[1.15] ml-auto">{e.name}{e.accreditations && (
+                            <span className="inline-block">, {e.accreditations}</span>
+                          )}</span>
                         )}
                       </li>
                     )
@@ -217,39 +254,45 @@ export default function Studio(initialData) {
                 </ul>
               </div>
             </div>
-
-            <div className="grid grid-cols-10 gap-5 mb-12 md:mb-20 xl:mb-28">
-              <div className="col-span-2">
-                <div className="content">
-                  <p className="">Past Team</p>
+            
+            {studio.pastTeam && (
+              <div className="grid grid-cols-10 gap-5 mb-12 md:mb-20 xl:mb-28">
+                <div className="col-span-10 md:col-span-2">
+                  <div className="content">
+                    <p className="">Past Team</p>
+                  </div>
+                </div>
+                <div className="col-span-10 md:col-span-6 md:col-start-3 content max-w-[700px]">
+                  <p>{studio.pastTeam}</p>
                 </div>
               </div>
-              <div className="col-span-7 md:col-span-6 col-start-3 content max-w-[700px]">
-                <p>{studio.pastTeam}</p>
-              </div>
-            </div>
+            )}
 
-            <div className="grid grid-cols-10 gap-5 mb-12 md:mb-20 xl:mb-28">
-              <div className="col-span-2">
-                <div className="content">
-                  <p className="">Recognition</p>
+            {studio.recognition && (
+              <div className="grid grid-cols-10 gap-5 mb-12 md:mb-20 xl:mb-28">
+                <div className="col-span-10 md:col-span-2">
+                  <div className="content">
+                    <p className="">Recognition</p>
+                  </div>
+                </div>
+                <div className="col-span-10 md:col-span-6 md:col-start-3 content max-w-[700px]">
+                  <p>{studio.recognition}</p>
                 </div>
               </div>
-              <div className="col-span-7 md:col-span-6 col-start-3 content max-w-[700px]">
-                <p>{studio.recognition}</p>
-              </div>
-            </div>
+            )}
 
-            <div className="grid grid-cols-10 gap-5 mb-12 md:mb-20 xl:mb-28">
-              <div className="col-span-2">
-                <div className="content">
-                  <p className="">Publications</p>
+            {studio.publications && (
+              <div className="grid grid-cols-10 gap-5 mb-12 md:mb-20 xl:mb-28">
+                <div className="col-span-10 md:col-span-2">
+                  <div className="content">
+                    <p className="">Publications</p>
+                  </div>
+                </div>
+                <div className="col-span-10 md:col-span-6 md:col-start-3 content max-w-[700px]">
+                  <p>{studio.publications}</p>
                 </div>
               </div>
-              <div className="col-span-7 md:col-span-6 col-start-3 content max-w-[700px]">
-                <p>{studio.publications}</p>
-              </div>
-            </div>
+            )}
 
             <div className="grid grid-cols-10 gap-5 mb-12 md:mb-20 xl:mb-28">
               <div className="col-span-2">

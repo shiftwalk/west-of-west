@@ -198,7 +198,7 @@ export default function Works(initialData) {
 
                 <button onClick={() => setActiveFilters(true)} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black ${ activeFilters ? 'text-black' : 'text-gray' }`}>
                   <div className="relative overflow-hidden">
-                    <span className="block">Typology</span>
+                    <span className="block">Filter</span>
                   </div>
                 </button>
 
