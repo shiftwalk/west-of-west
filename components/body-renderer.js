@@ -6,6 +6,7 @@ import ModularDoubleImageBlock from '@/components/modular-double-image-block'
 import ModularTripleImageBlock from '@/components/modular-triple-image-block'
 import ModularSideBySideImageBlock from '@/components/modular-side-by-side-image-block'
 import ModularBeforeAfterBlock from '@/components/modular-before-after-block'
+import ModularProcessBlock from '@/components/modular-process-block';
 
 const ModularInteractiveImageBlock = dynamic(() => import('@/components/modular-interactive-image-block'), {
   ssr: false,
@@ -66,6 +67,13 @@ const bodySerializers = {
   },
   modularSideBySideImageBlock: {
     component: ModularSideBySideImageBlock,
+    wrapper: ({ children }) => 
+      <div className="mb-[1px] md:mb-32 xl:mb-52">
+        {children}
+      </div>
+  },
+  modularProcessBlock: {
+    component: ModularProcessBlock,
     wrapper: ({ children }) => 
       <div className="mb-[1px] md:mb-32 xl:mb-52">
         {children}
