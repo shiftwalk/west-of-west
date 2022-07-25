@@ -22,9 +22,10 @@ const query = `{
     practiceBlockText,
     quote,
     quoteAuthor,
-    pastTeam,
-    recognition,
-    publications,
+    additionalContentBlocks[]{
+      title,
+      text,
+    },
     contentImage {
       asset-> {
         ...,
@@ -130,15 +131,15 @@ export default function Studio(initialData) {
         >
           <article>
             <div className="mb-16 md:mb-32 xl:mb-48">
-              <h1 className="block text-[5.55vw] md:text-[3.5vw] lg:text-[3.2vw] xl:text-[2.8vw] 2xl:text-[2.5vw] leading-[1.1] md:leading-[1.1] xl:leading-[1.1] max-w-[70vw] xl:max-w-[60vw] mb-16 md:mb-24 xl:mb-32 2xl:mb-40">{studio.workBlockHeading}</h1>
+              <h1 className="block text-[9vw] md:text-[3.5vw] lg:text-[3.2vw] xl:text-[2.8vw] 2xl:text-[2.5vw] leading-[1.1] md:leading-[1.1] xl:leading-[1.1] max-w-[90vw] xl:max-w-[60vw] mb-16 md:mb-24 xl:mb-32 2xl:mb-40">{studio.workBlockHeading}</h1>
 
               <div className="grid grid-cols-10 gap-5">
                 <div className="col-span-10 md:col-span-2">
-                  <div className="content">
+                  <div className="content mb-3 md:mb-0">
                     <p className="">{studio.workBlockMetaTitle}</p>
                   </div>
                 </div>
-                <div className="col-span-10 md:col-span-5 md:col-start-3 content max-w-[900px]">
+                <div className="col-span-9 md:col-span-5 md:col-start-3 content max-w-[900px]">
                   <p>{studio.workBlockText}</p>
                 </div>
               </div>
@@ -156,16 +157,16 @@ export default function Studio(initialData) {
               </div>
             )}
 
-            <div className="mb-16 md:mb-32 xl:mb-48">
-              <h2 className="block text-[5.55vw] md:text-[3.5vw] lg:text-[3.2vw] xl:text-[2.8vw] 2xl:text-[2.5vw] leading-[1.1] md:leading-[1.1] xl:leading-[1.1] max-w-[70vw] xl:max-w-[60vw] mb-16 md:mb-24 xl:mb-32 2xl:mb-40">{studio.practiceBlockHeading}</h2>
+            <div className="mb-16 md:mb-32">
+              <h2 className="block text-[9vw] md:text-[3.5vw] lg:text-[3.2vw] xl:text-[2.8vw] 2xl:text-[2.5vw] leading-[1.1] md:leading-[1.1] xl:leading-[1.1] max-w-[90vw] xl:max-w-[60vw] mb-16 md:mb-24 xl:mb-32 2xl:mb-40">{studio.practiceBlockHeading}</h2>
 
               <div className="grid grid-cols-10 gap-5">
                 <div className="col-span-10 md:col-span-2">
-                  <div className="content">
+                  <div className="content mb-3 md:mb-0">
                     <p className="">{studio.practiceBlockMetaTitle}</p>
                   </div>
                 </div>
-                <div className="col-span-10 md:col-span-5 md:col-start-3 content max-w-[900px]">
+                <div className="col-span-9 md:col-span-5 md:col-start-3 content max-w-[900px]">
                   <p>{studio.practiceBlockText}</p>
                 </div>
               </div>
@@ -191,7 +192,7 @@ export default function Studio(initialData) {
 
             <div className="grid grid-cols-10 gap-5 mb-12 md:mb-20 xl:mb-28">
               <div className="col-span-10 md:col-span-2">
-                <div className="content">
+                <div className="content mb-3 md:mb-0">
                   <p className="">Team</p>
                 </div>
               </div>
@@ -199,10 +200,10 @@ export default function Studio(initialData) {
                 <ul className="w-full">
                   {team.map((e, i) => {
                     return (
-                      <li className="flex flex-wrap w-full" key={i}>
-                        <span className="block flex-1 text-gray text-lg xl:text-xl leading-[1.12] xl:leading-[1.15]">{e.role}</span>
+                      <li className="md:flex md:flex-wrap w-full" key={i}>
+                        <span className="block flex-1 text-gray text-lg xl:text-xl leading-[1.12] xl:leading-[1.15] mb-1 md:mb-0">{e.role}</span>
                         {e.hasBio ? (
-                          <span className="block w-[60%] text-left ml-auto">
+                          <span className="block md:w-[60%] text-left ml-auto mb-4 md:mb-0">
                             <TeamModal title={`${e.name}${e.accreditations && (`, ${e.accreditations}`)}`}>
                               <div className="w-full">
                                 <div className="w-full bg-white p-3">
@@ -213,7 +214,7 @@ export default function Studio(initialData) {
                                   <span className="block text-lg xl:text-xl leading-[1.12] xl:leading-[1.15] text-gray">{e.role}</span>
 
                                   {e.image && (
-                                    <div className="w-[200px] h-[250px] overflow-hidden relative block md:hidden mt-2">
+                                    <div className="w-[160px] md:w-[200px] h-[230px] md:h-[250px] overflow-hidden relative block md:hidden mt-2">
                                       <Image
                                         image={e.image}
                                         focalPoint={e.image.hotspot}
@@ -225,7 +226,7 @@ export default function Studio(initialData) {
                                   )}
                                   
                                   {e.bioText && (
-                                    <div className="content content--bio md:absolute bottom-0 left-0 md:ml-[50%] xl:ml-[40%] md:pr-[10%] xl:pr-[20%] pb-3 mt-5 md:mt-0 max-h-[35vh] md:max-h-[50vh] overflow-y-scroll">
+                                    <div className="content content--bio md:absolute bottom-0 left-0 md:ml-[50%] xl:ml-[40%] pr-[10%] md:pr-[10%] xl:pr-[20%] pb-3 mt-5 md:mt-0 max-h-[35vh] md:max-h-[50vh] overflow-y-scroll">
                                       <div className="content">
                                         <SanityBlockContent serializers={{ container: ({ children }) => children }} blocks={e.bioText} />
                                       </div>
@@ -247,7 +248,7 @@ export default function Studio(initialData) {
                             </TeamModal>
                           </span>
                         ) : (
-                          <span className="block w-[60%] text-left text-lg xl:text-xl leading-[1.12] xl:leading-[1.15] ml-auto">{e.name}{e.accreditations && (
+                          <span className="block md:w-[60%] text-left text-lg xl:text-xl leading-[1.12] xl:leading-[1.15] ml-auto mb-4 md:mb-0">{e.name}{e.accreditations && (
                             <span className="inline-block">, {e.accreditations}</span>
                           )}</span>
                         )}
@@ -257,54 +258,30 @@ export default function Studio(initialData) {
                 </ul>
               </div>
             </div>
-            
-            {studio.pastTeam && (
-              <div className="grid grid-cols-10 gap-5 mb-12 md:mb-20 xl:mb-28">
-                <div className="col-span-10 md:col-span-2">
-                  <div className="content">
-                    <p className="">Past Team</p>
-                  </div>
-                </div>
-                <div className="col-span-10 md:col-span-6 md:col-start-3 content max-w-[700px]">
-                  <p>{studio.pastTeam}</p>
-                </div>
-              </div>
-            )}
 
-            {studio.recognition && (
-              <div className="grid grid-cols-10 gap-5 mb-12 md:mb-20 xl:mb-28">
-                <div className="col-span-10 md:col-span-2">
-                  <div className="content">
-                    <p className="">Recognition</p>
+            {studio.additionalContentBlocks.map((e, i) => {
+              return (
+                <div className="grid grid-cols-10 gap-5 mb-12 md:mb-20 xl:mb-28" key={i}>
+                  <div className="col-span-10 md:col-span-2">
+                    <div className="content mb-3 md:mb-0">
+                      <p className="">{e.title}</p>
+                    </div>
+                  </div>
+                  <div className="col-span-9 md:col-span-6 md:col-start-3 content max-w-[700px]">
+                    <p>{e.text}</p>
                   </div>
                 </div>
-                <div className="col-span-10 md:col-span-6 md:col-start-3 content max-w-[700px]">
-                  <p>{studio.recognition}</p>
-                </div>
-              </div>
-            )}
-
-            {studio.publications && (
-              <div className="grid grid-cols-10 gap-5 mb-12 md:mb-20 xl:mb-28">
-                <div className="col-span-10 md:col-span-2">
-                  <div className="content">
-                    <p className="">Publications</p>
-                  </div>
-                </div>
-                <div className="col-span-10 md:col-span-6 md:col-start-3 content max-w-[700px]">
-                  <p>{studio.publications}</p>
-                </div>
-              </div>
-            )}
+              )
+            })}
 
             <div className="grid grid-cols-10 gap-5 mb-12 md:mb-20 xl:mb-28">
-              <div className="col-span-2">
-                <div className="content">
+              <div className="col-span-10 md:col-span-2">
+                <div className="content mb-3 md:mb-0">
                   <p className="">Site By</p>
                 </div>
               </div>
-              <div className="col-span-7 md:col-span-6 col-start-3 max-w-[700px]">
-                <a href="https://shiftwalk.studio" rel="noopener noreferrer" target="_blank" className="group inline-block relative overflow-hidden md:text-lg xl:text-xl leading-tight md:leading-tight xl:leading-tight">
+              <div className="col-span-9 md:col-span-6 md:col-start-3 max-w-[700px]">
+                <a href="https://shiftwalk.studio" rel="noopener noreferrer" target="_blank" className="group inline-block relative overflow-hidden text-lg md:text-lg xl:text-xl leading-tight md:leading-tight xl:leading-tight">
                   ShiftWalk Studio
                   <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                 </a>

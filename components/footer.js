@@ -100,7 +100,7 @@ export default function Footer({ noPad, footerTickerItems }) {
         
         <div className="md:col-start-3 col-span-10 md:col-span-2 mb-5 md:mb-0 flex items-end">
           <div className="w-full group">
-            <address className="not-italic text-base leading-[1.15] xl:text-xl xl:leading-[1.15]">
+            <address className="not-italic text-lg leading-[1.15] xl:text-xl xl:leading-[1.15]">
               Portland<br/>
               110 SE Main St,<br/>
               Suite 3000<br/>
@@ -108,7 +108,7 @@ export default function Footer({ noPad, footerTickerItems }) {
             </address>
 
             {/* <div className="relative">
-              <span className="flex text-base leading-[1.15] xl:text-xl xl:leading-[1.15] mt-2 space-x-[6px] opacity-100 group-hover:opacity-0">
+              <span className="flex text-lg leading-[1.15] xl:text-xl xl:leading-[1.15] mt-2 space-x-[6px] opacity-100 group-hover:opacity-0">
                 <div className="clock-container">
                   <div className="clock">
                     <div ref={wowHourHandle} className="hor" id="hor">
@@ -126,7 +126,7 @@ export default function Footer({ noPad, footerTickerItems }) {
                 <span className="tabular-nums"><Clock format={'HH:mm:ss'} ticking={true} timezone={'US/Pacific'} /> {wowDateStamp}</span>
               </span>
 
-              <span className="flex text-base leading-[1.15] xl:text-xl xl:leading-[1.15] space-x-[6px] absolute inset-0 opacity-0 group-hover:opacity-100">
+              <span className="flex text-lg leading-[1.15] xl:text-xl xl:leading-[1.15] space-x-[6px] absolute inset-0 opacity-0 group-hover:opacity-100">
                 <div className="clock-container">
                   <div className="clock">
                     <div ref={userHourHandle} className="hor" id="hor">
@@ -148,7 +148,7 @@ export default function Footer({ noPad, footerTickerItems }) {
         </div>
         <div className="md:col-start-5 col-span-10 md:col-span-2 mb-5 md:mb-0 flex justify-end group">
           <div className="w-full">
-            <address className="not-italic text-base leading-[1.15] xl:text-xl xl:leading-[1.15]">
+            <address className="not-italic text-lg leading-[1.15] xl:text-xl xl:leading-[1.15]">
               Los Angeles<br/>
               970 N Broadway<br/>
               Suite 206<br/>
@@ -156,7 +156,7 @@ export default function Footer({ noPad, footerTickerItems }) {
             </address>
 
             {/* <div className="relative">
-              <span className="flex text-base leading-[1.15] xl:text-xl xl:leading-[1.15] mt-2 space-x-[6px] opacity-100 group-hover:opacity-0">
+              <span className="flex text-lg leading-[1.15] xl:text-xl xl:leading-[1.15] mt-2 space-x-[6px] opacity-100 group-hover:opacity-0">
                 <div className="clock-container">
                   <div className="clock">
                     <div ref={wowHourHandle2} className="hor" id="hor">
@@ -174,7 +174,7 @@ export default function Footer({ noPad, footerTickerItems }) {
                 <span className="tabular-nums"><Clock format={'HH:mm:ss'} ticking={true} timezone={'US/Pacific'} /> {wowDateStamp}</span>
               </span>
 
-              <span className="flex text-base leading-[1.15] xl:text-xl xl:leading-[1.15] space-x-[6px] absolute inset-0 opacity-0 group-hover:opacity-100 ">
+              <span className="flex text-lg leading-[1.15] xl:text-xl xl:leading-[1.15] space-x-[6px] absolute inset-0 opacity-0 group-hover:opacity-100 ">
                 <div className="clock-container">
                   <div className="clock">
                     <div ref={userHourHandle2} className="hor" id="hor">
@@ -198,13 +198,13 @@ export default function Footer({ noPad, footerTickerItems }) {
         <div className="md:col-start-7 col-span-10 md:col-span-2 mb-5 md:mb-0 flex items-end">
           <div>
             <div>
-              <a className="inline-block mb-[-6px] text-base leading-[1.15] xl:text-xl xl:leading-[1.15] group relative overflow-hidden " href="tel:971-266-1001">
+              <a className="inline-block mb-[-6px] text-lg leading-[1.15] xl:text-xl xl:leading-[1.15] group relative overflow-hidden " href="tel:971-266-1001">
                 <span className="block">971-266-1001</span>
                 <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
               </a>
             </div>
             <div>
-              <a className="inline-block text-base leading-[1.15] xl:text-xl xl:leading-[1.15] group relative overflow-hidden mb-[-5px] " href="mailto:info@westofwest.com">
+              <a className="inline-block text-lg leading-[1.15] xl:text-xl xl:leading-[1.15] group relative overflow-hidden mb-[-5px] " href="mailto:info@westofwest.com">
                 <span className="block">info@westofwest.com</span>
                 <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
               </a>
@@ -212,11 +212,11 @@ export default function Footer({ noPad, footerTickerItems }) {
           </div>
         </div>
 
-        <div className="md:col-start-9 col-span-10 md:col-span-2 mb-5 md:mb-0 flex items-end md:justify-end md:text-right">
+        <div className="md:col-start-9 col-span-10 md:col-span-2 mb-0 md:mb-0 flex items-end md:justify-end md:text-right">
           <div>
             <div className="relative md:text-right mb-[2px]">
               <div className="relative group">
-                <span className="flex md:justify-end text-base leading-[1.15] xl:text-xl xl:leading-[1.15] mt-2 space-x-[6px] opacity-100 group-hover:opacity-0">
+                <span className="flex md:justify-end text-lg leading-[1.15] xl:text-xl xl:leading-[1.15] mt-2 space-x-[6px] opacity-100 group-hover:opacity-0">
                   <div className="clock-container">
                     <div className="clock">
                       <div ref={wowHourHandle} className="hor" id="hor">
@@ -234,7 +234,7 @@ export default function Footer({ noPad, footerTickerItems }) {
                   <span className="tabular-nums"><Clock format={'HH:mm:ss'} ticking={true} timezone={'US/Pacific'} /> {wowDateStamp}</span>
                 </span>
 
-                <span className="flex md:justify-end text-base leading-[1.15] xl:text-xl xl:leading-[1.15] space-x-[6px] absolute inset-0 opacity-0 group-hover:opacity-100">
+                <span className="flex md:justify-end text-lg leading-[1.15] xl:text-xl xl:leading-[1.15] space-x-[6px] absolute inset-0 opacity-0 group-hover:opacity-100">
                   <div className="clock-container">
                     <div className="clock">
                       <div ref={userHourHandle} className="hor" id="hor">
@@ -253,7 +253,7 @@ export default function Footer({ noPad, footerTickerItems }) {
                 </span>
               </div>
             </div>
-            <span className="block w-full text-base leading-[1.15] xl:text-xl xl:leading-[1.15]">© West of West<span className="inline md:hidden lg:inline">&nbsp;— 2022</span></span>
+            <span className="block w-full text-lg leading-[1.15] xl:text-xl xl:leading-[1.15]">© West of West<span className="inline md:hidden lg:inline">&nbsp;— 2022</span></span>
           </div>
         </div>
       </div>

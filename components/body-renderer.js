@@ -3,6 +3,7 @@ import BlockContentWrapper from '@/components/block-content-wrapper'
 import ModularImageBlock from '@/components/modular-image-block'
 import ModularTextBlock from '@/components/modular-text-block'
 import ModularDoubleImageBlock from '@/components/modular-double-image-block'
+import ModularDoubleLandscapeImageBlock from '@/components/modular-double-landscape-image-block'
 import ModularTripleImageBlock from '@/components/modular-triple-image-block'
 import ModularSideBySideImageBlock from '@/components/modular-side-by-side-image-block'
 import ModularBeforeAfterBlock from '@/components/modular-before-after-block'
@@ -53,6 +54,13 @@ const bodySerializers = {
   },
   modularDoubleImageBlock: {
     component: ModularDoubleImageBlock,
+    wrapper: ({ children }) => 
+      <div className="mb-[1px] md:mb-32 xl:mb-52">
+        {children}
+      </div>
+  },
+  modularDoubleLandscapeImageBlock: {
+    component: ModularDoubleLandscapeImageBlock,
     wrapper: ({ children }) => 
       <div className="mb-[1px] md:mb-32 xl:mb-52">
         {children}

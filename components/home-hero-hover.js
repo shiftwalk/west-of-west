@@ -63,7 +63,7 @@ export default function HomeHeroHover({ items, isActive, position }) {
               <m.span initial="hidden" animate="visible" exit="hidden" variants={revealTranslate} transition={{ delay: introContext ? 0 : 2.3, duration: 0.5, ease: [0.83, 0, 0.17, 1]  }} className={`block uppercase text-sm md:text-lg xl:text-xl leading-none md:leading-none lg:leading-none xl:leading-none`}>{items[current].projectCode}</m.span>
             </div>
 
-            <div className="col-span-4 block text-sm md:text-lg xl:text-xl leading-none md:leading-none lg:leading-none xl:leading-none overflow-hidden relative">
+            <div className="col-span-5 lg:col-span-4 block text-sm md:text-lg xl:text-xl leading-none md:leading-none lg:leading-none xl:leading-none overflow-hidden relative">
               <m.span
                 className="block"
                 initial="hidden"
@@ -76,7 +76,7 @@ export default function HomeHeroHover({ items, isActive, position }) {
               </m.span>
             </div>
 
-            <div className="col-span-4 lg:col-span-2 block text-sm md:text-lg xl:text-xl relative leading-none md:leading-none lg:leading-none xl:leading-none overflow-hidden ">
+            <div className="col-span-3 lg:col-span-2 block text-sm md:text-lg xl:text-xl relative leading-none md:leading-none lg:leading-none xl:leading-none overflow-hidden ">
               <m.span
                 className="block"
                 initial="hidden"
@@ -85,7 +85,7 @@ export default function HomeHeroHover({ items, isActive, position }) {
                 variants={revealTranslate}
                 transition={{ delay: introContext ? 0 : 2.3, duration: 0.5, ease: [0.83, 0, 0.17, 1]  }}
               >
-                {items[current].locationCity}, {items[current].locationState}
+                <span className="hidden md:inline-block">{items[current].locationCity},&nbsp;</span>{items[current].locationState}
               </m.span>
             </div>
 

@@ -150,18 +150,18 @@ export default function JournalSlug(initialData) {
           <m.article className="w-full md:w-1/2 md:h-screen p-2 pt-16 md:pt-20 xl:pt-20 md:sticky top-0 flex flex-wrap">
             <div className="w-full">
               <div className="max-w-[500px]">
-                <h1 className="text-3xl md:text-4xl xl:text-5xl leading-[1.1] md:leading-[1.1] xl:leading-[1.1] mb-4 md:max-w-[60vw]">{title}</h1>
+                <h1 className="text-[9vw] md:text-4xl xl:text-5xl leading-[1.1] md:leading-[1.1] xl:leading-[1.1] mb-4 md:max-w-[60vw] w-11/12 md:w-full">{title}</h1>
               </div>
 
               {(projectLinks || externalLinks || journalLinks) && (
-                <div className="mt-8">
+                <div className="mt-5 md:mt-8">
                   {(projectLinks) && (
                     <>
                       {projectLinks.map((e, i) => {
                         return (
                           <div key={i}>
                             <Link href={`/works/${e.slug.current}`}>
-                              <a className="inline-block text-xl md:text-xl group relative overflow-hidden">
+                              <a className="inline-block text-lg md:text-xl group relative overflow-hidden">
                                 <span className="block">See {e.title}</span>
                                 <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                               </a>
@@ -178,7 +178,7 @@ export default function JournalSlug(initialData) {
                         return (
                           <div key={i}>
                             <Link href={`/journal/${e.slug.current}`}>
-                              <a className="inline-block text-xl md:text-xl group relative overflow-hidden">
+                              <a className="inline-block text-lg md:text-xl group relative overflow-hidden">
                                 <span className="block">See {e.shortTitle ? e.shortTitle : e.title}</span>
                                 <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
                               </a>
@@ -194,7 +194,7 @@ export default function JournalSlug(initialData) {
                       {externalLinks.map((e, i) => {
                         return (
                           <div key={i}>
-                            <a target="_blank" rel="noreferrer noopener" href={e.linkUrl} className="inline-block text-xl md:text-xl group relative overflow-hidden ">
+                            <a target="_blank" rel="noreferrer noopener" href={e.linkUrl} className="inline-block text-lg md:text-xl group relative overflow-hidden ">
                               <span className="inline-block">{e.linkTitle ? e.linkTitle : 'More Information' }</span>
                               <svg className={`w-[12px] ml-[6px] mt-[-4px] inline-block text-black`} viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.8 10.267H.733v-8.25h4.4v-.734H0V11h9.533V5.867H8.8v4.4Z" fill="currentColor"/><path d="M6.6 0v.733h3.148L3.957 6.524l.519.519 5.79-5.791V4.4H11V0H6.6Z" fill="currentColor"/></svg>
                               <span className="w-[90%] group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
@@ -209,8 +209,8 @@ export default function JournalSlug(initialData) {
             </div>
 
             {contentText && (
-              <div className="w-full mt-24 md:mt-auto">
-                <div className="content max-w-[500px]">
+              <div className="w-full mt-64 md:mt-auto">
+                <div className="content max-w-[500px] w-11/12 md:w-full">
                   <SanityBlockContent serializers={{ container: ({ children }) => children }} blocks={contentText} />
                 </div>
               </div>
@@ -326,7 +326,7 @@ export default function JournalSlug(initialData) {
                 return (
                   <Link href={`/journal/${e.slug.current}`} key={i}>
                     <a
-                      className={`${layout} col-span-10 md:col-span-3 block group mb-4 md:mb-0`}
+                      className={`${layout} col-span-10 md:col-span-3 block group mb-8 md:mb-0`}
                     >
                       <ReactCursorPosition>
                         <Teaser
@@ -335,11 +335,11 @@ export default function JournalSlug(initialData) {
                         />
                       </ReactCursorPosition>
                       <span className="block overflow-hidden relative">
-                        <span className="block text-[10px] leading-none my-1 md:my-2 text-gray uppercase">{da}.{mo}.{ye}</span>
+                        <span className="block text-lg leading-none mt0 mb-1 md:my-2 text-gray uppercase">{da}.{mo}.{ye}</span>
                       </span>
 
                       <span className="block overflow-hidden relative">
-                        <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] mb-1">{e.title}</span>
+                        <span className="block text-lg xl:text-xl leading-[1.15] xl:leading-[1.15] mb-1 w-11/12 md:w-full">{e.title}</span>
                       </span>
                     </a>
                   </Link>

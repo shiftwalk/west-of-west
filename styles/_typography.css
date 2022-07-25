@@ -70,11 +70,12 @@
 
 .content--fancy-no-indent {
   p:first-of-type {
-    @apply block text-[5.55vw] md:text-[3.3vw] xl:text-[2.5vw] leading-[1.1] md:leading-[1.1] xl:leading-[1.1] max-w-[80vw] mt-4 md:mt-6 mb-8 md:mb-12 md:w-full;
+    @apply block text-[7.5vw] md:text-[3.5vw] lg:text-[3.2vw] xl:text-[2.8vw] 2xl:text-[2.5vw] leading-[1.1] md:leading-[1.1] xl:leading-[1.1] max-w-[95vw] xl:max-w-[60vw] mt-4 md:mt-6 mb-8 md:mb-12 md:w-full ml-0;
   }
   p {
-    @apply md:w-8/12 max-w-[1000px];
-  }}
+    @apply md:w-8/12 max-w-[720px] md:ml-[20vw] md:mt-16 xl:mb-28;
+  }
+}
 
 /* Heading Defaults */
 h1, .h1, h2, .h2, h3, .h3 {

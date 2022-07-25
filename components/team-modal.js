@@ -4,10 +4,10 @@ import Modal from 'react-modal';
 
 const customStyles = {
   content : {
-    top                   : '10%',
-    left                  : '10%',
-    right                 : '10%',
-    bottom                : '10%',
+    top                   : '7%',
+    left                  : '7%',
+    right                 : '7%',
+    bottom                : '7%',
     // marginRight           : '-20%',
     overflow              : 'visible',
     // transform             : 'translate(-50%, -50%)',
@@ -24,10 +24,14 @@ export default function TeamModal({ children, title }) {
   const [modalIsOpen,setIsOpen] = React.useState(false);
   function openModal() {
     setIsOpen(true);
+    document.body.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
   }
 
   function closeModal(){
     setIsOpen(false);
+    document.body.style.overflow = "auto";
+    document.body.style.overflow = "auto";
   }
 
   return (
@@ -52,7 +56,7 @@ export default function TeamModal({ children, title }) {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}    
               >
-                <div className="absolute top-0 right-0 mr-3 mt-2">
+                <div className="absolute top-0 right-0 mr-3 mt-3 md:mt-2">
                   <button className="text-lg xl:text-xl leading-[1.1] xl:leading-[1.15] block relative group z-[100000] tracking-tight" onClick={closeModal}>
                     Close
                   </button>

@@ -8,7 +8,7 @@ export default function ModularTripleImageBlock({ image1, image2, image3, text, 
 
   return (
     <div className={`grid grid-cols-10 md:grid-rows-1 gap-x-5`}>
-      <div className={`col-span-10 md:row-start-1 relative mb-8 md:mb-0 md:mt-[15vw] ${layout == 'right-aligned' ? 'md:col-span-6 md:col-start-5' : 'md:col-span-5 md:col-start-1'} -mx-2 md:-mx-0`}>
+      <div className={`col-span-10 md:row-start-1 relative mb-0 md:mb-0 md:mt-[15vw] ${layout == 'right-aligned' ? 'md:col-span-6 md:col-start-5' : 'md:col-span-5 md:col-start-1'} -mx-2 md:-mx-0`}>
 
         <div className={`grid gap-x-5 ${layout == 'right-aligned' ? 'grid-cols-6' : 'grid-cols-5' }`}>
           <div className={`relative overflow-hidden mb-[1px] md:mb-0 ${image1Height} ${layout == 'right-aligned' ? 'col-span-6 md:col-start-3 md:col-span-4' : 'col-span-5 md:col-span-4' }`}>

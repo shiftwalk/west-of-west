@@ -28,11 +28,10 @@ export default function App({ Component, pageProps }) {
     }
   }
   
-const item = {
+  const item = {
     hidden: { opacity: 0 },
     show: { opacity: '100%' }
   }
-  
   
   const introEnd = {
     visible: { opacity: '100%' },

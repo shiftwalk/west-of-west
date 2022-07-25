@@ -230,7 +230,7 @@ export default function WorksSlug(initialData) {
         >
           <m.article>
             <div className="md:h-screen grid grid-cols-10 gap-x-5 items-end pt-20 md:sticky top-0 z-0 md:p-2">
-              <div className="col-span-10 md:col-span-2 mb-24 md:mb-0">
+              <div className="col-span-10 md:col-span-2 mb-3 md:mb-0">
                 <span className="block text-lg md:text-[12px] uppercase mb-2 md:mb-8">{projectCode}</span>
                 <h1 className="block text-lg leading-tight lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight mb-0 pb-0">{title}</h1>
                 <span className="block text-lg lg:text-xl xl:text-2xl relative leading-tight md:leading-tight xl:leading-tight mb-0 pb-0 text-gray">{locationCity}{locationState && (<>, {locationState}</>)}</span>
@@ -278,48 +278,48 @@ export default function WorksSlug(initialData) {
             </div>
 
             <div className="grid grid-cols-10 gap-5 pb-12 md:pb-32 xl:pb-52 pt-3 md:pt-32 xl:pt-52 bg-white relative z-[20] safari-sticky md:p-2 safari-sticky">
-              <div className="md:col-start-0 col-span-9 md:col-span-10 mt-8 md:mt-0 mb-8 md:mb-12 xl:mb-20">
+              <div className="md:col-start-0 col-span-9 md:col-span-10 mt-8 md:mt-0 mb-5 md:mb-12 xl:mb-20">
                 <div className="content content--fancy-no-indent">
                   <BlockContent serializers={{ container: ({ children }) => children }} blocks={introText} />
                 </div>
               </div>
 
-              <div className="col-span-10 mt-8 md:mt-0">
+              <div className="md:col-start-3 col-span-10 md:col-span-7 mt-0 md:mt-0">
                 { client && (
-                  <div className="mb-2 grid grid-cols-10 gap-5">
-                    <span className="text-lg leading-tight xl:text-xl xl:leading-[1.15] text-gray">Client</span>
-                    <span className="block text-lg leading-tight xl:text-xl xl:leading-[1.15] col-start-3 col-span-7">{client}</span>
+                  <div className="mb-3 md:mb-2 grid grid-cols-10 max-w-[850px] gap-x-5">
+                    <span className="text-lg leading-tight xl:text-xl xl:leading-[1.15] text-gray col-span-10 md:col-span-3">Client</span>
+                    <span className="block text-lg leading-tight xl:text-xl xl:leading-[1.15] md:col-start-4 col-span-10 md:col-span-4">{client}</span>
                   </div>
                 )}
                 { year && (
-                  <div className="mb-2 grid grid-cols-10 gap-5">
-                    <span className="text-lg leading-tight xl:text-xl xl:leading-[1.15] text-gray">Year</span>
-                    <span className="block text-lg leading-tight xl:text-xl xl:leading-[1.15] col-start-3 col-span-7">{year}</span>
+                  <div className="mb-3 md:mb-2 grid grid-cols-10 max-w-[850px] gap-x-5">
+                    <span className="text-lg leading-tight xl:text-xl xl:leading-[1.15] text-gray col-span-10 md:col-span-3">Year</span>
+                    <span className="block text-lg leading-tight xl:text-xl xl:leading-[1.15] md:col-start-4 col-span-10 md:col-span-4">{year}</span>
                   </div>
                 )}
                 { status && (
-                  <div className="mb-2 grid grid-cols-10 gap-5">
-                    <span className="text-lg leading-tight xl:text-xl xl:leading-[1.15] text-gray">Status</span>
-                    <span className="block text-lg leading-tight xl:text-xl xl:leading-[1.15] col-start-3 col-span-7">{status}</span>
+                  <div className="mb-3 md:mb-2 grid grid-cols-10 max-w-[850px] gap-x-5">
+                    <span className="text-lg leading-tight xl:text-xl xl:leading-[1.15] text-gray col-span-10 md:col-span-3">Status</span>
+                    <span className="block text-lg leading-tight xl:text-xl xl:leading-[1.15] md:col-start-4 col-span-10 md:col-span-4">{status}</span>
                   </div>
                 )}
                 { sector && (
-                  <div className="mb-2 grid grid-cols-10 gap-5">
-                    <span className="text-lg leading-tight xl:text-xl xl:leading-[1.15] text-gray">Sector</span>
-                    <span className="block text-lg leading-tight xl:text-xl xl:leading-[1.15] col-start-3 col-span-7 capitalize">{sector.replace(/-/g, ' ')}</span>
+                  <div className="mb-3 md:mb-2 grid grid-cols-10 max-w-[850px] gap-x-5">
+                    <span className="text-lg leading-tight xl:text-xl xl:leading-[1.15] text-gray col-span-10 md:col-span-3">Sector</span>
+                    <span className="block text-lg leading-tight xl:text-xl xl:leading-[1.15] md:col-start-4 col-span-10 md:col-span-4 capitalize">{sector.replace(/-/g, ' ')}</span>
                   </div>
                 )}
-                { credits && (
-                  <div className="mb-2 grid grid-cols-10 gap-5">
-                    <span className="text-lg leading-tight xl:text-xl xl:leading-[1.15] text-gray">Credits</span>
-                    <span className="block text-lg leading-tight xl:text-xl xl:leading-[1.15] col-start-3 col-span-7 capitalize">
-                      {credits.map((e, i) => {
-                        return (
-                          <span className="block">{e.job} – {e.name}</span>
-                        )
-                      })}
-                    </span>
-                  </div>
+                {credits && (
+                  <>
+                    {credits.map((e, i) => {
+                      return (
+                        <div className="mb-3 md:mb-2 grid grid-cols-10 max-w-[850px] gap-x-5">
+                          <span className="text-lg leading-tight xl:text-xl xl:leading-[1.15] text-gray col-span-10 md:col-span-3">{e.job}</span>
+                          <span className="block text-lg leading-tight xl:text-xl xl:leading-[1.15] md:col-start-4 col-span-10 md:col-span-4 capitalize">{e.name}</span>
+                        </div>
+                      )
+                    })}
+                  </>
                 )}
               </div>
             </div>
@@ -356,7 +356,7 @@ export default function WorksSlug(initialData) {
                 }
 
                 return (
-                  <div className={`${layout} col-span-10 md:col-span-3 block group mb-4 md:mb-0`} key={i}>
+                  <div className={`${layout} col-span-10 md:col-span-3 block group mb-6 md:mb-0`} key={i}>
                     <Link href={`/works/${e.slug.current}`}>
                       <a
                         className={`block w-full group`}
@@ -369,7 +369,7 @@ export default function WorksSlug(initialData) {
                         </ReactCursorPosition>
 
                         <span className="block overflow-hidden relative">
-                          <span className="block text-lg leading-none xl:text-xl xl:leading-[1] mb-1">{e.title}</span>
+                          <span className="block text-lg leading-none xl:text-xl xl:leading-[1] mb-1 mt-[-3px] md:mt-0">{e.title}</span>
                         </span>
                       </a>
                     </Link>

@@ -166,7 +166,7 @@ export default function Works(initialData) {
   
   const updateGenre = (e) => {
     setActiveGenre(e)
-    setActiveType('all')
+    setActiveType('none')
   }
 
 
@@ -182,7 +182,7 @@ export default function Works(initialData) {
           initial="initial"
           animate="enter"
           exit="exit"
-          className="pt-24 md:pt-32 xl:pt-40"
+          className="pt-20 md:pt-32 xl:pt-40"
         >
           <m.div>
             <div className="fixed bottom-0 left-0 right-0 w-full bg-white border-t border-gray border-opacity-40 z-40 px-2 py-3 hidden lg:flex">
@@ -288,72 +288,72 @@ export default function Works(initialData) {
           
           {/* MOBILE FILTERS */}
           <div className="block lg:hidden mb-4 md:mb-0">
-            <button onClick={() => updateType('all')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black ${ activeType == 'all' ? 'text-black' : 'text-gray' }`}>
+            <button onClick={() => updateType('all')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black mb-[2px] md:mb-0 ${ activeType == 'all' ? 'text-black' : 'text-gray' }`}>
               <div className="relative overflow-hidden">
                 <span className="block">All</span>
               </div>
 
-              <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[15px] md:translate-x-[13px] translate-y-[2px]">
+              <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[13px] md:translate-x-[13px] translate-y-[2px]">
                 <span className="block relative overflow-hidden tabular-nums">
                   <span className="block">{worksAll.length}</span>
                 </span>
               </span>
             </button>
 
-            <button onClick={() => updateType('working')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black ${ activeType == 'working' ? 'text-black' : 'text-gray' }`}>
+            <button onClick={() => updateType('working')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black mb-[2px] md:mb-0 ${ activeType == 'working' ? 'text-black' : 'text-gray' }`}>
               <div className="relative overflow-hidden">
                 <span className="block">Working</span>
               </div>
 
-              <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[15px] md:translate-x-[13px] translate-y-[2px]">
+              <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[13px] md:translate-x-[13px] translate-y-[2px]">
                 <span className="block relative overflow-hidden tabular-nums">
                   <span className="block">{workingLength}</span>
                 </span>
               </span>
             </button>
 
-            <button onClick={() => updateType('living')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black ${ activeType == 'living' ? 'text-black' : 'text-gray' }`}>
+            <button onClick={() => updateType('living')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black mb-[2px] md:mb-0 ${ activeType == 'living' ? 'text-black' : 'text-gray' }`}>
               <div className="relative overflow-hidden">
                 <span className="block">Living</span>
               </div>
 
-              <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[15px] md:translate-x-[13px] translate-y-[2px]">
+              <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[13px] md:translate-x-[13px] translate-y-[2px]">
                 <span className="block relative overflow-hidden tabular-nums">
                   <span className="block">{livingLength}</span>
                 </span>
               </span>
             </button>
 
-            <button onClick={() => updateType('retail-and-hospitality')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black mb-3 ${ activeType == 'retail-and-hospitality' ? 'text-black' : 'text-gray' }`}>
+            <button onClick={() => updateType('retail-and-hospitality')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black mb-3 md:mb-0 ${ activeType == 'retail-and-hospitality' ? 'text-black' : 'text-gray' }`}>
               <div className="relative overflow-hidden">
                 <span className="block">Retail &amp; Hospitality</span>
               </div>
 
-              <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[15px] md:translate-x-[13px] translate-y-[2px]">
+              <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[13px] md:translate-x-[13px] translate-y-[2px]">
                 <span className="block relative overflow-hidden tabular-nums">
                   <span className="block">{retailAndHospitalityLength}</span>
                 </span>
               </span>
             </button>
           
-            <button onClick={() => updateGenre('architecture')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black ${ activeGenre == 'architecture' ? 'text-black' : 'text-gray' }`}>
+            <button onClick={() => updateGenre('architecture')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black mb-[2px] md:mb-0 ${ activeGenre == 'architecture' ? 'text-black' : 'text-gray' }`}>
               <div className="relative overflow-hidden">
                 <span className="block">Architecture</span>
               </div>
 
-              <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[15px] md:translate-x-[13px] translate-y-[2px]">
+              <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[13px] md:translate-x-[13px] translate-y-[2px]">
                 <span className="block relative overflow-hidden tabular-nums">
                   <span className="block">{architectureLength}</span>
                 </span>
               </span>
             </button>
 
-            <button onClick={() => updateGenre('interiors')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black ${ activeGenre == 'interiors' ? 'text-black' : 'text-gray' }`}>
+            <button onClick={() => updateGenre('interiors')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black mb-[2px] md:mb-0 ${ activeGenre == 'interiors' ? 'text-black' : 'text-gray' }`}>
               <div className="relative overflow-hidden">
                 <span className="block">Interiors</span>
               </div>
 
-              <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[15px] md:translate-x-[13px] translate-y-[2px]">
+              <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[13px] md:translate-x-[13px] translate-y-[2px]">
                 <span className="block relative overflow-hidden tabular-nums">
                   <span className="block">{interiorsLength}</span>
                 </span>
@@ -379,7 +379,7 @@ export default function Works(initialData) {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.4, ease: [0.83, 0, 0.17, 1] }}
-                className="mt-4 md:mt-6 grid grid-cols-10 gap-x-5 gap-y-3 md:gap-y-[8vw] items-end"
+                className="mt-3 md:mt-6 grid grid-cols-10 gap-x-5 gap-y-3 md:gap-y-[8vw] items-end"
               >
                 {works.map((e, i) => {
                   let layout = 'col-span-10 md:col-span-3'
@@ -459,7 +459,7 @@ export default function Works(initialData) {
                   }
 
                   return (
-                    <div className={`${layout} block mb-4 group md:mb-0 ${disabledClass}`} key={i}>
+                    <div className={`${layout} block mb-6 group md:mb-0 ${disabledClass}`} key={i}>
                       <Link href={`/works/${e.slug.current}`} key={i}>
                         <a
                           className={`block`}
@@ -475,7 +475,7 @@ export default function Works(initialData) {
                           </ReactCursorPosition>
 
                           <span className="block overflow-hidden relative">
-                            <span className="block text-lg xl:text-xl leading-[1.1] xl:leading-[1.15] mb-[2px]">{e.title}</span>
+                            <span className="block text-lg xl:text-xl leading-[1.1] xl:leading-[1.15] mb-[2px] mt-[-3px] md:mt-0">{e.title}</span>
                           </span>
                         </a>
                       </Link>
@@ -636,7 +636,7 @@ export default function Works(initialData) {
         </m.main>
       </LazyMotion>
       
-      <div className="pb-16">
+      <div className="">
         <Footer footerTickerItems={globals.footerTickerItems}/>
       </div>
     </Layout>

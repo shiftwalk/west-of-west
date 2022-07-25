@@ -62,6 +62,9 @@ const pageService = new SanityPageService(query)
 export default function Journal(initialData) {
   const { data: { journal, works, globals } } = pageService.getPreviewHook(initialData)()
   const [introContext, setIntroContext] = useContext(IntroContext);
+
+  const gridItems = journal.slice(0,20)
+  const archivedGridItems = journal.slice(20)
   
   useEffect(() => {
     setIntroContext(true)
@@ -82,8 +85,8 @@ export default function Journal(initialData) {
           className="pt-24 md:pt-32 xl:pt-40"
         >
           <m.article>
-            <ul className="mt-4 md:mt-6 grid grid-cols-10 gap-x-5 gap-y-[10vw] items-start">
-              {journal.map((e, i) => {
+            <ul className="mt-4 md:mt-6 grid grid-cols-10 gap-x-5 gap-y-[10vw] items-start mb-0 md:mb-32 xl:mb-56">
+              {gridItems.map((e, i) => {
                 let d = new Date(e.date);
                 let ye = new Intl.DateTimeFormat('en', { year: '2-digit' }).format(d);
                 let mo = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(d);
@@ -125,7 +128,7 @@ export default function Journal(initialData) {
                 }
 
                 return (
-                  <div className={`${layout} col-span-10 md:col-span-2 block group mb-4 md:mb-0`} key={i}>
+                  <div className={`${layout} col-span-10 md:col-span-2 group mb-4 md:mb-0 block`} key={i}>
                     {e.routedArticle && (
                       <Link href={`/journal/${e.slug.current}`} key={i}>
                         <a className={`w-full block border-t border-[#EFEFEF] md:border-none pt-3 md:pt-0`}>
@@ -201,7 +204,7 @@ export default function Journal(initialData) {
                       </a>
                     )}
                     { !e.externalLinks && !e.routedArticle && (
-                      <div className="w-full border-t border-[#EFEFEF] md:border-none pt-3 md:pt-0">
+                      <div className="w-full border-t border-[#EFEFEF] pt-3 md:pt-0">
                         <div className={`mb-3 relative overflow-hidden ${height} hidden md:block`}>
                           <Image
                             image={e.heroImage}
@@ -224,6 +227,91 @@ export default function Journal(initialData) {
                 )
               })}
             </ul>
+
+
+
+            {/* Archives */}
+            <div className="grid grid-cols-10 gap-5">
+              <div className="col-span-2 hidden md:block md:pt-[35px]">
+                <span className="block text-lg leading-none xl:text-xl xl:leading-[1.15]">Archives</span>
+              </div>
+              <div className="col-span-10 md:col-span-8">
+                <ul className="mt-4 md:mt-6 grid grid-cols-10 gap-x-5 gap-y-8 items-start">
+                  {archivedGridItems.map((e, i) => {
+                    let d = new Date(e.date);
+                    let ye = new Intl.DateTimeFormat('en', { year: '2-digit' }).format(d);
+                    let mo = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(d);
+                    let da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
+
+                    let layout = 'md:col-start-0'
+                    let preloadImage = false
+
+                    return (
+                      <div className={`${layout} col-span-10 block group mb-4 md:mb-0`} key={i}>
+                        {e.routedArticle && (
+                          <Link href={`/journal/${e.slug.current}`} key={i}>
+                            <a className={`w-full block border-t border-[#EFEFEF] pt-3`}>
+                              <div className="w-full">
+                                <span className="block overflow-hidden relative">
+                                  <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] mb-2 md:mb-2 text-gray uppercase">{mo}.{da}.{ye}</span>
+                                </span>
+
+                                <div className="md:flex md:flex-wrap md:items-start">
+                                  <span className="block overflow-hidden relative w-10/12 md:flex-1">
+                                    <span className="md:w-[80%] md:max-w-[720px] block text-lg xl:text-xl leading-[1.15] xl:leading-[1.15] mb-1">{e.title}</span>
+                                  </span>
+
+                                  { e.routedArticle && (
+                                    <span className="inline-block md:block overflow-hidden text-lg leading-none xl:text-xl xl:leading-[1.15] relative mt-2 md:mt-0 md:ml-auto md:w-auto">
+                                      <span className="block">Read More</span>
+                                      <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
+                            </a>
+                          </Link>
+                        )}
+                        { e.externalLinks && !e.routedArticle && (
+                          <a className={`w-full block border-t border-[#EFEFEF] pt-3`} href={e.externalLinks[0].linkUrl} target="_blank" rel="noreferrer noopener">
+                            <div className="w-full">
+                              <span className="block overflow-hidden relative">
+                                <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] mb-2 md:mb-2 text-gray uppercase">{mo}.{da}.{ye}</span>
+                              </span>
+
+                              <div className="md:flex md:flex-wrap md:items-start">
+                                <span className="block overflow-hidden relative w-10/12 md:flex-1">
+                                  <span className="md:w-[80%] md:max-w-[720px] block text-lg xl:text-xl leading-[1.15] xl:leading-[1.15] mb-1">{e.title}</span>
+                                </span>
+
+                                <span className="inline-block overflow-hidden text-lg leading-none xl:text-xl xl:leading-[1.15] relative mt-2 md:mt-0">
+                                  <span className="block">
+                                    <span className="inline-block">Read More</span>
+                                    <svg className={`w-[12px] ml-[6px] mt-[-2px] inline-block text-black`} viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.8 10.267H.733v-8.25h4.4v-.734H0V11h9.533V5.867H8.8v4.4Z" fill="currentColor"/><path d="M6.6 0v.733h3.148L3.957 6.524l.519.519 5.79-5.791V4.4H11V0H6.6Z" fill="currentColor"/></svg></span>
+
+                                  <span className="w-[85%] group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                                </span>
+                              </div>
+                            </div>
+                          </a>
+                        )}
+                        { !e.externalLinks && !e.routedArticle && (
+                          <div className="w-full border-t border-[#EFEFEF] pt-3">
+                            <span className="block overflow-hidden relative">
+                              <span className="block text-lg xl:text-xl leading-none xl:leading-[1.15] mb-2 md:mb-2 text-gray uppercase">{mo}.{da}.{ye}</span>
+                            </span>
+
+                            <span className="block overflow-hidden relative w-10/12 md:w-full">
+                              <span className="md:w-[80%] md:max-w-[720px] block text-lg xl:text-xl leading-[1.15] xl:leading-[1.15] mb-1">{e.title}</span>
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    )
+                  })}
+                </ul>
+              </div>
+            </div>
           </m.article>
         </m.main>
       </LazyMotion>
