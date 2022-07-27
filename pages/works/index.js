@@ -636,7 +636,7 @@ export default function Works(initialData) {
         </m.main>
       </LazyMotion>
       
-      <div className="">
+      <div className="lg:pb-16">
         <Footer footerTickerItems={globals.footerTickerItems}/>
       </div>
     </Layout>
