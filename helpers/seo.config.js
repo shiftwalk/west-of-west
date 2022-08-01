@@ -7,6 +7,13 @@ export default {
     locale: 'en_GB',
     url: 'https://west-of-west.vercel.app/',
     site_name: 'West Of West',
+    images: [
+      {
+        url: '/images/social.jpg',
+        width: 1200,
+        height: 600
+      },
+    ]
   },
   twitter: {
     handle: '@samuelgoddard',
