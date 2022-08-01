@@ -451,11 +451,11 @@ export default function Works(initialData) {
                   }
 
                   if (e.sector == activeType) {
-                    disabledClass = 'grayscale-0 opacity-100'
+                    disabledClass = 'block md:block grayscale-0 opacity-100'
                   }
 
-                  if (e.expertise == activeGenre || e.expertise == 'architecture-and-interiors' && activeType == 'all') {
-                    disabledClass = 'grayscale-0 opacity-100'
+                  if (e.expertise == activeGenre || e.expertise == 'architecture-and-interiors' || e.expertise == 'Architecture-And-Interiors' && activeType == 'all') {
+                    disabledClass = 'block md:block grayscale-0 opacity-100'
                   }
 
                   return (
