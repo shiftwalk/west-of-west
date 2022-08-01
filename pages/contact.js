@@ -41,6 +41,10 @@ const query = `{
       },
     },
     telephone,
+    emails[] {
+      title,
+      email
+    },
     generalEmail,
     pressEmail,
     newBusinessEmail,
@@ -139,73 +143,26 @@ export default function Contact(initialData) {
           <m.article>
             <div className="mb-24 md:mb-[35vh] xl:mb-[30vh]">
               <ul>
-                <li className="block w-full mb-3 md:mb-0">
-                  <a
-                    href={`mailto:${contact.generalEmail}`}
-                    className={`grid grid-cols-10 gap-x-5 group`}
-                  >
-                    <span className="col-span-10 md:col-span-2 leading-tight text-lg md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
-                      <span className="block text-gray">General</span>
-                    </span>
-                    <span className="block md:col-start-3 md:text-lg col-span-10 md:col-span-4 text-lg xl:text-xl leading-tight md:leading-tight xl:leading-tight relative overflow-hidden">
-                      <span className="inline-block relative overflow-hidden">
-                      <span className="block">{contact.generalEmail}</span>
-                        <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
-                      </span>
-                    </span>
-                  </a>
-                </li>
-
-                <li className="block w-full mb-3 md:mb-0">
-                  <a
-                    href={`mailto:${contact.newBusinessEmail}`}
-                    className={`grid grid-cols-10 gap-x-5 group`}
-                  >
-                    <span className="col-span-10 md:col-span-2 leading-tight text-lg md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
-                      <span className="block text-gray">New Business</span>
-                    </span>
-                    <span className="block md:col-start-3 md:text-lg col-span-10 md:col-span-4 text-lg xl:text-xl leading-tight md:leading-tight xl:leading-tight relative overflow-hidden">
-                      <span className="inline-block relative overflow-hidden">
-                      <span className="block">{contact.newBusinessEmail}</span>
-                        <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
-                      </span>
-                    </span>
-                  </a>
-                </li>
-
-                <li className="block w-full mb-3 md:mb-0">
-                  <a
-                    href={`mailto:${contact.pressEmail}`}
-                    className={`grid grid-cols-10 gap-x-5 group`}
-                  >
-                    <span className="col-span-10 md:col-span-2 leading-tight text-lg md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
-                      <span className="block text-gray">Press</span>
-                    </span>
-                    <span className="block md:col-start-3 md:text-lg col-span-10 md:col-span-4 text-lg xl:text-xl leading-tight md:leading-tight xl:leading-tight relative overflow-hidden">
-                      <span className="inline-block relative overflow-hidden">
-                      <span className="block">{contact.pressEmail}</span>
-                        <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
-                      </span>
-                    </span>
-                  </a>
-                </li>
-
-                <li className="block w-full mb-3 md:mb-0">
-                  <a
-                    href={`mailto:${contact.employmentEmail}`}
-                    className={`grid grid-cols-10 gap-x-5 group`}
-                  >
-                    <span className="col-span-10 md:col-span-2 leading-tight text-lg md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
-                      <span className="block text-gray">Employment</span>
-                    </span>
-                    <span className="block md:col-start-3 md:text-lg col-span-10 md:col-span-4 text-lg xl:text-xl leading-tight md:leading-tight xl:leading-tight relative overflow-hidden">
-                      <span className="inline-block relative overflow-hidden">
-                      <span className="block">{contact.employmentEmail}</span>
-                        <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
-                      </span>
-                    </span>
-                  </a>
-                </li>
+                {contact.emails.map((e, i) => {
+                  return (
+                    <li className="block w-full mb-3 md:mb-0" key={i}>
+                      <a
+                        href={`mailto:${e.email}`}
+                        className={`grid grid-cols-10 gap-x-5 group`}
+                      >
+                        <span className="col-span-10 md:col-span-2 leading-tight text-lg md:text-lg xl:text-xl md:leading-tight xl:leading-tight text-left overflow-hidden relative pr-3">
+                          <span className="block text-gray">{e.title}</span>
+                        </span>
+                        <span className="block md:col-start-3 md:text-lg col-span-10 md:col-span-4 text-lg xl:text-xl leading-tight md:leading-tight xl:leading-tight relative overflow-hidden">
+                          <span className="inline-block relative overflow-hidden">
+                          <span className="block">{e.email}</span>
+                            <span className="w-full group-hover:w-0 group-focus:w-0 transition-all ease-in-out duration-300 h-[1px] bg-black absolute bottom-0 left-0 right-0"></span>
+                          </span>
+                        </span>
+                      </a>
+                    </li>
+                  )
+                })}
 
                 <li className="block w-full mb-3 md:mb-0">
                   <a

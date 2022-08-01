@@ -2,8 +2,8 @@ import Image from "@/components/image";
 import BlockContent from '@sanity/block-content-to-react'
 
 export default function ModularDoubleImageBlock({ image1, image2, text, layout }) {
-  let image1Height = 'h-[70vw] md:h-[55vw]';
-  let image2Height = 'h-[70vw] md:h-[45vw]';
+  let image1Height = 'h-[125vw] md:h-[55vw]';
+  let image2Height = 'h-[125vw] md:h-[45vw]';
 
   return (
     <div className={`grid grid-cols-10 md:grid-rows-1 gap-x-5`}>
