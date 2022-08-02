@@ -299,18 +299,6 @@ export default function Works(initialData) {
               </span>
             </button>
 
-            <button onClick={() => updateType('working')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black mb-[2px] md:mb-0 ${ activeType == 'working' ? 'text-black' : 'text-gray' }`}>
-              <div className="relative overflow-hidden">
-                <span className="block">Working</span>
-              </div>
-
-              <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[13px] md:translate-x-[13px] translate-y-[2px]">
-                <span className="block relative overflow-hidden tabular-nums">
-                  <span className="block">{workingLength}</span>
-                </span>
-              </span>
-            </button>
-
             <button onClick={() => updateType('living')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black mb-[2px] md:mb-0 ${ activeType == 'living' ? 'text-black' : 'text-gray' }`}>
               <div className="relative overflow-hidden">
                 <span className="block">Living</span>
@@ -319,6 +307,18 @@ export default function Works(initialData) {
               <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[13px] md:translate-x-[13px] translate-y-[2px]">
                 <span className="block relative overflow-hidden tabular-nums">
                   <span className="block">{livingLength}</span>
+                </span>
+              </span>
+            </button>
+
+            <button onClick={() => updateType('working')} className={`block text-lg leading-tight lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black mb-[2px] md:mb-0 ${ activeType == 'working' ? 'text-black' : 'text-gray' }`}>
+              <div className="relative overflow-hidden">
+                <span className="block">Working</span>
+              </div>
+
+              <span className="absolute top-0 right-0 text-[10px] leading-none translate-x-[13px] md:translate-x-[13px] translate-y-[2px]">
+                <span className="block relative overflow-hidden tabular-nums">
+                  <span className="block">{workingLength}</span>
                 </span>
               </span>
             </button>
@@ -450,11 +450,11 @@ export default function Works(initialData) {
                   }
 
                   if (e.sector == activeType) {
-                    disabledClass = 'grayscale-0 opacity-100'
+                    disabledClass = 'block md:block grayscale-0 opacity-100'
                   }
 
-                  if (e.expertise == activeGenre || e.expertise == 'architecture-and-interiors' && activeType == 'all') {
-                    disabledClass = 'grayscale-0 opacity-100'
+                  if (e.expertise == activeGenre || e.expertise == 'architecture-and-interiors' || e.expertise == 'Architecture-And-Interiors' && activeType == 'all') {
+                    disabledClass = 'block md:block grayscale-0 opacity-100'
                   }
 
                   return (
