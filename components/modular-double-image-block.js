@@ -20,7 +20,7 @@ export default function ModularDoubleImageBlock({ image1, image2, text, layout }
       </div>
       <div className={`col-span-10 md:col-span-4 md:row-start-1 relative overflow-hidden ${ text ? 'md:mt-[13vw]' : 'md:mt-[25vw]' } ${layout == 'left-aligned' ? 'md:col-start-0' : 'md:col-start-7'} -mx-2 md:-mx-0`}>
         { text && (
-          <div className="content w-11/12 mb-0 md:mb-[13vw] max-w-[75%] px-2 md:px-0">
+          <div className="content w-11/12 mt-3 mb-12 md:mt-0 md:mb-[13vw] max-w-[75%] px-2 md:px-0">
             <BlockContent serializers={{ container: ({ children }) => children }} blocks={text} />
           </div>
         )}

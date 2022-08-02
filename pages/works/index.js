@@ -11,7 +11,6 @@ import Image from '@/components/image'
 import ReactCursorPosition from 'react-cursor-position'
 import Teaser from '@/components/teaser'
 import { IntroContext } from 'context/intro'
-import Typewriter from 'typewriter-effect'
 
 const query = `{
   "works": *[_type == "works" && gridProject == true] | order(orderRank){
