@@ -454,7 +454,7 @@ export default function Works(initialData) {
                     disabledClass = 'block md:block grayscale-0 opacity-100'
                   }
 
-                  if (e.expertise == activeGenre || e.expertise == 'architecture-and-interiors' || e.expertise == 'Architecture-And-Interiors' && activeType == 'all') {
+                  if (e.expertise == 'architecture-and-interiors' && activeType == 'none' || e.expertise == activeGenre) {
                     disabledClass = 'block md:block grayscale-0 opacity-100'
                   }
 
