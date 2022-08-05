@@ -285,6 +285,16 @@ export default function WorksSlug(initialData) {
               </div>
 
               <div className="md:col-start-3 col-span-10 md:col-span-7 mt-0 md:mt-0">
+                <div className="mb-3 md:mb-2 grid grid-cols-10 max-w-[850px] gap-x-5">
+                  <span className="text-lg leading-tight xl:text-xl xl:leading-[1.15] text-gray col-span-10 md:col-span-3">Project</span>
+                  <span className="block text-lg leading-tight xl:text-xl xl:leading-[1.15] md:col-start-4 col-span-10 md:col-span-4">{title}</span>
+                </div>
+
+                <div className="mb-3 md:mb-2 grid grid-cols-10 max-w-[850px] gap-x-5">
+                  <span className="text-lg leading-tight xl:text-xl xl:leading-[1.15] text-gray col-span-10 md:col-span-3">Year</span>
+                  <span className="block text-lg leading-tight xl:text-xl xl:leading-[1.15] md:col-start-4 col-span-10 md:col-span-4">{year}</span>
+                </div>
+                
                 { client && (
                   <div className="mb-3 md:mb-2 grid grid-cols-10 max-w-[850px] gap-x-5">
                     <span className="text-lg leading-tight xl:text-xl xl:leading-[1.15] text-gray col-span-10 md:col-span-3">Client</span>
