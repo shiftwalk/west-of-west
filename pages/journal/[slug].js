@@ -26,6 +26,7 @@ const query = `*[_type == "journal" && slug.current == $slug][0]{
         ...
       }
     },
+    overrideVimeoVideo,
     caption,
     captionSubHeading,
     alt,
@@ -80,6 +81,7 @@ const query = `*[_type == "journal" && slug.current == $slug][0]{
           ...
         }
       },
+      overrideVimeoVideo,
       caption,
       captionSubHeading,
       alt,

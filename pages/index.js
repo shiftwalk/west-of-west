@@ -25,6 +25,7 @@ const query = `{
           ...
         }
       },
+      overrideVimeoVideo,
       caption,
       captionSubHeading,
       alt,
@@ -42,6 +43,7 @@ const query = `{
           ...
         }
       },
+      overrideVimeoVideo,
       caption,
       captionSubHeading,
       alt,
@@ -59,6 +61,7 @@ const query = `{
           ...
         }
       },
+      overrideVimeoVideo,
       caption,
       captionSubHeading,
       alt,
@@ -82,6 +85,7 @@ const query = `{
             ...
           }
         },
+        overrideVimeoVideo,
         caption,
         captionSubHeading,
         alt,

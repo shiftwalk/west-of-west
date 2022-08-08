@@ -27,10 +27,10 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
   if (priority) { attributes.priority = true } else { attributes.priority = false }
   if (sizes) { attributes.sizes = sizes }
 
-	return image.overrideVideo ? (
+	return (image.overrideVideo || image.overrideVimeoVideo) ? (
     <div className={`image ${className} w-full aspect-video h-full overflow-hidden ${nonRelative ? '' : 'relative'} ${layout == 'fill' && 'cover-image' }`}>
     <video loop={true} autoPlay="autoplay" playsInline={true} muted className={`object-cover object-center w-full h-full absolute inset-0`}>
-        <source src={ image.overrideVideo.asset.url } type="video/mp4" />
+        <source src={ image.overrideVimeoVideo ? image.overrideVimeoVideo : image.overrideVideo.asset.url } type="video/mp4" />
 
         Sorry. Your browser does not support the video tag.
       </video>

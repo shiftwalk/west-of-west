@@ -24,6 +24,7 @@ const query = `{
           ...
         }
       },
+      overrideVimeoVideo,
       caption,
       alt,
       hotspot {
@@ -40,6 +41,7 @@ const query = `{
           ...
         }
       },
+      overrideVimeoVideo,
       caption,
       alt,
       hotspot {
@@ -65,6 +67,7 @@ const query = `{
           ...
         }
       },
+      overrideVimeoVideo,
       caption,
       alt,
       hotspot {
@@ -81,6 +84,7 @@ const query = `{
           ...
         }
       },
+      overrideVimeoVideo,
       caption,
       alt,
       hotspot {

@@ -21,6 +21,7 @@ const query = `{
           ...
         }
       },
+      overrideVimeoVideo,
       caption,
       captionSubHeading,
       alt,

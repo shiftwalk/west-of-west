@@ -40,6 +40,7 @@ const query = `*[_type == "works" && slug.current == $slug][0]{
           ...
         }
       },
+      overrideVimeoVideo,
       alt,
       caption,
       captionSubHeading
@@ -53,6 +54,7 @@ const query = `*[_type == "works" && slug.current == $slug][0]{
           ...
         }
       },
+      overrideVimeoVideo,
       alt,
       caption,
       captionSubHeading
@@ -66,6 +68,7 @@ const query = `*[_type == "works" && slug.current == $slug][0]{
           ...
         }
       },
+      overrideVimeoVideo,
       alt,
       caption,
       captionSubHeading
@@ -79,6 +82,7 @@ const query = `*[_type == "works" && slug.current == $slug][0]{
           ...
         }
       },
+      overrideVimeoVideo,
       alt,
       caption,
       captionSubHeading
@@ -92,6 +96,7 @@ const query = `*[_type == "works" && slug.current == $slug][0]{
           ...
         }
       },
+      overrideVimeoVideo,
       alt,
       caption,
       captionSubHeading
@@ -105,6 +110,7 @@ const query = `*[_type == "works" && slug.current == $slug][0]{
           ...
         }
       },
+      overrideVimeoVideo,
       alt,
       caption,
       captionSubHeading
@@ -120,6 +126,7 @@ const query = `*[_type == "works" && slug.current == $slug][0]{
             ...
           }
         },
+        overrideVimeoVideo,
         alt,
         caption,
         captionSubHeading
@@ -135,6 +142,7 @@ const query = `*[_type == "works" && slug.current == $slug][0]{
         ...
       }
     },
+    overrideVimeoVideo,
     caption,
     captionSubHeading,
     alt,
@@ -162,6 +170,7 @@ const query = `*[_type == "works" && slug.current == $slug][0]{
           ...
         }
       },
+      overrideVimeoVideo,
       caption,
       alt,
       hotspot {
