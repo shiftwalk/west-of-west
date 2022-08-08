@@ -159,7 +159,7 @@ export default function Studio(initialData) {
               </div>
             )}
 
-            <div className="mb-16 md:mb-32">
+            <div className="mb-16 md:mb-32 xl:mb-48">
               <h2 className="block text-[9vw] md:text-[3.5vw] lg:text-[3.2vw] xl:text-[2.8vw] 2xl:text-[2.5vw] leading-[1.1] md:leading-[1.1] xl:leading-[1.1] max-w-[90vw] xl:max-w-[60vw] mb-16 md:mb-24 xl:mb-32 2xl:mb-40">{studio.practiceBlockHeading}</h2>
 
               <div className="grid grid-cols-10 gap-5">
