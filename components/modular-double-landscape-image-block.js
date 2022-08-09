@@ -2,8 +2,8 @@ import Image from "@/components/image";
 import BlockContent from '@sanity/block-content-to-react'
 
 export default function ModularDoubleLandscapeImageBlock({ image1, image2, layout }) {
-  let image1Height = 'h-[50vw] md:h-[33vw]';
-  let image2Height = 'h-[50vw] md:h-[24vw]';
+  let image1Height = 'h-[70vw] md:h-[33vw]';
+  let image2Height = 'h-[70vw] md:h-[24vw]';
 
   return (
     <div className={`grid grid-cols-10 md:grid-rows-1 gap-x-5`}>
