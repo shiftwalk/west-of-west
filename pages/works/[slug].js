@@ -239,7 +239,7 @@ export default function WorksSlug(initialData) {
         >
           <m.article>
             <div className="md:h-screen grid grid-cols-10 gap-x-5 items-end pt-20 md:sticky top-0 z-0 md:p-2">
-              <div className="col-span-10 md:col-span-2 mb-3 md:mb-0">
+              <div className="col-span-10 md:col-span-2 mb-3 md:mb-0 self-start md:pt-[190px]">
                 <span className="block text-lg md:text-[12px] uppercase mb-2 md:mb-8">{projectCode}</span>
                 <h1 className="block text-lg leading-tight lg:text-xl xl:text-2xl relative md:leading-tight xl:leading-tight mb-0 pb-0">{title}</h1>
                 <span className="block text-lg lg:text-xl xl:text-2xl relative leading-tight md:leading-tight xl:leading-tight mb-0 pb-0 text-gray">{locationCity}{locationState && (<>, {locationState}</>)}</span>
