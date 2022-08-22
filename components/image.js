@@ -2,7 +2,7 @@ import Img from 'next/image'
 import sanity from '@/services/sanity'
 import { useNextSanityImage } from 'next-sanity-image'
 
-export default function Image({ image, layout, widthOverride, heightOverride, focalPoint, className, priority, noCaption, noBg, sizes, nonRelative }) {
+export default function Image({ image, layout, widthOverride, heightOverride, focalPoint, className, priority, noCaption, noBg, sizes, nonRelative, double }) {
   // Pass in custom URL builder props
   const myCustomImageBuilder = (imageUrlBuilder, options) => {
     return imageUrlBuilder
@@ -44,7 +44,7 @@ export default function Image({ image, layout, widthOverride, heightOverride, fo
 		  <Img {...imageProps} {...attributes} />
       
       {(image.caption && !noCaption) && (
-        <figcaption className={`block text-lg leading-none xl:leading-[1.15] px-2 md:px-0 xl:text-xl pt-3 pb-8 md:pb-2 md:pt-2 ${layout == 'fill' && 'mt-2 -mb-1 py-2 bg-white absolute bottom-0 left-0 w-full z-[10]'}`}>{image.caption}{image.captionSubHeading && (<span className="block text-gray">{image.captionSubHeading}</span>)}</figcaption>
+        <figcaption className={`block text-lg leading-none xl:leading-[1.15] px-2 md:px-0 xl:text-xl pt-3 pb-8 md:pb-2 md:pt-2 ${layout == 'fill' && 'mt-2 -mb-1 py-2 bg-white absolute bottom-0 left-0 w-full z-[10]'} ${double ? 'translate-y-[35px] md:translate-y-[10px]' : '' }`}>{image.caption}{image.captionSubHeading && (<span className="block text-gray">{image.captionSubHeading}</span>)}</figcaption>
       )}
     </figure>
   )
