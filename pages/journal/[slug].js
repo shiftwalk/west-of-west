@@ -39,6 +39,12 @@ const query = `*[_type == "journal" && slug.current == $slug][0]{
     asset-> {
       ...,
     },
+    overrideVideo {
+      asset-> {
+        ...
+      }
+    },
+    overrideVimeoVideo,
     caption,
     alt,
     hotspot {
