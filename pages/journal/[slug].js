@@ -225,16 +225,18 @@ export default function JournalSlug(initialData) {
             )}
           </m.article>
           <m.aside className="w-full md:w-1/2 pt-16 md:pt-32 xl:pt-48 p-2 md:pl-5 xl:pl-0 self-end">
-            <div className={`relative overflow-hidden w-full ${contentImages ? 'mb-4' : 'mb-0'}`}>
-              <Image
-                image={heroImage}
-                focalPoint={heroImage.asset.hotspot}
-                layout="responsive"
-                className={`block w-full`}
-                widthOverride={1600}
-                noCaption
-              />
-            </div>
+            {!contentImages && (
+              <div className={`relative overflow-hidden w-full ${contentImages ? 'mb-4' : 'mb-0'}`}>
+                <Image
+                  image={heroImage}
+                  focalPoint={heroImage.asset.hotspot}
+                  layout="responsive"
+                  className={`block w-full`}
+                  widthOverride={1600}
+                  noCaption
+                />
+              </div>
+            )}
             
             {contentImages && (
               <div className="w-full">
