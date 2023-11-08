@@ -33,7 +33,7 @@ export default function HomeHeroHover({ items, isActive, position }) {
               <div className="absolute inset-0 z-20 flex" ref={ref}>
                 {items.map((e, i) => {
                   return (
-                    <Link href={`/works/${e.slug.current}`} key={i}><a className="block flex-1 -none" onMouseEnter={() => updateHero(i)}></a></Link>
+                    <Link href={`/works/${e.slug.current}`} key={i}><a aria-label={`Navigate to ${e.title} Project`} className="block flex-1 -none" onMouseEnter={() => updateHero(i)}></a></Link>
                   )
                 })}
               </div>
