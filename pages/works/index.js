@@ -152,6 +152,8 @@ export default function Works(initialData) {
   const updateType = (e) => {
     if (e == 'all') {
       setActiveFilters(false)
+    } else {
+      setActiveFilters(true)
     }
     setActiveGenre('all')
     setActiveType(e)
@@ -202,14 +204,6 @@ export default function Works(initialData) {
                   </span>
                 </button>
 
-                <button onClick={() => setActiveFilters(true)} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black ${ activeFilters ? 'text-black' : 'text-gray' }`}>
-                  <div className="relative overflow-hidden">
-                    <span className="block">Filter</span>
-                  </div>
-                </button>
-
-                { activeFilters && (
-                  <>
                     <div className="flex space-x-8 md:pl-[3.1vw] xl:pl-[10vw]">
                       <button onClick={() => updateType('living')} className={`block lg:text-xl tracking-tight xl:text-2xl relative md:leading-tight xl:leading-tight group hover:text-black ${ activeType == 'living' ? 'text-black' : 'text-gray' }`}>
                         <div className="relative overflow-hidden">
@@ -273,8 +267,6 @@ export default function Works(initialData) {
                         </span>
                       </button>
                     </div>
-                  </>
-                )}
               </div>
 
               <div className="ml-auto flex space-x-2">
