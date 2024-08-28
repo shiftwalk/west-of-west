@@ -152,6 +152,7 @@ export default function Studio(initialData) {
                 <Image
                   image={studio.contentImage}
                   focalPoint={studio.contentImage.hotspot}
+                  videoControls
                   layout="fill"
                   sizes="(min-width: 768px) 99vw, 100vw"
                   className={`w-full inset-0 h-full object-cover object-center`}
@@ -186,6 +187,7 @@ export default function Studio(initialData) {
                   image={studio.contentImageTwo}
                   focalPoint={studio.contentImageTwo.hotspot}
                   layout="fill"
+                  videoControls
                   sizes="(min-width: 768px) 99vw, 100vw"
                   className={`w-full inset-0 h-full object-cover object-center`}
                 />

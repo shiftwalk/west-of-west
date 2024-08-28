@@ -253,7 +253,7 @@ export default function Footer({ noPad, footerTickerItems }) {
                 </span>
               </div>
             </div>
-            <span className="block w-full text-lg leading-[1.15] xl:text-xl xl:leading-[1.15]">© West of West<span className="inline md:hidden lg:inline">&nbsp;— 2022</span></span>
+            <span className="block w-full text-lg leading-[1.15] xl:text-xl xl:leading-[1.15]">© West of West<span className="inline md:hidden lg:inline">&nbsp;— 2024</span></span>
           </div>
         </div>
       </div>

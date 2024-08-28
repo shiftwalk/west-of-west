@@ -13,6 +13,7 @@ export default function ModularDoubleImageBlock({ image1, image2, text, layout }
             image={image1}
             focalPoint={image1.hotspot}
             layout="fill"
+            videoControls
             widthOverride={1400}
             className={`w-full ${image1Height} inset-0 h-full object-cover object-center`}
           />
@@ -30,6 +31,7 @@ export default function ModularDoubleImageBlock({ image1, image2, text, layout }
             image={image2}
             focalPoint={image2.hotspot}
             layout="fill"
+            videoControls
             widthOverride={1200}
             className={`w-full ${image2Height} inset-0 h-full object-cover object-center`}
           />

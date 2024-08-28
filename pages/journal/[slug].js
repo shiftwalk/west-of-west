@@ -231,6 +231,7 @@ export default function JournalSlug(initialData) {
                   image={heroImage}
                   focalPoint={heroImage.asset.hotspot}
                   layout="responsive"
+                  videoControls
                   className={`block w-full`}
                   widthOverride={1600}
                   noCaption
@@ -247,6 +248,7 @@ export default function JournalSlug(initialData) {
                           image={e}
                           focalPoint={e.asset.hotspot}
                           layout="responsive"
+                          videoControls
                           className={`block w-full`}
                           noCaption
                         />

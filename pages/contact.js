@@ -204,6 +204,7 @@ export default function Contact(initialData) {
                         image={e.image}
                         focalPoint={e.image.hotspot}
                         layout="fill"
+                        videoControls
                         widthOverride={1500}
                         className={`w-full inset-0 h-full object-cover object-center`}
                       />

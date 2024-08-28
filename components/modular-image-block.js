@@ -53,6 +53,7 @@ export default function ModularImageBlock({ image, layout }) {
           image={image}
           focalPoint={image.hotspot}
           layout="responsive"
+          videoControls
           sizes={width}
           className="w-full"
         />
