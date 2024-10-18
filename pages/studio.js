@@ -22,6 +22,14 @@ const query = `{
     practiceBlockText,
     quote,
     quoteAuthor,
+    awards[]{
+      text,
+      url
+    },
+    press[]{
+      text,
+      url
+    },
     additionalContentBlocks[]{
       title,
       text,
@@ -191,6 +199,60 @@ export default function Studio(initialData) {
                   sizes="(min-width: 768px) 99vw, 100vw"
                   className={`w-full inset-0 h-full object-cover object-center`}
                 />
+              </div>
+            )}
+
+            {studio.awards && (
+              <div className="grid grid-cols-10 gap-5 mb-12 md:mb-20 xl:mb-28">
+                <div className="col-span-10 md:col-span-2">
+                  <div className="content mb-3 md:mb-0">
+                    <p>Awards</p>
+                  </div>
+                </div>
+                <div className="col-span-9 md:col-span-6 md:col-start-3 content max-w-[920px]">
+                  {studio.awards?.map((e, i) => {
+                    return (
+                      <div key={i} className="mb-1">
+                      { e.url ? (
+                        <a target="_blank" rel="noreferrer noopener" href={e.url} className="tracking-tight text-lg xl:text-xl leading-none xl:leading-[1.15] text-left group link link-underline link-underline-black">
+                          {e.text}
+                        </a>
+                      ) : (
+                        <span className="tracking-tight text-lg xl:text-xl leading-none xl:leading-[1.15] text-left">
+                          {e.text}
+                        </span>
+                      )}
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+            )}
+
+            {studio.press && (
+              <div className="grid grid-cols-10 gap-5 mb-12 md:mb-20 xl:mb-28">
+                <div className="col-span-10 md:col-span-2">
+                  <div className="content mb-3 md:mb-0">
+                    <p>Press</p>
+                  </div>
+                </div>
+                <div className="col-span-9 md:col-span-6 md:col-start-3 content max-w-[920px]">
+                  {studio.press?.map((e, i) => {
+                    return (
+                      <div key={i} className="mb-1">
+                      { e.url ? (
+                        <a target="_blank" rel="noreferrer noopener" href={e.url} className="tracking-tight text-lg xl:text-xl leading-none xl:leading-[1.15] text-left group link link-underline link-underline-black">
+                          {e.text}
+                        </a>
+                      ) : (
+                        <span className="tracking-tight text-lg xl:text-xl leading-none xl:leading-[1.15] text-left">
+                          {e.text}
+                        </span>
+                      )}
+                      </div>
+                    )
+                  })}
+                </div>
               </div>
             )}
 

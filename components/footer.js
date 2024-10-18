@@ -103,7 +103,7 @@ export default function Footer({ noPad, footerTickerItems }) {
             <address className="not-italic text-lg leading-[1.15] xl:text-xl xl:leading-[1.15]">
               Portland<br/>
               110 SE Main St,<br/>
-              Suite 3000<br/>
+              Suite 300<br/>
               Portland, OR. 97214
             </address>
 
