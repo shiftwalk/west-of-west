@@ -149,10 +149,10 @@ export default function Footer({ noPad, footerTickerItems }) {
         <div className="md:col-start-5 col-span-10 md:col-span-2 mb-5 md:mb-0 flex justify-end group">
           <div className="w-full">
             <address className="not-italic text-lg leading-[1.15] xl:text-xl xl:leading-[1.15]">
-              Los Angeles<br/>
-              970 N Broadway<br/>
-              Suite 206<br/>
-              Los Angeles, CA. 90012
+            Los Angeles
+            672 S La Fayette Park Pl.
+            Suite 29
+            Los Angeles, CA. 90057<br/>
             </address>
 
             {/* <div className="relative">
